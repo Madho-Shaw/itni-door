@@ -1,0 +1,22 @@
+---
+title: "Model"
+subtitle: "Every symbol, its value and whether we sourced it"
+lang: en-IN
+---
+
+The model scores four options for the twins (both stay, together, best seats, only he goes) as value minus money minus worry, and reads each score as a share of 100 families like this one. Only one number is calibrated; the rest are sourced or marked as assumed. The full reasoning and the worked family are in the [report](../../report/#sec-model).
+
+| Symbol | Plain meaning | Value | Status |
+|---|---|---|---|
+| $H$ | Years of the pay gap the family counts | {{< var param.h >}} | [assumed]{.tag-assumed} |
+| $J_{ip}$ | Escorted trips by a parent | {{< var param.j_train >}} by train, {{< var param.j_air >}} by air, 0 if her brother is at her college | [assumed]{.tag-assumed} |
+| $\lambda_i$ | How much a rupee today hurts the family | {{< var village.lam >}} / {{< var town.lam >}} / {{< var city.lam >}} | [assumed]{.tag-assumed} |
+| $\sigma$ | Statistical worry, ₹ lakh per day of reach time | {{< var param.sigma >}} | [calibrated]{.tag-calibrated} |
+| $\tau$ | Norm cost ("log kya kahenge"), ₹ lakh per day of reach time | {{< var param.tau >}} | [assumed]{.tag-assumed} |
+| $n_i$ | Girls from home who already went far | {{< var village.n >}} / {{< var town.n >}} / {{< var city.n >}} | [assumed]{.tag-assumed} |
+| $b$ | A brother at her college counts as $b$ extra trusted people | {{< var param.b >}} | [assumed]{.tag-assumed} |
+| $\mu$ | Noise in the "out of 100" step | {{< var param.mu >}} | [assumed]{.tag-assumed} |
+
+: Parameters, as in the report {#tbl-params}
+
+Pay, fares and the escort's day wage are sourced; the table of pay and closing ranks is in the report ([Why the standard model falls short](../../report/#sec-standard)). The sizes of the fixes rest on the assumed worry split; their order does not.

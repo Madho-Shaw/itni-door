@@ -1,0 +1,4 @@
+bucket,nits,cells,seat_weighted_gap_pp,mean_of_NIT_gaps_pp
+<30 km,22.0,1755.0,7.41,9.29
+30-100 km,7.0,539.0,5.52,8.11
+>100 km,3.0,228.0,4.2,4.98

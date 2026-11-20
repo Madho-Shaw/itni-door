@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en-IN" class="present">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The talk: Itni Door? (ECO463, Group 7)</title>
+<meta name="description" content="The class talk screen: one page per beat, for the projector. Add ?cut=3, ?cut=5 or ?cut=8 for the short, middle or full talk.">
+<meta name="robots" content="noindex">
+<link rel="preload" href="../assets/fonts/baloo2-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/hind-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+html, body { height: 100%; }
+body { overflow: hidden; }
+.deck { height: 100vh; height: 100dvh; display: flex; flex-direction: column; }
+.stage { flex: 1; min-height: 0; overflow: auto; padding: var(--sp-4) var(--gutter) var(--sp-2); }
+.slide { max-width: 72rem; margin: 0 auto; min-height: 100%; display: flex; flex-direction: column; justify-content: center; gap: var(--sp-3); }
+.slide[hidden] { display: none; }
+.slide h1, .slide h2 { margin: 0; line-height: 1.05; }
+.slide h1 { font-size: clamp(2.2rem, 6vw, 4.2rem); }
+.slide h2 { font-size: clamp(1.7rem, 4vw, 2.8rem); }
+.slide h2.big { font-size: clamp(2.2rem, 6vw, 4.2rem); }
+.slide p { font-size: clamp(1.15rem, 2vw, 1.5rem); margin: 0; max-width: 46rem; line-height: 1.4; }
+.slide .peg { font-size: 1rem; }
+.pair { display: grid; gap: var(--sp-5); grid-template-columns: 1fr 1fr; align-items: start; }
+.pair .qr { width: min(15rem, 100%); font-size: 1rem; }
+.pair h3 { font-size: 1.5rem; margin: 0 0 var(--sp-2); }
+.rule { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.3rem, 3vw, 2.2rem); background: var(--card); border: var(--outline) solid var(--ink); border-radius: var(--radius-m); padding: var(--sp-3) var(--sp-4); box-shadow: var(--pin); max-width: 46rem; }
+.rule s { text-decoration-color: var(--sindoor); text-decoration-thickness: 3px; color: var(--ink-soft); }
+.slide p.who { font-size: 1rem; color: var(--ink-soft); }
+.nav { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-3); padding: var(--sp-2) var(--gutter); border-top: 1px solid var(--line); font-size: 1rem; }
+.nav button, .nav a { min-width: 44px; min-height: 44px; padding: 0 1rem; background: var(--card); border: var(--outline) solid var(--ink); border-radius: var(--radius-pill); font: inherit; color: var(--ink); cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+.nav .pos { font-variant-numeric: tabular-nums; color: var(--ink-soft); }
+.nav .keys { color: var(--ink-soft); font-size: .9rem; }
+@media (max-width: 700px) { .pair { grid-template-columns: 1fr; } .nav .keys, .nav #full { display: none; } }
+/* a slide is placed on the desk from the side you moved towards; its dots fill as it lands (off with reduced motion) */
+@media (prefers-reduced-motion: no-preference) {
+  .slide.in-next, .slide.in-prev { animation: slide-in 260ms var(--ease-out) both; }
+  .slide.in-prev { --from: -14px; }
+  @keyframes slide-in { from { opacity: 0; transform: translateX(var(--from, 14px)) rotate(-.35deg); } }
+}
+html:not(.js) body { overflow: auto; }
+html:not(.js) .deck { height: auto; }
+html:not(.js) .nav { display: none; }
+html:not(.js) .slide { min-height: 0; padding: var(--sp-6) 0; border-bottom: 1px solid var(--line); }
+</style>
+</head>
+<body>
+<div class="deck">
+<main id="main" class="stage" tabindex="-1">
+
+<section class="slide" data-cuts="3 5 8" aria-label="Hook">
+  <p class="who">Neil</p>
+  <h1>Some families will not let a child study more than about 100 km from home. Who gets that rule?</h1>
+  <p>Hands up: did a far college come off your list, or a friend's, because it was too far? <span class="peg"><b>L4</b> the radius example</span></p>
+</section>
+
+<section class="slide" data-cuts="5 8" aria-label="Guess">
+  <p class="who">Arjun</p>
+  <h2>Same rank, <span class="num" data-v="crl">8,000</span>. Write your guess.</h2>
+  <p>Out of 100 village families like Shalini's, in how many does she take NIT Delhi? And out of 100 city families like Ira's? Keep the slip. We come back to it.</p>
+</section>
+
+<section class="slide" data-cuts="5 8" aria-label="The gap">
+  <p class="who">Neil</p>
+  <h2>The gap is real</h2>
+  <p>Between districts, the share of women among migrants falls about <span class="num" data-v="gap.census_doubling_2011" data-f="abs1">9.3</span>% each time the distance doubles (Census 2011). In Maharashtra, at the same score, women end up <span class="num" data-v="gap.mh_other_region_pp" data-f="abs1">3.7</span> points less often in another region. <a class="chip" href="../evidence/data/" data-src="Census 2011 migration pairs; Maharashtra admission lists" data-file="data/evidence_variables.json">sources</a></p>
+</section>
+
+<section class="slide" data-cuts="3 5 8" aria-label="The textbook answer">
+  <p class="who">Arjun</p>
+  <h2>The textbook answer is Becker's household <span class="peg"><b>L2</b> Becker</span></h2>
+  <div class="rule"><s>same rank</s> + <s>same price</s> + <s>same returns</s> &rarr; same college</div>
+  <p>Becker's household sees two equal children. Her best seat pays more than his best, so the textbook says she should go more surely than he does.</p>
+  <div data-fig="ladder" data-w="640"></div>
+</section>
+
+<section class="slide" data-cuts="5 8" aria-label="The model as a scale">
+  <p class="who">Mshaw</p>
+  <h2>The model is a scale: value, minus money, minus worry <span class="peg"><b>L10-L11</b> best option wins</span></h2>
+  <div data-fig="scale" data-w="720" data-args='{"fam":"village","opt":"SPLIT"}'></div>
+  <p>The choices inside the model are ours, and the worry weights are assumed, marked on every screen.</p>
+</section>
+
+<section class="slide" data-cuts="8" aria-label="Weights one at a time">
+  <p class="who">Mshaw</p>
+  <h2>Add one weight at a time</h2>
+  <div data-fig="stepper" data-w="900" data-args='{"fam":"village"}'></div>
+</section>
+
+<section class="slide" data-cuts="5 8" aria-label="The game">
+  <p class="who">Neil paces it</p>
+  <h2>Play the parents</h2>
+  <div class="pair">
+    <div><h3>Left half of the room</h3><div class="qr"><!--#qr:play/?family=village--></div></div>
+    <div><h3>Right half of the room</h3><div class="qr"><!--#qr:play/?family=city--></div></div>
+  </div>
+  <p>Left: Shalini, village. Right: Ira, city. No phones? Open <a href="../play/?family=village#present">the village family on the projector</a> and vote by hands.</p>
+</section>
+
+<section class="slide" data-cuts="3 5 8" aria-label="Out of 100">
+  <p class="who">Arjun</p>
+  <h2>Out of 100 families</h2>
+  <p>Shalini takes NIT Delhi in <span class="num" data-v="village.delhi">23</span> village families and Ira in <span class="num" data-v="city.delhi">98</span> city families. The brothers take their best college <span class="num" data-v="village.son_best">96</span> times in 100. <span class="num" data-v="village.together">59</span> of the village Shalinis go with Sonu, to his college.</p>
+  <div data-fig="grids" data-w="900"></div>
+</section>
+
+<section class="slide" data-cuts="3 5 8" aria-label="What would change it">
+  <p class="who">Mshaw</p>
+  <h2>What would change it</h2>
+  <p>Press a fix. Paying the tickets: <span class="num" data-v="village.fix_baseline">23</span> becomes <span class="num" data-v="village.fix_fares">26</span>. A senior girl from her district at NIT Delhi: <span class="num" data-v="village.fix_senior">85</span>. The size of the jump rests on our assumed worry split; the ranking does not.</p>
+  <div data-fig="fixes" data-w="900"></div>
+</section>
+
+<section class="slide" data-cuts="3 5 8" aria-label="Close">
+  <p class="who">Neil</p>
+  <h2 class="big">Same rank. She had the better seat. Same ticket price. A different trip.</h2>
+  <p>Back of your slip: what would have changed your family's mind, a fact or nothing? The video, report, data and RTI replies are behind the code.</p>
+  <div class="qr" style="width:12rem"><!--#qr:--></div>
+</section>
+
+</main>
+<nav class="nav" aria-label="Talk controls">
+  <a href="../">Hub</a>
+  <button type="button" id="prev" aria-label="Previous">&larr;</button>
+  <span class="pos" id="pos" aria-live="polite"></span>
+  <button type="button" id="next" aria-label="Next">&rarr;</button>
+  <span class="keys">arrows or space to move, F full screen</span>
+  <button type="button" id="full">Full screen</button>
+</nav>
+</div>
+<script src="../data/model_v2.js"></script>
+<script src="../data/evidence.js"></script>
+<script src="../assets/figs/figs.js"></script>
+<script src="../assets/figs/figs-live.js"></script>
+<script>
+(function () {
+  var root = document.documentElement;
+  root.classList.add("js", "present");
+  var cut = (location.search.match(/cut=(3|5|8)/) || [])[1] || "8";
+  var all = Array.prototype.slice.call(document.querySelectorAll(".slide"));
+  var slides = all.filter(function (s) { return s.dataset.cuts.split(" ").indexOf(cut) > -1; });
+  var i = Math.max(0, Math.min(slides.length - 1, (Number((location.search.match(/[?&]s=(\d+)/) || [])[1]) || 1) - 1));
+  var pos = document.getElementById("pos"), stage = document.getElementById("main");
+  var calm = !window.matchMedia || window.matchMedia("(prefers-reduced-motion: reduce)").matches, first = true;
+  if (!calm) root.classList.add("mo");
+  function show(n) {
+    var back = n < i;
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    all.forEach(function (s) { s.hidden = slides.indexOf(s) !== i; });
+    if (!calm && !first) {
+      var s = slides[i];
+      s.classList.remove("in-next", "in-prev"); void s.offsetWidth; s.classList.add(back ? "in-prev" : "in-next");
+      Array.prototype.forEach.call(s.querySelectorAll("[data-fig]"), function (f) { f.classList.remove("play"); void f.offsetWidth; f.classList.add("play"); });
+    }
+    first = false;
+    pos.textContent = (i + 1) + " / " + slides.length + "  (cut " + cut + ")";
+    stage.scrollTop = 0;
+    try { history.replaceState(null, "", "?cut=" + cut + "&s=" + (i + 1)); } catch (e) { }
+    setTimeout(function () { window.dispatchEvent(new Event("resize")); }, 30);
+  }
+  function full() { if (document.fullscreenElement) document.exitFullscreen(); else if (root.requestFullscreen) root.requestFullscreen(); }
+  document.getElementById("prev").onclick = function () { show(i - 1); };
+  document.getElementById("next").onclick = function () { show(i + 1); };
+  document.getElementById("full").onclick = full;
+  document.addEventListener("keydown", function (e) {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    var k = e.key, onBtn = e.target.tagName === "BUTTON";
+    if (k === "ArrowRight" || k === "PageDown" || (k === " " && !onBtn)) { show(i + 1); e.preventDefault(); }
+    else if (k === "ArrowLeft" || k === "PageUp") { show(i - 1); e.preventDefault(); }
+    else if (k === "Home") show(0);
+    else if (k === "End") show(slides.length - 1);
+    else if (k === "f" || k === "F") full();
+  });
+  show(i);
+})();
+</script>
+</body>
+</html>

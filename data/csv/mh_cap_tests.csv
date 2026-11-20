@@ -1,0 +1,16 @@
+model,term,coef,se,p,n,mean_y_men
+"M1a college quality (median percentile), same year x category x score",female,-0.653,0.158,0.0,281507,69.414
+M1b same + branch,female,0.406,0.147,0.0059,281507,69.414
+"M1c course quality (median percentile of the course), + branch",female,0.994,0.093,0.0,281507,67.046
+"M1d college quality + branch, score 0-80",female,0.74,0.177,0.0,179341,59.873
+"M1d college quality + branch, score 80-95",female,-0.089,0.193,0.6439,75543,82.56
+"M1d college quality + branch, score 95-100",female,0.168,0.1,0.0931,26623,95.421
+"M2a P(from another university region), HU/OHU admits",female,-0.037,0.004,0.0,170947,0.27
+"M2b same, within the same college and year",female,-0.033,0.003,0.0,170947,0.27
+"M2c P(other region) + branch, score 0-80",female,-0.04,0.004,0.0,131504,0.269
+"M2c P(other region) + branch, score 80-95",female,-0.03,0.007,0.0,35809,0.273
+"M2c P(other region) + branch, score 95-100",female,-0.012,0.014,0.3811,3634,0.282
+"M4 female share: all-India admits minus Maharashtra admits, same college-year",ai,-0.109,0.004,0.0,333318,0.0
+"M5 P(left CAP after round I): female, other region, female x other region",female,-0.012,0.002,0.0,105810,0.097
+"M5 P(left CAP after round I): female, other region, female x other region",ohu,0.031,0.003,0.0,105810,0.097
+"M5 P(left CAP after round I): female, other region, female x other region",f_ohu,0.002,0.004,0.6417,105810,0.097

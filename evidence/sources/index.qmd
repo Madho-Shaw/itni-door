@@ -1,0 +1,19 @@
+---
+title: "Sources"
+subtitle: "Where each part of our evidence comes from, and what it cannot show"
+lang: en-IN
+---
+
+| Source | What it shows | What it cannot show |
+|---|---|---|
+| Census of India 2001 and 2011, migration table D-03 | Women's share of people who moved to study, for every pair of states, by distance | No score, no age. Distance is capital to capital |
+| Maharashtra CAP allotment lists, 2023-25 (names dropped) | At the same score, category and year, who studies outside her home university region | Short moves inside one state. "Away" is a region, not km |
+| JoSAA closing ranks 2016-25; CSAB empty-seat lists and seat matrices, 2025-26 | Who got in at the margin, which seats stayed empty, the twins' seats at rank {{< var crl >}} | The choice lists themselves (refused under RTI) |
+| NIRF 2024-25, median salary of UG graduates | The value of each college in the model | Partly who gets in, as well as what the college adds |
+| Rail and air fares and hours, snapshots of 19 Nov 2026 | Money and reach time of each trip | Local legs at both ends are assumed |
+| Reddit, {{< var gap.reddit_items >}} posts and comments tagged by hand | Who decides, in families' own words | Not a sample |
+| Right to Information requests to IIT Kanpur and the University of Delhi | That the admission side does not count, or will not share, who takes a far seat by gender | The numbers themselves; see the [RTI page](../rti/) |
+
+: Our sources, and what each can and cannot show {#tbl-sources}
+
+The full reference list (class lectures and the papers we build on) is in the [report](../../report/#references). Fonts, code and tools are on the [credits page](../../credits/).

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The distance discount on one page: Itni Door? (ECO463, Group 7)</title>
+<meta name="description" content="The one-page note on our model: the gap, why Becker's household cannot explain it, our model with every term and number, results out of 100 families, predictions and fixes.">
+<script>if (/present/.test(location.search + location.hash)) document.documentElement.classList.add("present");</script>
+<link rel="preload" href="../assets/fonts/baloo2-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/hind-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+/* The copy in each block comes from content/one_pager_text.md (build C) when that file exists; the text below is the placeholder from vault note 111. */
+.op { padding: var(--sp-5) var(--gutter) 0; max-width: 68rem; margin: 0 auto; }   /* same width as .wrap, so the title lines up with the top bar */
+.op-head { display: grid; grid-template-columns: 1fr auto; gap: var(--sp-4); align-items: start; border-bottom: var(--outline) solid var(--ink); padding-bottom: var(--sp-3); margin-bottom: var(--sp-4); }
+.op-head h1 { margin: 0 0 var(--sp-1); }
+.op-head .q { font-size: var(--fs-lead); margin: 0 0 var(--sp-1); }
+.op-head .by { font-size: var(--fs-small); color: var(--ink-soft); margin: 0; }
+.op-qr { width: 6.5rem; text-align: center; font-size: var(--fs-tiny); color: var(--ink-soft); line-height: 1.2; }
+.op-qr svg { width: 100%; height: auto; display: block; margin-bottom: .2rem; }
+.op-qr .qr-url, .op-qr .qr-draft { display: block; }
+.op-qr .qr-draft { color: var(--sindoor-ink); }
+.op-grid { display: grid; gap: var(--sp-4) var(--sp-5); grid-template-columns: 1fr 1fr; align-items: start; }
+.blk, .op-grid > * { min-width: 0; }
+.blk.wide { grid-column: 1 / -1; }
+.blk h2 { font-size: var(--fs-h3); margin: 0 0 var(--sp-2); padding-top: var(--sp-2); border-top: 1px solid var(--line); }
+.copy h2 { display: none; }
+.copy p { margin: 0 0 var(--sp-2); }
+.copy table { width: 100%; font-size: var(--fs-small); margin: var(--sp-1) 0 var(--sp-2); }
+.copy th, .copy td { padding: .25rem .5rem .25rem 0; }
+.copy table td:not(:first-child), .copy table th:not(:first-child) { font-variant-numeric: tabular-nums; }
+.copy strong { font-weight: 600; }
+.figrow { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-3); margin: var(--sp-2) 0; }
+.figrow figure { margin: 0; }
+.figrow figcaption { font-size: var(--fs-small); margin-top: .2rem; }
+.figrow .big { font-family: var(--font-head); font-weight: 800; font-size: var(--fs-h3); color: var(--data); }
+.scale-fig svg { max-width: 30rem; height: auto; }
+.figrow svg { height: auto; }
+.op-actions { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin: var(--sp-5) 0; }
+.op-actions a { display: inline-flex; align-items: center; min-height: 44px; padding: .4rem 1.1rem; border: var(--outline) solid var(--ink); border-radius: var(--radius-pill);
+  background: var(--card); color: var(--ink); text-decoration: none; font-weight: 600; }
+.op-actions a.main { background: var(--ink); color: var(--on-dark); }
+@media screen and (max-width: 859px) {
+  .op-grid { grid-template-columns: 1fr; }
+  .op-head { grid-template-columns: 1fr; }
+  .op-qr { display: none; }
+  .figrow { gap: var(--sp-2); }
+}
+/* A4, one page: white page, 9 mm margins, 8 pt floor */
+@page { size: A4; margin: 8mm 9mm; }
+@media print {
+  html, body { font-size: 8.2pt !important; line-height: 1.28; background: #fff !important; }
+  .op { padding: 0; max-width: none; }
+  .op-head { padding-bottom: 1.6mm; margin-bottom: 2mm; }
+  .op-head h1 { font-size: 17pt; }
+  .op-head .q { font-size: 9.5pt; }
+  .op-head .by, .tiny, small, .small { font-size: 8pt; }
+  .op-qr { width: 21mm; font-size: 6.6pt; display: block; }
+  .op-qr .qr-draft { display: none; }
+  .op-grid { display: block; column-count: 2; column-gap: 5mm; }
+  .blk { break-inside: avoid; margin-bottom: 1.8mm; }
+  .blk.wide .op-grid { column-count: 1; }
+  .blk h2 { font-size: 9.6pt; margin: 0 0 .8mm; padding-top: 1mm; }
+  .copy p { margin: 0 0 1mm; }
+  .copy table { font-size: 8pt; margin: .5mm 0 1mm; }
+  .copy th, .copy td { padding: .25mm 1.5mm .25mm 0; }
+  .chip, .peg { font-size: 7pt; padding: 0 .35em; }
+  .figrow { gap: 2mm; margin: .5mm 0; }
+  .figrow svg { max-width: 24mm; }
+  .figrow figcaption, .figrow .big { font-size: 8pt; }
+  .scale-fig svg { max-width: 52mm; }
+  .scale-key { display: none; }
+  .op-actions, .no-print { display: none !important; }
+  .legend { font-size: 8pt; margin: 0; }
+}
+</style>
+</head>
+<body>
+<!--#bar:one-pager-->
+<main id="main" class="op">
+<header class="op-head">
+  <div>
+    <h1>The distance discount</h1>
+    <p class="q">Why do Indian families send daughters to study less far than sons with the same rank?</p>
+    <p class="by">{{site.group}}: Mshaw, R K Arjun and Neil John Vivek. ECO463, Shiv Nadar University, {{site.month}}. The one-page note on our model; the full report, game and data are behind the code.</p>
+  </div>
+  <div class="op-qr"><!--#qr:--></div>
+</header>
+
+<div class="op-grid">
+  <section class="blk" aria-labelledby="b1"><h2 id="b1">1. The gap</h2>
+    <div class="copy" data-copy="gap"><p>At the same entrance score, families send daughters to study far from home less often than sons. Each doubling of distance goes with <span class="num" data-v="gap.census_doubling_2011">-9.3</span>% lower odds that a study migrant is a woman (Census 2011). A Maharashtra woman with the same MHT-CET score is <span class="num" data-v="gap.mh_other_region_pp" data-f="abs1">3.7</span> points less likely to study outside her home region (CAP 2023-25).</p></div><!--/copy-->
+  </section>
+
+  <section class="blk" aria-labelledby="b2"><h2 id="b2">2. The textbook says: the same choice <a class="peg" href="../evidence/class-models/#L2"><b>L2</b> Becker</a></h2>
+    <div class="copy" data-copy="textbook"><p>Becker's household picks the college with the best value of quality minus fees and fares. Same rank, same seats, same prices for a son and a daughter, so it predicts the same choice for both. <span class="strike">Ability</span>, <span class="strike">price</span> and <span class="strike">lower returns for women</span> all fail.</p></div><!--/copy-->
+  </section>
+
+  <section class="blk wide" aria-labelledby="b3"><h2 id="b3">3. Our model <a class="peg" href="../evidence/class-models/#L4"><b>L4</b> surveillance, honour</a> <a class="peg" href="../evidence/class-models/#L5"><b>L5</b> pink tax</a> <a class="peg" href="../evidence/class-models/#L19"><b>L19-L20</b> statistical vs taste</a></h2>
+    <div class="op-grid">
+      <div class="copy" data-copy="model"><p>Parents choose a pair of colleges for twins at rank 8,000: both stay at NIT Patna, together at NIT Durgapur, best seats (he Durgapur, she Delhi), or only he goes. Score = value of the two seats minus money minus worry, and two costs fall only on her: an escort, and worry per hour it takes to reach her.</p></div><!--/copy-->
+      <div class="scale-fig"><div data-fig="scale" data-w="460" data-args='{"fam":"village","opt":"SPLIT"}'></div>
+        <p class="tiny">The scale for Shalini's family if she takes NIT Delhi (best seats), in lakh rupees. <span class="chip is-a">weights assumed</span></p></div>
+    </div>
+  </section>
+
+  <section class="blk" aria-labelledby="b4"><h2 id="b4">4. One family worked through</h2>
+    <div class="copy" data-copy="worked"><p>Shalini's village family: Together scores <span class="num" data-v="village.u_together">58.35</span> against <span class="num" data-v="village.u_split">55.53</span> for Best seats, because Delhi is <span data-v="village.hours_delhi">26.5</span> hours away.</p></div><!--/copy-->
+  </section>
+
+  <section class="blk" aria-labelledby="b5"><h2 id="b5">5. Out of 100 families like this</h2>
+    <div class="figrow">
+      <figure><div data-fig="dots" data-w="120" data-args='{"fam":"village","w":120,"label":"Out of 100 village families like Shalini&#39;s"}'></div><figcaption><span class="big" data-v="village.delhi">23</span> village</figcaption></figure>
+      <figure><div data-fig="dots" data-w="120" data-args='{"fam":"town","w":120,"label":"Out of 100 town families like Kajal&#39;s"}'></div><figcaption><span class="big" data-v="town.delhi">44</span> town</figcaption></figure>
+      <figure><div data-fig="dots" data-w="120" data-args='{"fam":"city","w":120,"label":"Out of 100 city families like Ira&#39;s"}'></div><figcaption><span class="big" data-v="city.delhi">98</span> city</figcaption></figure>
+    </div>
+    <ul class="legend"><li><span class="key k-split"></span>Best seats: she goes to Delhi</li><li><span class="key k-together"></span>Together</li><li><span class="key k-son_only"></span>Only he goes</li><li><span class="key k-near"></span>Both stay</li></ul>
+    <div class="copy" data-copy="results"><p>Her brother goes to his best college in <span data-v="village.son_best">96</span>, <span data-v="town.son_best">98</span> and <span data-v="city.son_best">100</span> of 100.</p></div><!--/copy-->
+  </section>
+
+  <section class="blk" aria-labelledby="b6"><h2 id="b6">6. Predictions</h2>
+    <div class="copy" data-copy="predict"><p><span class="mark yes"><i>&#10003;</i>Supported</span> the gap closes at top ranks. <span class="mark no"><i>&#10005;</i>Not supported</span> airport distance at the college end. <span class="mark open"><i>?</i>Untested</span> sisters at a brother's college.</p></div><!--/copy-->
+  </section>
+
+  <section class="blk" aria-labelledby="b7"><h2 id="b7">7. What would change it</h2>
+    <div class="copy" data-copy="fixes"><p>Escort fares paid: <span data-v="village.fix_fares">26</span>. A senior girl from her district: <span data-v="village.fix_senior">85</span>. A hostel guarantee: <span data-v="village.fix_hostel">85</span> (village, out of 100). No fix moves &tau;.</p></div><!--/copy-->
+  </section>
+</div>
+
+<div class="op-actions no-print">
+  <a class="main" href="one-pager.pdf">Download the A4 PDF</a>
+  <a href="../report/">Read the full report</a>
+  <a href="../play/">Play it</a>
+</div>
+<p class="next no-print"><a href="../watch/">Next: watch the video</a></p>
+</main>
+<!--#foot-->
+<script src="../data/model_v2.js"></script>
+<script src="../data/evidence.js"></script>
+<script src="../assets/figs/figs.js"></script>
+<script src="../assets/figs/figs-live.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+test,term,coef,ci_low,ci_high,p,rows,institutes
+"TR1 NIT OS-HS rho gap, trend per year, 2018-2025",yc,0.0103,0.0033,0.0173,0.004,1692,27
+"TR1 NIT OS-HS rho gap, trend per year, 2020-2025",yc,0.0038,-0.0094,0.0169,0.574,1312,26
+TR2 IIT all-India: change in remoteness slope per year (per 100 km),national_km:yc,-0.0026,-0.0062,0.001,0.159,2184,23
+TR2 NIT other-state: change in remoteness slope per year (per 100 km),feeder_km:yc,-0.0002,-0.0011,0.0008,0.717,2159,32
+"TR3 NIT take-up gap OS-HS, trend per year, 2018-2025",yc,-0.0007,-0.0055,0.0041,0.767,1692,27

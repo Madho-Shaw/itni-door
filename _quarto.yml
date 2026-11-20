@@ -1,0 +1,44 @@
+project:
+  type: default
+  output-dir: _site
+  render:
+    - report/index.qmd
+    - evidence/data/index.qmd
+    - evidence/tests/index.qmd
+    - evidence/model/index.qmd
+    - evidence/sources/index.qmd
+
+lang: en-IN
+
+# The report and the evidence pages share the hub's look. The head, top bar, footer and scripts are the same
+# parts as the hand-built pages; tools/build.js fills <!--#bar:...-->, <!--#foot--> and {{root}} afterwards and wraps
+# the page in the reading layout (quartoLayout: contents column, 30em text column, margin notes).
+# theme: none on purpose: Bootstrap is not loaded; the look is site/assets/tokens.css + site.css + report.css.
+# Run order: quarto render, then node tools/build.js (no --clean), then node tools/check_numbers.js and
+# node tools/a11y_check.js. The PDF: quarto render report/index.qmd --to typst.
+format:
+  html:
+    theme: none
+    toc: true
+    toc-depth: 3            # parts and their sections (headings are shifted down one level below)
+    toc-title: "On this page"
+    number-sections: true
+    shift-heading-level-by: 1   # the page title is the only h1; parts become h2 (a11y_check: one h1)
+    date-format: "MMMM YYYY"
+    html-math-method: mathml
+    anchor-sections: false
+    link-external-icon: false
+    include-in-header: report/_parts/head.html
+    include-before-body: report/_parts/before.html
+    include-after-body: report/_parts/after.html
+    lightbox: false
+  typst:
+    date-format: "MMMM YYYY"
+    papersize: a4
+    fontsize: 10pt
+    toc: true
+    number-sections: true
+    margin:
+      x: 2.2cm
+      y: 2.2cm
+    keep-typ: false

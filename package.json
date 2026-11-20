@@ -1,0 +1,24 @@
+{
+  "name": "eco463-site",
+  "private": true,
+  "description": "Itni Door? ECO463 Group 7 site: hub, one-pager, watch, play, talk, report, evidence",
+  "scripts": {
+    "data": "py tools/export_evidence.py && py tools/export_model_json.py",
+    "game": "py tools/sync_game.py",
+    "render": "quarto render",
+    "build": "node tools/build.js",
+    "check": "node tools/check_numbers.js && node tools/a11y_check.js",
+    "pdf": "node tools/edge.js pdf one-pager/index.html site/one-pager/one-pager.pdf",
+    "shot": "node tools/edge.js shot",
+    "report-preview": "node tools/report_preview.js"
+  },
+  "devDependencies": {
+    "js-yaml": "^5.5.0",
+    "katex": "^0.19.1",
+    "markdown-it": "^15.0.3",
+    "markdown-it-attrs": "^5.0.1",
+    "markdown-it-container": "^4.0.0",
+    "markdown-it-footnote": "^4.0.0",
+    "qrcode": "^1.5.4"
+  }
+}

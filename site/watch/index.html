@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Watch: Itni Door? The distance discount (ECO463, Group 7)</title>
+<meta name="description" content="The video: three sisters with the same rank and a better seat than their brothers, and the model that explains who gets to go. Full script and sources below.">
+<meta property="og:title" content="Watch: Itni Door? The distance discount">
+<meta property="og:image" content="{{site.url}}assets/img/og.png">
+<script>if (/present/.test(location.search + location.hash)) document.documentElement.classList.add("present");</script>
+<link rel="preload" href="../assets/fonts/baloo2-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/hind-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+.watch { padding-top: var(--sp-5); }
+.watch h1 { font-size: var(--fs-h1); margin-bottom: var(--sp-2); }
+.player { display: block; width: 100%; aspect-ratio: 16 / 9; background: var(--ink); border: var(--outline) solid var(--ink); border-radius: var(--radius-m); box-shadow: var(--pin); margin: var(--sp-3) 0 var(--sp-4); }
+.player.none { display: grid; place-items: center; background: var(--kraft); color: var(--ink); padding: var(--sp-4); text-align: center; }
+.player iframe { width: 100%; height: 100%; border: 0; border-radius: var(--radius-m); }
+.play-btn { width: 100%; height: 100%; display: grid; place-content: center; gap: .3rem; background: var(--kraft); color: var(--ink); border: 0; border-radius: var(--radius-m); cursor: pointer; font: inherit; min-height: 44px; }
+.play-btn span { font-family: var(--font-head); font-size: var(--fs-h3); font-weight: 700; }
+.play-btn small { color: var(--ink-soft); }
+.cols { display: grid; gap: var(--sp-6); grid-template-columns: minmax(0, 1fr) minmax(0, 18rem); align-items: start; }
+.chapters { list-style: none; margin: 0; padding: 0; }
+.chapters button { display: block; width: 100%; text-align: left; min-height: 44px; padding: .5rem .2rem; background: none; border: 0; border-bottom: 1px solid var(--line); font: inherit; color: var(--ink); cursor: pointer; }
+.chapters button:hover, .chapters button:focus-visible { background: var(--kraft); }
+.chapters .t { font-family: var(--font-head); font-weight: 700; color: var(--data); margin-right: .5rem; font-variant-numeric: tabular-nums; }
+.script { margin-top: var(--sp-7); max-width: var(--measure, 40rem); }
+.script h2 { scroll-margin-top: 4rem; }
+.script h3 { font-size: var(--fs-lead); margin: var(--sp-5) 0 var(--sp-2); }
+.sl { margin: 0 0 var(--sp-2); }
+.sl b { font-weight: 600; margin-right: .4rem; color: var(--data); }
+.sl .en { color: var(--ink-soft); }
+@media (max-width: 859px) { .cols { grid-template-columns: 1fr; gap: var(--sp-4); } }
+</style>
+</head>
+<body>
+<!--#bar:watch-->
+<main id="main" class="wrap watch">
+<h1>Watch the video</h1>
+<p class="lead">Three sisters, one rank, a better seat than their brothers. Who gets to go? With subtitles on every Hindi line.</p>
+<div class="cols">
+  <div>
+<!--#video-->
+  </div>
+  <aside aria-labelledby="ch"><h2 id="ch" class="h3">Chapters</h2>
+<!--#chapters-->
+  <p class="small"><a href="#script">Read the script</a> &middot; <a href="../one-pager/">The model on one page</a> &middot; <a href="../play/">Play the game</a></p>
+  </aside>
+</div>
+<section class="script" id="script" aria-labelledby="sc">
+  <h2 id="sc">The script</h2>
+  <p class="small">Every line as spoken. Family lines are our writing, in Hindi written in English letters, with the English after it. The numbers come from our model and are sourced in the <a href="../evidence/sources/">evidence room</a>.</p>
+<!--#script-->
+</section>
+<p class="next"><a href="../one-pager/">Next: the model on one page</a></p>
+</main>
+<!--#foot-->
+<script>
+(function () {
+  var v = document.querySelector("video.player");
+  document.querySelectorAll(".chapters button").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var t = Number(b.dataset.t), y = document.querySelector(".player iframe");
+      if (v) { v.currentTime = t; v.play(); v.scrollIntoView({ block: "center", behavior: "smooth" }); }
+      else if (y) { y.src = y.src.replace(/([?&])start=\d+/, "$1start=" + t); }
+      else { var f = document.querySelector("[data-yt]"); if (f) { f.dataset.start = t; f.querySelector("button").click(); } }
+    });
+  });
+  var yt = document.querySelector("[data-yt]");
+  if (yt) yt.querySelector("button").addEventListener("click", function () {
+    var s = yt.dataset.start || 0;
+    yt.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + encodeURIComponent(yt.dataset.yt) + "?autoplay=1&rel=0&start=" + s + '" title="Itni Door? video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+  });
+})();
+</script>
+</body>
+</html>

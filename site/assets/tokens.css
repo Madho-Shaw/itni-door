@@ -1,0 +1,121 @@
+/* Itni Door? site tokens v2 = the game's css/theme.css (kept value for value) + v2 additions for the site.
+   Change the look HERE and nowhere else. One paper look on purpose (no dark theme), as in the game.
+   v2 additions: chart steps that pass the dataviz validator, article measure and leading, sp-7/sp-8,
+   the Calibrated tag, print sizes. Source of the game tokens: itni-door-real-life/css/theme.css. */
+
+@font-face { font-family: "Baloo 2"; font-weight: 400 800; font-display: swap;
+  src: local("Baloo 2"), url("fonts/baloo2-latin-var.woff2") format("woff2"); }
+@font-face { font-family: "Hind"; font-weight: 400; font-display: swap;
+  src: local("Hind"), local("Hind Regular"), url("fonts/hind-400.woff2") format("woff2"); }
+@font-face { font-family: "Hind"; font-weight: 500; font-display: swap;
+  src: local("Hind Medium"), url("fonts/hind-500.woff2") format("woff2"); }
+@font-face { font-family: "Hind"; font-weight: 600; font-display: swap;
+  src: local("Hind SemiBold"), url("fonts/hind-600.woff2") format("woff2"); }
+@font-face { font-family: "Kalam"; font-weight: 400; font-display: swap;
+  src: local("Kalam"), local("Kalam Regular"), url("fonts/kalam-400.woff2") format("woff2"); }
+@font-face { font-family: "Kalam"; font-weight: 700; font-display: swap;
+  src: local("Kalam Bold"), url("fonts/kalam-700.woff2") format("woff2"); }
+
+:root {
+  color-scheme: light;
+
+  /* colour: the game's desk */
+  --paper: #F3E9D7;
+  --kraft: #E6D5B8;
+  --kraft-deep: #D3BE9A;
+  --card: #FBF6EC;
+  --ink: #2B2118;         /* 13.08 : 1 on paper */
+  --ink-soft: #5A4A3C;    /* 7.04 : 1 on paper */
+  --her: #2A7F7A;         /* the daughter: marks and large text only (3.95 : 1) */
+  --him: #E3A92B;         /* the son: never text (1.75 : 1); every turmeric mark has an ink outline */
+  --sindoor: #C8372D;     /* the red pen only: strikes, "our line", the discount */
+  --data: #2F3E73;        /* numbers in prose, links, source chips (8.48 : 1) */
+  --yes: #4F7A4A;
+  --her-ink: #1F6661;     /* 5.57 : 1 */
+  --her-soft: #CFE3DE;
+  --him-soft: #F4E2B4;
+  --sindoor-ink: #A62B22; /* 5.84 : 1 */
+  --sindoor-soft: #F0CDC4;
+  --data-soft: #D5D9E8;
+  --yes-ink: #3A6136;     /* 5.93 : 1 */
+  --yes-soft: #D5E2CF;
+  --on-her: #FFFFFF;
+  --on-him: #2B2118;
+  --on-dark: #FBF6EC;
+  --hair: #33261D;
+  --hair-grey: #A39B91;
+  --line: rgba(43, 33, 24, .16);
+  --shade: rgba(43, 33, 24, .14);
+
+  /* v2 chart steps (figures only). node validate_palette.js "#34479A,#008A7E,#C8372D" --mode light
+     --surface "#F3E9D7" --pairs all: PASS on all five checks (worst CVD 11.6 deutan, normal 21.5).
+     "Both stay" is a neutral on purpose: kraft-deep fill + 45 degree ink hatch + ink outline, never colour alone. */
+  --opt-near: #D3BE9A;
+  --opt-together: #34479A;
+  --opt-split: #008A7E;      /* = chart step of her teal; labels sit beside it in ink, never inside (white on it is 4.25) */
+  --opt-son-only: #C8372D;
+  --chart-her: #008A7E;
+  --chart-him: #E3A92B;
+  --chart-grid: rgba(43, 33, 24, .14);
+  --chart-axis: #5A4A3C;
+  --chart-old: #8A7B6C;      /* the earlier year in a pair (Census 2001), de-emphasised */
+
+  /* type */
+  --font-head: "Baloo 2", "Hind", "Trebuchet MS", "Segoe UI", sans-serif;
+  --font-body: "Hind", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-hand: "Kalam", "Segoe Print", "Comic Sans MS", cursive;
+  --fs-tiny: .76rem;
+  --fs-small: .86rem;
+  --fs-body: 1rem;
+  --fs-lead: 1.16rem;
+  --fs-h3: 1.3rem;
+  --fs-h2: 1.7rem;
+  --fs-h1: 2.5rem;
+  --fs-hero: 3.6rem;
+  --lh-tight: 1.1;
+  --lh-body: 1.45;
+  --lh-article: 1.6;       /* v2: long reading */
+  --measure: 30em;         /* body line length: about 70 characters of Hind at any size (66ch ran to 85-90); em, so it scales with the text */
+  --column: 30rem;         /* boxes that sit in the reading column (takeaway, method box) */
+
+  /* space, shape */
+  --sp-1: .25rem; --sp-2: .5rem; --sp-3: .75rem; --sp-4: 1rem; --sp-5: 1.5rem; --sp-6: 2.25rem;
+  --sp-7: 3.5rem;          /* v2: between subsections */
+  --sp-8: 5rem;            /* v2: between parts */
+  --radius-s: .3rem;
+  --radius-m: .6rem;
+  --radius-pill: 99rem;
+  --outline: .16rem;
+  --gutter: max(16px, env(safe-area-inset-left, 0px));
+  --focus-ring: max(3px, .18rem) solid var(--data);
+  --focus-gap: .15rem;
+  --pin: 3px 4px 0 var(--shade);   /* the cut-paper shadow: only on objects pinned to the desk */
+
+  /* motion */
+  --t-fast: 120ms;
+  --t-med: 260ms;
+  --t-slow: 520ms;
+  --ease-out: cubic-bezier(.2, .8, .25, 1);
+  --ease-spring: cubic-bezier(.3, 1.45, .45, 1);
+  --tilt: -1.2deg;
+}
+
+/* the web article reads at 18 px, the phone at 17 px (design review 2.3) */
+:root { font-size: 112.5%; --fs-tiny: .78rem; }   /* 14 px floor at an 18 px root */
+@media (max-width: 859px) { html:not(.present) { font-size: 106.25%; --fs-tiny: .824rem; --fs-small: .86rem; } }
+
+/* Projector: every piece of text at least 28 px (game values) */
+html.present {
+  font-size: clamp(16px, min(1.6vw, 2.84vh), 44px);
+  --fs-tiny: 1rem;
+  --fs-small: 1rem;
+  --fs-lead: 1.1rem;
+  --fs-h3: 1.2rem;
+  --fs-h2: 1.45rem;
+  --fs-h1: 1.9rem;
+  --fs-hero: 2.6rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --t-fast: 0ms; --t-med: 0ms; --t-slow: 0ms; }
+}

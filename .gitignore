@@ -1,0 +1,20 @@
+# build output (CI rebuilds it; locally `quarto render` + `node tools/build.js` write it)
+/_site/
+/.quarto/
+**/*.quarto_ipynb
+/report/*_files/
+/report/*.typ
+
+# local tools and scratch
+node_modules/
+/.tmp/
+__pycache__/
+*.pyc
+*.log
+
+# editor and OS clutter
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini

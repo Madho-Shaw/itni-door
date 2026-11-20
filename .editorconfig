@@ -1,0 +1,17 @@
+# Same line endings and indentation on every laptop in the group (Windows editors default to CRLF; .gitattributes stores LF).
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+[*.{md,qmd}]
+# two trailing spaces can be a line break in Markdown
+trim_trailing_whitespace = false
+
+[*.py]
+indent_size = 4

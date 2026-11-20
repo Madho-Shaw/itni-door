@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Itni Door? The distance discount (ECO463, Group 7)</title>
+<meta name="description" content="Same JEE rank, same seats, same fares. Why do Indian families send daughters less far than sons? A model, a game, a video and the evidence, by ECO463 Group 7.">
+<meta property="og:title" content="Itni Door? The distance discount">
+<meta property="og:description" content="Same rank. She has the better seat. Who gets to go? A rational-choice model of the distance discount, with a game you can play.">
+<meta property="og:image" content="{{site.url}}assets/img/og.png">
+<meta property="og:type" content="website">
+<link rel="preload" href="assets/fonts/baloo2-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/hind-400.woff2" as="font" type="font/woff2" crossorigin>
+<script>if (/present/.test(location.search + location.hash)) document.documentElement.classList.add("present");</script>
+<link rel="stylesheet" href="assets/tokens.css" data-inline>
+<link rel="stylesheet" href="assets/site.css" data-inline>
+<style>
+.hero { display: grid; gap: var(--sp-6); align-items: center; padding: var(--sp-6) 0 var(--sp-5); grid-template-columns: minmax(0, 27rem) minmax(0, 1fr); }
+.list { padding: var(--sp-4) var(--sp-5) var(--sp-5); transform: rotate(var(--tilt)); position: relative; }
+.list h2 { font-size: var(--fs-lead); margin: 0; }
+.list .meta { font-size: var(--fs-small); color: var(--ink-soft); margin: 0 0 var(--sp-3); }
+.list ol { list-style: none; margin: 0; padding: 0; counter-reset: c; }
+.list li { counter-increment: c; display: grid; grid-template-columns: 1.8rem 1fr; align-items: baseline; padding: .55rem 0;
+  border-bottom: 1px solid var(--line); font-weight: 600; }
+.list li::before { content: counter(c); font-family: var(--font-head); color: var(--ink-soft); }
+.list li.moved { position: relative; }
+.list .pen { display: block; grid-column: 2; font-family: var(--font-hand); font-weight: 700; color: var(--sindoor-ink); font-size: var(--fs-body); margin-top: .1rem; }
+.list .pen .chip { margin-left: .3rem; font-family: var(--font-body); }
+.list .arrow { position: absolute; right: -.4rem; top: 2.4rem; width: 3.2rem; height: 5.2rem; overflow: visible; }
+.arrow path { stroke: var(--sindoor); stroke-width: 3; fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 160; stroke-dashoffset: 0; }
+@media (prefers-reduced-motion: no-preference) { .arrow path { animation: ink 600ms var(--ease-out) 1s both; } }
+@keyframes ink { from { stroke-dashoffset: 160; } }
+/* the one moment on the hub: the red pen strikes NIT Delhi, then writes the parents' line (static with reduced motion or no script) */
+@media (prefers-reduced-motion: no-preference) {
+  .list .pen { animation: write 420ms var(--ease-out) 1s backwards; }
+  .wait .strike.draw::after, .wait .list .pen { animation-play-state: paused; }
+}
+@keyframes write { from { opacity: 0; transform: translateY(4px); } }
+.claim h1 { font-size: var(--fs-hero); line-height: 1; margin-bottom: var(--sp-4); }
+.claim h1 span { display: block; }
+.claim .lead { max-width: 34rem; }
+.doors-list { list-style: none; margin: var(--sp-5) 0 0; padding: 0; display: grid; gap: var(--sp-3); grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
+.door { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-3); min-height: 4rem; padding: var(--sp-3) var(--sp-4);
+  background: var(--card); border: var(--outline) solid var(--ink); border-radius: var(--radius-m); box-shadow: var(--pin);
+  color: var(--ink); text-decoration: none; transition: transform var(--t-med) var(--ease-spring); }
+.doors-list li:nth-child(odd) .door { transform: rotate(-.6deg); }
+.doors-list li:nth-child(even) .door { transform: rotate(.5deg); }
+.door:hover, .door:focus-visible { transform: rotate(0) translateY(-2px) !important; }
+.door b { font-family: var(--font-head); font-size: var(--fs-lead); line-height: 1.15; }
+.door span { font-size: var(--fs-small); color: var(--ink-soft); white-space: nowrap; }
+.brief { margin: var(--sp-7) 0 0; }
+.brief table { width: 100%; font-size: var(--fs-small); }
+.brief td, .brief th { padding: .5rem .8rem .5rem 0; }
+.brief .scroll { overflow-x: auto; }
+.who { display: grid; gap: var(--sp-5); grid-template-columns: 1fr 1fr auto; margin-top: var(--sp-7); align-items: start; }
+.who h2 { font-size: var(--fs-h3); }
+.qr { width: 9.5rem; text-align: center; font-size: var(--fs-tiny); color: var(--ink-soft); }
+.qr svg { width: 100%; height: auto; display: block; margin-bottom: .3rem; }
+.qr-url, .qr-draft { display: block; }
+.qr-draft { color: var(--sindoor-ink); }
+@media (max-width: 859px) {
+  .hero { grid-template-columns: 1fr; padding-top: var(--sp-4); gap: var(--sp-5); }
+  .claim { order: -1; }
+  .claim h1 { font-size: 2.5rem; }
+  .who { grid-template-columns: 1fr; }
+}
+html.present .hero { min-height: 100vh; }
+</style>
+</head>
+<body>
+<!--#bar:hub-->
+<main id="main" class="wrap">
+<section class="hero" aria-labelledby="t">
+  <div class="claim">
+    <h1 id="t"><span>Same rank.</span><span>She has the better seat.</span><span>Who gets to go?</span></h1>
+    <p class="lead">Shalini and her twin Sonu share a JEE Main rank of <span class="num" data-v="crl">8,000</span>. The women-only pool opens NIT Delhi to her; his best is NIT Durgapur. In our model, <span class="num" data-v="village.delhi">23</span> in 100 village families like hers send her to Delhi, while <span class="num" data-v="village.son_best">96</span> send him to his best college. <a class="chip" href="evidence/model/" data-src="Model v2, four options; H, sigma, tau, b and mu are assumed, sigma calibrated on the town family" data-file="_project_data/06_analysis/model_v2_results.md">model v2</a></p>
+    <p class="measure no-phone">Money hardly moves that number. The worry of how long it takes to reach her does. We built the model, a game where you play the parents, a video and a full report, and we show every number's source.</p>
+  </div>
+  <div class="list slip" role="img" aria-label="Shalini's JoSAA choice list. First choice NIT Delhi, computer science, struck out in red pen with the note: you two will go together. NIT Durgapur, her brother's college, is moved up. NIT Patna third.">
+    <h2>Shalini's choice list</h2>
+    <p class="meta">JoSAA 2025, rank 8,000, women-only pool <span class="chip is-d">our drawing</span></p>
+    <ol>
+      <li><div><span class="strike draw">NIT Delhi, CSE</span><span class="pen" lang="hi-Latn">"Dono saath jaoge."<span class="chip is-d">Our line</span></span></div></li>
+      <li class="moved">NIT Durgapur, CSE (Sonu's college)</li>
+      <li>NIT Patna, CSE</li>
+    </ol>
+    <svg class="arrow" viewBox="0 0 50 80" aria-hidden="true"><path d="M8 72 C 40 64, 46 40, 30 12 M30 12 L22 20 M30 12 L36 21"/></svg>
+  </div>
+</section>
+
+<nav aria-label="The five doors">
+<ul class="doors-list">
+  <li><a class="door" href="watch/"><b>Watch the video</b><span>5 min</span></a></li>
+  <li><a class="door" href="one-pager/"><b>Read the model on one page</b><span>1 page</span></a></li>
+  <li><a class="door" href="play/"><b>Play: you are the parents</b><span>about 4 min</span></a></li>
+  <li><a class="door" href="report/"><b>Read the full report</b><span>{{report.minutes}}</span></a></li>
+  <li><a class="door" href="evidence/"><b>Check our data and sources</b><span>browse</span></a></li>
+</ul>
+</nav>
+
+<section class="brief" aria-labelledby="b">
+  <h2 id="b">Where each part of the brief is</h2>
+  <div class="scroll">
+  <table>
+    <thead><tr><th scope="col">Part of the brief</th><th scope="col">Report</th><th scope="col">One page</th><th scope="col">Video</th><th scope="col">Game</th><th scope="col">Evidence</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">1. The gap is real (question, evidence, why it matters)</th><td>The gap</td><td>Block 1</td><td>A pattern the system can't see</td><td>Start screen</td><td><a href="evidence/data/">Data</a>, <a href="evidence/rti/">RTI</a></td></tr>
+      <tr><th scope="row">2. Why the standard model fails</th><td>Why the textbook falls short</td><td>Block 2</td><td>The textbook's answer, and the twist</td><td>Decision 1: the seat</td><td><a href="evidence/tests/">Tests</a></td></tr>
+      <tr><th scope="row">3. Our rational-choice model, predictions and a fix</th><td>Our model, Predictions, Policy</td><td>Blocks 3 to 6</td><td>Follow the journey; Out of 100; What would change it</td><td>Decisions 1 to 4, the 100 families, the fixes</td><td><a href="evidence/model/">Model</a></td></tr>
+      <tr><th scope="row">Sources and references</th><td>References</td><td>Footer</td><td><a href="watch/#script">Script and sources</a></td><td>Source sheets on every number</td><td><a href="evidence/sources/">Sources</a></td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section class="who">
+  <div>
+    <h2>Who we are</h2>
+    <p>{{site.group}}, ECO463 Gender in Economics and Business, Shiv Nadar University: Mshaw, R K Arjun and Neil John Vivek.</p>
+    <p class="small">The families are composites: their fares, ranks and pay are real, and their lines are written by us and marked as ours.</p>
+  </div>
+  <div>
+    <h2>Who did what</h2>
+    <p>The question, the RTI requests, the interviews and the calls that changed the model are ours. <a href="report/#sec-who">Who did what, and what we checked by hand</a>.</p>
+  </div>
+  <div class="qr"><!--#qr:--></div>
+</section>
+</main>
+<script>/* phones with a short screen: hold the red pen until the choice list is on screen */
+(function () { var l = document.querySelector(".list"), d = document.documentElement;
+  if (!l || !("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches || l.getBoundingClientRect().top < innerHeight * .75) return;
+  d.classList.add("wait");
+  var o = new IntersectionObserver(function (e) { if (e[0].intersectionRatio >= .5) { d.classList.remove("wait"); o.disconnect(); } }, { threshold: [.5] });
+  o.observe(l); addEventListener("beforeprint", function () { d.classList.remove("wait"); });
+})();</script>
+<!--#foot-->
+</body>
+</html>

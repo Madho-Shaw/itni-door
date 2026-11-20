@@ -1,0 +1,8 @@
+part,value
+"total gap, men minus women (percentile points)",0.641
+explained: score,-0.363
+explained: category,0.212
+explained: branch,1.038
+explained: year,0.105
+"explained: moving (other region, state seat)",0.097
+unexplained,-0.448

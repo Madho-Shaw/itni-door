@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Components: Itni Door? site</title>
+<meta name="robots" content="noindex">
+<link rel="preload" href="{{root}}assets/fonts/baloo2-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{root}}assets/fonts/hind-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{root}}assets/tokens.css">
+<link rel="stylesheet" href="{{root}}assets/site.css">
+</head>
+<body>
+<!--#bar:none-->
+<main id="main" class="wrap has-margin" style="padding-top:var(--sp-5)">
+<h1>The parts the site is built from</h1>
+<p class="lead measure">One page with every component, so the group can see what each one is for. Numbers come from <code>data/model_v2.json</code>.</p>
+
+<h2>Tags and pegs</h2>
+<p class="measure">Every number points to where it came from:
+<a class="chip is-s" href="{{root}}evidence/data/#nirf" data-src="NIRF 2025, 3-year mean of the median UG salary" data-file="_project_data/06_analysis/nirf_median_salary.csv">Sourced</a>
+<span class="chip is-a">Assumed</span> <span class="chip is-c">Calibrated</span> <span class="chip is-d">Our line (dramatised)</span>
+<a class="chip" href="{{root}}evidence/model/">model v2</a>.
+Every theory sentence names the lecture it rests on: <a class="peg" href="{{root}}evidence/class-models/#L2"><b>L2</b> Becker</a>
+<a class="peg" href="{{root}}evidence/class-models/#L4"><b>L4</b> the 100 km radius</a>
+<a class="peg" href="{{root}}evidence/class-models/#L12"><b>L12</b> threat point</a>.</p>
+
+<h2>Sidenote</h2>
+<p class="measure">The worry term counts hours to reach her, not kilometres.<label for="sn1" class="sn-toggle">(+)</label><input type="checkbox" id="sn1" class="sn-check"><span class="sidenote">Reach time R is door-to-door hours divided by 24. Assumed local legs are marked in the journey list.</span> From 1200 px the note sits in the margin; below that it opens with the (+).</p>
+
+<h2>The red pen and our own lines</h2>
+<p class="measure"><span class="strike">ability</span>, <span class="strike">price</span>: struck out in red. Our own words are in handwriting:
+<span class="ourline" lang="hi-Latn">"Dono saath jaoge."</span> <span class="chip is-d">Our line (dramatised)</span><span class="ourline-gloss">"You two will go together."</span></p>
+
+<h2>Four options</h2>
+<ul class="opts">
+<li class="opt o-split"><b>Best seats</b><span>He goes to Durgapur, she goes to Delhi</span></li>
+<li class="opt o-together"><b>Together</b><span>Both at NIT Durgapur: she takes his college</span></li>
+<li class="opt o-son_only"><b>Only he goes</b><span>He goes to Durgapur, she stays at NIT Patna</span></li>
+<li class="opt o-near"><b>Both stay</b><span>Both at NIT Patna</span></li>
+</ul>
+
+<h2>Out of 100 families like this</h2>
+<div class="slip fig"><h3>Same rank, same seats, different trip</h3><p class="fig-sub">Four options, model v2 (H = 3, &sigma; = 16, &tau; = 4, b = 1, &mu; = 3, all assumed)</p>
+<div data-fig="grids"></div>
+<div class="fig-foot"><a class="chip" href="{{root}}evidence/model/">model v2</a> <span class="chip is-a">Assumed weights</span></div></div>
+
+<h2>Add one weight at a time</h2>
+<div class="slip fig"><h3>Money moves her by 1, worry by 59</h3>
+<div data-fig="stepper" data-args='{"step":4}'></div></div>
+
+<h2>What would change it</h2>
+<div class="slip fig"><h3>Information beats money</h3>
+<div data-fig="fixes" data-args='{"fix":"senior"}'></div></div>
+
+<h2>Hours, not kilometres</h2>
+<div class="slip fig"><h3>To NIT Delhi, door to door</h3><div data-fig="journey"></div></div>
+
+<h2>She has the better seat</h2>
+<div class="slip fig"><h3>Rank 8,000: his best seat and hers</h3><div data-fig="ladder"></div></div>
+
+<h2>The scale</h2>
+<div class="slip fig"><h3>Value minus money minus worry</h3><div data-fig="scale"></div><div data-fig="ledger"></div></div>
+
+<h2>Stat card, marks, quotes</h2>
+<div class="stat measure"><span class="v"><span data-v="gap.census_doubling_2011">-9.3</span>%</span>lower odds that a study migrant is a woman each time the distance doubles (Census 2011). <span class="chip is-s">Sourced</span></div>
+<p><span class="mark yes"><i>&#10003;</i>Supported</span> <span class="mark no"><i>&#10005;</i>Not supported</span> <span class="mark open"><i>?</i>Untested</span> <span class="mark half"><i>&frac12;</i>Half tested</span></p>
+<div class="slot measure">Interview slot 2: a girl who had a far seat and did not take it. Interviews are not in yet; this fills when they are.</div>
+<div class="takeaway measure"><p>We put numbers on the 100 km rule from Lecture 4.</p><div class="pegs"><a class="peg" href="#"><b>L4</b> choice set</a></div></div>
+</main>
+<!--#foot-->
+<script src="{{root}}data/model_v2.js"></script>
+<script src="{{root}}data/evidence.js"></script>
+<script src="{{root}}play/content/rl_content.js"></script>
+<script src="{{root}}assets/figs/figs.js"></script>
+<script src="{{root}}assets/figs/figs-live.js"></script>
+</body>
+</html>

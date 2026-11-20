@@ -1,0 +1,22 @@
+model,term,coef,se,p,cells,nits
+M0 OS replication (earlier V2),km100,0.9318,0.4916,0.058,2522,32
+M0 OS replication (earlier V2),lrank_c,4.5683,1.1412,0.0001,2522,32
+M1 OS + airport km/100,air100,-1.0267,2.1154,0.6274,2522,32
+M1 OS + airport km/100,km100,0.905,0.5161,0.0795,2522,32
+M1 OS + airport km/100,lrank_c,4.5408,1.1257,0.0001,2522,32
+M2 OS + airport km/100 + hill flag,air100,-1.5215,2.147,0.4785,2522,32
+M2 OS + airport km/100 + hill flag,hill_remote,6.8634,3.2941,0.0372,2522,32
+M2 OS + airport km/100 + hill flag,km100,0.5676,0.4569,0.2141,2522,32
+M2 OS + airport km/100 + hill flag,lrank_c,3.9306,1.1585,0.0007,2522,32
+M3 OS + log airport km,lair,-0.0829,0.8241,0.9198,2522,32
+M3 OS + log airport km,km100,0.9329,0.4897,0.0568,2522,32
+M3 OS + log airport km,lrank_c,4.5668,1.1365,0.0001,2522,32
+M4 OS + hill flag only,hill_remote,6.7134,3.3509,0.0451,2522,32
+M4 OS + hill flag only,km100,0.6144,0.4189,0.1424,2522,32
+M5 = M2 without Manipur,air100,-1.6816,2.2027,0.4452,2492,31
+M5 = M2 without Manipur,hill_remote,7.3993,3.5926,0.0394,2492,31
+M6 = M2 with Arunachal airport = Lilabari,air100,-1.4957,2.1154,0.4795,2522,32
+M6 = M2 with Arunachal airport = Lilabari,hill_remote,6.9043,3.318,0.0374,2522,32
+"M7 HOME-state quota, same as M2",air100,0.8659,2.0961,0.6795,2311,30
+"M7 HOME-state quota, same as M2",hill_remote,-2.835,3.3362,0.3955,2311,30
+"M7 HOME-state quota, same as M2",km100,0.5974,0.4558,0.1899,2311,30

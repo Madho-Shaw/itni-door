@@ -1,0 +1,7 @@
+model,term,coef,se,p,pairs,migrants,odds_change_if_km_doubles_pct
+"G1 education, 2001",lkm,-0.077,0.0182,0.0,952,548620,-5.2
+"G2 work, 2001",lkm,-0.1574,0.0744,0.0342,1026,10801285,-10.3
+"G1 education, 2011",lkm,-0.1413,0.027,0.0,960,742354,-9.3
+"G2 work, 2011",lkm,-0.0725,0.0562,0.1971,1041,12423435,-4.9
+"G3 education, change in log-km slope 2001 to 2011",lkm:y11,-0.0642,0.0206,0.0018,1912,1290974,
+"G4 education 2011, log-km slope x origin women's mobility (+10 pp)",lkm:mob_c,0.013,0.0137,0.3438,960,742354,

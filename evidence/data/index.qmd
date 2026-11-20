@@ -1,0 +1,30 @@
+---
+title: "Data"
+subtitle: "What we used, for which test, and what stays on our laptops"
+lang: en-IN
+---
+
+Every number on this site comes from one of the datasets below. The files in the first column are our own summaries; raw lists with names, and licensed data, never leave our laptops.
+
+| Dataset | Years | Used for | Public summary |
+|---|---|---|---|
+| Census migration by reason, sex and distance (D-03) | 2001, 2011 | The gravity test and the distance bands | `census_female_share_by_band.csv`, `census_gravity_results.csv` |
+| Maharashtra CAP allotment lists, names dropped at parsing | 2023-2025 | The same-score gap, by band, inside the same college | `mh_cap_tests.csv`, `mh_cap_oaxaca.csv` |
+| JoSAA closing ranks | 2016-2025 | The closing-rank null; the twins' seats | `trend_by_year.csv`, `trend_tests.csv`, `bhu_shock_event_study.csv`, `bhu_shock_placebo.csv` |
+| CSAB empty-seat lists and JoSAA seat matrices | 2025-2026 | Empty women-only against open seats, by NIT | `vacancy_gap_by_nit_2025_2026.csv`, `vacancy_tests.csv` |
+| NIT airport distance and hill flag | 2025-2026 | The airport test | `last_mile_buckets.csv`, `last_mile_test_coefs.csv` |
+| NIRF median salary of UG graduates | 2024-2025 | The value term; near against far by state | `nirf_median_salary.csv`, `state_pay_near_vs_far.csv` |
+| JEE Main registered, qualified and allotted, by gender | 2013-2026 | The funnel figure | `jee_funnel_by_year.csv` |
+| Rail and air fares and hours, three Bihar homes | 19 Nov 2026 | Money and reach time in the model | in the model file, typed from the listed pages |
+| Reddit posts and comments, tagged by hand | 2017-2026 | Quotes and counts of who decides | counts only; no usernames |
+
+: Datasets and the summary files you can download {#tbl-datasets}
+
+The summary files are in the site's `data/` folder, one CSV each. The figures on the [figures page](../figures/) are drawn from them. The two RTI requests are on [their own page](../rti/).
+
+# What we keep off the site
+
+- Admission lists, even with names dropped: raw files stay local.
+- The scanned RTI replies, which carry a personal address. The [RTI page](../rti/) summarises them in text.
+- Social media usernames.
+- Licensed databases: only our own summary tables are public.

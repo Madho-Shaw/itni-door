@@ -1,0 +1,100 @@
+/* Itni Door? design tokens. Change the look HERE and nowhere else.
+   Layout idea: a desk. Kraft page, paper slips pinned on it, a red pen, indigo data ink.
+   The game commits to one paper look on purpose (no dark theme). */
+
+@font-face { font-family: "Baloo 2"; font-weight: 400 800; font-display: swap;
+  src: local("Baloo 2"), url("../assets/fonts/baloo2-latin-var.woff2") format("woff2"); }
+@font-face { font-family: "Hind"; font-weight: 400; font-display: swap;
+  src: local("Hind"), local("Hind Regular"), url("../assets/fonts/hind-400.woff2") format("woff2"); }
+@font-face { font-family: "Hind"; font-weight: 500; font-display: swap;
+  src: local("Hind Medium"), url("../assets/fonts/hind-500.woff2") format("woff2"); }
+@font-face { font-family: "Hind"; font-weight: 600; font-display: swap;
+  src: local("Hind SemiBold"), url("../assets/fonts/hind-600.woff2") format("woff2"); }
+@font-face { font-family: "Kalam"; font-weight: 400; font-display: swap;
+  src: local("Kalam"), local("Kalam Regular"), url("../assets/fonts/kalam-400.woff2") format("woff2"); }
+@font-face { font-family: "Kalam"; font-weight: 700; font-display: swap;
+  src: local("Kalam Bold"), url("../assets/fonts/kalam-700.woff2") format("woff2"); }
+
+:root {
+  color-scheme: light;
+
+  /* colour (note 102 section 8) */
+  --paper: #F3E9D7;      /* page background */
+  --kraft: #E6D5B8;      /* collage layers, torn panels */
+  --kraft-deep: #D3BE9A; /* shadows and folds on kraft */
+  --card: #FBF6EC;       /* paper slips, chat bubbles */
+  --ink: #2B2118;        /* outlines and body text */
+  --ink-soft: #5A4A3C;   /* secondary text */
+  --her: #2A7F7A;        /* Riya's lane (teal) */
+  --him: #E3A92B;        /* Kabir's lane (turmeric) */
+  --sindoor: #C8372D;    /* red-pen strikes, the society discount */
+  --data: #2F3E73;       /* numbers, charts, source chips (indigo) */
+  --yes: #4F7A4A;        /* allowed, granted (leaf) */
+
+  /* derived tones: same hues, tuned for small text and soft fills */
+  --her-ink: #1F6661;       /* small teal text on paper (AA) */
+  --her-soft: #CFE3DE;
+  --him-soft: #F4E2B4;
+  --sindoor-ink: #A62B22;   /* small red text on paper (AA) */
+  --sindoor-soft: #F0CDC4;
+  --data-soft: #D5D9E8;
+  --yes-ink: #3A6136;       /* small green text on paper (AA) */
+  --yes-soft: #D5E2CF;
+  --on-her: #FFFFFF;        /* text on teal */
+  --on-him: #2B2118;        /* text on turmeric */
+  --on-dark: #FBF6EC;       /* text on ink, sindoor, data, leaf */
+  --hair: #33261D;
+  --hair-grey: #A39B91;
+  --line: rgba(43, 33, 24, .16);   /* hairlines on paper */
+  --shade: rgba(43, 33, 24, .14);  /* cut-paper shadow */
+
+  /* type */
+  --font-head: "Baloo 2", "Hind", "Trebuchet MS", "Segoe UI", sans-serif;
+  --font-body: "Hind", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-hand: "Kalam", "Segoe Print", "Comic Sans MS", cursive;
+  --fs-tiny: .76rem;
+  --fs-small: .86rem;
+  --fs-body: 1rem;
+  --fs-lead: 1.16rem;
+  --fs-h3: 1.3rem;
+  --fs-h2: 1.7rem;
+  --fs-h1: 2.5rem;
+  --fs-hero: 3.6rem;
+  --lh-tight: 1.1;
+  --lh-body: 1.45;
+
+  /* space, shape */
+  --sp-1: .25rem; --sp-2: .5rem; --sp-3: .75rem; --sp-4: 1rem; --sp-5: 1.5rem; --sp-6: 2.25rem;
+  --radius-s: .3rem;
+  --radius-m: .6rem;
+  --radius-pill: 99rem;
+  --outline: .16rem;        /* the 2.5 px ink outline */
+  --gutter: max(16px, env(safe-area-inset-left, 0px));
+  --focus-ring: max(3px, .18rem) solid var(--data);   /* the keyboard focus ring: 3 px or more, indigo (design round 3) */
+  --focus-gap: .15rem;
+
+  /* motion */
+  --t-fast: 120ms;
+  --t-med: 260ms;
+  --t-slow: 520ms;
+  --ease-out: cubic-bezier(.2, .8, .25, 1);
+  --ease-spring: cubic-bezier(.3, 1.45, .45, 1);   /* small overshoot, for slips that land */
+  --tilt: -1.2deg;
+}
+
+/* Projector: every piece of text at least 28 px */
+html.present {
+  font-size: clamp(16px, min(1.6vw, 2.84vh), 44px);   /* 30.7 px at 1920 x 1080; the stage is always about 62 x 35 rem */
+  --fs-tiny: 1rem;
+  --fs-small: 1rem;
+  --fs-lead: 1.1rem;
+  --fs-h3: 1.2rem;
+  --fs-h2: 1.45rem;
+  --fs-h1: 1.9rem;
+  --fs-hero: 2.6rem;
+}
+
+/* Phone: no text under 14 px (design round 3, R3-6). The two small sizes meet at 14 px on a narrow screen. */
+@media (max-width: 859px) {
+  html:not(.present) { --fs-tiny: .875rem; --fs-small: .875rem; }
+}

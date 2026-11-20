@@ -1,0 +1,42 @@
+# Site settings. One line to change each; tools/build.js reads this file.
+title: "Itni Door? The distance discount"
+course: "ECO463 Gender in Economics and Business, Shiv Nadar University"
+group: "Group 7"
+members:
+  - "Mshaw"
+  - "R K Arjun"
+  - "Neil John Vivek"
+month: "November 2026"
+
+# The public address. Not decided yet (Mshaw picks the repo name and owner).
+# Until url_confirmed is true, every QR code carries a "draft address" note so nobody prints a wrong code.
+url: "https://madho-shaw.github.io/itni-door/"
+url_confirmed: true
+
+video:
+  # YouTube id of the master cut (8-9 min). Empty = no embed yet; the page shows the local file or a note.
+  master_id: ""
+  class_id: ""
+  # temporary = placeholder narration; group = our own voices
+  voice: "temporary"
+  # local files, first one found is used for the in-class and offline copy (never committed to the repo)
+  local:
+    - "media/itni_door_class_5min.mp4"   # web copy in the repo (CRF 26, about 30 MB), used on GitHub
+    - "../eco463-media/video_v2/out/v2_class_5min.mp4"
+    - "../eco463-media/video_v2/out/v2_master.mp4"
+    - "../eco463-media/video/out/draft1_5min.mp4"
+  poster: "assets/img/poster.png"
+  # chapters: t in seconds, title. Class cut (5:10), from video_v2/youtube/chapters_5.txt; use chapters_M.txt when the master goes on YouTube.
+  chapters:
+    - { t: 0,   title: "Three phones, same rank" }
+    - { t: 33,  title: "The pattern" }
+    - { t: 75,  title: "What the textbook says" }
+    - { t: 124, title: "The trip" }
+    - { t: 181, title: "The worry" }
+    - { t: 203, title: "The model, out of 100" }
+    - { t: 263, title: "The fixes" }
+    - { t: 288, title: "You decide" }
+
+# Interviews: "none" until the group adds them (content/quotes.yml); the pages say how many are in.
+interviews_in: 0
+interviews_planned: "4 to 6"

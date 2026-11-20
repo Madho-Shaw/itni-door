@@ -1,0 +1,56 @@
+name: Build and publish the site
+
+# Publishes https://madho-shaw.github.io/itni-door/ on every push to main (repo Madho-Shaw/itni-door, live since 20 Nov 2026).
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      CI: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: 1.11.9   # same as the laptops (quarto --version); change both together
+      # 1. Quarto renders the report (HTML + Typst PDF) and the evidence pages into _site/
+      - run: quarto render --to html
+      - run: quarto render report/index.qmd --to typst
+      # 2. our build copies the hand-built pages, assets and data into _site/, then adds the bar, footer, numbers and figures
+      #    to the Quarto pages (no --clean: it would delete Quarto's output)
+      - run: node tools/build.js
+      # 3. every number on every page must match the model and the evidence files
+      - run: node tools/check_numbers.js
+      # 4. the static accessibility check (one h1, a main, skip link, labels, table headers) must stay at 0 findings
+      - run: node tools/a11y_check.js
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

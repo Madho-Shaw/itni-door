@@ -1,0 +1,21 @@
+---
+title: "Tests"
+subtitle: "What each test shows, and what it does not"
+lang: en-IN
+---
+
+We ran a few simple tests before building the model. Each row says what the test is, the number it gave, and what it cannot tell us. All numbers are filled from our data files.
+
+| Test | What it compares | Result | What it cannot show |
+|---|---|---|---|
+| Census gravity | Women's share of study movers against log distance, by state pair | The odds of a woman among movers change by {{< var gap.census_doubling_2011 >}}% per doubling of distance in 2011 ({{< var gap.census_doubling_2001 >}}% in 2001) | Distance is capital to capital; the bands are not a straight line down |
+| Maharashtra, same score | Women and men with the same score, category and year | {{< var gap.mh_other_region_pp >}} percentage points in studying outside the home region | "Away" is a region, not kilometres; short moves inside a state are invisible |
+| Maharashtra, same college | The same, inside the same college and year | {{< var gap.mh_same_college_pp >}} percentage points | Who applied is not observed |
+| Empty seats and the airport | Women-only against open seats left empty, by airport distance at the college end | {{< var gap.airport_coef_pp >}} percentage points per 100 km (p = {{< var gap.airport_p >}}) | No sign that the college-end airport matters; this is a hint, not a cause |
+| Closing ranks | Women's closing-rank gap against distance | Slope for NITs {{< var gap.josaa_nit_slope >}} (p = {{< var gap.josaa_nit_p >}}) | Closing ranks show who got in, not who gave up a far seat |
+
+: The tests and their limits {#tbl-tests}
+
+Where a test has no number here, the report says why. The wording is quoted from the files: we say "goes with", never "causes".
+
+The figures are on the [figures page](../figures/).

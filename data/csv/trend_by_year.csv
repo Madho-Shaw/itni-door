@@ -1,0 +1,33 @@
+series,year,n,mean,median,se,ci_low,ci_high
+TR1 NIT OS-HS rho gap,2018,185,0.0337,0.0256,0.0186,,
+TR1 NIT OS-HS rho gap,2019,195,0.0862,0.0775,0.0158,,
+TR1 NIT OS-HS rho gap,2020,191,0.0834,0.0687,0.0239,,
+TR1 NIT OS-HS rho gap,2021,194,0.105,0.0777,0.0191,,
+TR1 NIT OS-HS rho gap,2022,215,0.0661,0.0683,0.0202,,
+TR1 NIT OS-HS rho gap,2023,223,0.1002,0.0755,0.0167,,
+TR1 NIT OS-HS rho gap,2024,243,0.098,0.1066,0.019,,
+TR1 NIT OS-HS rho gap,2025,246,0.0873,0.0784,0.0208,,
+TR2 IIT all-India slope per 100 km,2018,250,0.0005,,,-0.0144,0.0155
+TR2 IIT all-India slope per 100 km,2019,248,-0.0069,,,-0.0231,0.0092
+TR2 IIT all-India slope per 100 km,2020,255,0.0,,,-0.0133,0.0133
+TR2 IIT all-India slope per 100 km,2021,264,0.0022,,,-0.0109,0.0153
+TR2 IIT all-India slope per 100 km,2022,277,0.0006,,,-0.0143,0.0156
+TR2 IIT all-India slope per 100 km,2023,301,-0.0001,,,-0.0136,0.0134
+TR2 IIT all-India slope per 100 km,2024,292,-0.0123,,,-0.0326,0.008
+TR2 IIT all-India slope per 100 km,2025,297,-0.0058,,,-0.021,0.0094
+TR2 NIT other-state slope per 100 km,2018,246,-0.0019,,,-0.0117,0.0078
+TR2 NIT other-state slope per 100 km,2019,246,-0.0016,,,-0.0116,0.0085
+TR2 NIT other-state slope per 100 km,2020,245,-0.0048,,,-0.0145,0.0049
+TR2 NIT other-state slope per 100 km,2021,248,-0.0075,,,-0.0166,0.0016
+TR2 NIT other-state slope per 100 km,2022,268,-0.0036,,,-0.012,0.0049
+TR2 NIT other-state slope per 100 km,2023,281,-0.0103,,,-0.0192,-0.0015
+TR2 NIT other-state slope per 100 km,2024,309,-0.0025,,,-0.0094,0.0043
+TR2 NIT other-state slope per 100 km,2025,316,-0.0123,,,-0.0302,0.0055
+TR3 NIT take-up gap OS-HS,2018,185,-0.0081,0.0071,0.0163,,
+TR3 NIT take-up gap OS-HS,2019,195,-0.0138,-0.0114,0.015,,
+TR3 NIT take-up gap OS-HS,2020,191,-0.0182,-0.0138,0.0162,,
+TR3 NIT take-up gap OS-HS,2021,194,0.0237,0.0187,0.0146,,
+TR3 NIT take-up gap OS-HS,2022,215,0.0049,0.001,0.014,,
+TR3 NIT take-up gap OS-HS,2023,223,-0.0033,-0.009,0.0121,,
+TR3 NIT take-up gap OS-HS,2024,243,0.0172,0.0067,0.0109,,
+TR3 NIT take-up gap OS-HS,2025,246,-0.0406,-0.0129,0.0134,,
