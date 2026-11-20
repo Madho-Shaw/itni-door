@@ -231,6 +231,17 @@ html.present body { background: var(--paper); }
 @media (max-width: 859px) { .doors-wide { display: none; } .doors-phone { display: block; margin-block: auto; } }   /* auto margins: Edge/Chrome ignore align-items on a closed details */
 @media (max-width: 859px) { .no-phone { display: none; } }
 
+/* ---------------------------------------------------------------- page loading
+   html.navgo is set by the bar script on a link click and cleared on pageshow. A thin red-pen line runs across the
+   top and the page dims a little after a short wait, so an instant (prerendered) page never flashes it. */
+.navload { position: fixed; inset: 0 0 auto 0; height: 3px; z-index: 1000; pointer-events: none; background: var(--sindoor); transform: scaleX(0); transform-origin: left center; opacity: 0; }
+.navgo .navload { opacity: 1; transform: scaleX(.9); transition: opacity 120ms linear 120ms; }
+.navgo main, .navgo #main { opacity: .55; transition: opacity 200ms linear 150ms; cursor: progress; }
+@media (prefers-reduced-motion: no-preference) {
+  .navgo .navload { transform: scaleX(0); animation: navload 2.6s var(--ease-out) 120ms forwards; }
+  @keyframes navload { 0% { transform: scaleX(0); } 25% { transform: scaleX(.5); } 100% { transform: scaleX(.92); } }
+}
+
 /* ---------------------------------------------------------------- motion
    Paper-collage rules: things are placed, not flown in. One moment per page, data fills only when a figure scrolls into
    view or a button changes it, transform and opacity only, and with reduced motion (or no script) every page is the
