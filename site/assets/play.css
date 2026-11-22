@@ -1,0 +1,17 @@
+/* The game page's link back to the site (site/play/ is copied from the game repo by tools/sync_game.py, which adds
+   this file and the .hub-bar). Same look as the site's top bar; gone in projector mode, where the game fills the wall. */
+body { min-height: 100vh; }
+.hub-bar { display: flex; align-items: center; flex-wrap: wrap; gap: 0 var(--sp-4); max-width: 68rem; min-height: 3.5rem;
+  margin: 0 auto; padding: 0 var(--gutter); border-bottom: 1px solid var(--line); font-size: var(--fs-body); }
+.hub-bar a { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink); text-decoration: none; }
+.hub-bar a:first-child { font-family: var(--font-head); font-weight: 800; font-size: var(--fs-lead); }
+.hub-bar a:last-child { margin-left: auto; padding: 0 .9rem; border: var(--outline) solid var(--ink); border-radius: var(--radius-pill);
+  background: var(--card); font-weight: 600; }
+.hub-bar span { color: var(--ink-soft); }
+.hub-bar a:hover { text-decoration: underline; }
+.hub-bar a:last-child:hover { text-decoration: none; background: var(--kraft); }
+.hub-bar a:focus-visible { outline: var(--focus-ring); outline-offset: var(--focus-gap); }
+::selection { background: var(--him-soft); color: var(--ink); }
+@media (max-width: 599px) { .hub-bar span { display: none; } }
+html.present .hub-bar { display: none; }
+@media print { .hub-bar { display: none; } }

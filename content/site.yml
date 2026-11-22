@@ -25,7 +25,7 @@ video:
     - "../eco463-media/video_v2/out/v2_class_5min.mp4"
     - "../eco463-media/video_v2/out/v2_master.mp4"
     - "../eco463-media/video/out/draft1_5min.mp4"
-  poster: "assets/img/poster.png"
+  poster: "assets/img/poster.jpg"
   # chapters: t in seconds, title. Class cut (5:10), from video_v2/youtube/chapters_5.txt; use chapters_M.txt when the master goes on YouTube.
   chapters:
     - { t: 0,   title: "Three phones, same rank" }

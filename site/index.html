@@ -45,7 +45,8 @@
   color: var(--ink); text-decoration: none; transition: transform var(--t-med) var(--ease-spring); }
 .doors-list li:nth-child(odd) .door { transform: rotate(-.6deg); }
 .doors-list li:nth-child(even) .door { transform: rotate(.5deg); }
-.door:hover, .door:focus-visible { transform: rotate(0) translateY(-2px) !important; }
+.door:focus-visible { transform: rotate(0) translateY(-2px) !important; }
+@media (hover: hover) { .door:hover { transform: rotate(0) translateY(-2px) !important; } }
 .door b { font-family: var(--font-head); font-size: var(--fs-lead); line-height: 1.15; }
 .door span { font-size: var(--fs-small); color: var(--ink-soft); white-space: nowrap; }
 .brief { margin: var(--sp-7) 0 0; }

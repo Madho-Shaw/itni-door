@@ -33,6 +33,11 @@ td.r, th.r { text-align: right; }
 .wrap { max-width: 68rem; margin: 0 auto; padding: 0 var(--gutter); }
 .measure { max-width: var(--measure); }
 .scroll-x { overflow-x: auto; max-width: 100%; }
+/* a table that scrolls sideways shows a soft shade on the right while there is more to see (the cover rides with the content's end) */
+.scroll-x, .brief .scroll { background:
+  linear-gradient(to left, var(--paper) 40%, transparent) right / 2.5rem 100% no-repeat local,
+  radial-gradient(farthest-side at 100% 50%, var(--shade), transparent) right / .8rem 100% no-repeat scroll; }
+::selection { background: var(--him-soft); color: var(--ink); }
 .crumb { margin-bottom: var(--sp-3); }
 
 /* ---------------------------------------------------------------- top bar and doors */
@@ -52,6 +57,9 @@ td.r, th.r { text-align: right; }
   .doors summary { display: inline-flex; align-items: center; min-height: 44px; padding: 0 1rem; border: var(--outline) solid var(--ink);
     border-radius: var(--radius-pill); background: var(--card); font-weight: 600; cursor: pointer; list-style: none; }
   .doors summary::-webkit-details-marker { display: none; }
+  .doors summary::after { content: ""; width: .42em; height: .42em; margin: -.2em 0 0 .55em; border: solid var(--ink); border-width: 0 2px 2px 0;
+    transform: rotate(45deg); transition: transform var(--t-fast) var(--ease-out); }
+  .doors[open] summary::after { transform: translateY(.2em) rotate(225deg); }
   .doors:not([open]) ul { display: none; }
   .doors[open] ul { position: absolute; right: 0; top: calc(100% + 6px); z-index: 10; flex-direction: column; gap: 0; width: min(80vw, 18rem);
     background: var(--card); border: var(--outline) solid var(--ink); border-radius: var(--radius-m); padding: var(--sp-2); box-shadow: var(--pin); }
@@ -212,6 +220,7 @@ html.present body { background: var(--paper); }
   html, body { background: #fff !important; font-size: 10pt; }
   .bar, .foot, .next, .skip, .no-print, .ctl, dialog { display: none !important; }
   .slip { box-shadow: none; }
+  .scroll-x, .brief .scroll { background: none; }
   .tilt, .tilt-r { transform: none; }
   a { color: var(--ink); text-decoration: none; }
   .chip::after, .peg::after { display: none; }
@@ -263,4 +272,23 @@ html.present body { background: var(--paper); }
   /* a pressed button gives way under the thumb at once */
   .ctl button, .next a, .door, .rooms a { transition: transform var(--t-fast) var(--ease-out), box-shadow var(--t-fast) var(--ease-out); }
   .ctl button:active { transform: translateY(1px) scale(.98); }
+
+  /* arrival: the page title settles onto the paper (once, under half a second; never in projector mode) */
+  html:not(.present) main h1:first-of-type, html:not(.present) main h1:first-of-type + :is(p, .lead, .subtitle) {
+    animation: settle 420ms var(--ease-out) backwards; }
+  html:not(.present) main h1:first-of-type + :is(p, .lead, .subtitle) { animation-delay: 60ms; }
+  @keyframes settle { from { opacity: 0; transform: translateY(.35rem); } }
+
+  /* placed, not flown in: a desk card that scrolls up into view is set down once (the bar script adds .desk-wait only to
+     cards below the fold, so nothing on screen at load is ever hidden; without script or with reduced motion: no change) */
+  .desk-wait { opacity: 0; }
+  .desk-in { animation: desk-in 380ms var(--ease-out) calc(var(--k, 0) * 60ms) backwards; }
+  @keyframes desk-in { from { opacity: 0; transform: translateY(-.4rem) scale(1.015); } }
+}
+@media print { .desk-wait { opacity: 1; } }
+
+/* cards answer a real pointer: lift on hover (not on touch, where it would stick), press on click */
+.door:active, .rooms a:active { transform: translateY(2px) !important; box-shadow: 1px 1px 0 var(--shade); }
+@media (hover: hover) {
+  .next a:hover { background: var(--kraft); }
 }

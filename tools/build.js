@@ -56,13 +56,19 @@ ${NAV_SPEED}`;
 }
 /* Page-to-page speed. Edge/Chrome prerender a page when the pointer rests on its link (speculation rules), so most
    clicks open at once; other browsers get a prefetch on hover or touch. If a page still takes time, a red-pen line
-   runs across the top and the old page dims, so a click never looks dead. pageshow clears it on Back. */
+   runs across the top and the old page dims, so a click never looks dead. pageshow clears it on Back.
+   The last script sets down desk cards that start below the fold as they scroll into view (site.css, .desk-wait/.desk-in). */
 const NAV_SPEED = `<script type="speculationrules">{"prerender":[{"where":{"and":[{"href_matches":"/*"},{"not":{"selector_matches":"[download], [target=_blank], [href$='.pdf'], [href$='.mp4'], [href$='.csv']"}}]},"eagerness":"moderate"}]}</script>
 <script>(function(){var d=document.documentElement,seen={};function link(e){var a=e.target.closest&&e.target.closest("a[href]");if(!a||a.hasAttribute("download")||(a.target&&a.target!=="_self"))return null;var u=new URL(a.href,location.href);if(u.origin!==location.origin||/\\.(pdf|mp4|csv|zip)$/i.test(u.pathname))return null;if(u.pathname===location.pathname&&u.search===location.search)return null;return u}
 document.addEventListener("click",function(e){if(e.defaultPrevented||e.button||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;if(link(e))d.classList.add("navgo")});
 addEventListener("pageshow",function(){d.classList.remove("navgo")});
 function pf(e){var u=link(e);if(!u||seen[u.pathname])return;seen[u.pathname]=1;var l=document.createElement("link");l.rel="prefetch";l.href=u.pathname;document.head.appendChild(l)}
-document.addEventListener("pointerover",pf,{passive:true});document.addEventListener("touchstart",pf,{passive:true})})();</script>`;
+document.addEventListener("pointerover",pf,{passive:true});document.addEventListener("touchstart",pf,{passive:true})})();</script>
+<script>(function(){var d=document.documentElement;if(d.classList.contains("present")||!window.matchMedia||matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+var w=[],q=0;function check(){q=0;var vh=innerHeight;w=w.filter(function(el){if(el.getBoundingClientRect().top>vh*.94)return true;el.classList.replace("desk-wait","desk-in");return false});if(!w.length)removeEventListener("scroll",tick)}
+function tick(){if(!q)q=requestAnimationFrame(check)}
+function go(){var vh=innerHeight;[].forEach.call(document.querySelectorAll(".doors-list > li, .rooms > li"),function(el){var r=el.getBoundingClientRect();if(r.height&&r.top>vh){el.style.setProperty("--k",[].indexOf.call(el.parentNode.children,el)%3);el.classList.add("desk-wait");w.push(el)}});if(w.length){addEventListener("scroll",tick,{passive:true});addEventListener("resize",tick)}}
+document.readyState==="loading"?addEventListener("DOMContentLoaded",go):go()})();</script>`;
 function foot(root) {
   const d = new Date().toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" });
   return `<footer class="foot"><div class="wrap">

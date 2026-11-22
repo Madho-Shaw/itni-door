@@ -13,7 +13,11 @@
 /* contents: a sticky column on wide screens, a sheet under the title on phones */
 .toc-d { display: none; }
 .toc-m { margin: 0 0 var(--sp-5); background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-m); padding: 0 var(--sp-3); }
-.toc-m summary { min-height: 44px; display: flex; align-items: center; font-weight: 600; cursor: pointer; }
+.toc-m summary { min-height: 44px; display: flex; align-items: center; font-weight: 600; cursor: pointer; list-style: none; }
+.toc-m summary::-webkit-details-marker { display: none; }
+.toc-m summary::after { content: ""; width: .45em; height: .45em; margin: -.2em .2em 0 auto; border: solid var(--ink); border-width: 0 2px 2px 0;
+  transform: rotate(45deg); transition: transform var(--t-fast) var(--ease-out); }
+.toc-m[open] summary::after { transform: translateY(.2em) rotate(225deg); }
 .toc-m ul { list-style: none; margin: 0 0 var(--sp-3); padding: 0; font-size: var(--fs-small); }
 .toc-m ul ul { padding-left: 1.2rem; }
 .toc-m a { display: flex; align-items: center; min-height: 44px; color: var(--ink); text-decoration: none; border-top: 1px solid var(--line); }

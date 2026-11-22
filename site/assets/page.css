@@ -4,8 +4,9 @@
 .page h2 { font-size: var(--fs-h2); margin: var(--sp-6) 0 var(--sp-2); }
 .page .measure p, .page .measure li { max-width: var(--measure); }
 .rooms { list-style: none; margin: var(--sp-4) 0; padding: 0; display: grid; gap: var(--sp-3); grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
-.rooms a { display: block; min-height: 4rem; padding: var(--sp-3) var(--sp-4); background: var(--card); border: var(--outline) solid var(--ink); border-radius: var(--radius-m); box-shadow: var(--pin); color: var(--ink); text-decoration: none; }
-.rooms a:hover, .rooms a:focus-visible { transform: translateY(-2px); }
+.rooms a { display: block; height: 100%; min-height: 4rem; padding: var(--sp-3) var(--sp-4); background: var(--card); border: var(--outline) solid var(--ink); border-radius: var(--radius-m); box-shadow: var(--pin); color: var(--ink); text-decoration: none; }
+.rooms a:focus-visible { transform: translateY(-2px); }
+@media (hover: hover) { .rooms a:hover { transform: translateY(-2px); } }
 .rooms b { display: block; font-family: var(--font-head); font-size: var(--fs-lead); line-height: 1.15; }
 .rooms span { font-size: var(--fs-small); color: var(--ink-soft); }
 .case { background: var(--card); border: var(--outline) solid var(--ink); border-radius: var(--radius-m); padding: var(--sp-3) var(--sp-4); margin: var(--sp-4) 0; box-shadow: var(--pin); }

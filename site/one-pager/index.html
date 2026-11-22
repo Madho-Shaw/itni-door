@@ -31,6 +31,7 @@
 .copy th, .copy td { padding: .25rem .5rem .25rem 0; }
 .copy table td:not(:first-child), .copy table th:not(:first-child) { font-variant-numeric: tabular-nums; }
 .copy strong { font-weight: 600; }
+@media (max-width: 599px) { .copy .scroll-x > table:has(th:nth-child(7)) { min-width: 42rem; } }   /* the parameter table scrolls on a phone instead of crushing */
 .figrow { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-3); margin: var(--sp-2) 0; }
 .figrow figure { margin: 0; }
 .figrow figcaption { font-size: var(--fs-small); margin-top: .2rem; }
