@@ -4,7 +4,7 @@
    - fills every data-v number from data/model_v2.json, evidence.json or _variables.yml (tools/numfmt.js)
    - pre-renders every data-fig figure (site/assets/figs/figs.js), so pages work with no JS and in print
    - inlines <link data-inline> CSS (the hub's first paint needs no second request)
-   - puts the one-pager copy from content/one_pager_text.md (build C) into the one-pager when that file exists
+   - puts the one-pager copy from content/one_pager_text.md into the one-pager when that file exists
    - QR codes from content/site.yml url (<!--#qr:path-->)
    Run: node tools/build.js [--clean]. In CI Quarto renders report/ and evidence/ into _site first; this runs after. */
 "use strict";
@@ -122,7 +122,7 @@ function quartoLayout(html, rel) {
     '<main id="main" class="article">\n' + body + "</main>\n</div>\n" + html.slice(end);
 }
 
-/* ---------------------------------------------------------------- one-pager copy from build C */
+/* ---------------------------------------------------------------- one-pager copy */
 function onePagerCopy() {
   const p = path.join(ROOT, "content/one_pager_text.md");
   if (!fs.existsSync(p)) return null;

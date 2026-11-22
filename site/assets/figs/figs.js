@@ -2,7 +2,7 @@
    data/model_v2.json (MODEL_V2), data/evidence.json (EVIDENCE) and the game's content/rl_content.js (ITNI.rl).
    The same code runs in Node (tools/build.js pre-renders every figure, so pages work with no JS and in print)
    and in the browser (figs-live.js re-renders at the real width and wires the buttons).
-   Rules (dataviz skill): text wears ink, never the series colour; 2 px lines; >= 8 px markers; one axis;
+   Rules: text wears ink, never the series colour; 2 px lines; >= 8 px markers; one axis;
    legend for 2+ series; "Both stay" is hatched kraft, never colour alone; a table under every figure. */
 (function (root, factory) {
   if (typeof module === "object" && module.exports) module.exports = factory();

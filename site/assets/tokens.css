@@ -100,7 +100,7 @@
   --tilt: -1.2deg;
 }
 
-/* the web article reads at 18 px, the phone at 17 px (design review 2.3) */
+/* the web article reads at 18 px, the phone at 17 px */
 :root { font-size: 112.5%; --fs-tiny: .78rem; }   /* 14 px floor at an 18 px root */
 @media (max-width: 859px) { html:not(.present) { font-size: 106.25%; --fs-tiny: .824rem; --fs-small: .86rem; } }
 
