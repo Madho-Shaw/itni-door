@@ -1,7 +1,7 @@
 [
  {
   "id": 0,
-  "name": "Phones",
+  "name": "The three girls",
   "lines": [
    {
     "role": "SHALINI",
@@ -19,121 +19,136 @@
     "en": null
    },
    {
-    "role": "NAR1",
-    "text": "Same rank. Six children. Three sisters with a better seat than their brothers.",
+    "role": "NARRATOR",
+    "text": "Meet Shalini. She lives in a village in Saharsa district, in north Bihar. Her twin brother is Sonu.",
     "en": null
    },
    {
-    "role": "NAR1",
-    "text": "All three brothers will take their seat. How many of the sisters will take theirs?",
+    "role": "NARRATOR",
+    "text": "Kajal lives in Begusarai, a town. Her twin brother is Kundan.",
     "en": null
    },
    {
-    "role": "NAR1",
-    "text": "Pause here and make a guess: which sister takes Delhi? Keep your guess. We'll come back to it.",
+    "role": "NARRATOR",
+    "text": "And Ira lives in Patna, the state capital. Her twin brother is Vivaan.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "All six took the JEE and got the same rank, 8,000. All three girls got a seat at NIT Delhi, in computer science. All three boys got NIT Durgapur.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "Same rank. Same seat. Which of the three girls actually goes to Delhi? Make a guess, and keep it. We'll come back to it.",
     "en": null
    }
   ]
  },
  {
   "id": 1,
-  "name": "Pattern",
+  "name": "The gap",
   "lines": [
    {
-    "role": "NAR1",
-    "text": "Some families draw a circle around a daughter: this far, and no further. We put numbers on it.",
+    "role": "NARRATOR",
+    "text": "First, is there a gap at all? Some Indian families draw a circle around a daughter, about 100 kilometres from home, and she studies inside it. Her brother gets no such circle. We wanted to put numbers on that.",
     "en": null
    },
    {
-    "role": "NAR2",
-    "text": "Take every student in India who moved to study. Inside their own district, 43 in 100 are women. In another district, 37. In another state under 500 kilometres, 33.",
+    "role": "NARRATOR",
+    "text": "Take every student in the 2011 Census who moved to study. Each time the distance of the move doubles, the odds that the student is a woman fall by about 9 per cent.",
     "en": null
    },
    {
-    "role": "NAR2",
-    "text": "Every time the distance doubles, the odds that a student mover is a woman are about 9 per cent lower.",
+    "role": "NARRATOR",
+    "text": "But maybe the girls who moved had lower marks? Maharashtra lets us check. At the same entrance score, women are 3.7 points less likely to study outside their home region. That's about one in seven fewer.",
     "en": null
    },
    {
-    "role": "NAR2",
-    "text": "Further out it doesn't fall in a straight line, but beyond a thousand kilometres it's under 30. And between 2001 and 2011, the slope got steeper, not flatter.",
+    "role": "NARRATOR",
+    "text": "Why does it happen? The direct test would be the choice lists: which colleges each girl and boy actually put down. We asked for them under the RTI Act. The reply: not readily available.",
     "en": null
    },
    {
-    "role": "NAR2",
-    "text": "Same marks? Maharashtra lets us check. At the same entrance score, women were 3.7 points less likely to study outside their home region. About one in seven fewer.",
-    "en": null
-   },
-   {
-    "role": "NAR2",
-    "text": "At the farthest third of NITs, 31 in 100 women-only seats for students from other states sit empty after counselling. For open seats, it's 20. A hint that fewer women list them.",
-    "en": null
-   },
-   {
-    "role": "NAR1",
-    "text": "The direct test would be the choice lists: which colleges girls and boys actually put down. We asked for them under the RTI Act. The reply said the totals are not readily available. So we couldn't test it directly. We built a model instead.",
-    "en": null
-   },
-   {
-    "role": "NAR1",
-    "text": "At the same score, families send daughters less far than sons. Why?",
+    "role": "NARRATOR",
+    "text": "So we built a model. Think of it as a calculator. You put in seats, pay, fares and travel times, and it tells you what families would choose. Every number from here on comes out of it, not from a survey.",
     "en": null
    }
   ]
  },
  {
   "id": 2,
-  "name": "Textbook",
+  "name": "The textbook",
   "lines": [
    {
-    "role": "NAR1",
-    "text": "The textbook has a clean answer. In Becker's human-capital model from Lecture 2, a family invests in a child's education like any investment, and nothing in it depends on gender.",
+    "role": "NARRATOR",
+    "text": "Start with the textbook. In the standard model, from the economist Gary Becker, a family invests in a child's education like any other investment. Nothing in it depends on gender.",
     "en": null
    },
    {
-    "role": "NAR1",
-    "text": "Same rank, so the same return. Same fee. Same ticket: Saharsa to Delhi in sleeper is ₹605 for him and ₹605 for her. So the textbook says: same choice.",
+    "role": "NARRATOR",
+    "text": "Same rank, same return, same price. So, the same college.",
     "en": null
    },
    {
-    "role": "NAR1",
+    "role": "NARRATOR",
     "text": "Ability? Same rank. Price? Same ticket. Girls prefer home? That isn't an answer. It's what we're explaining.",
     "en": null
    },
    {
-    "role": "NAR1",
-    "text": "Later, one change takes Shalini from 23 in 100 to 85. It isn't money.",
+    "role": "NARRATOR",
+    "text": "And here's the twist. At the same rank, the sister has the better seat. The women-only pool gets Kajal into NIT Delhi. Kundan's best is NIT Durgapur.",
     "en": null
    },
    {
-    "role": "NAR1",
-    "text": "And here's the twist. At the same rank, she has the better seat. The women-only pool gets Kajal into NIT Delhi. Kundan's best is Durgapur. Median starting pay: ₹15.4 lakh a year, against ₹11.0.",
+    "role": "NARRATOR",
+    "text": "Median starting pay at NIT Delhi is 15.4 lakh rupees a year. At Durgapur, 11. A lakh is a hundred thousand rupees.",
     "en": null
    },
    {
-    "role": "NAR1",
-    "text": "And the fee isn't the problem. Tuition is the same at every NIT, and the waivers for poorer families don't depend on which NIT. Hostel and mess aren't waived anywhere. So the fee can't decide between colleges. The state made the seat cheap. It didn't make the trip cheap.",
-    "en": null
-   },
-   {
-    "role": "NAR1",
-    "text": "She has the better seat. Often, she still doesn't take it.",
+    "role": "NARRATOR",
+    "text": "So by the textbook, she should go further than her brother. Often, she doesn't.",
     "en": null
    }
   ]
  },
  {
   "id": 3,
-  "name": "Trip",
+  "name": "Our model",
   "lines": [
    {
-    "role": "NAR1",
-    "text": "So let's book the trip.",
+    "role": "NARRATOR",
+    "text": "So how does our model work? Picture the parents at choice filling. From last year's closing ranks, they know which seats the twins can get. Now they decide what to put first. There are four ways to send the twins.",
     "en": null
    },
    {
-    "role": "NAR1",
-    "text": "From Shalini's village, an auto to Saharsa Junction. Then 24 hours on the Vaishali Express. Then a cab across Delhi to Narela. Door to door, more than a day.",
+    "role": "NARRATOR",
+    "text": "One: both stay at NIT Patna, close to home.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "Two, together: both go to Durgapur, his college.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "Three, best seats: he takes Durgapur, she takes Delhi.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "Four: only he goes. He takes Durgapur, and she stays at Patna.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "Each option gets a score, like weighing it on a scale. On one side is the value: his pay plus her pay after the degree, counted for their first three years of work.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "On the other side are the costs. There are two of them, and only the daughter carries them.",
     "en": null
    },
    {
@@ -142,23 +157,28 @@
     "en": "How will she go alone? Babuji will go with her."
    },
    {
-    "role": "NAR1",
-    "text": "Sonu goes alone. Shalini doesn't. Her father loses about four days of farm work a trip, at ₹379 a day.",
+    "role": "NARRATOR",
+    "text": "Cost one is money. Sonu travels alone. Shalini doesn't. Her father goes with her, and loses about four days of farm work on every trip, at 379 rupees a day.",
     "en": null
    },
    {
-    "role": "MAA_PHONE",
-    "text": "Kaun sa station aaya? Khana khaya? Pahunch ke phone karna.",
-    "en": "Which station now? Did you eat? Call when you reach."
-   },
-   {
-    "role": "NAR1",
-    "text": "Her parents said yes. They also call at every station. That's not a no. It's a worry with a price.",
+    "role": "NARRATOR",
+    "text": "Add up four years of fares for both children, her father's tickets and his lost days. For Shalini's family, it comes to about 62 thousand rupees.",
     "en": null
    },
    {
-    "role": "NAR1",
-    "text": "Kajal has two routes. Alone to Delhi, about 21 hours. Or with Kundan to Durgapur: one change at Patna, about 11 hours, and her brother on the seat next to her.",
+    "role": "NARRATOR",
+    "text": "Now compare: one year of Delhi's extra pay over Patna is 6.4 lakh. The whole bill is less than a tenth of that. So if the family says no, it isn't the ticket.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "Cost two is worry. Her parents worry for every hour it would take them to reach her if something went wrong.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "From Shalini's village: an auto to Saharsa Junction. 24 hours on the Vaishali Express. Then a cab across Delhi. Door to door, 26 and a half hours.",
     "en": null
    },
    {
@@ -172,130 +192,225 @@
     "en": "Delhi, alone? What will people say?"
    },
    {
-    "role": "NAR1",
-    "text": "Going with Kundan costs Kajal about ₹4.4 lakh a year of median starting pay. Her father isn't being cruel. He's buying something: a free escort, and someone who's there.",
+    "role": "NARRATOR",
+    "text": "That worry has two parts. One is a belief about a place they have never seen. Facts can move it.",
     "en": null
    },
    {
-    "role": "NAR1",
-    "text": "Ira's trip is one flight. Her parents drop her at the airport and pick her up there. Under six hours, door to door. But look at the last leg: 48 kilometres across Delhi, in a cab, alone.",
+    "role": "NARRATOR",
+    "text": "The other is log kya kahenge: what will people say. No fact moves that.",
     "en": null
    },
    {
-    "role": "IRA_MOM",
-    "text": "Cab ka number bhej do. Location on rakhna.",
-    "en": "Send me the cab number. Keep your location on."
+    "role": "NARRATOR",
+    "text": "Economists call the first statistical discrimination, and the second, taste.",
+    "en": null
    },
    {
-    "role": "NAR1",
-    "text": "If the flight lands late, that's the worry. We found no safety data for that road. The worry is real; we can't put a number on it.",
+    "role": "NARRATOR",
+    "text": "Now see why together is so cheap. Put the twins in one college, and the brother becomes the escort, and someone who's there. Both costs fall at once. The son himself carries neither.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "Economists call her the tied mover: she moves for someone else's best option. Mincer used it for wives who move for a husband's job.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "So the score is value, minus money, minus worry. Let's work it out for Shalini.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "Best seats has the most value: 79 lakh, against 66 for together. Money takes off almost nothing.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "But Delhi is 26 and a half hours away, so its worry is big: 22 lakh. Durgapur is closer, and Sonu is there, so its worry is only about 7.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "Net, together scores 58. Best seats, 55 and a half. Together wins, but only just.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "Here is the whole model on one page. Four lines.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "Value: his pay plus her pay, counted for three years.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "Money: the fares, her father's tickets and his lost days, weighted by how much a rupee hurts that family. A poor family feels each rupee more.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "Worry: the hours it takes to reach her, times how much each hour worries them. The part about the place shrinks with every girl from home who went before, and when her brother is there. Log kya kahenge doesn't shrink.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "Score: value, minus money, minus worry. For the son, there is no escort and no worry. That's the whole model. Everything else is an input.",
     "en": null
    }
   ]
  },
  {
   "id": 4,
-  "name": "Worry",
+  "name": "Out of 100",
   "lines": [
    {
-    "role": "NAR1",
-    "text": "Here is what some girls wrote about home, in public Reddit posts. They are not a sample.",
+    "role": "NARRATOR",
+    "text": "But a score isn't a choice. So what does out of 100 mean?",
     "en": null
    },
    {
-    "role": "READ1",
-    "text": "When the time comes when my brothers have to go to college, they would happily oblige.",
+    "role": "NARRATOR",
+    "text": "Picture 100 families exactly like Shalini's. Same rank, same village, same fares.",
     "en": null
    },
    {
-    "role": "READ2",
-    "text": "Then what will we save for your marriage?",
+    "role": "NARRATOR",
+    "text": "They still differ in things we can't see. A cousin in Durgapur. A pushy uncle. A bad dream.",
     "en": null
    },
    {
-    "role": "READ3",
-    "text": "Your uncle's daughter also took NEET and got a college outside, but they didn't send her, so we won't send you either.",
+    "role": "NARRATOR",
+    "text": "So they don't all choose alike. When two scores are close, families split nearly half and half. When one score is far ahead, almost all of them pick it.",
     "en": null
    },
    {
-    "role": "NAR1",
-    "text": "Part of the worry is a belief about a place they can't see, and new facts can move it. Part of it is log kya kahenge, what the neighbours will say, and no fact moves that. In class we called the first statistical, the second taste.",
+    "role": "NARRATOR",
+    "text": "Kajal's family scores 60.4 for together and 60.5 for best seats, so they split almost evenly. Ira's best seats is 12 points ahead, so nearly every Ira goes.",
     "en": null
    },
    {
-    "role": "NAR1",
-    "text": "Now see why together wins. Put the twins in one college, and the brother becomes the escort, and the someone who's there. Both costs fall at once. Economists call this the tied mover. Mincer used it for wives who move for a husband's job. Here it's a sister who takes her brother's college.",
+    "role": "NARRATOR",
+    "text": "Now, your guess. Out of 100 Shalinis, 23 take Delhi. 59 go with Sonu to Durgapur. 14 stay at Patna while Sonu leaves. And in 4, both stay.",
     "en": null
    },
    {
-    "role": "NAR1",
-    "text": "And it feeds itself. No senior girl from her district, so nobody to call, so not safe for girls, so no senior girl next year.",
+    "role": "NARRATOR",
+    "text": "Out of 100 Kajals, 44 take Delhi, and 42 go with Kundan.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "Out of 100 Iras, 98 take Delhi.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "So the city girl gets her wish. The town girl is on the fence. And the village girl, with the longest trip, mostly goes where her brother goes.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "Where does Shalini's 23 come from? Add the costs one at a time.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "If only pay counted, 99 Shalinis in 100 would take Delhi. Add the fares and her escort: still 98.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "Add the worry about a place they can't see: 39. Add log kya kahenge: 23. The worry does almost all the work.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "Now ask a simpler question: who leaves Bihar at all? The brothers: 96, 98 and 100 times in 100. The sisters: 82, 86 and 100.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "Shalini's 82 is the 23 who take Delhi, plus the 59 who go with Sonu.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "So in Bihar the gap mostly isn't she stays home. It's she goes where her brother goes.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "And going with her brother has a price. NIT Delhi's median pay is 15.38 lakh, Durgapur's 11.01. So a sister who goes with him gives up about 4.4 lakh a year.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "Her father isn't being cruel. He's buying something: a free escort, and someone who's there.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "These are the parents' choices. But what if Shalini has a say?",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "In a standard bargaining model, she gets Delhi once her say is at least 0.3, on a scale of 0 to 1.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "In Patna, Ira's parents want Delhi too, so there is nothing to argue about.",
     "en": null
    }
   ]
  },
  {
   "id": 5,
-  "name": "Model",
+  "name": "How sure are we?",
   "lines": [
    {
-    "role": "NAR1",
-    "text": "Here's our model as a scale. Each option is compared with staying near. On one side, what the seats pay over the three years we count. On the other, the extra money: fares, escort days, lost wages. And the extra worry. The best balance wins most often.",
+    "role": "NARRATOR",
+    "text": "How far should you trust these numbers? Let's be honest about what goes in.",
     "en": null
    },
    {
-    "role": "NAR1",
-    "text": "We can't see everything about a family, so we count: out of 100 families like this.",
+    "role": "NARRATOR",
+    "text": "Pay, seats and the main fares are sourced.",
     "en": null
    },
    {
-    "role": "NAR2",
-    "text": "First, the money. The whole trip, four years, both children, the father's lost days: about 62 thousand rupees for Shalini's family, 95 thousand for Kajal's, 1.65 lakh for Ira's. NIT Delhi's median starting pay is ₹6.4 lakh a year above NIT Patna's. So if a family still says no, it isn't the ticket.",
+    "role": "NARRATOR",
+    "text": "One number, the size of the worry, we set ourselves. We set it so that Kajal's family sits on the fence. So her 44 is by design. It is not a finding. Shalini's 23 and Ira's 98 then follow from the model.",
     "en": null
    },
    {
-    "role": "NAR2",
-    "text": "Remember your guess? Out of 100 Shalinis, 23 take Delhi. 59 go with Sonu to Durgapur. 14 stay at Patna while Sonu leaves.",
+    "role": "NARRATOR",
+    "text": "How many years of pay the family counts, the split of the worry, and how much families differ are assumed.",
     "en": null
    },
    {
-    "role": "NAR2",
-    "text": "Out of 100 Kajals: 44 Delhi, 42 with Kundan, 12 stay.",
+    "role": "NARRATOR",
+    "text": "And the order of the three girls doesn't depend on those guesses. It follows the trip.",
     "en": null
    },
    {
-    "role": "NAR2",
-    "text": "Out of 100 Iras, 98 take Delhi.",
+    "role": "NARRATOR",
+    "text": "Ira's parents can reach her in under 6 hours, by air. Kajal's, in 21. Shalini's, in 26 and a half.",
     "en": null
    },
    {
-    "role": "NAR2",
-    "text": "We set Kajal's family on the fence on purpose.",
+    "role": "NARRATOR",
+    "text": "Now look at Ira. Her family spends the most on travel, about 1.65 lakh rupees over four years. She still takes Delhi, because Delhi is one flight away: under six hours, door to door.",
     "en": null
    },
    {
-    "role": "NAR2",
-    "text": "We set Kajal's family on the fence on purpose. Shalini and Ira are what the model then implies.",
-    "en": null
-   },
-   {
-    "role": "NAR2",
-    "text": "The brothers leave Bihar 96, 98 and 100 times in 100. The sisters: 82, 86 and 100.",
-    "en": null
-   },
-   {
-    "role": "NAR1",
-    "text": "So in Bihar the gap mostly isn't she stays home. It's she goes where her brother goes.",
-    "en": null
-   },
-   {
-    "role": "NAR1",
-    "text": "And Ira's trip costs the most of the three. What tips her is the airport: Delhi is under six hours away.",
-    "en": null
-   },
-   {
-    "role": "NAR1",
-    "text": "This table is the parents' choice. What if Shalini has a say? With the bargaining model from Lecture 12, she gets Delhi if her say is at least 0.3 out of 1. In Patna her parents want Delhi too, so there's nothing to argue about.",
+    "role": "NARRATOR",
+    "text": "Her parents' one worry is the last leg: 48 kilometres across Delhi, in a cab, alone. We found no safety data for that road, so the model can't put a number on it.",
     "en": null
    }
   ]
@@ -305,59 +420,115 @@
   "name": "Fixes",
   "lines": [
    {
-    "role": "NAR1",
-    "text": "Try the fixes on Shalini. Pay her father's tickets: 23 becomes 26. A cheaper loan: 27. A campus pickup at the station: 32.",
+    "role": "NARRATOR",
+    "text": "The worry also feeds itself. No senior girl from her district at the college, so nobody to call, so not safe for girls, so no senior girl next year either.",
     "en": null
    },
    {
-    "role": "NAR1",
-    "text": "Now information. One senior girl from her own district at NIT Delhi: 85 in 100. A hostel guarantee in the first year: also 85. Both: 96.",
+    "role": "NARRATOR",
+    "text": "So let's test some fixes. With a model, you change one input and run it again.",
     "en": null
    },
    {
-    "role": "NAR1",
+    "role": "NARRATOR",
+    "text": "Pay her father's tickets: Shalini's 23 becomes 26.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "Put one senior girl from her district at NIT Delhi: 85. Promise every first-year girl a hostel place, and publish campus safety data: also 85. Both: 96.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "Why so big? A senior girl is someone her parents can call. A hostel promise works the same way. Both shrink the part of the worry that facts can move, and they break the loop.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
     "text": "Money barely moves her. Information does.",
     "en": null
    },
    {
-    "role": "NAR1",
+    "role": "NARRATOR",
     "text": "The size rests on an assumed worry split. The ranking doesn't.",
     "en": null
    },
    {
-    "role": "NAR1",
-    "text": "So the cheapest fix isn't more seats. Those exist, and many sit empty. It's a senior's phone number, a hostel promise, and a safe last mile.",
-    "en": null
-   },
-   {
-    "role": "NAR1",
-    "text": "Our model predicts more than the gap. It should close for toppers: in Maharashtra, it does. Sisters should end at a brother's college more often than their rank needs: we can't check that yet. It should cost most where the home NIT is weak: half tested.",
-    "en": null
-   },
-   {
-    "role": "NAR1",
-    "text": "And one miss: NITs far from an airport don't have more empty women's seats. The last mile is small next to the main trip.",
-    "en": null
-   },
-   {
-    "role": "NAR1",
-    "text": "And it isn't the same everywhere. For a girl at a typical rank, staying home in UP costs her nothing: MNNIT pays more than the far NITs she can reach. In Bihar it costs her about ₹1.2 lakh a year. For our twins, ₹6.4 lakh.",
+    "role": "NARRATOR",
+    "text": "And NIT Delhi does have a girls' hostel. What our fix adds is a promise: a place for every first-year girl, told to her family before they fill their choices.",
     "en": null
    }
   ]
  },
  {
   "id": 7,
-  "name": "You decide",
+  "name": "Where it breaks",
   "lines": [
    {
-    "role": "NAR1",
-    "text": "Same rank. She had the better seat. Same ticket price. A different trip.",
+    "role": "NARRATOR",
+    "text": "Every model breaks somewhere. Here is where ours does.",
     "en": null
    },
    {
-    "role": "NAR1",
-    "text": "Now you decide. In our game you get Shalini's trains, her budget and her brother. Choose what you would do, and see what it costs.",
+    "role": "NARRATOR",
+    "text": "One. The three families are composites, not real people. Twins are a device to hold the rank fixed.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "Two. Without the choice lists, we can't test the gap at the moment families choose.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "Three. The levels move with our assumptions. Count one year of pay instead of three, and Shalini's Delhi chance is 1 in 100. Count five, and it's 88. But the order of the girls never changes.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "Four. One prediction worked: in Maharashtra, the gap closes for toppers.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "And one failed. Colleges far from an airport don't have more empty seats for women.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "And the Census pattern is a link, not proof of a cause. So we say goes with, never causes.",
+    "en": null
+   }
+  ]
+ },
+ {
+  "id": 8,
+  "name": "You decide",
+  "lines": [
+   {
+    "role": "NARRATOR",
+    "text": "So, three things to remember.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "One. At the same rank, the sister often has the better seat.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "Two. What holds her back isn't the fare. It's worry, and it grows with every hour of the trip.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "Three. Information moves her far more than money.",
+    "en": null
+   },
+   {
+    "role": "NARRATOR",
+    "text": "Now you decide. In our game, choose for a family, and see what it costs.",
     "en": null
    }
   ]

@@ -232,7 +232,7 @@ async function page(file, base) {
 
 /* ---------------------------------------------------------------- the video copy
    First existing file in site.yml video.local. On GitHub (CI) only files inside the repo count
-   (media/itni_door_class_5min.mp4, the 23 MB web copy); the full-size renders in ../eco463-media stay local. */
+   (media/itni_door_v3.mp4, the web copy of the v3 explainer); the full-size renders in ../eco463-media stay local. */
 function videoSource() {
   return (SITE.video.local || []).map(p => path.resolve(ROOT, p))
     .filter(p => !process.env.CI || !path.relative(ROOT, p).startsWith(".."))
