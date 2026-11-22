@@ -41,7 +41,23 @@ td.r, th.r { text-align: right; }
 .crumb { margin-bottom: var(--sp-3); }
 
 /* ---------------------------------------------------------------- top bar and doors */
-.bar { border-bottom: 1px solid var(--line); background: color-mix(in srgb, var(--paper) 92%, transparent); }
+.bar { border-bottom: 1px solid var(--line); background: color-mix(in srgb, var(--paper) 94%, transparent); }
+/* the top bar stays at hand: sticky, slides up while you read down and comes back the moment you scroll up */
+header.bar { position: sticky; top: 0; z-index: 50; transition: transform var(--t-med) var(--ease-out); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.bar-away header.bar:not(:focus-within) { transform: translateY(-101%); }
+:target, h2[id], h3[id] { scroll-margin-top: 4.5rem; }
+/* footer doors: Home and the five doors, this page marked, and the next door */
+.foot-doors { border-top: 1px solid var(--line); margin-top: var(--sp-7); padding: var(--sp-3) 0; }
+.foot-doors .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-2) var(--sp-4); }
+.foot-doors ul { display: flex; flex-wrap: wrap; gap: var(--sp-1); list-style: none; margin: 0; padding: 0; }
+.foot-doors ul a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 .7rem; border-radius: var(--radius-pill); color: var(--ink); text-decoration: none; font-weight: 500; font-size: var(--fs-small); }
+.foot-doors ul a[aria-current="page"] { background: var(--ink); color: var(--on-dark); }
+.foot-next { display: inline-flex; align-items: center; min-height: 44px; padding: 0 1.1rem; border: var(--outline) solid var(--ink); border-radius: var(--radius-pill);
+  background: var(--card); color: var(--ink); font-weight: 600; text-decoration: none; box-shadow: 0 2px 0 var(--ink); }
+.foot-next::after { content: ""; width: .45em; height: .45em; margin-left: .6em; border: solid currentColor; border-width: 2px 2px 0 0; transform: rotate(45deg); }
+.foot-next:active { transform: translateY(2px); box-shadow: none; }
+@media (hover: hover) { .foot-doors ul a:hover, .foot-next:hover { background: var(--kraft); } .foot-doors ul a[aria-current="page"]:hover { background: var(--ink); } }
+.foot-doors + .foot { margin-top: 0; }
 .bar .wrap { display: flex; align-items: center; gap: var(--sp-4); min-height: 3.5rem; }
 .brand { font-family: var(--font-head); font-weight: 800; font-size: var(--fs-lead); color: var(--ink); text-decoration: none; white-space: nowrap; }
 .brand:hover { text-decoration: underline; }
@@ -209,16 +225,15 @@ dialog.sheet .close { float: right; min-height: 44px; min-width: 44px; border: v
 .takeaway { background: var(--kraft); border-radius: var(--radius-m); padding: var(--sp-3) var(--sp-4); margin: 0 0 var(--sp-5); font-size: var(--fs-lead); line-height: 1.45; }
 .takeaway p { margin: 0 0 var(--sp-2); }
 .takeaway .pegs { display: flex; flex-wrap: wrap; gap: var(--sp-2); font-size: var(--fs-small); }
-.label-ai { display: inline-block; font-size: var(--fs-small); border: 1px dashed var(--sindoor); color: var(--sindoor-ink); border-radius: var(--radius-pill); padding: .1rem .7rem; }
 
 /* ---------------------------------------------------------------- projector */
-html.present .bar, html.present .foot, html.present .next, html.present .no-present { display: none !important; }
+html.present .bar, html.present .foot, html.present .foot-doors, html.present .next, html.present .no-present { display: none !important; }
 html.present body { background: var(--paper); }
 
 /* ---------------------------------------------------------------- print: white page, tinted slips, no chrome */
 @media print {
   html, body { background: #fff !important; font-size: 10pt; }
-  .bar, .foot, .next, .skip, .no-print, .ctl, dialog { display: none !important; }
+  .bar, .foot, .foot-doors, .next, .skip, .no-print, .ctl, dialog { display: none !important; }
   .slip { box-shadow: none; }
   .scroll-x, .brief .scroll { background: none; }
   .tilt, .tilt-r { transform: none; }

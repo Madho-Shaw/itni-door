@@ -43,6 +43,11 @@ if (!POST) fs.writeFileSync(path.join(OUT, ".nojekyll"), "");
 /* ---------------------------------------------------------------- shared parts */
 const DOORS = [["watch", "Watch", "watch/"], ["one-pager", "One page", "one-pager/"], ["play", "Play", "play/"],
   ["report", "Report", "report/"], ["evidence", "Evidence", "evidence/"]];
+// the same doors with Home first, for the phone menu and the footer; "next" walks them in this order and back to Home
+const ALL = [["hub", "Home", ""]].concat(DOORS);
+const NEXT = { hub: "watch", watch: "one-pager", "one-pager": "play", play: "report", report: "evidence", evidence: "hub" };
+const doorLinks = (door, root, list) => list.map(([k, label, href]) =>
+  `<li><a href="${root}${href || (root ? "" : "./")}"${k === door ? ' aria-current="page"' : ""}>${label}</a></li>`).join("\n");
 function bar(door, root) {
   return `<a class="skip" href="#main">Skip to the content</a>
 <header class="bar"><div class="wrap">
@@ -51,7 +56,7 @@ function bar(door, root) {
 ${DOORS.map(([k, label, href]) => `<li><a href="${root}${href}"${k === door ? ' aria-current="page"' : ""}>${label}</a></li>`).join("\n")}
 </ul></nav>
 <details class="doors doors-phone"><summary>Doors</summary><nav aria-label="Doors (menu)"><ul>
-${DOORS.map(([k, label, href]) => `<li><a href="${root}${href}"${k === door ? ' aria-current="page"' : ""}>${label}</a></li>`).join("\n")}
+${doorLinks(door, root, ALL)}
 </ul></nav></details>
 </div></header>
 <div class="navload" aria-hidden="true"></div>
@@ -66,15 +71,23 @@ const NAV_SPEED = `<script type="speculationrules">{"prerender":[{"where":{"and"
 document.addEventListener("click",function(e){if(e.defaultPrevented||e.button||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;if(link(e))d.classList.add("navgo")});
 addEventListener("pageshow",function(){d.classList.remove("navgo")});
 function pf(e){var u=link(e);if(!u||seen[u.pathname])return;seen[u.pathname]=1;var l=document.createElement("link");l.rel="prefetch";l.href=u.pathname;document.head.appendChild(l)}
-document.addEventListener("pointerover",pf,{passive:true});document.addEventListener("touchstart",pf,{passive:true})})();</script>
+document.addEventListener("pointerover",pf,{passive:true});document.addEventListener("touchstart",pf,{passive:true});
+try{localStorage.setItem("itni-visit",Date.now())}catch(e){}
+var y=scrollY,q=0;addEventListener("scroll",function(){if(q)return;q=requestAnimationFrame(function(){q=0;var n=scrollY,b=document.querySelector("header.bar"),o=b&&b.querySelector("details[open]");
+if(n<120||n<y-8||o)d.classList.remove("bar-away");else if(n>y+8)d.classList.add("bar-away");y=n})},{passive:true})})();</script>
 <script>(function(){var d=document.documentElement;if(d.classList.contains("present")||!window.matchMedia||matchMedia("(prefers-reduced-motion: reduce)").matches)return;
 var w=[],q=0;function check(){q=0;var vh=innerHeight;w=w.filter(function(el){if(el.getBoundingClientRect().top>vh*.94)return true;el.classList.replace("desk-wait","desk-in");return false});if(!w.length)removeEventListener("scroll",tick)}
 function tick(){if(!q)q=requestAnimationFrame(check)}
 function go(){var vh=innerHeight;[].forEach.call(document.querySelectorAll(".doors-list > li, .rooms > li"),function(el){var r=el.getBoundingClientRect();if(r.height&&r.top>vh){el.style.setProperty("--k",[].indexOf.call(el.parentNode.children,el)%3);el.classList.add("desk-wait");w.push(el)}});if(w.length){addEventListener("scroll",tick,{passive:true});addEventListener("resize",tick)}}
 document.readyState==="loading"?addEventListener("DOMContentLoaded",go):go()})();</script>`;
-function foot(root) {
+function foot(root, door) {
   const d = new Date().toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" });
-  return `<footer class="foot"><div class="wrap">
+  const nx = ALL.find(x => x[0] === NEXT[door]);
+  const nextLink = nx ? `<a class="foot-next" href="${root}${nx[2] || (root ? "" : "./")}">Next: ${nx[0] === "hub" ? "back to the start" : nx[1]}</a>` : "";
+  return `<nav class="foot-doors" aria-label="Doors (footer)"><div class="wrap">
+<ul>${doorLinks(door, root, ALL)}</ul>${nextLink}
+</div></nav>
+<footer class="foot"><div class="wrap">
 <p><b>${SITE.group}, ${SITE.course.split(" Gender")[0]}</b><br>${SITE.members.join(", ")}<br>${SITE.month}</p>
 <p><a href="${root}report/#sec-who">Who did what</a><br><a href="${root}credits/">Credits: fonts, data, tools</a><br><a href="${root}talk/">The talk (projector)</a></p>
 <p>Last built ${d}.<br>No cookies, no tracking. Nothing loads from another site until you press play on a video.</p>
@@ -91,7 +104,8 @@ function quartoLayout(html, rel) {
   if (/class="wrap rpt/.test(html) || !/<header id="title-block-header">/.test(html)) return html;
   const barAt = html.indexOf('<header class="bar">');
   if (barAt < 0) return html;
-  const start = html.indexOf("</header>", barAt) + "</header>".length, end = html.indexOf('<footer class="foot">');
+  const fd = html.indexOf('<nav class="foot-doors"');
+  const start = html.indexOf("</header>", barAt) + "</header>".length, end = fd >= 0 ? fd : html.indexOf('<footer class="foot">');
   if (end < start) return html;
   let body = html.slice(start, end), toc = "";
   body = body.replace(/<nav id="TOC"[\s\S]*?<\/nav>\s*/, m => { toc = m; return ""; });
@@ -155,7 +169,8 @@ async function page(file, base) {
   const rel = path.relative(base || SRC, file), depth = rel.split(path.sep).length - 1, root = depth ? "../".repeat(depth) : "";
   let html = fs.readFileSync(file, "utf8");
   // the Quarto pages all share report/_parts/before.html (bar:report); the evidence pages belong to the Evidence door
-  html = html.replace(/<!--#bar:([\w-]+)-->/g, (m, d) => bar(base && /^evidence/.test(rel) ? "evidence" : d, root)).replace(/<!--#foot-->/g, () => foot(root));
+  const mb = html.match(/<!--#bar:([\w-]+)-->/), door = mb ? (base && /^evidence/.test(rel) ? "evidence" : mb[1]) : null;
+  html = html.replace(/<!--#bar:([\w-]+)-->/g, () => bar(door, root)).replace(/<!--#foot-->/g, () => foot(root, door));
   if (base) html = quartoLayout(html, rel);
   html = html.replace(/\{\{root\}\}/g, root);
   html = html.replace(/\{\{site\.([\w.]+)\}\}/g, (m, k) => { const v = k.split(".").reduce((o, x) => o && o[x], SITE); return v == null ? "" : String(v); });
