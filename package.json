@@ -13,6 +13,7 @@
     "report-preview": "node tools/report_preview.js"
   },
   "devDependencies": {
+    "gsap": "^3.13.0",
     "js-yaml": "^5.5.0",
     "katex": "^0.19.1",
     "markdown-it": "^15.0.3",

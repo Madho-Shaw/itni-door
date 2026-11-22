@@ -35,6 +35,9 @@ function copyDir(a, b, filter) {
 }
 copyDir(SRC, OUT, s => !/\.html$/.test(s));
 if (!POST) copyDir(path.join(ROOT, "data"), path.join(OUT, "data"), s => !/source|evidence_variables/.test(s));
+// GSAP core for the hub intro, self-hosted from npm (nothing loads from another site); fetched only when the intro plays
+fs.mkdirSync(path.join(OUT, "assets/vendor"), { recursive: true });
+fs.copyFileSync(path.join(ROOT, "node_modules/gsap/dist/gsap.min.js"), path.join(OUT, "assets/vendor/gsap.min.js"));
 if (!POST) fs.writeFileSync(path.join(OUT, ".nojekyll"), "");
 
 /* ---------------------------------------------------------------- shared parts */
