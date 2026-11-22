@@ -90,7 +90,7 @@ html.present .hero { min-height: 100vh; }
 .intro-route { display: block; width: 100%; height: auto; margin: var(--sp-2) 0 var(--sp-1); overflow: visible; }
 .intro-route path { fill: none; stroke: var(--sindoor); stroke-width: 3; stroke-linecap: round; }
 .intro-route circle { fill: var(--card); stroke: var(--ink); stroke-width: 2.5; }
-.intro-route text { font-family: var(--font-body); font-weight: 600; font-size: 19px; fill: var(--ink); }
+.intro-route text { font-family: var(--font-body); font-weight: 600; font-size: 24px; fill: var(--ink); }
 .intro-hand { font-family: var(--font-hand); font-weight: 700; font-size: var(--fs-lead); color: var(--sindoor-ink); }
 .intro-nums { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-3); margin: var(--sp-3) 0; padding: 0; list-style: none; }
 .intro-nums b { display: block; font-family: var(--font-head); font-weight: 800; font-size: clamp(2.6rem, 11vw, 4rem); line-height: 1; color: var(--data); }
@@ -102,6 +102,40 @@ html.present .hero { min-height: 100vh; }
 .intro.still { display: block; overflow-y: auto; padding: 4.5rem var(--gutter) var(--sp-6); cursor: auto; }
 .intro.still .intro-stage { height: auto; margin: 0 auto; display: grid; gap: var(--sp-4); }
 .intro.still .intro-beat { position: static; visibility: visible; }
+/* the duo: Kajal and Kundan, cut-paper figures on a strip of kraft, tell the intro in speech bubbles */
+.intro .duo { display: none; position: absolute; inset: 0; --kid-w: min(9rem, 19vh); }
+.intro[data-mode="duo"]:not(.still) .duo { display: block; }
+.intro[data-mode="duo"]:not(.still) .intro-stage { display: none; }
+.duo-tag { position: absolute; top: max(16px, env(safe-area-inset-top, 0px)); left: var(--gutter); max-width: calc(100vw - 2 * var(--gutter) - 8.5rem); margin: 0; line-height: 1.25; display: flex; align-items: center; gap: .5rem; font-size: var(--fs-small); color: var(--ink-soft); min-height: 44px; }
+.duo-top { position: absolute; left: 0; right: 0; top: max(4.6rem, 11vh); margin: 0 auto; width: min(34rem, calc(100vw - 2 * var(--gutter))); }
+.duo-say { position: absolute; top: 0; left: 0; right: 0; margin: 0; padding: var(--sp-4) var(--sp-5); background: var(--card); border: var(--outline) solid var(--ink);
+  border-radius: var(--radius-m); box-shadow: var(--pin); visibility: hidden; }
+.duo-say p { margin: 0 0 var(--sp-2); }
+.duo-name { font-family: var(--font-head); font-weight: 800; font-size: clamp(3rem, 13vw, 5.5rem); line-height: .95; color: var(--sindoor-ink); }
+.bubble { display: grid; gap: .2rem; font-size: var(--fs-lead); }
+.bubble b { font-family: var(--font-hand); font-size: clamp(1.4rem, 5.4vw, 1.9rem); line-height: 1.2; }
+.bubble span { color: var(--ink-soft); }
+.bubble .who { font-size: var(--fs-small); font-weight: 600; color: var(--ink-soft); }
+.b-him::after { content: ""; position: absolute; bottom: -14px; right: 30%; width: 22px; height: 22px; background: var(--card); border: solid var(--ink);
+  border-width: 0 var(--outline) var(--outline) 0; transform: rotate(45deg) skew(10deg, 10deg); }
+.b-aunt, .b-papa { border-style: dashed; }
+.duo-ground { position: absolute; left: 0; right: 0; bottom: max(3vh, 12px); height: calc(var(--kid-w) * 1.77 + 3.2rem); }
+.duo-ground .pin::before { content: ""; position: absolute; left: 50%; top: 100%; width: 2px; height: .9rem; background: var(--ink); }
+.duo-ground::before { content: ""; position: absolute; left: 4%; right: 4%; bottom: 1.5rem; height: .9rem; background: var(--kraft); border-radius: 3px; transform: rotate(-.4deg); box-shadow: var(--pin); }
+.kid { position: absolute; bottom: 1.9rem; width: var(--kid-w); margin: 0 0 0 calc(var(--kid-w) / -2); visibility: hidden; }
+.kid svg { display: block; width: 100%; height: auto; overflow: visible; }
+.kid figcaption { position: absolute; left: 0; right: 0; bottom: -1.75rem; text-align: center; font-family: var(--font-hand); font-weight: 700; font-size: var(--fs-small); }
+.kid.her { left: 38%; z-index: 2; } .kid.him { left: 62%; z-index: 1; }
+.pin { position: absolute; bottom: 2.6rem; z-index: 3; transform: translateX(-50%); font-size: var(--fs-small); font-weight: 600; padding: .05rem .55rem; border: 1px solid var(--ink); border-radius: var(--radius-s); background: var(--card); visibility: hidden; }
+.p-delhi { left: 10%; } .p-dgp { left: 88%; }
+.duo-line { position: absolute; bottom: calc(1.9rem + var(--kid-w) * .95); height: 3px; background: var(--sindoor); border-radius: 2px; visibility: hidden; z-index: 0; }
+@media (max-width: 599px) {
+  .intro .duo { --kid-w: 5.4rem; }
+  .kid.her { left: 36%; } .kid.him { left: 66%; }
+  .p-delhi { left: 11%; } .p-dgp { left: 89%; }
+  .duo-say { padding: var(--sp-3) var(--sp-4); }
+}
+@media (max-height: 560px) { .intro .duo { --kid-w: 4.6rem; } .duo-top { top: 4rem; } }
 .replay { margin: var(--sp-3) 0 0; }
 .replay button { min-height: 44px; padding: 0; border: 0; background: none; color: var(--data); font: inherit; font-size: var(--fs-small); text-decoration: underline; text-underline-offset: .15em; cursor: pointer; }
 html.present .replay { display: none; }
@@ -109,7 +143,7 @@ html.present .replay { display: none; }
 </style>
 </head>
 <body>
-<div id="intro" class="intro" role="dialog" aria-modal="true" aria-labelledby="intro-t" hidden>
+<div id="intro" class="intro" data-mode="duo" role="dialog" aria-modal="true" aria-labelledby="intro-t" hidden>
   <button type="button" class="intro-skip">Skip intro</button>
   <div class="intro-stage">
     <section class="intro-beat" data-beat="1">
@@ -148,30 +182,71 @@ html.present .replay { display: none; }
       </ul>
     </section>
   </div>
+  <div class="duo">
+    <p class="duo-tag"><span class="chip is-d">Dramatised</span> Kajal and Kundan, Begusarai town</p>
+    <div class="duo-top">
+      <section class="duo-say duo-title">
+        <p class="intro-label">ECO463 Gender in Economics and Business · Group 7</p>
+        <p class="duo-name">Itni Door?</p>
+        <p class="intro-label">A multimedia project: hub, video, one page, game, report and evidence room</p>
+      </section>
+      <p class="duo-say bubble b-him"><span class="who">Kundan</span><b>Mera Durgapur aaya. Kajal ka Dilli!</b><span>I got Durgapur. Kajal got Delhi!</span></p>
+      <p class="duo-say bubble b-aunt"><span class="who">Aunt</span><b>Akeli Dilli? Log kya kahenge?</b><span>Delhi, alone? What will people say?</span></p>
+      <p class="duo-say bubble b-papa"><span class="who">Papa</span><b>Dono saath jaoge. Kundan rahega na saath.</b><span>You'll both go together. Kundan will be with you.</span></p>
+      <section class="duo-say c-found">
+        <p class="intro-label">What we found</p>
+        <p class="intro-big">She goes where her brother goes.</p>
+        <p>Out of 100 families like this</p>
+        <ul class="intro-nums">
+          <li><b data-v="village.delhi">23</b><span>village</span></li>
+          <li><b data-v="town.delhi">44</b><span>town</span></li>
+          <li><b data-v="city.delhi">98</b><span>city</span></li>
+        </ul>
+        <p class="intro-label">Best seats: she goes to Delhi</p>
+      </section>
+      <section class="duo-say c-limits">
+        <p class="intro-label">Where our model breaks</p>
+        <ul class="intro-limits">
+          <li>The three families are composites.</li>
+          <li>We have no choice-list data … and our RTI was refused.</li>
+          <li>We say "goes with", never "causes".</li>
+        </ul>
+      </section>
+    </div>
+    <div class="duo-ground" aria-hidden="true">
+      <span class="pin p-delhi">Delhi</span><span class="pin p-dgp">Durgapur</span>
+      <span class="duo-line"></span>
+      <figure class="kid her"><svg viewBox="0 0 120 212" aria-hidden="true"><g class="body"><g fill="rgba(43,33,24,.14)" transform="translate(4 5)"><path d="M33 92 C29 122 25 150 21 173 C48 180 73 180 99 173 C95 150 91 121 87 92 C74 83 46 83 33 92 Z"/><circle cx="60" cy="58" r="28"/></g><path d="M80 58 C89 74 87 97 82 118" stroke="#2B2118" stroke-width="9" stroke-linecap="round" fill="none"/><circle cx="82" cy="121" r="3.5" fill="#E3A92B" stroke="#2B2118" stroke-width="1.5"/><path d="M43 171 L41 201 C45 205 53 205 55 201 L57 173 Z" fill="#D3BE9A" stroke="#2B2118" stroke-width="2.5" stroke-linejoin="round"/><path d="M63 173 L65 201 C67 205 75 205 79 201 L77 171 Z" fill="#D3BE9A" stroke="#2B2118" stroke-width="2.5" stroke-linejoin="round"/><g class="arm-l"><path d="M36 98 C28 116 24 132 24 148" stroke="#2B2118" stroke-width="13" stroke-linecap="round" fill="none"/><path d="M36 98 C28 116 24 132 24 148" stroke="#2A7F7A" stroke-width="8" stroke-linecap="round" fill="none"/><circle cx="24" cy="152" r="5.5" fill="#B9785A" stroke="#2B2118" stroke-width="2"/></g><g class="arm-r"><path d="M84 98 C92 116 96 132 96 148" stroke="#2B2118" stroke-width="13" stroke-linecap="round" fill="none"/><path d="M84 98 C92 116 96 132 96 148" stroke="#2A7F7A" stroke-width="8" stroke-linecap="round" fill="none"/><circle cx="96" cy="152" r="5.5" fill="#B9785A" stroke="#2B2118" stroke-width="2"/></g><path d="M33 92 C29 122 25 150 21 173 C48 180 73 180 99 173 C95 150 91 121 87 92 C74 83 46 83 33 92 Z" fill="#2A7F7A" stroke="#2B2118" stroke-width="2.5" stroke-linejoin="round"/><path d="M25 163 C50 169 72 169 95 163" stroke="#E6D5B8" stroke-width="3" fill="none" stroke-dasharray="1 6" stroke-linecap="round"/><path d="M51 88 L60 104 L69 88" fill="none" stroke="#2B2118" stroke-width="2" stroke-linejoin="round"/><path d="M53 78 L54 91 L66 91 L67 78 Z" fill="#B9785A" stroke="#2B2118" stroke-width="2"/><path d="M60 31 C77 30 88 44 87 60 C86 76 74 86 59 85 C44 85 33 74 33 59 C33 43 44 31 60 31 Z" fill="#B9785A" stroke="#2B2118" stroke-width="2.5"/><path d="M33 58 C30 38 46 26 62 27 C80 28 90 42 87 58 C80 46 70 41 60 42 C50 42 40 47 33 58 Z" fill="#2B2118"/><circle cx="60" cy="51" r="1.8" fill="#C8372D"/><g class="look"><g class="eyes"><ellipse cx="51" cy="62" rx="2.6" ry="3.4" fill="#2B2118"/><ellipse cx="69" cy="62" rx="2.6" ry="3.4" fill="#2B2118"/></g><path class="m-smile" d="M53 73 Q60 79 67 73" stroke="#2B2118" stroke-width="2.2" fill="none" stroke-linecap="round"/><ellipse class="m-talk" cx="60" cy="75" rx="3.5" ry="3" fill="#5B2A20"/></g><circle cx="45" cy="70" r="3.6" fill="#C8372D" opacity=".18"/><circle cx="75" cy="70" r="3.6" fill="#C8372D" opacity=".18"/></g></svg><figcaption>Kajal</figcaption></figure>
+      <figure class="kid him"><svg viewBox="0 0 120 212" aria-hidden="true"><g class="body"><g fill="rgba(43,33,24,.14)" transform="translate(4 5)"><path d="M32 92 C30 118 30 146 31 167 C50 171 70 171 89 167 C90 146 90 118 88 92 C74 84 46 84 32 92 Z"/><circle cx="60" cy="58" r="28"/></g><path d="M41 165 L40 201 C44 205 53 205 55 201 L57 167 Z" fill="#2F3E73" stroke="#2B2118" stroke-width="2.5" stroke-linejoin="round"/><path d="M63 167 L65 201 C67 205 76 205 80 201 L79 165 Z" fill="#2F3E73" stroke="#2B2118" stroke-width="2.5" stroke-linejoin="round"/><g class="arm-l"><path d="M36 98 C30 116 28 132 28 148" stroke="#2B2118" stroke-width="13" stroke-linecap="round" fill="none"/><path d="M36 98 C30 116 28 132 28 148" stroke="#E3A92B" stroke-width="8" stroke-linecap="round" fill="none"/><circle cx="28" cy="152" r="5.5" fill="#B9785A" stroke="#2B2118" stroke-width="2"/></g><g class="arm-r"><path d="M84 98 C90 116 92 132 92 148" stroke="#2B2118" stroke-width="13" stroke-linecap="round" fill="none"/><path d="M84 98 C90 116 92 132 92 148" stroke="#E3A92B" stroke-width="8" stroke-linecap="round" fill="none"/><circle cx="92" cy="152" r="5.5" fill="#B9785A" stroke="#2B2118" stroke-width="2"/></g><path d="M32 92 C30 118 30 146 31 167 C50 171 70 171 89 167 C90 146 90 118 88 92 C74 84 46 84 32 92 Z" fill="#E3A92B" stroke="#2B2118" stroke-width="2.5" stroke-linejoin="round"/><path d="M49 87 L60 99 L71 87" fill="#FBF6EC" stroke="#2B2118" stroke-width="2" stroke-linejoin="round"/><g fill="#2B2118"><circle cx="60" cy="112" r="1.6"/><circle cx="60" cy="127" r="1.6"/><circle cx="60" cy="142" r="1.6"/></g><path d="M53 78 L54 91 L66 91 L67 78 Z" fill="#B9785A" stroke="#2B2118" stroke-width="2"/><path d="M60 31 C77 30 88 44 87 60 C86 76 74 86 59 85 C44 85 33 74 33 59 C33 43 44 31 60 31 Z" fill="#B9785A" stroke="#2B2118" stroke-width="2.5"/><path d="M34 57 C31 37 46 27 61 27 C78 27 90 38 86 56 C82 47 73 42 63 43 C58 38 50 40 46 45 C41 47 37 51 34 57 Z" fill="#2B2118"/><g class="look"><g class="eyes"><ellipse cx="51" cy="62" rx="2.6" ry="3.4" fill="#2B2118"/><ellipse cx="69" cy="62" rx="2.6" ry="3.4" fill="#2B2118"/></g><path class="m-smile" d="M53 73 Q60 79 67 73" stroke="#2B2118" stroke-width="2.2" fill="none" stroke-linecap="round"/><ellipse class="m-talk" cx="60" cy="75" rx="3.5" ry="3" fill="#5B2A20"/></g><circle cx="45" cy="70" r="3.6" fill="#C8372D" opacity=".18"/><circle cx="75" cy="70" r="3.6" fill="#C8372D" opacity=".18"/></g></svg><figcaption>Kundan</figcaption></figure>
+    </div>
+  </div>
 </div>
-<script>/* the intro: once per visit when a visit starts on the hub; ?intro plays it on cue, so does I in projector mode.
-   Reduced motion: no autoplay; a replay shows the still cards. Storage can fail (private mode): then it plays once per load. */
-(function () { var d = document.documentElement, el = document.getElementById("intro"), q = location.search + location.hash, ref = false;
-  function get(k) { try { return sessionStorage.getItem(k); } catch (e) { return null; } }
-  function put(k) { try { sessionStorage.setItem(k, "1"); } catch (e) { } }
+<script>/* the intro plays by itself on a first visit, or when the last visit to the site was over 7 days ago (every page
+   stamps the visit in localStorage; if storage is blocked, once per tab session). Otherwise the replay link under the
+   doors plays it. ?intro plays it on cue (?intro=duo or ?intro=slips picks one), so does I in projector mode, where it
+   never plays by itself. Reduced motion: no autoplay; the replay shows the still cards. */
+(function () { var d = document.documentElement, el = document.getElementById("intro"), q = location.search + location.hash;
+  function ls(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); return "ok"; } catch (e) { return null; } }
+  function ss(k, v) { try { if (v === undefined) return sessionStorage.getItem(k); sessionStorage.setItem(k, v); return "ok"; } catch (e) { return null; } }
   var calm = !window.matchMedia || matchMedia("(prefers-reduced-motion: reduce)").matches;
-  try { ref = !!document.referrer && new URL(document.referrer).origin === location.origin; } catch (e) { }
-  var auto = /[?&#]intro/.test(q) || (!get("itni-intro") && !ref && !calm && !d.classList.contains("present"));
-  put("itni-intro");
+  var last = +ls("itni-visit") || 0, due = ls("itni-probe", "1") ? (!last || Date.now() - last > 6048e5) : !ss("itni-intro");
+  ss("itni-intro", "1");
+  var m = (q.match(/intro=(duo|slips)/) || [])[1]; if (m) el.setAttribute("data-mode", m);
+  var auto = /[?&#]intro/.test(q) || (due && !calm && !d.classList.contains("present"));
   function shut() { el.hidden = true; d.classList.remove("intro-on"); }
-  function add(src, ok) { var s = document.createElement("script"); s.src = src; s.onload = ok || null; s.onerror = shut; document.head.appendChild(s); }
+  function add(src) { var s = document.createElement("script"); s.src = src; s.async = false; s.onerror = shut; document.head.appendChild(s); }
   window.itniIntro = function (still) {
     if (!el || d.classList.contains("intro-on")) return;
     window.itniIntroStill = !!(still || calm);
     d.classList.add("intro-on"); el.hidden = false; el.classList.toggle("still", window.itniIntroStill);
     if (window.itniIntroPlay) return window.itniIntroPlay();
-    if (window.itniIntroStill || window.gsap) add("assets/intro.js");
-    else add("assets/vendor/gsap.min.js", function () { add("assets/intro.js"); });
+    if (!window.itniIntroStill && !window.gsap) add("assets/vendor/gsap.min.js");   /* both fetched at once, run in order */
+    add("assets/intro.js");
     setTimeout(function () { if (!window.itniIntroPlay) shut(); }, 4000);   /* slow or blocked script: never strand the page */
   };
   function go() { if (auto) window.itniIntro(false); }
   if (document.prerendering) document.addEventListener("prerenderingchange", go, { once: true }); else go();
-  addEventListener("keydown", function (e) { if ((e.key === "i" || e.key === "I") && d.classList.contains("present") && !e.target.closest("input, textarea")) window.itniIntro(false); });
+  addEventListener("keydown", function (e) { if ((e.key === "i" || e.key === "I") && d.classList.contains("present") && !el.contains(e.target)) window.itniIntro(false); });
   document.addEventListener("DOMContentLoaded", function () { var r = document.querySelector(".replay");
     if (r) { r.hidden = false; r.querySelector("button").addEventListener("click", function () { window.itniIntro(false); }); } });
 })();</script>
