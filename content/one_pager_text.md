@@ -25,18 +25,18 @@ At choice filling, last year's closing ranks show which seats each twin can reac
 | Block, in plain words | Formula |
 |---|---|
 | Value: both children's pay, for H years of work after the degree | H × (his pay + her pay) |
-| Money: fares, plus her escort's tickets and lost days | λ × [16 fares each + J × (2 fares + e × w)] |
-| Worry: hours until her parents can reach her, times the worry per hour | [σ / (1 + n + b if her brother is there) + τ] × R, R = hours ÷ 24 |
+| Money: fares, plus her escort's tickets and lost days (e days at day wage w), weighted by λ | λ × [16 fares each + J × (2 fares + e × w)] |
+| Worry: days until her parents can reach her (R), times the worry per day | [σ / (1 + n + b if her brother is there) + τ] × R, R = hours ÷ 24 |
 
 Score = value − money − worry; the family picks the highest. The son has no escort and no worry term.
 
-**Escort**, a "pink tax": the same seat costs her more to reach; zero when her brother is there, and small. **Worry** has a statistical part σ that information moves (a senior girl from her district is someone the parents can call) and a norm part τ, "log kya kahenge", that nothing moves. Results read as "out of 100 families like this".
+**Escort**, a "pink tax": the same seat costs her more to reach; zero when her brother is there, and small. **Worry** has a statistical part σ that information moves (a senior girl from her district is someone the parents can call) and a norm part τ, "log kya kahenge" (what will people say), that nothing moves. Results read as "out of 100 families like this".
 
 | H | σ | τ | b | μ | λ | n | Day wage w | J |
 |---|---|---|---|---|---|---|---|---|
 | 3 | 16, calibrated (town family on the fence) | 4 | 1 | 3 | 2.5 / 1.2 / 1.0 | 0 / 0 / 5 | ₹378.93 sourced / ₹2,000 / ₹4,167 | 8 train, 2 air, 0 with brother |
 
-All assumed unless marked; pay, closing ranks and main travel legs are sourced.
+H years of pay counted; σ worry per day, τ its norm part; b the brother's effect; μ noise; λ weight on money; n girls known who went; J escorted trips. All assumed unless marked; pay, ranks and travel legs sourced.
 
 ## 4. Shalini, village in Saharsa, worked through
 
@@ -55,7 +55,7 @@ Delhi is 26.5 hours away, so worry outweighs pay. The four-year travel bill for 
 | Begusarai town (Kajal) | 44 | 98 | Best seats, 44 |
 | Patna city (Ira) | 98 | 100 | Best seats, 98 |
 
-Kajal is calibrated. The order follows mostly from reach time (26.5, 21 and 5.75 hours). Ira's family pays most for travel (₹1,65,114) yet sends her: Delhi is one flight away. In the village she needs a say of at least 0.3 to get Delhi.
+An illustration, not a forecast: σ puts Kajal on the fence. We claim the order, which comes from reach time (26.5, 21 and 5.75 hours) and held in every run. Ira's family pays most for travel (₹1,65,114) yet sends her: Delhi is one flight away. In the village she needs a say of at least 0.3 to get Delhi.
 
 ## 6. Predictions
 
