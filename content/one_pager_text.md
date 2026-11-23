@@ -42,8 +42,8 @@ All assumed unless marked; pay, closing ranks and main travel legs are sourced.
 
 | ₹ lakh | Value | Money | Worry | Score |
 |---|---|---|---|---|
-| Together | 66.1 | 0.46 | 7.25 | 58.35 |
-| Best seats | 79.2 | 1.56 | 22.08 | 55.53 |
+| Together | 66.06 | 0.46 | 7.25 | 58.35 |
+| Best seats | 79.17 | 1.56 | 22.08 | 55.53 |
 
 Delhi is 26.5 hours away, so worry outweighs pay. The four-year travel bill for Best seats, ₹62,366, is under one year's pay gap between Delhi and Patna (₹6.42 lakh).
 

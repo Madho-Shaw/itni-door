@@ -229,14 +229,14 @@
         txt(x + lfs + 1, y, words + " ", { size: lfs }).replace("</text>", '<tspan font-weight="700" fill="var(--data)">' + num + "</tspan></text>");
     }
     var x0 = Math.max(4, Math.min(lx - pw / 2, w / 2 - 170)), x1 = Math.max(w / 2 + 12, Math.min(rx - pw / 2, w - (narrow ? 158 : 214))), y0 = ground + 18 + lfs;
-    g += '<g class="sc-lab">' + lab(x0, y0, V[0].c, narrow ? "value" : "value of two seats", L.value.toFixed(1)) +
+    g += '<g class="sc-lab">' + lab(x0, y0, V[0].c, narrow ? "value" : "value of two seats", L.value.toFixed(2)) +
       txt(x0, y0 + lh, "H × (his pay + her pay)", { size: lfs - 1, cls: "soft" }) +
       lab(x1, y0, C[2].c, "money", L.money.toFixed(2)) + lab(x1, y0 + lh, C[0].c, narrow ? "fixable worry" : "worry we can fix", L.stat.toFixed(2)) +
       lab(x1, y0 + 2 * lh, C[1].c, "log kya kahenge", L.taste.toFixed(2)) + "</g>";
     var N = names(M);
-    var pic = svg(w, h, g, "The scale for the " + FAM[f].place + " family, option " + N[opt] + ": value of the two seats " + L.value.toFixed(1) +
+    var pic = svg(w, h, g, "The scale for the " + FAM[f].place + " family, option " + N[opt] + ": value of the two seats " + L.value.toFixed(2) +
       " lakh against money " + L.money.toFixed(2) + " and worry " + L.worry.toFixed(2) + " (statistical " + L.stat.toFixed(2) + ", taste " + L.taste.toFixed(2) + "). Score " + L.U.toFixed(2) + ".");
-    return pic + '<p class="scale-score"><span class="sc-eq">Score</span> <span class="num">' + L.value.toFixed(1) + " − " + L.money.toFixed(2) + " − " + L.worry.toFixed(2) + " = " + L.U.toFixed(2) + "</span> lakh</p>";
+    return pic + '<p class="scale-score"><span class="sc-eq">Score</span> <span class="num">' + L.value.toFixed(2) + " − " + L.money.toFixed(2) + " − " + L.worry.toFixed(2) + " = " + L.U.toFixed(2) + "</span> lakh</p>";
   }
 
   /* ------------------------------------------------------------ the twins' faces (the video's puppet heads, crop "head")
@@ -348,13 +348,13 @@
       g += '<rect x="' + n1(s0) + '" y="' + y + '" width="' + n1(Math.max(1, m0 - s0 - 2)) + '" height="12" fill="var(--opt-split)"><title>Statistical worry ' + L.stat.toFixed(2) + "</title></rect>";
       g += '<rect x="' + n1(m0) + '" y="' + y + '" width="' + n1(Math.max(1.5, vEnd - m0)) + '" height="12" fill="var(--opt-together)"><title>Money ' + L.money.toFixed(2) + "</title></rect>";
       g += txt(x(L.value) + 8, y + 11, L.U.toFixed(1), { size: fs - 1, weight: 700 });
-      g += txt(w < 480 ? 0 : x(0), y + 30, "value " + L.value.toFixed(1) + ", money " + L.money.toFixed(2) + ", worry " + L.worry.toFixed(2), { size: fs - 3, cls: "soft" });
+      g += txt(w < 480 ? 0 : x(0), y + 30, "value " + L.value.toFixed(2) + ", money " + L.money.toFixed(2) + ", worry " + L.worry.toFixed(2), { size: fs - 3, cls: "soft" });
     });
     return svg(w, h, g, "Score of each option for the " + FAM[f].place + " family, lakh: " + opts.map(function (op) { return N[op] + " " + F.ledger[op].U.toFixed(2); }).join(", ")) +
       legend([{ style: "background:var(--ink);border-color:var(--ink)", label: "what is left: the score" }, { cls: "k-son_only", label: "log kya kahenge (taste)" },
         { cls: "k-split", label: "worry we can fix (statistical)" }, { cls: "k-together", label: "money" }]) +
       table(["Option", "Value", "Money", "Statistical worry", "Taste", "Score"], opts.map(function (op) { var L = F.ledger[op];
-        return [N[op], L.value.toFixed(1), L.money.toFixed(2), L.stat.toFixed(2), L.taste.toFixed(2), L.U.toFixed(2)]; }), "The ledger, lakh rupees");
+        return [N[op], L.value.toFixed(2), L.money.toFixed(2), L.stat.toFixed(2), L.taste.toFixed(2), L.U.toFixed(2)]; }), "The ledger, lakh rupees");
   }
 
   /* ------------------------------------------------------------ journey strip (F11): hours, not kilometres */
