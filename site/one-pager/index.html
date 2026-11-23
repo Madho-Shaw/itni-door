@@ -36,8 +36,24 @@
 .figrow figure { margin: 0; }
 .figrow figcaption { font-size: var(--fs-small); margin-top: .2rem; }
 .figrow .big { font-family: var(--font-head); font-weight: 800; font-size: var(--fs-h3); color: var(--data); }
-.scale-fig svg { max-width: 30rem; height: auto; }
+.scale-fig svg { max-width: 30rem; height: auto; display: block; }
 .figrow svg { height: auto; }
+/* 3. Our model: on a laptop the options sit beside the scale, then the three blocks, the score and the rest run across.
+   On a phone: words, options, the scale, then the rest. The copy box steps aside (display: contents) so its pieces join the grid. */
+.m-grid .copy { display: contents; }
+.m-grid .copy > * { order: 4; grid-column: 1 / -1; }
+.m-grid .copy > p:first-child { order: 1; }
+.m-grid .copy > .opt-cards { order: 2; margin: var(--sp-2) 0 0; }
+.m-grid .scale-fig { order: 3; }
+.m-grid .copy > .score-line + p { columns: 2 20rem; column-gap: var(--sp-5); }
+@media screen and (min-width: 860px) {
+  .m-grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); row-gap: var(--sp-2); }
+  .m-grid .copy > p:first-child, .m-grid .copy > .opt-cards { grid-column: 1; }
+  .m-grid .copy > p:first-child { grid-row: 1; }
+  .m-grid .copy > .opt-cards { grid-row: 2; }
+  .m-grid .scale-fig { grid-column: 2; grid-row: 1 / span 2; align-self: center; }
+  .m-grid .opt-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 .op-actions { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin: var(--sp-5) 0; }
 .op-actions a { display: inline-flex; align-items: center; min-height: 44px; padding: .4rem 1.1rem; border: var(--outline) solid var(--ink); border-radius: var(--radius-pill);
   background: var(--card); color: var(--ink); text-decoration: none; font-weight: 600; }
@@ -78,7 +94,32 @@
   .figrow svg { max-width: 24mm; }
   .figrow figcaption, .figrow .big { font-size: 8pt; }
   .scale-fig svg { max-width: 52mm; }
-  .scale-key { display: none; }
+  /* section 3 on paper: words and the four slips on the left, the scale on the right, then the blocks in one row */
+  /* section 3 on paper sits in the left column (about 92 mm): the four slips 2 x 2 with the scale beside them,
+     the three blocks as one-line cards (words left, formula right), then the rest. The scale's labels are left off
+     on paper (too small at this size); the score line under it carries the numbers. */
+  .m-grid { display: grid !important; column-count: auto !important; grid-template-columns: minmax(0, 1fr) 34mm; gap: 1mm 2.5mm; }
+  .m-grid .copy > * { grid-column: 1 / -1; }
+  .m-grid .copy > p:first-child { grid-row: 1; }
+  .m-grid .copy > .opt-cards { grid-column: 1; grid-row: 2; }
+  .m-grid .scale-fig { grid-column: 2; grid-row: 2; align-self: center; }
+  .m-grid .scale-fig svg { max-width: 34mm; }
+  .m-grid .scale-fig .tiny { font-size: 7pt; line-height: 1.2; }
+  .sc-lab { display: none; }
+  .m-grid .copy > .score-line + p { columns: auto; }
+  .opt-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1mm; margin: .3mm 0; }
+  .opt-card { padding: .6mm 1.2mm; border-width: .6pt; font-size: 8pt; line-height: 1.2; gap: .1mm; }
+  .oc-name { font-size: 8.4pt; }
+  .opt-card .route { width: 11mm; }
+  .block-cards { grid-template-columns: minmax(0, 1fr); gap: .7mm; margin: .6mm 0; }
+  .block-card { display: grid; grid-template-columns: 44% minmax(0, 1fr); column-gap: 2mm; align-items: center;
+    padding: .5mm 1.4mm .5mm 2.4mm; border-width: .6pt; background-size: .8mm 100%; }
+  .block-card .bc-name { grid-column: 1; grid-row: 1; font-size: 7pt; }
+  .block-card .bc-words { grid-column: 1; grid-row: 2; font-size: 8pt; line-height: 1.2; margin: 0; }
+  .block-card .bc-formula { grid-column: 2; grid-row: 1 / span 2; font-size: 8pt; line-height: 1.25; margin: 0; padding: 0 0 0 1.5mm; border-top: 0; border-left: .5pt dashed var(--line); }
+  .score-line { margin: .4mm 0 .8mm; padding: .2mm 0 .2mm 2mm; }
+  .score-line .sc-eq { text-decoration: none; }
+  .scale-score { font-size: 8pt; margin: 0; }
   .op-actions, .no-print { display: none !important; }
   .legend { font-size: 8pt; margin: 0; }
 }
@@ -107,7 +148,7 @@
   </section>
 
   <section class="blk wide" aria-labelledby="b3"><h2 id="b3">3. Our model <a class="peg" href="../evidence/class-models/#L4"><b>Class</b> safety and honour</a> <a class="peg" href="../evidence/class-models/#L5"><b>Class</b> pink tax</a> <a class="peg" href="../evidence/class-models/#L19"><b>Class</b> statistical discrimination</a></h2>
-    <div class="op-grid">
+    <div class="op-grid m-grid">
       <div class="copy" data-copy="model"><p>Parents choose a pair of colleges for twins at rank 8,000: both stay at NIT Patna, together at NIT Durgapur, best seats (he Durgapur, she Delhi), or only he goes. Score = value of the two seats minus money minus worry, and two costs fall only on her: an escort, and worry per hour it takes to reach her.</p></div><!--/copy-->
       <div class="scale-fig"><div data-fig="scale" data-w="460" data-args='{"fam":"village","opt":"SPLIT"}'></div>
         <p class="tiny">The scale for Shalini's family if she takes NIT Delhi (best seats), in lakh rupees. <span class="chip is-a">weights assumed</span></p></div>

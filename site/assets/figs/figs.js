@@ -186,37 +186,57 @@
   }
 
   /* ------------------------------------------------------------ the scale: value minus money minus worry (one family, one option) */
+  /* A hand-built balance. Every weight is a cut-paper block sitting IN its pan, its height in proportion to its value
+     (one scale for both pans, so money really is a sliver next to the value). The beam tips toward the heavier pan by an
+     angle set by the score. Each pan's labels sit under that pan, in the weight's own colour; no separate legend. */
   function scale(M, o) {
     o = o || {};
-    var f = o.fam || "village", opt = o.opt || "SPLIT", L = M.families[f].ledger[opt], w = o.w || 560, fs = fsz(o), h = o.h || 232;
-    var cx = w / 2, beamY = 70, half = Math.min(w * 0.36, 200), tilt = -6, rad = tilt * Math.PI / 180;
-    var lx = cx - half * Math.cos(rad), ly = beamY - half * Math.sin(rad), rx = cx + half * Math.cos(rad), ry = beamY + half * Math.sin(rad);
-    var g = '<path d="M' + n1(cx - 26) + "," + (h - 76) + " L" + n1(cx + 26) + "," + (h - 76) + " L" + n1(cx) + "," + beamY + ' Z" fill="var(--kraft-deep)" stroke="var(--ink)" stroke-width="2"/>';
-    g += '<line x1="' + n1(lx) + '" y1="' + n1(ly) + '" x2="' + n1(rx) + '" y2="' + n1(ry) + '" stroke="var(--ink)" stroke-width="4" stroke-linecap="round"/>';
-    g += '<circle cx="' + n1(cx) + '" cy="' + beamY + '" r="6" fill="var(--ink)"/>';
-    function pan(px, py, blocks, side) {
-      var pw = Math.min(150, half * 0.95), s = '<line x1="' + n1(px) + '" y1="' + n1(py) + '" x2="' + n1(px - pw / 2) + '" y2="' + n1(py + 40) + '" stroke="var(--ink)" stroke-width="1.5"/>' +
-        '<line x1="' + n1(px) + '" y1="' + n1(py) + '" x2="' + n1(px + pw / 2) + '" y2="' + n1(py + 40) + '" stroke="var(--ink)" stroke-width="1.5"/>' +
-        '<path d="M' + n1(px - pw / 2 - 6) + "," + n1(py + 40) + " Q" + n1(px) + "," + n1(py + 56) + " " + n1(px + pw / 2 + 6) + "," + n1(py + 40) + '" fill="none" stroke="var(--ink)" stroke-width="2.5"/>';
-      var top = py + 40, total = blocks.reduce(function (a, b) { return a + b.v; }, 0), unit = 34 / Math.max(total, 1);
-      if (side === "L") unit = 34 / total;
-      var y = top;
-      blocks.forEach(function (b) {
-        var bh = Math.max(3, b.v * (side === "L" ? 34 / total : 34 / 23)), bw = pw * 0.82;
-        y -= bh + 2;
-        s += '<rect x="' + n1(px - bw / 2) + '" y="' + n1(y) + '" width="' + n1(bw) + '" height="' + n1(bh) + '" rx="3" fill="' + b.c + '"' + (b.stroke ? ' stroke="var(--ink)" stroke-width="1.2"' : "") + "><title>" + esc(b.t + ": " + b.v.toFixed(2) + " lakh") + "</title></rect>";
+    var f = o.fam || "village", opt = o.opt || "SPLIT", L = M.families[f].ledger[opt], w = o.w || 560, fs = fsz(o), narrow = w < 480;
+    var cost = L.money + L.worry, cx = w / 2, half = Math.min(w * 0.29, 200), pw = Math.min(150, half * 0.92), bw = pw * 0.6;
+    var maxH = Math.min(pw * 0.7, Math.max(52, Math.min(86, w * 0.16))), kq = maxH / Math.sqrt(Math.max(L.value, L.stat, L.taste, L.money));
+    var deg = Math.max(-9, Math.min(9, 12 * (L.value - cost) / (L.value + cost))), rad = deg * Math.PI / 180;   // + : the value pan goes down
+    var pivotY = 14 + half * Math.abs(Math.sin(rad)), S = maxH + 28;   // room above for the raised end
+    var lx = cx - half * Math.cos(rad), ly = pivotY + half * Math.sin(rad), rx = cx + half * Math.cos(rad), ry = pivotY - half * Math.sin(rad);
+    var rimL = ly + S, rimR = ry + S, ground = Math.max(rimL, rimR) + 24;
+    var lfs = narrow ? fs - 3 : fs - 2, lh = lfs + 7, rows = 3, h = ground + 18 + rows * lh + 4, g = "";
+    // the stand: a tapered post on a hand-drawn ground line
+    g += '<path d="M' + n1(cx - 60) + "," + n1(ground) + " q30,-2 60,0 t60,1" + '" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"/>';
+    g += '<path d="M' + n1(cx - 20) + "," + n1(ground) + " L" + n1(cx - 5) + "," + pivotY + " L" + n1(cx + 5) + "," + pivotY + " L" + n1(cx + 20) + "," + n1(ground) + ' Z" fill="var(--kraft-deep)" stroke="var(--ink)" stroke-width="2" stroke-linejoin="round"/>';
+    function pan(px, py, rim, blocks) {
+      var s = '<path d="M' + n1(px - pw / 2) + "," + n1(rim) + " L" + n1(px) + "," + n1(py) + " L" + n1(px + pw / 2) + "," + n1(rim) + '" fill="none" stroke="var(--ink)" stroke-width="1.4" stroke-linejoin="round"/>';
+      var y = rim + 7, tilt = [-1.6, 2.2, -1.2];
+      blocks.forEach(function (b, i) {
+        var bh = Math.max(8, Math.sqrt(b.v) * kq), x = px - bh / 2 + (i % 2 ? 4 : -3);   // square weights: area in proportion to the value
+        y -= bh;
+        s += '<g transform="rotate(' + tilt[i % 3] + " " + n1(px) + " " + n1(y + bh / 2) + ')">' +
+          '<rect x="' + n1(x + 2.5) + '" y="' + n1(y + 2.5) + '" width="' + n1(bh) + '" height="' + n1(bh) + '" rx="2" fill="var(--shade)"/>' +
+          '<rect x="' + n1(x) + '" y="' + n1(y) + '" width="' + n1(bh) + '" height="' + n1(bh) + '" rx="2" fill="' + b.c + '" stroke="var(--ink)" stroke-width="1.3"><title>' + esc(b.t + ": " + b.v.toFixed(2) + " lakh") + "</title></rect></g>";
+        y -= 1.5;
       });
+      // the dish goes on last, so the bottom block sits inside it
+      s += '<path d="M' + n1(px - pw / 2 - 5) + "," + n1(rim) + " L" + n1(px + pw / 2 + 5) + "," + n1(rim) + " Q" + n1(px) + "," + n1(rim + 26) + " " + n1(px - pw / 2 - 5) + "," + n1(rim) + ' Z" fill="var(--kraft)" stroke="var(--ink)" stroke-width="2" stroke-linejoin="round"/>';
       return s;
     }
-    g += pan(lx, ly, [{ v: L.value, c: "var(--chart-him)", stroke: 1, t: "Value of the two seats" }], "L");
-    g += pan(rx, ry, [{ v: L.money, c: "var(--opt-together)", t: "Money" }, { v: L.stat, c: "var(--opt-split)", t: "Worry we can fix (statistical)" }, { v: L.taste, c: "var(--opt-son-only)", t: "Log kya kahenge (taste)" }], "R");
+    var V = [{ v: L.value, c: "var(--chart-him)", t: "Value of the two seats" }];
+    var C = [{ v: L.stat, c: "var(--opt-split)", t: "Worry we can fix (statistical)" }, { v: L.taste, c: "var(--opt-son-only)", t: "Log kya kahenge (taste)" }, { v: L.money, c: "var(--opt-together)", t: "Money" }];
+    g += pan(lx, ly, rimL, V) + pan(rx, ry, rimR, C);
+    // the beam over the strings, then the pivot pin
+    g += '<line x1="' + n1(lx) + '" y1="' + n1(ly) + '" x2="' + n1(rx) + '" y2="' + n1(ry) + '" stroke="var(--ink)" stroke-width="4.5" stroke-linecap="round"/>';
+    g += '<circle cx="' + n1(cx) + '" cy="' + pivotY + '" r="6" fill="var(--paper)" stroke="var(--ink)" stroke-width="2.5"/>';
+    // labels under their own pan: a swatch, the words, the number
+    function lab(x, y, col, words, num) {
+      return '<rect x="' + n1(x) + '" y="' + n1(y - lfs + 3) + '" width="' + n1(lfs - 4) + '" height="' + n1(lfs - 4) + '" rx="2" fill="' + col + '" stroke="var(--ink)" stroke-width="1"/>' +
+        txt(x + lfs + 1, y, words + " ", { size: lfs }).replace("</text>", '<tspan font-weight="700" fill="var(--data)">' + num + "</tspan></text>");
+    }
+    var x0 = Math.max(4, Math.min(lx - pw / 2, w / 2 - 170)), x1 = Math.max(w / 2 + 12, Math.min(rx - pw / 2, w - (narrow ? 158 : 214))), y0 = ground + 18 + lfs;
+    g += '<g class="sc-lab">' + lab(x0, y0, V[0].c, narrow ? "value" : "value of two seats", L.value.toFixed(1)) +
+      txt(x0, y0 + lh, "H × (his pay + her pay)", { size: lfs - 1, cls: "soft" }) +
+      lab(x1, y0, C[2].c, "money", L.money.toFixed(2)) + lab(x1, y0 + lh, C[0].c, narrow ? "fixable worry" : "worry we can fix", L.stat.toFixed(2)) +
+      lab(x1, y0 + 2 * lh, C[1].c, "log kya kahenge", L.taste.toFixed(2)) + "</g>";
     var N = names(M);
-    var pic = svg(w, h - 70, g.replace(/ y2="(\d+)"/g, ' y2="$1"'), "The scale for the " + FAM[f].place + " family, option " + N[opt] + ": value of the two seats " + L.value.toFixed(1) +
+    var pic = svg(w, h, g, "The scale for the " + FAM[f].place + " family, option " + N[opt] + ": value of the two seats " + L.value.toFixed(1) +
       " lakh against money " + L.money.toFixed(2) + " and worry " + L.worry.toFixed(2) + " (statistical " + L.stat.toFixed(2) + ", taste " + L.taste.toFixed(2) + "). Score " + L.U.toFixed(2) + ".");
-    return pic + '<div class="scale-key"><p><span class="key k-him" aria-hidden="true"></span><b>Value of the two seats</b><br>H × (his pay + her pay) = <span class="num">' + L.value.toFixed(1) + "</span> lakh</p>" +
-      '<p><b>Minus what it costs to send them</b><br><span class="key k-together" aria-hidden="true"></span> money <span class="num">' + L.money.toFixed(2) + '</span><br><span class="key k-split" aria-hidden="true"></span> worry we can fix (statistical) <span class="num">' + L.stat.toFixed(2) +
-      '</span><br><span class="key k-son_only" aria-hidden="true"></span> “log kya kahenge” (taste) <span class="num">' + L.taste.toFixed(2) + "</span></p>" +
-      '<p><b>Score</b> <span class="num">' + L.value.toFixed(1) + " − " + L.money.toFixed(2) + " − " + L.worry.toFixed(2) + " = " + L.U.toFixed(2) + "</span></p></div>";
+    return pic + '<p class="scale-score"><span class="sc-eq">Score</span> <span class="num">' + L.value.toFixed(1) + " − " + L.money.toFixed(2) + " − " + L.worry.toFixed(2) + " = " + L.U.toFixed(2) + "</span> lakh</p>";
   }
 
   /* ------------------------------------------------------------ ledger bridge (F12): money is a sliver, worry is a slab */
