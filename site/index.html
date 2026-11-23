@@ -61,7 +61,11 @@
 .howto ol { margin: var(--sp-3) 0 0; padding-left: 1.3rem; display: grid; gap: var(--sp-2); max-width: 46rem; }
 .howto li b { font-family: var(--font-head); }
 .howto .tip { margin: var(--sp-3) 0 0; font-size: var(--fs-small); color: var(--ink-soft); }
-.brief { margin: var(--sp-7) 0 0; }
+.brief { margin: var(--sp-6) 0 0; }
+.words { margin: var(--sp-5) 0 0; }
+.words dl { display: grid; gap: var(--sp-2) var(--sp-5); grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); margin: var(--sp-2) 0 0; }
+.words dt { font-family: var(--font-head); font-weight: 700; }
+.words dd { margin: 0; font-size: var(--fs-small); color: var(--ink-soft); }
 .brief table { width: 100%; font-size: var(--fs-small); }
 .brief td, .brief th { padding: .5rem .8rem .5rem 0; }
 .brief .scroll { overflow-x: auto; }
@@ -290,13 +294,13 @@ html.present .replay { display: none; }
     <li><b><a href="play/">Play the game</a></b> (about 4 min). You are the parents: choose a college for the twins, see what your choice costs, then see what 100 families like yours would do.</li>
     <li><b>Check any number.</b> A small tag next to a number (like <span class="chip">model v2</span>) opens its source. The <a href="evidence/">evidence room</a> has the data and the tests, the <a href="report/">full report</a> has the whole argument, and <a href="how-we-built-it/">our research diary</a> has how we built it, with the RTI papers.</li>
   </ol>
-  <p class="tip">Works on a phone. The short animation at the top plays on your first visit; any key or tap skips it.</p>
+  <p class="tip"><b>Marking?</b> <a href="#b">Here is where each part of the brief is</a>, and <a href="#w">the words we use</a>. Works on a phone. The short animation at the top plays on your first visit; any key or tap skips it.</p>
 </details>
 <script>(function () { var d = document.getElementById("howto"); try { if (localStorage.getItem("itni-howto-seen")) d.removeAttribute("open"); localStorage.setItem("itni-howto-seen", "1"); } catch (e) {} })();</script>
 
 <nav aria-label="The six doors">
 <ul class="doors-list">
-  <li><a class="door" href="watch/"><b>Watch the video</b><span>14 min</span></a></li>
+  <li><a class="door" href="watch/"><b>Watch the video</b><span>Start here &middot; 14 min</span></a></li>
   <li><a class="door" href="one-pager/"><b>Read the model on one page</b><span>1 page</span></a></li>
   <li><a class="door" href="play/"><b>Play: you are the parents</b><span>about 4 min</span></a></li>
   <li><a class="door" href="report/"><b>Read the full report</b><span>{{report.minutes}}</span></a></li>
@@ -305,21 +309,30 @@ html.present .replay { display: none; }
 </ul>
 <p class="replay" hidden><button type="button" data-intro>Play the intro again</button></p>
 </nav>
-
 <section class="brief" aria-labelledby="b">
-  <h2 id="b">Where each part of the brief is</h2>
+  <h2 id="b">For the marker: where each part of the brief is</h2>
   <div class="scroll">
   <table>
     <thead><tr><th scope="col">Part of the brief</th><th scope="col">Report</th><th scope="col">One page</th><th scope="col">Video</th><th scope="col">Game</th><th scope="col">Evidence</th></tr></thead>
     <tbody>
       <tr><th scope="row">1. The gap is real (question, evidence, why it matters)</th><td>The gap</td><td>Block 1</td><td>The three girls; The gap</td><td>Start screen</td><td><a href="evidence/data/">Data</a>, <a href="evidence/rti/">RTI</a></td></tr>
-      <tr><th scope="row">2. Why the standard model fails</th><td>Why the standard model falls short</td><td>Block 2</td><td>The textbook</td><td>Decision 1: the seat</td><td><a href="evidence/tests/">Tests</a></td></tr>
-      <tr><th scope="row">3. Our rational-choice model, predictions and a fix</th><td>Our model, Predictions, Policy</td><td>Blocks 3 to 7</td><td>Our model; Out of 100; How sure are we?; Fixes; Where it breaks</td><td>Decisions 1 to 4, the 100 families, the fixes</td><td><a href="evidence/model/">Model</a></td></tr>
+      <tr><th scope="row">2. Why the standard model fails</th><td>Why the standard model falls short; Which story predicts what</td><td>Block 2</td><td>The textbook</td><td>Decision 1: the seat</td><td><a href="evidence/tests/">Tests</a></td></tr>
+      <tr><th scope="row">3. Our rational-choice model, predictions and a fix</th><td>Our model; Predictions beyond the gap; Policy and business; Where our model breaks</td><td>Blocks 3 to 7</td><td>Our model; Out of 100; How sure are we?; Fixes; Where it breaks</td><td>Decisions 1 to 4, the 100 families, the fixes</td><td><a href="evidence/model/">Model</a></td></tr>
       <tr><th scope="row">Sources and references</th><td>References</td><td>Footer</td><td><a href="evidence/sources/">Video sources</a></td><td>Source sheets on every number</td><td><a href="evidence/sources/">Sources</a></td></tr>
       <tr><th scope="row">Process document (asked for on 21 Oct)</th><td colspan="5"><a href="how-we-built-it/">Our research diary</a>: fifteen dated entries, the RTI papers and every source on our list, used or not</td></tr>
     </tbody>
   </table>
   </div>
+</section>
+<section class="words" aria-labelledby="w">
+  <h2 id="w" class="h3">Words we use</h2>
+  <dl>
+    <div><dt>Women-only pool</dt><dd>Extra NIT seats open only to women, so the same rank can open a better college to a daughter than to her brother.</dd></div>
+    <div><dt>Value</dt><dd>What the two degrees are worth in starting pay, for the years of work the family counts.</dd></div>
+    <div><dt>Money</dt><dd>Fares for both children, plus an escort's tickets and lost work days for her trips.</dd></div>
+    <div><dt>Reach time</dt><dd>Door-to-door hours until a parent can be with her: bus, train or flight, and the last leg.</dd></div>
+    <div><dt>Worry</dt><dd>The cost to her parents of not being able to reach her quickly. It grows with reach time and falls when someone they trust is at the college.</dd></div>
+  </dl>
 </section>
 
 <section class="who">
