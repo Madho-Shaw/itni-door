@@ -16,4 +16,4 @@ lang: en-IN
 
 : Our sources, and what each can and cannot show {#tbl-sources}
 
-The full reference list (class lectures and the papers we build on) is in the [report](../../report/#references). Fonts, code and tools are on the [credits page](../../credits/). Everything we read, including the sources we did not use and why, is in [our research diary](../../how-we-built-it/#e13).
+The full reference list (class lectures and the papers we build on) is in the [report](../../report/#references). Fonts, code and tools are on the [credits page](../../credits/). How we searched, and the full list of 159 sources with the reason each was used or left out, is in [our research diary](../../how-we-built-it/#e13).

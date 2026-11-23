@@ -516,25 +516,7 @@ Two things stay open. Without the choice lists we could not test the gap at the 
 
 # Who did what {#sec-who}
 
-We are three students and we did this together. We chose the topic and took it to Prof Mitra on 21 October. We filed the RTI requests, designed and ran the interviews, and made the calls the model and the write-up follow, such as setting all three families in Bihar, using two measures of the gap, and keeping the model's answer for Shalini when it surprised us. The ideas the model rests on came out of our own discussions, and we argued over each draft and changed it where we disagreed. Our names are on the cover because the work is all of ours; the dated story of how it was built, dead ends included, is in [our research diary](../how-we-built-it/). @tbl-checked lists the numbers we check by hand against the source files before we submit.
-
-| What we checked by hand | Against which file | Checked | Date |
-|---|---|---|---|
-| 23 / 44 / 98 and 96 / 98 / 100 out of 100 | Model results, four-option table | by us | [date] |
-| 59 Together in the village; 26 and 85 under the fixes | Model results, four-option tables | by us | [date] |
-| ₹62,366 travel bill and ₹4.37 lakh trade-down | Model results, rupee anchors | by us | [date] |
-| -9.3% per doubling and the six Census bands | Census gravity results and band table | by us | [date] |
-| -3.7 points and the men's 27% | Maharashtra test results | by us | [date] |
-| ₹378.93 day wage | Labour Bureau rural wages via CEIC | by us | [date] |
-| Closing ranks and NIRF pay at rank 8,000 | JoSAA 2025 file; NIRF salary file | by us | [date] |
-| Empty-seat rates (2025 and 2026 together) | Vacancy-by-NIT file | by us | [date] |
-| The wording of the IIT Kanpur RTI reply | The scanned reply | by us | [date] |
-| The University of Delhi RTI reply and the hostel seats | The scanned reply (OA 5149/2026) | by us | [date] |
-| Borker's 40 minutes and quality trade | Her working paper and blog | by us | [date] |
-| What L19-L20 said on statistical and taste discrimination | The L19-L20 recordings | by us | [date] |
-| Agarwal (1997) volume and pages | The journal page | by us | [date] |
-
-: Numbers and claims we checked against the source before submitting {#tbl-checked}
+We are three students and we did this together. We chose the topic and took it to Prof Mitra on 21 October. We filed the RTI requests, designed and ran the interviews, and made the calls the model and the write-up follow, such as setting all three families in Bihar, using two measures of the gap, and keeping the model's answer for Shalini when it surprised us. The ideas the model rests on came out of our own discussions, and we argued over each draft and changed it where we disagreed. Our names are on the cover because the work is all of ours; the dated story of how it was built, dead ends included, is in [our research diary](../how-we-built-it/).
 
 # References {.unnumbered}
 
@@ -581,7 +563,7 @@ All paths are inside our project data folder. **Cleaning.** For JoSAA we kept th
 
 **Rerun.** From the project data folder, `py -P scripts/<name>.py .` runs any script; each folder's README lists inputs and outputs. The model is `py scripts/model_v2_bihar.py`, and the game check is `node tools/check_rl_model.js` in the game folder.
 
-**What we did, in order.** The dated story, with the ideas we dropped, the RTI papers and every source we read, is in [our research diary](../how-we-built-it/).
+**What we did, in order.** The dated story, with the ideas we dropped, the RTI papers and every source on our list, is in [our research diary](../how-we-built-it/).
 
 # Appendix B. Parameters, fares and the "out of 100" step {.unnumbered}
 
@@ -671,7 +653,7 @@ Fares are aggregator snapshots of 19 November 2026 and move with date and class.
 | [IIT Kanpur RTI](../how-we-built-it/#e4) (filed 21 Oct 2026) | Questions 1-4 "not readily available"; the 2016 committee report exempt under sections 8(1)(e) and 8(1)(g); 5 Nov 2026 |
 | [University of Delhi RTI](../how-we-built-it/#e4) (filed 23 Oct 2026) | Admissions by home state not kept; 2025 University hostel seats given (women 2,232, men 1,192); 18 Nov 2026 |
 
-: Data we tried to get and could not use, and blocked requests. The full list of everything we read, with the reason each was used or not, is in [our research diary](../how-we-built-it/#e13). {#tbl-notused}
+: Data we tried to get and could not use, and blocked requests. How we searched, and the full list of sources with the reason each was used or left out, is in [our research diary](../how-we-built-it/#e13). {#tbl-notused}
 
 # Appendix F. Interview guide (short form) {.unnumbered}
 
