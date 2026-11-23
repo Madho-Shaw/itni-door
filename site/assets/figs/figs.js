@@ -223,7 +223,8 @@
   function ledger(M, o) {
     o = o || {};
     var f = o.fam || "village", w = o.w || 640, fs = fsz(o), N = names(M), F = M.families[f];
-    var opts = ["SPLIT", "TOGETHER", "SON_ONLY", "NEAR"], pl = w < 480 ? 96 : 120, pr = 64, rowH = 54, h = 40 + opts.length * rowH;
+    // pl 116 on a phone: "Only he goes" fits (96 cut its O)
+    var opts = ["SPLIT", "TOGETHER", "SON_ONLY", "NEAR"], pl = w < 480 ? 116 : 120, pr = 64, rowH = 54, h = 40 + opts.length * rowH;
     var x = lin(0, 80, pl, w - pr), g = "";
     [0, 20, 40, 60, 80].forEach(function (t) { g += '<line x1="' + n1(x(t)) + '" x2="' + n1(x(t)) + '" y1="22" y2="' + (h - 8) + '" stroke="var(--chart-grid)"/>' + txt(x(t), 16, t, { anchor: "middle", size: fs - 2, cls: "soft" }); });
     opts.forEach(function (op, i) {
@@ -236,7 +237,7 @@
       g += '<rect x="' + n1(s0) + '" y="' + y + '" width="' + n1(Math.max(1, m0 - s0 - 2)) + '" height="12" fill="var(--opt-split)"><title>Statistical worry ' + L.stat.toFixed(2) + "</title></rect>";
       g += '<rect x="' + n1(m0) + '" y="' + y + '" width="' + n1(Math.max(1.5, vEnd - m0)) + '" height="12" fill="var(--opt-together)"><title>Money ' + L.money.toFixed(2) + "</title></rect>";
       g += txt(x(L.value) + 8, y + 11, L.U.toFixed(1), { size: fs - 1, weight: 700 });
-      g += txt(x(0), y + 30, "value " + L.value.toFixed(1) + ", money " + L.money.toFixed(2) + ", worry " + L.worry.toFixed(2), { size: fs - 3, cls: "soft" });
+      g += txt(w < 480 ? 0 : x(0), y + 30, "value " + L.value.toFixed(1) + ", money " + L.money.toFixed(2) + ", worry " + L.worry.toFixed(2), { size: fs - 3, cls: "soft" });
     });
     return svg(w, h, g, "Score of each option for the " + FAM[f].place + " family, lakh: " + opts.map(function (op) { return N[op] + " " + F.ledger[op].U.toFixed(2); }).join(", ")) +
       legend([{ style: "background:var(--ink);border-color:var(--ink)", label: "what is left: the score" }, { cls: "k-son_only", label: "log kya kahenge (taste)" },
