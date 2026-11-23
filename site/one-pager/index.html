@@ -41,18 +41,20 @@
 /* 3. Our model: on a laptop the options sit beside the scale, then the three blocks, the score and the rest run across.
    On a phone: words, options, the scale, then the rest. The copy box steps aside (display: contents) so its pieces join the grid. */
 .m-grid .copy { display: contents; }
-.m-grid .copy > * { order: 4; grid-column: 1 / -1; }
+.m-grid .copy > * { order: 6; grid-column: 1 / -1; }
 .m-grid .copy > p:first-child { order: 1; }
-.m-grid .copy > .opt-cards { order: 2; margin: var(--sp-2) 0 0; }
+.m-grid .copy > .rail-fig { order: 2; margin: var(--sp-2) 0 0; }
 .m-grid .scale-fig { order: 3; }
-.m-grid .copy > .score-line + p { columns: 2 20rem; column-gap: var(--sp-5); }
+.m-grid .copy > .bill-fig { order: 4; }
+.m-grid .copy > .bill-after { order: 5; }
 @media screen and (min-width: 860px) {
-  .m-grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); row-gap: var(--sp-2); }
-  .m-grid .copy > p:first-child, .m-grid .copy > .opt-cards { grid-column: 1; }
-  .m-grid .copy > p:first-child { grid-row: 1; }
-  .m-grid .copy > .opt-cards { grid-row: 2; }
+  .m-grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); row-gap: var(--sp-2); column-gap: var(--sp-6, 3rem); }
+  .m-grid .copy > p:first-child { grid-column: 1; grid-row: 1; }
+  .m-grid .copy > .rail-fig { grid-column: 1; grid-row: 2; }
   .m-grid .scale-fig { grid-column: 2; grid-row: 1 / span 2; align-self: center; }
-  .m-grid .opt-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .m-grid .copy > .bill-fig { grid-column: 1; grid-row: 3; margin-left: var(--sp-3); }
+  .m-grid .copy > .bill-after { grid-column: 1; grid-row: 4; margin-left: var(--sp-3); }
+  .m-grid .copy > .bill-after + p { grid-column: 2; grid-row: 3 / span 2; align-self: center; }
 }
 .op-actions { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin: var(--sp-5) 0; }
 .op-actions a { display: inline-flex; align-items: center; min-height: 44px; padding: .4rem 1.1rem; border: var(--outline) solid var(--ink); border-radius: var(--radius-pill);
@@ -98,27 +100,25 @@
   /* section 3 on paper sits in the left column (about 92 mm): the four slips 2 x 2 with the scale beside them,
      the three blocks as one-line cards (words left, formula right), then the rest. The scale's labels are left off
      on paper (too small at this size); the score line under it carries the numbers. */
-  .m-grid { display: grid !important; column-count: auto !important; grid-template-columns: minmax(0, 1fr) 34mm; gap: 1mm 2.5mm; }
+  .m-grid { display: grid !important; column-count: auto !important; grid-template-columns: minmax(0, 1fr) 30mm; gap: .8mm 2.5mm; }
   .m-grid .copy > * { grid-column: 1 / -1; }
   .m-grid .copy > p:first-child { grid-row: 1; }
-  .m-grid .copy > .opt-cards { grid-column: 1; grid-row: 2; }
-  .m-grid .scale-fig { grid-column: 2; grid-row: 2; align-self: center; }
-  .m-grid .scale-fig svg { max-width: 34mm; }
+  .m-grid .copy > .rail-fig { grid-row: 2; margin: 0; }
+  .m-grid .copy > .rail-fig svg { max-width: none; }
+  .m-grid .copy > .bill-fig { grid-column: 1; grid-row: 3; margin: 0; }
+  .m-grid .scale-fig { grid-column: 2; grid-row: 3; align-self: center; }
+  .m-grid .scale-fig svg { max-width: 30mm; }
   .m-grid .scale-fig .tiny { font-size: 7pt; line-height: 1.2; }
   .sc-lab { display: none; }
-  .m-grid .copy > .score-line + p { columns: auto; }
-  .opt-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1mm; margin: .3mm 0; }
-  .opt-card { padding: .6mm 1.2mm; border-width: .6pt; font-size: 8pt; line-height: 1.2; gap: .1mm; }
-  .oc-name { font-size: 8.4pt; }
-  .opt-card .route { width: 11mm; }
-  .block-cards { grid-template-columns: minmax(0, 1fr); gap: .7mm; margin: .6mm 0; }
-  .block-card { display: grid; grid-template-columns: 44% minmax(0, 1fr); column-gap: 2mm; align-items: center;
-    padding: .5mm 1.4mm .5mm 2.4mm; border-width: .6pt; background-size: .8mm 100%; }
-  .block-card .bc-name { grid-column: 1; grid-row: 1; font-size: 7pt; }
-  .block-card .bc-words { grid-column: 1; grid-row: 2; font-size: 8pt; line-height: 1.2; margin: 0; }
-  .block-card .bc-formula { grid-column: 2; grid-row: 1 / span 2; font-size: 8pt; line-height: 1.25; margin: 0; padding: 0 0 0 1.5mm; border-top: 0; border-left: .5pt dashed var(--line); }
-  .score-line { margin: .4mm 0 .8mm; padding: .2mm 0 .2mm 2mm; }
-  .score-line .sc-eq { text-decoration: none; }
+  .rail-key { display: none; }
+  .hisaab { max-width: none; padding: 1.2mm 2mm; font-size: 8pt; clip-path: none; background-image: none; border: .6pt solid var(--line); }
+  .bl-head { margin: 0 0 .5mm; padding-bottom: .4mm; }
+  .bl-t th, .bl-t td { padding: .2mm 0; }
+  .bl-f { display: none; }
+  .bl-t tr.bl-score th, .bl-t tr.bl-score td { font-size: 9pt; padding-top: .5mm; }
+  .bl-note { font-size: 8pt; margin: .5mm 0 0; }
+  .bl-unit { top: 1.2mm; right: 2mm; font-size: 7pt; }
+  .bill-after { margin: .5mm 0; font-size: 8pt; }
   .scale-score { font-size: 8pt; margin: 0; }
   .op-actions, .no-print { display: none !important; }
   .legend { font-size: 8pt; margin: 0; }

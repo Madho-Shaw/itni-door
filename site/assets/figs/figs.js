@@ -239,6 +239,97 @@
     return pic + '<p class="scale-score"><span class="sc-eq">Score</span> <span class="num">' + L.value.toFixed(1) + " − " + L.money.toFixed(2) + " − " + L.worry.toFixed(2) + " = " + L.U.toFixed(2) + "</span> lakh</p>";
   }
 
+  /* ------------------------------------------------------------ the twins' faces (the video's puppet heads, crop "head")
+     drawn in the puppet's own 120 x 150 space; who: "her" (Shalini, braid) or "him" (Sonu, short hair); mood: "", "happy", "down" */
+  var SKIN = "#8D5A3F", PI = 'stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"', PT = 'stroke="var(--ink)" stroke-width="1.8" stroke-linecap="round" fill="none"';
+  function pp(d, fill, a) { return '<path d="' + d + '" fill="' + (fill || "none") + '" ' + (a || PI) + "/>"; }
+  function headSvg(who, mood) {
+    var hair = "var(--hair)", back = "", front;
+    if (who === "her") {
+      back = pp("M31 58 C27 28 46 20 60 20 C74 20 93 28 89 58 L84 70 L36 70 Z", hair);
+      front = pp("M33 57 C30 30 46 22 60 22 C74 22 90 30 87 57 C84 45 74 35 60 33 C46 35 36 45 33 57 Z", hair) +
+        '<ellipse cx="88" cy="66" rx="6.5" ry="7.5" fill="' + hair + '" ' + PI + '/><ellipse cx="89.2" cy="77" rx="6.5" ry="7.5" fill="' + hair + '" ' + PI + "/>";
+    } else front = pp("M33 55 C29 26 50 19 62 20 C79 21 91 32 87 55 C85 44 79 37 70 36 L47 36 C40 38 35 45 33 55 Z", hair);
+    var eyes = mood === "happy" ? pp("M45 59 q4 -5.5 8 0") + pp("M67 59 q4 -5.5 8 0")
+      : mood === "down" ? pp("M45 57 q4 4.5 8 0") + pp("M67 57 q4 4.5 8 0")
+      : '<circle cx="49" cy="58" r="3" fill="var(--ink)"/><circle cx="71" cy="58" r="3" fill="var(--ink)"/>';
+    var mouth = mood === "happy" ? pp("M50 69 Q60 83 70 69 Z", "#5B2A20") : mood === "down" ? pp("M53 76 q7 -6 14 0") : pp("M53 72 q7 5 14 0");
+    var brows = mood === "down" ? pp("M43 49 L55 45.5") + pp("M65 45.5 L77 49") : pp("M43 48 q6 -3 12 0") + pp("M65 48 q6 -3 12 0");
+    return '<rect x="52" y="84" width="16" height="12" rx="5" fill="' + SKIN + '" ' + PI + "/>" + back +
+      '<circle cx="34" cy="59" r="5" fill="' + SKIN + '" ' + PI + '/><circle cx="86" cy="59" r="5" fill="' + SKIN + '" ' + PI + "/>" +
+      '<ellipse cx="60" cy="56" rx="26" ry="29" fill="' + SKIN + '" ' + PI + "/>" + brows + eyes + mouth + pp("M60 60 q-3 6 1 7.5", "none", PT) + front;
+  }
+  /* a face token: a coin in the child's colour with the head on it, centred at (cx, cy), d px across */
+  function faceAt(who, cx, cy, d, mood, title) {
+    var col = who === "her" ? "var(--her)" : "var(--him)", s = d * 0.92 / 88;
+    return '<g><title>' + esc(title) + '</title><circle cx="' + n1(cx) + '" cy="' + n1(cy) + '" r="' + n1(d / 2) + '" fill="color-mix(in srgb, ' + col + ' 30%, var(--card))" stroke="' + col + '" stroke-width="2"/>' +
+      '<g transform="translate(' + n1(cx) + " " + n1(cy + d * 0.04) + ") scale(" + s.toFixed(4) + ') translate(-60 -52)">' + headSvg(who, mood) + "</g></g>";
+  }
+
+  /* ------------------------------------------------------------ the four options as one railway line
+     Stations spaced by door-to-door reach time from the family's home (journey hours in the model); one row per option,
+     the twins' faces at the stations their option sends them to. */
+  function rail(M, o) {
+    o = o || {};
+    var f = o.fam || "village", F = M.families[f], J = F.journey, N = names(M), w = o.w || 560, narrow = w < 440, fs = fsz(o);
+    var st = [{ k: "home", name: narrow ? FAM[f].place.split(" ")[0] : "Home, " + FAM[f].place.split(" ")[0], h: 0 }].concat(["Patna", "Durgapur", "Delhi"].map(function (c) {
+      return { k: c, name: (narrow ? "" : "NIT ") + c, h: J[c].hours }; }));
+    var hMax = st[3].h, lab = narrow ? 0 : 112, x0 = lab + 22, x1 = w - (narrow ? 20 : 26), x = lin(0, hMax, x0, x1);
+    var d = narrow ? 30 : 34, trackY = 46, g = "";
+    // ballast, sleepers, rails
+    g += '<rect x="' + n1(x0 - 14) + '" y="' + (trackY - 9) + '" width="' + n1(x1 - x0 + 28) + '" height="18" rx="6" fill="var(--kraft-deep)"/>';
+    for (var sx = x0 - 8; sx <= x1 + 8; sx += 11) g += '<rect x="' + n1(sx) + '" y="' + (trackY - 11) + '" width="5" height="22" rx="1" fill="var(--kraft)" stroke="var(--ink)" stroke-width="1"/>';
+    [-5, 5].forEach(function (dy) {
+      g += '<line x1="' + n1(x0 - 12) + '" x2="' + n1(x1 + 12) + '" y1="' + (trackY + dy) + '" y2="' + (trackY + dy) + '" stroke="var(--ink)" stroke-width="3.2" stroke-linecap="round"/>' +
+        '<line x1="' + n1(x0 - 11) + '" x2="' + n1(x1 + 11) + '" y1="' + (trackY + dy - .6) + '" y2="' + (trackY + dy - .6) + '" stroke="color-mix(in srgb, var(--card) 70%, var(--kraft-deep))" stroke-width="1"/>';
+    });
+    // stations: a board above the line, the hours under it
+    var rowTop = trackY + 40, rowH = d + (narrow ? 26 : 14), rows = ["NEAR", "TOGETHER", "SPLIT", "SON_ONLY"], h = rowTop + rows.length * rowH + (narrow ? 4 : 10);
+    st.forEach(function (s, i) {
+      var sxp = x(s.h), anchor = i === 0 ? (narrow ? "start" : "end") : i === 3 ? "end" : "middle", tx = i === 0 ? (narrow ? sxp - 10 : sxp - 22) : i === 3 ? sxp + 12 : sxp;
+      g += '<line x1="' + n1(sxp) + '" x2="' + n1(sxp) + '" y1="' + (trackY + 12) + '" y2="' + n1(h - 4) + '" stroke="var(--line)" stroke-width="1" stroke-dasharray="2 4"/>';
+      g += '<circle cx="' + n1(sxp) + '" cy="' + trackY + '" r="6.5" fill="' + (i ? "var(--card)" : "var(--ink)") + '" stroke="var(--ink)" stroke-width="2.5"/>';
+      g += txt(tx, i === 0 && !narrow ? trackY + 5 : trackY - 18, s.name, { anchor: anchor, size: fs - 2, weight: 600 });
+      if (i || narrow) g += txt(tx, trackY + 27, i ? s.h + " h" : "0 h", { anchor: anchor, size: fs - 3, cls: "soft" });
+    });
+    if (!narrow) g += txt(x0 - 22, trackY + 27, "hours from home", { anchor: "end", size: fs - 3, cls: "soft" });
+    // one row per option
+    rows.forEach(function (op, i) {
+      var y = rowTop + i * rowH + (narrow ? 18 : 0) + d / 2, pair = M.options[op], hs = J[pair[0]].hours, hd = J[pair[1]].hours, same = pair[0] === pair[1];
+      if (i) g += '<line x1="' + (narrow ? 6 : 8) + '" x2="' + n1(w - 6) + '" y1="' + n1(y - d / 2 - (narrow ? 22 : 7)) + '" y2="' + n1(y - d / 2 - (narrow ? 22 : 7)) + '" stroke="var(--line)" stroke-width="1"/>';
+      g += narrow ? txt(6, y - d / 2 - 5, N[op], { size: fs - 1, weight: 700, cls: "rail-row" }) : txt(8, y + 6, N[op], { size: fs - 1, weight: 700, cls: "rail-row" });
+      var mh = op === "SON_ONLY" ? "down" : "", mhim = "";
+      var xs = x(hs), xd = x(hd);
+      if (same) { xs -= d * 0.55; xd += d * 0.55; }
+      if (op === "SPLIT") mh = "happy";
+      g += faceAt("him", xs, y, d, mhim, FAM[f].him + ": " + pair[0]) + faceAt("her", xd, y, d, mh, FAM[f].her + ": " + pair[1]);
+      if (op === "SPLIT") g += '<text x="' + n1(xd - d / 2 - 8) + '" y="' + n1(y + (narrow ? -d / 2 - 5 : 5)) + '" text-anchor="end" class="pen" font-size="' + (fs - 2) + '">her best seat, ' + hd + " h away</text>";
+    });
+    var label = "The four options on one railway line, stations by hours from home: " + st.slice(1).map(function (s) { return s.name + " " + s.h + " h"; }).join(", ") + ". " +
+      rows.map(function (op) { return N[op] + ": " + FAM[f].him + " " + M.options[op][0] + ", " + FAM[f].her + " " + M.options[op][1]; }).join("; ") + ".";
+    return svg(w, h, g, label, ' class="rail"') +
+      '<p class="rail-key"><span class="tw tw-him" aria-hidden="true"></span>' + FAM[f].him + ' <span class="tw tw-her" aria-hidden="true"></span>' + FAM[f].her + "</p>";
+  }
+
+  /* ------------------------------------------------------------ the family's hisaab: value, less money, less worry, the score
+     A kirana bill on card paper. Numbers come from the model ledger (two decimals, so the sum checks). */
+  function bill(M, o) {
+    o = o || {};
+    var f = o.fam || "village", opt = o.opt || "SPLIT", L = M.families[f].ledger[opt], N = names(M), led = M.families[f].ledger;
+    var best = Object.keys(led).reduce(function (a, k) { return led[k].U > led[a].U ? k : a; }, opt);
+    var r2 = function (v) { return v.toFixed(2); }, neg = function (v) { return "−" + v.toFixed(2); };
+    var row = function (words, small, num, cls) {
+      return '<tr' + (cls ? ' class="' + cls + '"' : "") + '><th scope="row">' + words + (small ? '<span class="bl-f">' + small + "</span>" : "") + '</th><td class="r">' + num + "</td></tr>"; };
+    return '<div class="hisaab"><p class="bl-head"><b>Hisaab</b> · ' + esc(FAM[f].her) + "'s family, " + esc(N[opt].toLowerCase()) + '</p><table class="bl-t">' +
+      '<caption class="sr">The score of ' + esc(N[opt]) + " for " + esc(FAM[f].her) + "'s family, ₹ lakh</caption>" +
+      row("Value of the two seats", "H × (his pay + her pay)", r2(L.value)) +
+      row("less money (fares, escort)", "λ × [16 fares each + J × (2 fares + e × w)]", neg(L.money)) +
+      row("less worry (reach time)", "[σ / (1 + n + b) + τ] × hours ÷ 24", neg(L.worry)) +
+      row("Score", "", r2(L.U), "bl-score") + "</table>" +
+      (best !== opt ? '<p class="bl-note">' + esc(N[best]) + " scores " + r2(led[best].U) + ", so most families pick " + esc(N[best]) + "</p>" : "") +
+      '<p class="bl-unit">₹ lakh</p></div>';
+  }
+
   /* ------------------------------------------------------------ ledger bridge (F12): money is a sliver, worry is a slab */
   function ledger(M, o) {
     o = o || {};
@@ -483,6 +574,8 @@
       case "fixes": return fixes(ctx.M, o);
       case "ladder": return ladder(ctx.M, o);
       case "scale": return scale(ctx.M, o);
+      case "rail": return rail(ctx.M, o);
+      case "bill": return bill(ctx.M, o);
       case "ledger": return ledger(ctx.M, o);
       case "journey": return journey(ctx.M, ctx.RL, o);
     }

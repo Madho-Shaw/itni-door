@@ -272,39 +272,23 @@ We set the norm part at a quarter of the statistical part ($\tau = \sigma/4$), s
 
 ## The equations
 
-For family $i$ and a pair $p$ (the son's college $c_s$ and the daughter's college $c_d$), the parents' score is built from three blocks.
+For family $i$ and a pair $p$ (the son's college $c_s$ and the daughter's college $c_d$), the parents' score is a small hisaab: the value of the two seats, less money, less worry.
 
-::: {.block-cards}
-::: {.block-card .b-value}
-[Value]{.bc-name}
+::: {.content-visible when-format="html"}
+For Shalini's family and the best seats:
 
-[Both children's pay, for $H$ years of work after the degree]{.bc-words}
-
-$$H\,\big[\text{pay}(c_s) + \text{pay}(c_d)\big]$$
+```{=html}
+<div class="bill-fig" data-fig="bill" data-w="420" data-args='{"fam":"village","opt":"SPLIT"}'></div>
+```
 :::
 
-::: {.block-card .b-money}
-[Money]{.bc-name}
-
-[Fares, plus her escort's tickets and lost days, weighted by how much a rupee hurts]{.bc-words}
-
-$$\begin{aligned} \lambda_i\, M_{ip}, \quad M_{ip} &= 16\,f_i(c_s) + 16\,f_i(c_d) \\ &\quad + J_{ip}\big[\,2 f_i(c_d) + e_i(c_d)\,w_i\,\big] \end{aligned}$$
-:::
-
-::: {.block-card .b-worry}
-[Worry]{.bc-name}
-
-[Hours until her parents can reach her, times the worry per hour]{.bc-words}
-
-$$W_{ip} = \Big(\frac{\sigma}{1 + n_i + b\cdot\mathbb{1}[c_s = c_d]} + \tau\Big)\,R_i(c_d)$$
-:::
-:::
-
-::: {.score-line}
-[Score = value − money − worry]{.sc-eq}
+In symbols:
 
 $$U_{ip} = \underbrace{H\,\big[\text{pay}(c_s) + \text{pay}(c_d)\big]}_{\text{value}} \;-\; \underbrace{\lambda_i\, M_{ip}}_{\text{money}} \;-\; \underbrace{W_{ip}}_{\text{worry}}$$
-:::
+
+$$M_{ip} = 16\,f_i(c_s) + 16\,f_i(c_d) + J_{ip}\big[\,2 f_i(c_d) + e_i(c_d)\,w_i\,\big]$$
+
+$$W_{ip} = \Big(\frac{\sigma}{1 + n_i + b\cdot\mathbb{1}[c_s = c_d]} + \tau\Big)\,R_i(c_d)$$
 
 The son has no escort and no worry term, and those two terms are the only place gender enters.
 

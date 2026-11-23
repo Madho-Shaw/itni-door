@@ -264,45 +264,36 @@ html.present body { background: var(--paper); }
 .scale-score .sc-eq { margin-right: .2em; }
 .scale-score .num { font-weight: 600; }
 
-/* the four options: paper slips held by a strip of tape in the option's colour, with a route mark
-   (his line turmeric, hers teal; home on the left, then Patna, Durgapur, Delhi) */
-.opt-cards { list-style: none; margin: var(--sp-4) 0; padding: 0; display: grid; gap: var(--sp-4) var(--sp-3); grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); }
-.opt-card { --tape: var(--opt-near); position: relative; display: flex; flex-direction: column; gap: .3rem; padding: var(--sp-3) var(--sp-3) var(--sp-2);
-  background: var(--card); border: 1.5px solid var(--ink); border-radius: var(--radius-s); box-shadow: var(--pin); font-size: var(--fs-small); line-height: 1.35; }
-.opt-card::before { content: ""; position: absolute; top: -.55rem; left: 50%; width: 3.2rem; height: 1rem; transform: translateX(-50%) rotate(-3deg);
-  background: color-mix(in srgb, var(--tape) 62%, transparent); border-left: 1px dashed color-mix(in srgb, var(--ink) 25%, transparent); border-right: 1px dashed color-mix(in srgb, var(--ink) 25%, transparent); }
-.opt-card:nth-child(even) { transform: rotate(.5deg); }
-.opt-card:nth-child(odd) { transform: rotate(-.4deg); }
-.opt-card.o-together { --tape: var(--opt-together); }
-.opt-card.o-split { --tape: var(--opt-split); }
-.opt-card.o-son_only { --tape: var(--opt-son-only); }
-.oc-name { font: 700 var(--fs-body)/1.15 var(--font-head); color: var(--ink); }
-.opt-card .route { display: block; width: 5.4rem; height: auto; }
-.oc-text { color: var(--ink); }
-.oc-key { font-size: var(--fs-tiny); color: var(--ink-soft); background: none; padding: 0; }
+/* the four options as one railway line (figs.js rail): stations by hours from home, the twins' faces at their stations */
+.rail-fig { margin: var(--sp-3) 0 var(--sp-2); }
+.rail-fig svg.rail { display: block; width: 100%; height: auto; max-width: 44rem; overflow: visible; }
+.rail text { font-family: var(--font-body); fill: var(--ink); }
+.rail text.soft { fill: var(--ink-soft); }
+.rail text.rail-row { font-family: var(--font-head); }
+.rail text.pen { font-family: var(--font-hand); fill: var(--sindoor-ink); font-weight: 700; }
+.rail-key { margin: var(--sp-1) 0 0; font-size: var(--fs-small); color: var(--ink-soft); display: flex; align-items: center; gap: .35rem; }
+.rail-key .tw { width: .85rem; height: .85rem; border-radius: 50%; border: 2px solid; display: inline-block; }
+.rail-key .tw-him { border-color: var(--him); background: color-mix(in srgb, var(--him) 30%, var(--card)); }
+.rail-key .tw-her { border-color: var(--her); background: color-mix(in srgb, var(--her) 30%, var(--card)); margin-left: .6rem; }
 
-/* value, money, worry: index cards with an edge in the colour of that weight on the scale; plain words big, formula quiet */
-.block-cards { display: grid; gap: var(--sp-3); grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); margin: var(--sp-4) 0 var(--sp-3); }
-.block-card { --edge: var(--chart-him); position: relative; min-width: 0; padding: var(--sp-3) var(--sp-4) var(--sp-3) calc(var(--sp-4) + .3rem); background: var(--card);
-  border: 1.5px solid var(--ink); border-radius: var(--radius-s); box-shadow: var(--pin);
-  background-image: linear-gradient(var(--edge), var(--edge)); background-size: .45rem 100%; background-repeat: no-repeat; }
-.block-card.b-money { --edge: var(--opt-together); }
-.block-card.b-worry { --edge: var(--opt-split); }
-.bc-name { display: block; font: 700 var(--fs-tiny)/1.2 var(--font-head); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
-.block-card p { margin: .25rem 0 0; max-width: none; }
-.bc-words { display: block; font-size: var(--fs-body); line-height: 1.35; color: var(--ink); }
-.bc-formula, .block-card math[display="block"] { margin-top: var(--sp-2); padding-top: var(--sp-2); border-top: 1px dashed var(--line); color: var(--ink-soft);
-  font-family: "Cambria Math", "STIX Two Math", "Latin Modern Math", Georgia, serif; font-style: italic; font-size: var(--fs-small); line-height: 1.45; }
-.block-card math[display="block"] { display: block; font-style: normal; font-size: 1em; }
-/* the result under the blocks: the score, in red pen, then the rule in words */
-.score-line { margin: var(--sp-3) 0 var(--sp-4); padding: var(--sp-2) 0 var(--sp-2) var(--sp-4); border-left: 3px solid var(--sindoor); }
-.score-line .sc-eq { display: inline-block; font-size: 1.25em; text-decoration: underline wavy color-mix(in srgb, var(--sindoor) 55%, transparent); text-underline-offset: .3em; text-decoration-thickness: 1px; }
-.score-line p { margin: 0; }
-.score-line math[display="block"] { margin-top: var(--sp-2); }
-@media print {
-  .opt-card, .block-card { box-shadow: none; transform: none; }
-  .opt-card::before { display: none; }
-}
+/* the family's hisaab (figs.js bill): a kirana bill on card paper, torn along the top, faintly ruled, a degree off straight */
+.bill-fig { margin: var(--sp-4) 0 var(--sp-2); }
+.hisaab { position: relative; max-width: 26rem; padding: var(--sp-4) var(--sp-4) var(--sp-3); background-color: var(--card);
+  background-image: repeating-linear-gradient(transparent 0 1.55rem, color-mix(in srgb, var(--data) 10%, transparent) 1.55rem calc(1.55rem + 1px));
+  box-shadow: var(--pin); transform: rotate(-1deg); font-size: var(--fs-small);
+  clip-path: polygon(0 .45rem, 4% .1rem, 9% .4rem, 15% 0, 21% .35rem, 27% .05rem, 34% .4rem, 40% .1rem, 47% .45rem, 53% 0, 60% .35rem, 66% .08rem, 73% .42rem, 79% .05rem, 86% .38rem, 92% .1rem, 100% .4rem, 100% 100%, 0 100%); }
+.bl-head { margin: 0 0 var(--sp-2); padding-bottom: var(--sp-1); border-bottom: 1px dashed var(--ink-soft); color: var(--ink-soft); }
+.bl-head b { font-family: var(--font-head); letter-spacing: .12em; text-transform: uppercase; color: var(--ink); }
+.bl-t { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.bl-t th, .bl-t td { border: 0; padding: .3rem 0; vertical-align: top; font-weight: 400; text-align: left; }
+.bl-t td.r { text-align: right; white-space: nowrap; padding-left: var(--sp-3); font-weight: 600; }
+.bl-f { display: block; font-size: var(--fs-tiny); color: var(--ink-soft); font-style: italic; margin-top: .1rem; }
+.bl-t tr.bl-score th, .bl-t tr.bl-score td { border-top: 3px double var(--ink); padding-top: .45rem; font: 700 var(--fs-body)/1.2 var(--font-head); }
+.bl-t tr.bl-score td { color: var(--data); }
+.bl-note { margin: var(--sp-2) 0 0; font-family: var(--font-hand); color: var(--sindoor-ink); font-size: var(--fs-small); line-height: 1.3; transform: rotate(-1.5deg); }
+.bl-unit { position: absolute; top: var(--sp-4); right: var(--sp-4); margin: 0; font-size: var(--fs-tiny); color: var(--ink-soft); }
+.bill-after { font-size: var(--fs-small); color: var(--ink-soft); }
+@media print { .hisaab { box-shadow: none; transform: none; } }
 
 /* two door menus: a row on wide screens, a sheet on phones (a closed <details> hides its list in every browser) */
 .doors-phone { display: none; }

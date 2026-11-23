@@ -121,15 +121,8 @@ function quartoLayout(html, rel) {
   // Quarto gives every column of a pipe table the same width (<colgroup>, 33% / 33% / 33%); without it the browser sizes
   // columns by their content, so a column of lecture codes or two-digit numbers stays narrow and the text gets the room
   body = body.replace(/<colgroup>[\s\S]*?<\/colgroup>\s*/g, "");
-  // the report's choice-set table ("Option (name in our tables) | Son | Daughter | In words") becomes the four option cards
-  body = body.replace(/<table\b[^>]*>[\s\S]*?<\/table>/g, t => {
-    const rows = tableRows(t);
-    if (!/^Option \(name/.test(stripTags((rows[0] || [])[0] || "")) || rows.length !== 5) return t;
-    return optionCards(rows.slice(1).map(r => {
-      const m = stripTags(r[0]).match(/^(.*?)\s*\(([A-Z_]+)\)$/) || [, stripTags(r[0]), ""];
-      return { name: m[1], text: "Son " + r[1] + ", daughter " + r[2] + ". " + r[3] + "." + (m[2] ? ' <code class="oc-key">' + m[2] + "</code>" : "") };
-    }));
-  });
+  // the report's choice-set table ("Option (name in our tables) | Son | Daughter | In words") becomes the railway line
+  body = body.replace(/<table\b[^>]*>[\s\S]*?<\/table>/g, t => /^Option \(name/.test(stripTags((tableRows(t)[0] || [])[0] || "")) ? RAIL_FIG : t);
   // authors and date read as one line ("A, B, C · November 2026"): drop the whitespace between their <p>s
   body = body.replace(/<\/p>\s*(<p class="(?:author|date)")/g, "</p>$1");
   // the report's PDF (Quarto's Typst render, next to the page): a stamp under the byline and a line at the foot of the contents
@@ -156,42 +149,22 @@ function quartoLayout(html, rel) {
     '<main id="main" class="article">\n' + body + "</main>\n</div>\n" + html.slice(end);
 }
 
-/* ---------------------------------------------------------------- model pieces as paper cards (one-pager and report)
-   The four options become four slips with a small route mark (home on the left; his line in turmeric, hers in teal,
-   ending at Patna, Durgapur or Delhi). The value / money / worry blocks become three index cards, plain words first and
-   the formula under them. Same markup on every page; the look is .opt-cards / .block-cards in site.css. */
+/* ---------------------------------------------------------------- model pieces (one-pager and report)
+   The four-options table becomes the railway line and the value / money / worry table becomes the family's hisaab;
+   both are figures in site/assets/figs/figs.js (rail, bill), so they are drawn from the model data. */
 const OPT_KEY = { "both stay": "near", "together": "together", "best seats": "split", "only he goes": "son_only" };
-const OPT_ROUTE = { near: [1, 1], together: [2, 2], split: [2, 3], son_only: [2, 1] };   // [his stop, her stop]: 1 Patna, 2 Durgapur, 3 Delhi
 const stripTags = s => String(s).replace(/<[^>]+>/g, "").trim();
-function routeMark(key) {
-  const r = OPT_ROUTE[key]; if (!r) return "";
-  const X = [0, 30, 54, 78], seg = (stop, y, col) => '<path d="M10,' + y + " L" + X[stop] + "," + y + '" stroke="' + col + '" stroke-width="3" stroke-linecap="round"/><circle cx="' + X[stop] + '" cy="' + y + '" r="3.5" fill="' + col + '"/>';
-  return '<svg class="route" viewBox="0 0 86 30" width="86" height="30" aria-hidden="true" focusable="false">' +
-    '<path d="M24,26 H82" stroke="var(--line)" stroke-width="1" stroke-dasharray="2 3"/>' +
-    [1, 2, 3].map(s => '<line x1="' + X[s] + '" x2="' + X[s] + '" y1="23" y2="28" stroke="var(--hair-grey)" stroke-width="1.5"/>').join("") +
-    '<rect x="2" y="7" width="10" height="16" rx="2" fill="var(--card)" stroke="var(--ink)" stroke-width="1.5"/>' +
-    seg(r[0], 10, "var(--him)") + seg(r[1], 19, "var(--her)") + "</svg>";
-}
-function optionCards(items) {   // items: [{ name, text }]
-  return '<ol class="opt-cards">' + items.map(it => {
-    const key = OPT_KEY[stripTags(it.name).toLowerCase()] || "";
-    return '<li class="opt-card' + (key ? " o-" + key : "") + '"><span class="oc-name">' + it.name + "</span>" + routeMark(key) + '<span class="oc-text">' + it.text + "</span></li>";
-  }).join("") + "</ol>";
-}
-function blockCards(items) {   // items: [{ name, words, formula }]
-  return '<div class="block-cards">' + items.map(it => '<div class="block-card b-' + stripTags(it.name).toLowerCase() + '"><span class="bc-name">' + it.name +
-    '</span><p class="bc-words">' + String(it.words).replace(/^[a-z]/, c => c.toUpperCase()) + '</p><p class="bc-formula">' + it.formula + "</p></div>").join("") + "</div>";
-}
+const RAIL_FIG = `<div class="rail-fig" data-fig="rail" data-w="480" data-args='{"fam":"village"}'></div>`;
+const BILL_FIG = `<div class="bill-fig" data-fig="bill" data-w="420" data-args='{"fam":"village","opt":"SPLIT"}'></div>`;
 function tableRows(t) {   // [[cells of header], [cells of row 1], ...] as inner HTML
   return (t.match(/<tr[\s\S]*?<\/tr>/g) || []).map(r => (r.match(/<t[hd][^>]*>[\s\S]*?<\/t[hd]>/g) || []).map(c => c.replace(/^<t[hd][^>]*>|<\/t[hd]>$/g, "").trim()));
 }
 /* a markdown table that is one of the model pieces becomes cards; anything else gets the sideways-scroll box */
 function cardifyTable(t) {
   const rows = tableRows(t), head = (rows[0] || []).map(c => stripTags(c).toLowerCase());
-  if (head.length === 4 && head.every(h => OPT_KEY[h]) && rows.length === 2)
-    return optionCards(rows[0].map((n, i) => ({ name: n, text: rows[1][i] })));
-  if (/^block/.test(head[0] || "") && /formula/.test(head[1] || ""))
-    return blockCards(rows.slice(1).map(r => { const m = r[0].match(/^([^:]+):\s*([\s\S]*)$/) || [, r[0], ""]; return { name: m[1], words: m[2], formula: r[1] }; }));
+  // the four options become the railway line, the value / money / worry blocks become the family's hisaab (figs.js rail, bill)
+  if (head.length === 4 && head.every(h => OPT_KEY[h]) && rows.length === 2) return RAIL_FIG;
+  if (/^block/.test(head[0] || "") && /formula/.test(head[1] || "")) return BILL_FIG;
   return '<div class="scroll-x">' + t + "</div>";
 }
 
@@ -214,7 +187,7 @@ function onePagerCopy() {
   Object.keys(parts).forEach(h => {
     const k = Object.keys(KEYS).find(k => !out[k] && KEYS[k].test(h));
     if (k) out[k] = md.render(parts[h].trim()).replace(/<table>[\s\S]*?<\/table>/g, cardifyTable)
-      .replace(/<p>(Score = value − money − worry)([\s\S]*?)<\/p>/, '<p class="score-line"><span class="sc-eq">$1</span>$2</p>'); else if (h !== "_intro") log.push("one-pager: section not placed: " + h);
+      .replace(/<p>Score = value − money − worry[\s\S]*?(The son has no escort and no worry term\.)?<\/p>/, (m, son) => son ? '<p class="bill-after">' + son + "</p>" : ""); else if (h !== "_intro") log.push("one-pager: section not placed: " + h);
   });
   return out;
 }
@@ -278,15 +251,15 @@ async function page(file, base) {
   const SLOT = { F1: "F1", F7: "ladder", F12: "ledger", F14: "grids", F17: "fixes", scale: "scale" };
   html = html.replace(/<div class="fig-slot"\s+data-fig="([^"]+)">([\s\S]*?)<\/div>/g, (m, id, inner) => SLOT[id]
     ? '<div class="fig-slot" data-slot="' + id + '"><div data-fig="' + SLOT[id] + '" data-w="640"></div>' + (/^\s*(<div[^>]*>\s*)?<table/.test(inner) ? "" : inner) + "</div>" : m.replace('data-fig="', 'data-slot="'));
+  // one-pager copy (before the figures: the copy can hold figures, the railway line and the bill)
+  if (OPC) html = html.replace(/<div class="copy" data-copy="(\w+)">[\s\S]*?<\/div><!--\/copy-->/g, (m, k) =>
+    OPC[k] ? `<div class="copy" data-copy="${k}" data-from="content/one_pager_text.md">${OPC[k]}</div><!--/copy-->` : m);
   // figures
   html = html.replace(/<div([^>]*?)\sdata-fig="([^"]+)"([^>]*)><\/div>/g, (m, a1, name, a2) => {
     const at = a1 + a2, args = ((at.match(/data-args='([^']*)'/) || [])[1]) || "{}", w = Number((at.match(/data-w="(\d+)"/) || [])[1] || 640);
     try { return `<div${a1} data-fig="${name}"${a2}>${FIGS.render(name, JSON.parse(args), ctx, w)}</div>`; }
     catch (e) { log.push("FIGURE " + name + " failed in " + rel + ": " + e.message); return m; }
   });
-  // one-pager copy
-  if (OPC) html = html.replace(/<div class="copy" data-copy="(\w+)">[\s\S]*?<\/div><!--\/copy-->/g, (m, k) =>
-    OPC[k] ? `<div class="copy" data-copy="${k}" data-from="content/one_pager_text.md">${OPC[k]}</div><!--/copy-->` : m);
   // QR codes
   const qrs = [...html.matchAll(/<!--#qr:([^>]*?)-->/g)];
   for (const q of qrs) {
