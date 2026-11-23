@@ -174,7 +174,7 @@
   window.onYouTubeIframeAPIReady = function () {
     player = new YT.Player("yt-frame", {
       host: "https://www.youtube-nocookie.com", videoId: box.dataset.yt,
-      playerVars: { autoplay: 0, rel: 0, playsinline: 1, cc_load_policy: 1, cc_lang_pref: "en", hl: "en", origin: location.origin },
+      playerVars: { autoplay: 0, rel: 0, playsinline: 1, hl: "en", origin: location.origin },
       events: {
         onReady: function () { ready = true; clearTimeout(failTimer); var f = box.querySelector("iframe"); if (f) f.title = "Itni Door? video"; markRate(player.getPlaybackRate()); },
         onStateChange: function (e) { if (e.data === 1 || e.data === 3) hideCover(); },
