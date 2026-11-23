@@ -26,3 +26,14 @@ function Div(el)
     end
   end
 end
+
+-- Tables: let Typst size the columns to their content (pipe tables otherwise get equal widths, which squeezes
+-- the text columns into tall cells), and set default-aligned columns flush left.
+function Table(t)
+  for i, c in ipairs(t.colspecs) do
+    local align = c[1]
+    if align == "AlignDefault" or align == pandoc.AlignDefault then align = pandoc.AlignLeft end
+    t.colspecs[i] = { align, pandoc.ColWidthDefault }
+  end
+  return t
+end

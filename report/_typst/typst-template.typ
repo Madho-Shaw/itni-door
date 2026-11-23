@@ -138,7 +138,7 @@
     fill: (x, y) => if y > 0 and calc.even(y) { C.paper } else { none })
   set table.hline(stroke: 0.9pt + C.ink)
   show table: it => block(stroke: (top: 1.4pt + C.ink, bottom: 0.9pt + C.ink), it)
-  show table: set text(size: 8.3pt)
+  show table: set text(size: 8.3pt, hyphenate: false)
   show table: set par(justify: false, leading: 0.5em)
   show table.cell.where(y: 0): set text(font: F.head, weight: 700, size: 8.3pt, fill: C.ink)
   show figure: set block(above: 1.3em, below: 1.4em)
