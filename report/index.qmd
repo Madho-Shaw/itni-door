@@ -124,7 +124,7 @@ Maharashtra publishes every engineering admit with gender, MHT-CET score, catego
 
 At the same score, **a woman is 3.7 percentage points less likely than a man to be admitted outside her home region** [Maharashtra CAP 2023-25]{.src}. Men do it {{< var gap.mh_base_pct >}}% of the time, so the gap is about {{< var gap.mh_relative_pct >}}% of the men's rate. Inside the same college and year the gap is still {{< var gap.mh_same_college_pp >}} points, so the colleges women pick do not explain it. The gap closes at the top. It is {{< var gap.mh_band_low_pp >}} points below the 80th percentile, {{< var gap.mh_band_mid_pp >}} between the 80th and 95th, and {{< var gap.mh_band_top_pp >}} above the 95th, where it is no longer significant (p = {{< var gap.mh_band_top_p >}}).
 
-One check is still open. In these lists 68.7% of women hold a ladies seat. If ladies seats are shared out differently between home-region and other-region seats, part of the 3.7 points could come from how seats are allotted and not from what families choose. We have not yet split the test by seat type, so we flag it here and in @sec-limits.
+We also checked whether ladies seats make the gap. In these lists 68.0% of the women in the home-region test hold a ladies seat. If ladies seats were shared out differently between home-region and other-region seats, part of the 3.7 points could come from how seats are allotted and not from what families choose. They are not the cause. Ladies seats are about as common in other-region quotas (30.9%) as in home-region ones (29.0%), and women on a ladies seat are 5.0 points *more* likely to be outside their home region than women on a general seat. Once we hold seat type fixed, the gap grows. Women are 7.7 points less likely than men to study outside their home region (seat type as a control; 7.4 with score cell times seat type), and on general seats alone the gap is 7.2 points (all p < 0.001). Seat type is itself an allotment result, so we read this as a bound, not a new headline. The ladies seats narrow the gap; they do not make it.
 
 [^hu]: CAP is Maharashtra's centralised admission process. A student is "home university" (HU) if she comes from the college's own university region and "other home university" (OHU) if not. "pp" means percentage points.
 
@@ -152,7 +152,7 @@ The textbook family sees two equal children. At the same rank, price and return 
 
 ## The standard model
 
-Our starting point is the model from L2, Becker's human-capital model. The household invests in a child's education like any other investment, and nothing in it depends on gender. In L10-L11 the same idea came as an investment rule, where the family takes the better option only if the gain covers the extra cost. For a child with rank $r$, the household picks a near college $N$ (the home-state NIT) or a far one $F$ to maximise
+Our starting point is the model from L2, Becker's human-capital model. The household invests in a child's education like any other investment, and nothing in it depends on gender. Put in one line: if a son and a daughter have the same preferences, the same ability and face the same prices, the model predicts the same choice for both. Becker and Tomes (1986) add that parents invest in each child until the return on the last rupee equals what that rupee earns elsewhere, so the investment is efficient and does not depend on the child's sex. In L10-L11 the same idea came as an investment rule, where the family takes the better option only if the gain covers the extra cost. For a child with rank $r$, the household picks a near college $N$ (the home-state NIT) or a far one $F$ to maximise
 
 $$V_c = R(q_c) - k\,d_c - p_c .$$
 
@@ -160,7 +160,7 @@ Here $R(q_c)$ is the value of the college's quality, $k\,d_c$ is the money cost 
 
 $$\Pr(F \mid r, \text{girl}) = \Pr(F \mid r, \text{boy}).$$
 
-The family goes far for both or for neither. The evidence in @sec-gap says otherwise. At the same score, category and year, Maharashtra women move less, even inside the same college, and the Census decay holds with origin and destination fixed. The standard model has no term that can produce this.
+The family goes far for both or for neither. The evidence in @sec-gap says otherwise. At the same score, category and year, Maharashtra women move less, even inside the same college, and the Census decay holds with origin and destination fixed. With equal weight on both children, the standard model has no term that can produce this. A family can put a lower weight on a daughter's pay than on a son's (Behrman, Pollak and Taubman 1982 call this unequal concern), and that version can produce a gap. It is still the standard model, and it is the strongest rival, so we test it against ours in @sec-horse.
 
 ## The twist: she has the better seat {#sec-twist}
 
@@ -194,11 +194,20 @@ We do not use our Reddit posts to rule out "she prefers near". Those posts come 
 
 ## The strongest rival: "her degree is for the marriage" {#sec-horse}
 
-The strongest standard rival comes from class. In L3 we saw that girls' education in India rose partly as a marriage asset, so for some families a daughter's degree is for the match more than the job. In Becker's terms the family puts a lower weight on her returns, and that would also make it invest less in her. Three facts separate this story from ours.
+The strongest standard rival comes from class. In L3 we saw that girls' education in India rose partly as a marriage asset, so for some families a daughter's degree is for the match more than the job. In Becker's terms the family puts a lower weight on her returns, and that would also make it invest less in her. Son preference, dowry (where her education can raise what the family must pay) and old-age support from sons all work the same way. Each lowers the weight on her returns next to his. Three facts separate this story from ours.
 
 1. **Quality.** If parents valued her returns less, they would cut college quality as well as distance. Within the same branch, Maharashtra women at the same score sit in slightly better colleges ({{< var gap.mh_quality_branch >}} percentile points on the college's median admit percentile, p = 0.006), while they move less. Without the branch control women are in slightly weaker colleges (-0.65 points), and that comes from which branch they take, a separate gendered question we leave aside. Fares are also small next to the pay gap. A lower weight on her pay could only produce the discount if the weight were close to zero, and then families would keep her in weaker colleges near home as well.
 2. **The brother.** A "she is worth less" story says nothing about where her brother studies. In our story the brother can be her escort and can lower the worry, so sisters should end up at a brother's college more often than their rank needs. That prediction separates the two stories. We could not test it without the choice lists (@sec-predict).
 3. **The airport.** In our model the same daughter, with the same weight on her pay, takes Delhi when her family lives near an airport. In the rival story, where she lives should not change how much her pay counts. This one is a model result, so it is a prediction and not yet a test.
+
+| What we look at | Our model (worry priced by reach time) | Lower weight on her pay (son preference, dowry, old-age support) | She prefers to stay near | Status |
+|---|---|---|---|---|
+| Same score: better college within the branch, but less moving (Maharashtra) | Fits | Does not fit: it would cut quality too | Fits | Tested, p = 0.006 |
+| Sisters at a brother's college more often than rank needs | Predicts it | Says nothing | Says nothing | Not tested: needs the choice lists |
+| Near an airport, she takes the far seat | Predicts it | Says nothing | Only if her own fear also tracks hours | Model result, not a test |
+| Paying fares barely helps; someone trusted at the college helps a lot | Predicts it | Money helps a little either way | Neither helps | Model result, not a test |
+
+: Which story predicts what. Only the first row is a test with data so far; it separates our story from the lower-weight rival but not from her own preference, which is why Prof Mitra's question (@sec-say) matters. {#tbl-rivals}
 
 ## Why closing ranks show nothing {#sec-margin}
 
@@ -347,7 +356,7 @@ The son gets his best seat whenever he leaves Bihar. In Bihar the daughter's gap
 
 Ira's family spends the most on travel (₹{{< var city.bill_split >}} over four years), yet she is the one who takes Delhi. What makes the difference is the flight. Delhi is under six hours away, so her parents can reach her the same day. Even with no girls known who went far, she takes Delhi {{< var sens.city_n0_split >}} times in 100 (three options). The classic gap, where only the son goes far, does appear, but it is smaller. Son far against daughter far is {{< var village.son_far >}} against {{< var village.far >}} in the village, {{< var town.son_far >}} against {{< var town.far >}} in town and {{< var city.son_far >}} against {{< var city.far >}} in the city.
 
-We should be careful about what these numbers are. Kajal's family is calibrated, and Shalini's and Ira's results are implications of the model under that one calibration. With $\sigma$ fixed, the order Ira, Kajal, Shalini follows mostly from reach time ({{< var city.hours_delhi >}}, {{< var town.hours_delhi >}} and {{< var village.hours_delhi >}} hours to Delhi). The order holds at every $H$, $\sigma$, $b$ and $\mu$ we tried, and so does the result that money barely moves anyone. The levels do not hold. With $H$ = 1 Shalini's Delhi chance is {{< var sens.village_delhi_h1 >}} in 100, and with $H$ = 5 it is {{< var sens.village_delhi_h5 >}} (three options). Without the brother's worry effect ($b$ = 0) the pull towards Together roughly halves. The full tables are in Appendix C.
+We should be careful about what these numbers are. They are not forecasts. We set $\sigma$ so that Kajal's family sits on the fence between Together and Best seats, so her number is calibrated, and Shalini's and Ira's results are what the model gives under that one calibration. **What we claim is the order (village, then town, then city), not the levels.** With $\sigma$ fixed, the order Ira, Kajal, Shalini follows mostly from reach time ({{< var city.hours_delhi >}}, {{< var town.hours_delhi >}} and {{< var village.hours_delhi >}} hours to Delhi). The order holds at every $H$, $\sigma$, $b$ and $\mu$ we tried, and in a wider set of runs, including one where all three families get the same income, $\lambda$, wage and contacts, so that only where they live differs (23, 44 and 95 in 100, @tbl-sens-wide). So does the result that money barely moves anyone. The levels do not hold. With $H$ = 1 Shalini's Delhi chance is {{< var sens.village_delhi_h1 >}} in 100, and with $H$ = 5 it is {{< var sens.village_delhi_h5 >}} (three options). Without the brother's worry effect ($b$ = 0) the pull towards Together roughly halves. The full tables are in Appendix C.
 
 ## Her say, and Prof Mitra's question {#sec-say}
 
@@ -389,7 +398,7 @@ The last prediction is half tested. We know where staying home costs a girl the 
 # Voices: what girls and families say {#sec-voices}
 
 ::: {.takeaway}
-Words tell us who decided and why, which no data set can. Two of our interviews are in so far, and public Reddit posts add colour. Neither is a sample.
+Words tell us who decided and why, which no data set can. Our two interviews are a pilot: both are medical students in Chennai, so they test the mechanism, not the numbers. Public Reddit posts add colour. Neither is a sample.
 
 [Project meeting, 21 Oct, "speak to girls"]{.peg}
 :::
@@ -474,7 +483,7 @@ Each fix moves one term. The numbers are her Delhi chance out of 100 in our mode
 : Her Delhi chance out of 100 under each fix (four options). The sizes rest on our assumed 80/20 worry split; the ranking follows from the sourced fares. {#tbl-fixes}
 :::
 
-Paying the escort's fares or cheap credit moves Shalini's Delhi chance by 3 or 4 in 100. A senior girl from her district or a hostel guarantee moves it by 62. The ranking follows from the sourced fares, since a four-year travel bill of ₹{{< var village.bill_split >}} cannot be the binding cost next to a pay gap of lakhs a year. The size of the information effect is ours, because it rests on the assumed 80/20 split. Ira's family needs nothing. She is at {{< var city.fix_baseline >}} already, so help should go to families far from airports with no girl who went before. Some universities already lean this way. Our RTI to the University of Delhi shows its own hostels held 2,232 seats for women and 1,192 for men in 2025. That is one year and one university, with no waiting lists, so it cannot tell us whether the seats are enough for women who come from far.
+Paying the escort's fares or cheap credit moves Shalini's Delhi chance by 3 or 4 in 100. A senior girl from her district or a hostel guarantee moves it by 62. The ranking follows from the sourced fares, since a four-year travel bill of ₹{{< var village.bill_split >}} cannot be the binding cost next to a pay gap of lakhs a year. The size of the information effect is ours, because it rests on the assumed 80/20 split, but the ranking does not: at a 50/50 or a 95/5 split the senior girl still moves Shalini from 32 to 75 or from 19 to 89 (@tbl-fix-split). The senior girl and the hostel guarantee give the same number by construction, since both halve the statistical worry at Delhi. Ira's family needs nothing. She is at {{< var city.fix_baseline >}} already, so help should go to families far from airports with no girl who went before. Some universities already lean this way. Our RTI to the University of Delhi shows its own hostels held 2,232 seats for women and 1,192 for men in 2025. That is one year and one university, with no waiting lists, so it cannot tell us whether the seats are enough for women who come from far.
 
 Every fix has a cost, which is the point of the Blau and Kahn slides in Week 4. A hostel guarantee lowers the parents' worry partly by swapping their watch for the college's, so it may move the surveillance to campus. The senior-girl fix does not have that cost, and in our model it moves her just as far. Before we push either, we should check what already exists. NIT Delhi already has a girls' hostel, Yamuna, with about 400 places against about 1,100 for boys (its hostels page, read on 23 November 2026). What we could not confirm is whether every first-year woman is promised a place, so the fix is the promise, told to families before choice filling, not a new building. We have not checked NIT Durgapur, or whether the trains from Saharsa and Begusarai to Delhi have women's coaches. If they do, the binding cost is somewhere else.
 
@@ -487,7 +496,7 @@ For business, we expect a market here, though we did not measure one. A coaching
 # Where our model breaks {#sec-limits}
 
 ::: {.takeaway}
-The ranking of the families and of the fixes survives every check we ran. The levels do not, and six things in particular limit what we can claim.
+The ranking of the families and of the fixes survives every check we ran. The levels do not, and seven things in particular limit what we can claim.
 :::
 
 1. **The three families are composites.** Their incomes, $\lambda$, $n$ and the town and city wages are assumed. The twins are a device to hold the rank fixed. Real same-year twins are rare, and the common real case is an elder brother or cousin already at a college.
@@ -497,7 +506,9 @@ The ranking of the families and of the fixes survives every check we ran. The le
 5. **Pay is the NIRF institute median,** which mixes who gets in with what the college adds. Institutes report it themselves.
 6. **We have no choice-list data.** Closing ranks only see the families who already said yes, and neither RTI gave us the choice data.
 
-Three smaller points from @sec-gap also stand. The Maharashtra gap has not been split by seat type, the airport test used locations we did not look up, and the Reddit posts are self-selected. The full list is in Appendix E.
+7. **Our interviews are a pilot.** We have two, both medical students in Chennai who came in through NEET, not engineering students from Bihar. They show the mechanism (a far college taken off the list by her parents), not how common it is.
+
+Two smaller points from @sec-gap also stand. The airport test used locations we did not look up, and the Reddit posts are self-selected. The full list is in Appendix E.
 
 We expect a few questions, and here are our short answers.
 
@@ -509,7 +520,7 @@ We expect a few questions, and here are our short answers.
 
 # Conclusion {#sec-conclusion}
 
-At the same rank, Indian families send daughters less far than sons. The standard household model from L2 cannot say why, because it sees two equal children, and in our Bihar case it even predicts that the daughter should go farther. Our answer keeps everyone rational. A daughter's far seat carries two costs her brother's does not, an escort for the trip and a worry that grows with the hours it takes to reach her. The escort adds little next to the pay gap. The worry is what keeps her near, and it falls when the family has someone it trusts at the college. That is why, in our model, the village girl most often ends up at her brother's college, while the girl near an airport takes Delhi. It is also why information helps her more than money.
+At the same rank, Indian families send daughters less far than sons. The standard household model from L2 cannot say why, because it sees two equal children, and in our Bihar case it even predicts that the daughter should go farther. Our answer keeps everyone rational. A daughter's far seat carries two costs her brother's does not, an escort for the trip and a worry that grows with the hours it takes to reach her. The escort adds little next to the pay gap. The worry is what keeps her near, and it falls when the family has someone it trusts at the college. That is why, in our model, the village girl most often ends up at her brother's college, while the girl near an airport takes Delhi. It is also why information helps her more than money. Our "out of 100" numbers illustrate this under one calibration. The claim is the order across the three families and the order of the fixes, which held in every run we tried.
 
 Two things stay open. Without the choice lists we could not test the gap at the moment of choice. And Prof Mitra's question, whether the limit is only her parents' or also her own fear, has both answers in our first two interviews. More interviews would tell us which is more common.
 
@@ -526,6 +537,10 @@ We are three students and we did this together. We chose the topic and took it t
 Agarwal, B. (1997). "'Bargaining' and Gender Relations: Within and Beyond the Household." *Feminist Economics* 3(1): 1-51.
 
 Becker, G. S. (1964). *Human Capital.* New York: NBER and Columbia University Press. Third edition 1993, University of Chicago Press.
+
+Becker, G. S. and N. Tomes (1986). "Human Capital and the Rise and Fall of Families." *Journal of Labor Economics* 4(3): S1-S39.
+
+Behrman, J. R., R. A. Pollak and P. Taubman (1982). "Parental Preferences and Provision for Progeny." *Journal of Political Economy* 90(1): 52-73.
 
 Borker, G. (2021). "Safety First: Perceived Risk of Street Harassment and Educational Choices of Women." World Bank Policy Research Working Paper 9731.
 
@@ -606,6 +621,30 @@ Other assumed values are $H$ = {{< var param.h >}}, $\tau$ = {{< var param.tau >
 : Sensitivity, out of 100 families, three options (the script prints these for three options only) {#tbl-sens}
 
 Two more checks from the same script. With no girls known who went far, Ira's family still takes Best seats {{< var sens.city_n0_split >}} times in 100. To get the result we first expected, Shalini mostly at NIT Patna, we would need a village-only cost of her leaving Bihar of about ₹{{< var sens.village_fixed_cost >}} lakh (then 12 both stay, 35 together, 14 best seats and 39 only he goes). That is a guess about rural norms, not data, so we did not build it in.
+
+**Wider checks (four options, her Delhi chance out of 100).** The table above leaves the families' cast, the money terms and the worry split fixed. A second script (`model_v2_sensitivity_wide.py`) varies those, one at a time.
+
+| Run | Shalini | Kajal | Ira | Order holds? |
+|---|---|---|---|---|
+| Baseline | 23 | 44 | 98 | yes |
+| Identical families: all get the town family's income, $\lambda$, wage and $n$ = 0; only where they live differs | 23 | 44 | 95 | yes |
+| $\lambda$ × 0.75 / × 1.25 | 25 / 22 | 46 / 42 | 98 / 97 | yes |
+| Pay gap over NIT Patna × 0.75 / × 1.25 | 8 / 50 | 18 / 73 | 92 / 99 | yes |
+| Escorted train trips $J$ = 4 / 12 (ours 8) | 26 / 21 | 47 / 41 | 98 / 98 | yes |
+| Norm part $\tau$ = 0 / 8 (ours 4, $\sigma$ = 16) | 39 / 12 | 60 / 28 | 98 / 98 | yes |
+| Worry split 50/50 / 95/5 ($\sigma + \tau$ = 20 as in ours) | 32 / 19 | 52 / 40 | 98 / 98 | yes |
+
+: Wider sensitivity. The order village, town, city holds in every run; the levels move most with the pay gap and the norm part. {#tbl-sens-wide}
+
+| Fix (Shalini / Kajal / Ira) | 50/50 split | 80/20 (ours) | 95/5 split |
+|---|---|---|---|
+| Baseline | 32 / 52 / 98 | 23 / 44 / 98 | 19 / 40 / 98 |
+| Escort's fares paid | 36 / 54 / 98 | 26 / 46 / 98 | 22 / 41 / 98 |
+| One senior girl at NIT Delhi, or a hostel guarantee | 75 / 82 / 98 | 85 / 89 / 98 | 89 / 91 / 98 |
+
+: The fixes under three worry splits. The senior girl and the hostel guarantee give the same numbers by construction: with $n$ = 0, one more trusted person halves $\sigma$, and the hostel fix is defined as halving $\sigma$. {#tbl-fix-split}
+
+Two things follow. The families' order does not come from the cast we gave them: with identical families it still runs from reach time. And the ranking of the fixes does not come from the 80/20 split: at any split we tried, paying fares adds 1 to 4 in 100 and a trusted person at the college adds 30 to 70.
 
 | Family | Parents' gain over Both stay: Together / Best seats (₹ lakh) | Her gain: Together / Best seats | Choice at β = 0.2 | β = 0.3 | β = 0.5 | Smallest β for Best seats |
 |---|---|---|---|---|---|---|
