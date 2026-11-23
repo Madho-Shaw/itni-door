@@ -4,36 +4,91 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Watch: Itni Door? The distance discount (ECO463, Group 7)</title>
-<meta name="description" content="The video: three sisters with the same rank and a better seat than their brothers, and the model that explains who gets to go. Full script and sources below.">
+<meta name="description" content="The video: three sisters with the same rank and a better seat than their brothers, and the model that explains who gets to go. 14 minutes, 9 chapters, subtitles.">
 <meta property="og:title" content="Watch: Itni Door? The distance discount">
 <meta property="og:image" content="{{site.url}}assets/img/og.png">
 <script>if (/present/.test(location.search + location.hash)) document.documentElement.classList.add("present");</script>
+<link rel="preconnect" href="https://www.youtube-nocookie.com">
 <link rel="preload" href="../assets/fonts/baloo2-latin-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/hind-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/tokens.css">
 <link rel="stylesheet" href="../assets/site.css">
 <style>
+/* Layout by device. Width decides columns; the input (mouse vs touch, via `pointer`) decides what the cover says.
+   Laptop (860 px and up): video left, chapters in a column on the right that stays in view.
+   Phone and tablet (under 860 px): video full width on top, big speed buttons, then the chapter list. */
 .watch { padding-top: var(--sp-5); }
 .watch h1 { font-size: var(--fs-h1); margin-bottom: var(--sp-2); }
-.player { display: block; width: 100%; aspect-ratio: 16 / 9; background: var(--ink); border: var(--outline) solid var(--ink); border-radius: var(--radius-m); box-shadow: var(--pin); margin: var(--sp-3) 0 var(--sp-4); }
+.player { display: block; width: 100%; aspect-ratio: 16 / 9; background: var(--ink); border: var(--outline) solid var(--ink); border-radius: var(--radius-m); box-shadow: var(--pin); margin: var(--sp-3) 0 var(--sp-3); overflow: hidden; }
 .player.none { display: grid; place-items: center; background: var(--kraft); color: var(--ink); padding: var(--sp-4); text-align: center; }
-.player iframe { width: 100%; height: 100%; border: 0; border-radius: var(--radius-m); }
-.play-btn { width: 100%; height: 100%; display: grid; place-content: center; gap: .3rem; background: var(--kraft); color: var(--ink); border: 0; border-radius: var(--radius-m); cursor: pointer; font: inherit; min-height: 44px; }
-.play-btn span { font-family: var(--font-head); font-size: var(--fs-h3); font-weight: 700; }
-.play-btn small { color: var(--ink-soft); }
+.player.yt { position: relative; container-type: inline-size; }
+.player { scroll-margin-top: 4.5rem; }   /* a chapter jump scrolls the video back into view below the top bar */
+/* a small player (narrow laptop window) keeps the cover short: no key list */
+@container (max-width: 620px) { .yt-cover .keys { display: none !important; } }
+.player.yt #yt-frame, .player.yt iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* the cover over the YouTube player until it plays */
+.yt-cover { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .7rem;
+  padding: var(--sp-4); border: 0; cursor: pointer; font: inherit; text-align: center; color: var(--on-dark, #FBF6EC);
+  background: radial-gradient(ellipse at center, rgba(43,33,24,.62), rgba(43,33,24,.86)); transition: opacity var(--t-med, 260ms) ease; }
+.yt-cover[hidden] { display: none; }
+.yt-cover.gone { opacity: 0; pointer-events: none; }
+.yt-cover .go { display: flex; align-items: center; gap: .8rem; font-family: var(--font-head); font-weight: 800; font-size: clamp(1.25rem, 3.2vw, 2rem); line-height: 1.15; }
+.yt-cover .tri { flex: none; width: 3.2rem; height: 3.2rem; border-radius: 50%; background: var(--sindoor, #C8372D); position: relative; box-shadow: 0 0 0 .25rem rgba(251,246,236,.25); }
+.yt-cover .tri::after { content: ""; position: absolute; left: 1.25rem; top: .95rem; border-style: solid; border-width: .65rem 0 .65rem 1.05rem; border-color: transparent transparent transparent #FBF6EC; }
+.yt-cover:hover .tri, .yt-cover:focus-visible .tri { transform: scale(1.06); }
+.yt-cover .tip { font-size: clamp(.92rem, 1.7vw, 1.1rem); max-width: 34rem; }
+.yt-cover .tip b { color: var(--him, #E3A92B); }
+.yt-cover .keys { font-size: .86rem; opacity: .9; max-width: 40rem; line-height: 2; }
+.yt-cover kbd, .speed-note kbd { font: 600 .8em/1 var(--font-body); padding: .2em .45em; border-radius: .3rem; border: 1px solid currentColor; border-bottom-width: 2px; }
+
+/* mouse + keyboard: show keys; touch: "tap" only */
+.on-touch { display: none; }
+@media (hover: none), (pointer: coarse) {
+  .on-key { display: none !important; }
+  .on-touch { display: inline; }
+}
+
+/* speed */
+.speed { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; margin: 0 0 var(--sp-4); }
+.speed .lbl { font-family: var(--font-head); font-weight: 700; margin-right: .3rem; }
+.speed button { min-height: 44px; min-width: 3.4rem; padding: .3rem .8rem; border: 2px solid var(--ink); border-radius: var(--radius-pill); background: var(--card); color: var(--ink); font: 600 1rem/1.1 var(--font-body); cursor: pointer; display: inline-flex; flex-direction: column; align-items: center; justify-content: center; }
+.speed button small { font-size: .68rem; font-weight: 500; color: var(--ink-soft); }
+.speed button[aria-pressed="true"] { background: var(--data); border-color: var(--data); color: var(--on-dark, #FBF6EC); }
+.speed button[aria-pressed="true"] small { color: inherit; }
+.speed button:hover { background: var(--kraft); }
+.speed button[aria-pressed="true"]:hover { background: var(--data); }
+
+/* chapters */
 .cols { display: grid; gap: var(--sp-6); grid-template-columns: minmax(0, 1fr) minmax(0, 18rem); align-items: start; }
+.cols aside { position: sticky; top: var(--sp-5); }
 .chapters { list-style: none; margin: 0; padding: 0; }
-.chapters button { display: block; width: 100%; text-align: left; min-height: 44px; padding: .5rem .2rem; background: none; border: 0; border-bottom: 1px solid var(--line); font: inherit; color: var(--ink); cursor: pointer; }
+.chapters button { display: flex; align-items: baseline; width: 100%; text-align: left; min-height: 44px; padding: .5rem .3rem; background: none; border: 0; border-bottom: 1px solid var(--line); font: inherit; color: var(--ink); cursor: pointer; }
 .chapters button:hover, .chapters button:focus-visible { background: var(--kraft); }
+.chapters button.now { background: var(--data-soft, #D5D9E8); font-weight: 600; }
+.chapters .t { flex: none; min-width: 3.2rem; font-family: var(--font-head); font-weight: 700; color: var(--data); font-variant-numeric: tabular-nums; }
 .chapters + p { margin-top: var(--sp-3); }
-.chapters .t { font-family: var(--font-head); font-weight: 700; color: var(--data); margin-right: .5rem; font-variant-numeric: tabular-nums; }
-.script { margin-top: var(--sp-7); max-width: var(--measure, 40rem); }
-.script h2 { scroll-margin-top: 4rem; }
-.script h3 { font-size: var(--fs-lead); margin: var(--sp-5) 0 var(--sp-2); }
-.sl { margin: 0 0 var(--sp-2); }
-.sl b { font-weight: 600; margin-right: .4rem; color: var(--data); }
-.sl .en { color: var(--ink-soft); }
-@media (max-width: 859px) { .cols { grid-template-columns: 1fr; gap: var(--sp-4); } }
+
+/* phone and tablet */
+@media (max-width: 859px) {
+  .cols { grid-template-columns: 1fr; gap: var(--sp-2); }
+  .cols aside { position: static; }
+  .chapters { display: grid; grid-template-columns: 1fr; }
+}
+@media (min-width: 600px) and (max-width: 859px) { .chapters { grid-template-columns: 1fr 1fr; column-gap: var(--sp-4); } }
+@media (max-width: 599px) {
+  .watch { padding-top: var(--sp-3); }
+  .watch .lead { display: none; }
+  .watch h1 { font-size: var(--fs-h2); }
+  /* the video runs edge to edge on a phone */
+  .player { width: auto; margin-left: calc(-1 * var(--gutter, 16px)); margin-right: calc(-1 * var(--gutter, 16px)); border-radius: 0; border-left: 0; border-right: 0; box-shadow: none; }
+  .yt-cover { gap: .45rem; padding: var(--sp-3); }
+  .yt-cover .tri { width: 2.6rem; height: 2.6rem; }
+  .yt-cover .tri::after { left: 1rem; top: .75rem; border-width: .55rem 0 .55rem .9rem; }
+  .speed { justify-content: space-between; }
+  .speed .lbl { width: 100%; }
+  .speed button { flex: 1 1 0; min-width: 0; padding: .3rem .2rem; }
+}
 </style>
 </head>
 <body>
@@ -47,32 +102,88 @@
   </div>
   <aside aria-labelledby="ch"><h2 id="ch" class="h3">Chapters</h2>
 <!--#chapters-->
-  <p class="small"><a href="#script">Read the script</a> &middot; <a href="../one-pager/">The model on one page</a> &middot; <a href="../play/">Play the game</a></p>
+  <p class="small"><a href="../one-pager/">The model on one page</a> &middot; <a href="../play/">Play the game</a> &middot; <a href="../evidence/sources/">Sources</a></p>
   </aside>
 </div>
-<section class="script" id="script" aria-labelledby="sc">
-  <h2 id="sc">The script</h2>
-  <p class="small">Every line as spoken. Family lines are our writing, in Hindi written in English letters, with the English after it. The numbers come from our model and are sourced in the <a href="../evidence/sources/">evidence room</a>.</p>
-<!--#script-->
-</section>
 </main>
 <!--#foot-->
 <script>
 (function () {
-  var v = document.querySelector("video.player");
-  document.querySelectorAll(".chapters button").forEach(function (b) {
+  var box = document.querySelector("[data-yt]"), v = document.querySelector("video.player");
+  var chapters = [].slice.call(document.querySelectorAll(".chapters button"));
+  var speeds = [].slice.call(document.querySelectorAll(".speed button"));
+  var player = null, ready = false, played = false;
+
+  function bringIntoView() { var el = box || v; if (el && el.getBoundingClientRect().top < 0) el.scrollIntoView({ block: "start", behavior: "smooth" }); }
+  function markRate(r) { speeds.forEach(function (b) { b.setAttribute("aria-pressed", String(Number(b.dataset.rate) === r)); }); }
+  function markChapter(t) {
+    var cur = null; chapters.forEach(function (b) { if (Number(b.dataset.t) <= t + .5) cur = b; });
+    chapters.forEach(function (b) { b.classList.toggle("now", b === cur); });
+  }
+
+  /* local file (offline copy) */
+  if (v) chapters.forEach(function (b) { b.addEventListener("click", function () { v.currentTime = Number(b.dataset.t); v.play(); bringIntoView(); }); });
+  if (!box) return;
+
+  /* YouTube: load the player with the page, never autoplay */
+  var cover = box.querySelector(".yt-cover");
+  function hideCover() { if (!played) { played = true; cover.classList.add("gone"); setTimeout(function () { cover.hidden = true; }, 300); } }
+  function play() {
+    if (!ready) return;
+    player.playVideo();
+    // phones can refuse a play started from outside the player: then get out of the way so YouTube's own button works
+    setTimeout(function () { if (player.getPlayerState && player.getPlayerState() !== 1) hideCover(); }, 1200);
+  }
+  function toggle() { if (!ready) return; if (player.getPlayerState() === 1) player.pauseVideo(); else play(); }
+  function setRate(r) { if (!ready) return; player.setPlaybackRate(r); markRate(r); }
+  function nudgeRate(dir) {
+    if (!ready) return;
+    var list = player.getAvailablePlaybackRates ? player.getAvailablePlaybackRates() : [.5, .75, 1, 1.25, 1.5, 1.75, 2];
+    var i = list.indexOf(player.getPlaybackRate()); i = Math.max(0, Math.min(list.length - 1, i + dir)); setRate(list[i]);
+  }
+
+  cover.addEventListener("click", play);
+  speeds.forEach(function (b) { b.addEventListener("click", function () { setRate(Number(b.dataset.rate)); }); });
+  chapters.forEach(function (b) {
     b.addEventListener("click", function () {
-      var t = Number(b.dataset.t), y = document.querySelector(".player iframe");
-      if (v) { v.currentTime = t; v.play(); v.scrollIntoView({ block: "center", behavior: "smooth" }); }
-      else if (y) { y.src = y.src.replace(/([?&])start=\d+/, "$1start=" + t); }
-      else { var f = document.querySelector("[data-yt]"); if (f) { f.dataset.start = t; f.querySelector("button").click(); } }
+      if (!ready) return;
+      var t = Number(b.dataset.t); player.seekTo(t, true); play(); markChapter(t); bringIntoView();
     });
   });
-  var yt = document.querySelector("[data-yt]");
-  if (yt) yt.querySelector("button").addEventListener("click", function () {
-    var s = yt.dataset.start || 0;
-    yt.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + encodeURIComponent(yt.dataset.yt) + "?autoplay=1&rel=0&start=" + s + '" title="Itni Door? video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+
+  /* keys on the page (inside the player, YouTube's own keys do the same) */
+  document.addEventListener("keydown", function (e) {
+    if (!ready || e.ctrlKey || e.metaKey || e.altKey) return;
+    var el = e.target, onControl = el && el.closest && el.closest("a, input, textarea, select, button") && el !== cover;
+    var k = e.key;
+    if ((k === " " || k === "k" || k === "K") && !onControl) { e.preventDefault(); toggle(); }
+    else if (k === ">" || (e.shiftKey && e.code === "Period")) { e.preventDefault(); nudgeRate(1); }
+    else if (k === "<" || (e.shiftKey && e.code === "Comma")) { e.preventDefault(); nudgeRate(-1); }
+    else if ((k === "ArrowRight" || k === "ArrowLeft") && !onControl) { e.preventDefault(); player.seekTo(Math.max(0, player.getCurrentTime() + (k === "ArrowRight" ? 5 : -5)), true); }
+    else if ((k === "f" || k === "F") && !onControl) { e.preventDefault(); var f = box.querySelector("iframe"); if (document.fullscreenElement) document.exitFullscreen(); else if (f && f.requestFullscreen) f.requestFullscreen(); }
   });
+
+  /* no internet (offline class copy): say so instead of a black box */
+  var failTimer = setTimeout(function () {
+    if (ready) return;
+    cover.querySelector(".go").textContent = "The video needs the internet";
+    cover.querySelector(".tip").innerHTML = 'Watch it on YouTube: <b>youtu.be/' + box.dataset.yt + '</b>';
+    cover.style.cursor = "default";
+  }, 12000);
+
+  window.onYouTubeIframeAPIReady = function () {
+    player = new YT.Player("yt-frame", {
+      host: "https://www.youtube-nocookie.com", videoId: box.dataset.yt,
+      playerVars: { autoplay: 0, rel: 0, playsinline: 1, cc_load_policy: 1, cc_lang_pref: "en", hl: "en", origin: location.origin },
+      events: {
+        onReady: function () { ready = true; clearTimeout(failTimer); var f = box.querySelector("iframe"); if (f) f.title = "Itni Door? video"; markRate(player.getPlaybackRate()); },
+        onStateChange: function (e) { if (e.data === 1 || e.data === 3) hideCover(); },
+        onPlaybackRateChange: function (e) { markRate(e.data); }
+      }
+    });
+    setInterval(function () { if (ready && player.getPlayerState() === 1) markChapter(player.getCurrentTime()); }, 1000);
+  };
+  var s = document.createElement("script"); s.src = "https://www.youtube.com/iframe_api"; s.async = true; document.head.appendChild(s);
 })();
 </script>
 </body>
