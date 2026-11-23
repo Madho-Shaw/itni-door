@@ -73,8 +73,9 @@
   .op-go { flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: flex-start; padding-top: 0; }
   .figrow { gap: var(--sp-2); }
 }
-/* A4, one page: white page, 9 mm margins, 8 pt floor */
-@page { size: A4; margin: 8mm 9mm; }
+/* A4, one page, cream edge to edge: no page margin (Chromium leaves page margins white); the safe distance from the
+   paper edge is body padding in the print block below. 8 pt floor */
+@page { size: A4; margin: 0; }
 @media print {
   html, body { font-size: 8.2pt !important; line-height: 1.28; background: #fff !important; }
   .op { padding: 0; max-width: none; }
@@ -128,6 +129,7 @@
    the railway line as the rule under the head and at the foot. Still one A4 page: npm run pdf prints the page count. */
 @media print {
   html, body { background: var(--card) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { padding: 8mm 9mm !important; box-sizing: border-box; }
   .op-head { border-bottom: 0; position: relative; padding-bottom: 3.4mm; }
   .op-head::after, .op::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2.1mm;
     background: linear-gradient(var(--ink), var(--ink)) 0 .3mm / 100% .3mm no-repeat,
