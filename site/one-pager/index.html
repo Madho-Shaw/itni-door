@@ -123,6 +123,31 @@
   .op-actions, .no-print { display: none !important; }
   .legend { font-size: 8pt; margin: 0; }
 }
+/* Print design (24 Nov): the paper desk on A4. Warm card paper (kept with print-color-adjust; a faint tint, so it
+   still prints cheaply and reads in black and white), red-pen marks on the section heads, indigo numbers in the tables,
+   the railway line as the rule under the head and at the foot. Still one A4 page: npm run pdf prints the page count. */
+@media print {
+  html, body { background: var(--card) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .op-head { border-bottom: 0; position: relative; padding-bottom: 3.4mm; }
+  .op-head::after, .op::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2.1mm;
+    background: linear-gradient(var(--ink), var(--ink)) 0 .3mm / 100% .3mm no-repeat,
+      linear-gradient(var(--ink), var(--ink)) 0 1.5mm / 100% .3mm no-repeat,
+      repeating-linear-gradient(90deg, var(--kraft-deep) 0 .7mm, transparent .7mm 2.2mm); }
+  .op-head h1 { font-family: var(--font-head); font-weight: 800; color: var(--ink); line-height: 1.05; }
+  .op-head h1::before { content: "Itni Door?"; color: var(--sindoor); margin-right: .28em; }
+  .op-head .by { font-family: var(--font-hand); }
+  .op-qr svg { background: #fff; padding: .8mm; border: .4pt solid var(--ink); box-sizing: border-box; }
+  .blk h2 { border-top: 0; border-left: 1mm solid var(--sindoor); padding: .1mm 0 0 1.5mm; margin-top: .6mm;
+    font-family: var(--font-head); font-weight: 700; color: var(--ink); }
+  .copy table { border-top: .9pt solid var(--ink); border-bottom: .6pt solid var(--ink); border-collapse: collapse; }
+  .copy thead th { border-bottom: .5pt solid var(--ink); font-family: var(--font-head); font-weight: 700; }
+  .copy tbody tr:nth-child(even) { background: var(--paper); }
+  .blk[aria-labelledby="b4"] td + td, .blk[aria-labelledby="b5"] td + td { color: var(--data); }
+  .op { position: relative; padding-bottom: 5.5mm !important; }
+  .op::after { height: 2.1mm; bottom: 0; }
+  .op::before { content: "madho-shaw.github.io/itni-door  ·  report, game, video and data behind the code"; position: absolute;
+    right: 0; bottom: 2.6mm; font: 400 7.5pt/1 var(--font-hand); color: var(--ink-soft); }
+}
 </style>
 </head>
 <body>

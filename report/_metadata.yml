@@ -1,0 +1,11 @@
+# The report PDF's print design, for files in report/ only (the evidence pages keep Quarto's plain Typst look).
+# Files: report/_typst (template partials, the Lua filter for the site's classes, fonts as TTF, cover art, QR).
+format:
+  typst:
+    font-paths: [_typst/fonts]
+    template-partials:
+      - _typst/typst-template.typ
+      - _typst/typst-show.typ
+      - _typst/page.typ
+    filters:
+      - _typst/print.lua

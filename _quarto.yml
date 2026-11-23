@@ -32,13 +32,12 @@ format:
     include-before-body: report/_parts/before.html
     include-after-body: report/_parts/after.html
     lightbox: false
+    reference-location: margin   # notes in the margin on the web (moved here from report/index.qmd so the PDF can keep them at the page foot)
   typst:
     date-format: "MMMM YYYY"
     papersize: a4
     fontsize: 10pt
     toc: true
     number-sections: true
-    margin:
-      x: 2.2cm
-      y: 2.2cm
     keep-typ: false
+    # The report's print design (cover, key findings, openers, header/footer, back cover) is set in report/_metadata.yml

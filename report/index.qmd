@@ -8,7 +8,6 @@ author:
 date: "November 2026"
 lang: en-IN
 number-sections: true
-reference-location: margin
 abstract: |
   Some Indian families will not let a daughter study beyond about 100 km from home, and the same rule is rarely set for a son (L4). We put numbers on that rule. In Census 2011 data, each doubling of the distance of a study move goes with 9.3% lower odds that the mover is a woman. In Maharashtra's engineering admissions, a woman with the same entrance score is 3.7 percentage points less likely than a man to study outside her home region. Becker's household model from L2 cannot produce this, because at the same rank both children face the same seats, fees and returns. We keep every family member rational and add two costs that only a daughter carries, an escort on long trips and a worry that grows with the hours it takes to reach her. For twins with the same JEE rank in three Bihar families, the daughter takes her best seat in 23, 44 and 98 of 100 families like each (village, town and Patna city). In our model, information about the college moves these numbers far more than money does. How big that effect is depends on an assumed split of the worry, but the ranking of the fixes does not.
 ---
