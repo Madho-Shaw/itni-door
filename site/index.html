@@ -26,10 +26,16 @@
 .list li.moved { position: relative; }
 .list .pen { display: block; grid-column: 2; font-family: var(--font-hand); font-weight: 700; color: var(--sindoor-ink); font-size: var(--fs-body); margin-top: .1rem; }
 .list .pen .chip { margin-left: .3rem; font-family: var(--font-body); }
-.list .arrow { position: absolute; right: -.4rem; top: 2.4rem; width: 3.2rem; height: 5.2rem; overflow: visible; }
-.arrow path { stroke: var(--sindoor); stroke-width: 3; fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 160; stroke-dashoffset: 0; }
-@media (prefers-reduced-motion: no-preference) { .arrow path { animation: ink 600ms var(--ease-out) 1s both; } }
-@keyframes ink { from { stroke-dashoffset: 160; } }
+/* the red pen's "move up" mark: from Sonu's college (row 2) round the left margin into first place (row 1).
+   Drawn by the script below from where the rows really are, so it fits any width. */
+.list .arrow { position: absolute; left: 0; top: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.arrow path { stroke: var(--sindoor); stroke-width: 2.6; fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 0; }
+@media (prefers-reduced-motion: no-preference) {
+  .arrow .shaft { animation: ink 560ms var(--ease-out) 1.4s both; }
+  .arrow .head { animation: ink 200ms var(--ease-out) 1.95s both; }
+  .wait .list .arrow path { animation-play-state: paused; }
+}
+@keyframes ink { from { stroke-dashoffset: 1; } }
 /* the one moment on the hub: the red pen strikes NIT Delhi, then writes the parents' line (static with reduced motion or no script) */
 @media (prefers-reduced-motion: no-preference) {
   .list .pen { animation: write 420ms var(--ease-out) 1s backwards; }
@@ -272,7 +278,7 @@ html.present .replay { display: none; }
       <li class="moved">NIT Durgapur, CSE (Sonu's college)</li>
       <li>NIT Patna, CSE</li>
     </ol>
-    <svg class="arrow" viewBox="0 0 50 80" aria-hidden="true"><path d="M8 72 C 40 64, 46 40, 30 12 M30 12 L22 20 M30 12 L36 21"/></svg>
+    <svg class="arrow" aria-hidden="true"><path class="shaft" pathLength="1" d=""/><path class="head" pathLength="1" d=""/></svg>
   </div>
 </section>
 
@@ -327,6 +333,21 @@ html.present .replay { display: none; }
   <div class="qr"><!--#qr:--></div>
 </section>
 </main>
+<script>/* the red pen's arrow: measured from the rows (layout offsets, so the card's tilt does not matter) */
+(function () { var l = document.querySelector(".list"); if (!l) return;
+  var rows = l.querySelectorAll("ol li"), shaft = l.querySelector(".arrow .shaft"), head = l.querySelector(".arrow .head");
+  if (rows.length < 2 || !shaft) return;
+  function draw() {
+    var r1 = rows[0], r2 = rows[1], pad = parseFloat(getComputedStyle(r1).paddingTop) || 9;
+    var lh = parseFloat(getComputedStyle(r1).lineHeight) || 22;
+    var x = r1.offsetLeft - 5, y1 = r1.offsetTop + pad + lh / 2, y2 = r2.offsetTop + pad + lh / 2;
+    var out = Math.min(30, (r1.offsetLeft || 30) - 4);   // how far the loop swings into the margin
+    // a quick hand stroke: leaves row 2 to the left, rises in a slight wobble, turns in to row 1
+    shaft.setAttribute("d", "M" + (x + 2) + " " + y2 + " C " + (x - out) + " " + (y2 + 2) + ", " + (x - out - 3) + " " + (y1 + 4) + ", " + x + " " + y1);
+    head.setAttribute("d", "M" + (x - 8) + " " + (y1 - 6) + " L " + x + " " + y1 + " L " + (x - 9) + " " + (y1 + 5));
+  }
+  draw(); addEventListener("resize", draw); if (document.fonts) document.fonts.ready.then(draw);
+})();</script>
 <script>/* phones with a short screen: hold the red pen until the choice list is on screen */
 (function () { var l = document.querySelector(".list"), d = document.documentElement;
   if (!l || !("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches || l.getBoundingClientRect().top < innerHeight * .75) return;
