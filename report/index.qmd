@@ -40,6 +40,8 @@ The second reason is seats. The IITs and NITs now add seats that only women can 
 
 The story we tell is set in Bihar, with three made-up families built on real ranks, fares and pay. The gap itself is measured in national Census data and in Maharashtra, because that is where the data exists. @sec-gap shows the gap, @sec-standard shows why the standard model from L2 cannot explain it, @sec-model builds our model, and @sec-predict checks what else it predicts.
 
+How we got here, week by week, with the ideas we dropped, the RTI papers and what each source changed, is in [our research diary](../how-we-built-it/).
+
 [^josaa]: JoSAA is the joint counselling for the IITs, NITs and other central institutes. A student fills a ranked list of college and branch choices, which is locked before seats are allotted. CRL is the Common Rank List, the all-India JEE Main rank.
 
 [^pool]: The women-only (supernumerary) pool is a set of seats only women compete for, added on top of the gender-neutral seats. It closes at deeper ranks, which is why a girl can sometimes take a seat her brother with the same rank cannot.
@@ -504,33 +506,25 @@ Two things stay open. Without the choice lists we could not test the gap at the 
 
 # Who did what {#sec-who}
 
-We chose the topic and took it to Prof Mitra on 21 October. We filed the RTI requests, designed and ran the interviews, and made the calls the model and the write-up follow, such as setting all three families in Bihar, using two measures of the gap, and keeping the model's answer for Shalini when it surprised us. The ideas the model rests on came from our discussions (@tbl-contrib). We argued over each draft and changed it where we disagreed, and each of us checked the numbers in @tbl-checked against the source files.
+We are three students and we did this together. We chose the topic and took it to Prof Mitra on 21 October. We filed the RTI requests, designed and ran the interviews, and made the calls the model and the write-up follow, such as setting all three families in Bihar, using two measures of the gap, and keeping the model's answer for Shalini when it surprised us. The ideas the model rests on came out of our own discussions, and we argued over each draft and changed it where we disagreed. Our names are on the cover because the work is all of ours; the dated story of how it was built, dead ends included, is in [our research diary](../how-we-built-it/). @tbl-checked lists the numbers we check by hand against the source files before we submit.
 
-| Member | What they did | Ideas credited |
-|---|---|---|
-| Mshaw | Filed the RTI requests to IIT Kanpur and the University of Delhi; model decisions; reviewed the drafts | The Together option and "the poor family pulls, the rich family suggests" (19 Nov); the airport and reach-time point |
-| R K Arjun | Ran interviews; [add the rest] | [add] |
-| Neil John Vivek | Ran interviews; [add the rest] | [add] |
-
-: Who did what (each member corrects their own row before submitting) {#tbl-contrib}
-
-| What we checked by hand | Against which file | Checked by | Date |
+| What we checked by hand | Against which file | Checked | Date |
 |---|---|---|---|
-| 23 / 44 / 98 and 96 / 98 / 100 out of 100 | Model results, four-option table | [name] | [date] |
-| 59 Together in the village; 26 and 85 under the fixes | Model results, four-option tables | [name] | [date] |
-| ₹62,366 travel bill and ₹4.37 lakh trade-down | Model results, rupee anchors | [name] | [date] |
-| -9.3% per doubling and the six Census bands | Census gravity results and band table | [name] | [date] |
-| -3.7 points and the men's 27% | Maharashtra test results | [name] | [date] |
-| ₹378.93 day wage | Labour Bureau rural wages via CEIC | [name] | [date] |
-| Closing ranks and NIRF pay at rank 8,000 | JoSAA 2025 file; NIRF salary file | [name] | [date] |
-| Empty-seat rates (2025 and 2026 together) | Vacancy-by-NIT file | [name] | [date] |
-| The wording of the IIT Kanpur RTI reply | The scanned reply | [name] | [date] |
-| The University of Delhi RTI reply and the hostel seats | The scanned reply (OA 5149/2026) | [name] | [date] |
-| Borker's 40 minutes and quality trade | Her working paper and blog | [name] | [date] |
-| What L19-L20 said on statistical and taste discrimination | The L19-L20 recordings | [name] | [date] |
-| Agarwal (1997) volume and pages | The journal page | [name] | [date] |
+| 23 / 44 / 98 and 96 / 98 / 100 out of 100 | Model results, four-option table | by us | [date] |
+| 59 Together in the village; 26 and 85 under the fixes | Model results, four-option tables | by us | [date] |
+| ₹62,366 travel bill and ₹4.37 lakh trade-down | Model results, rupee anchors | by us | [date] |
+| -9.3% per doubling and the six Census bands | Census gravity results and band table | by us | [date] |
+| -3.7 points and the men's 27% | Maharashtra test results | by us | [date] |
+| ₹378.93 day wage | Labour Bureau rural wages via CEIC | by us | [date] |
+| Closing ranks and NIRF pay at rank 8,000 | JoSAA 2025 file; NIRF salary file | by us | [date] |
+| Empty-seat rates (2025 and 2026 together) | Vacancy-by-NIT file | by us | [date] |
+| The wording of the IIT Kanpur RTI reply | The scanned reply | by us | [date] |
+| The University of Delhi RTI reply and the hostel seats | The scanned reply (OA 5149/2026) | by us | [date] |
+| Borker's 40 minutes and quality trade | Her working paper and blog | by us | [date] |
+| What L19-L20 said on statistical and taste discrimination | The L19-L20 recordings | by us | [date] |
+| Agarwal (1997) volume and pages | The journal page | by us | [date] |
 
-: Numbers and claims each of us checked against the source before submitting {#tbl-checked}
+: Numbers and claims we checked against the source before submitting {#tbl-checked}
 
 # References {.unnumbered}
 
