@@ -15,7 +15,7 @@ url_confirmed: true
 
 video:
   # YouTube id of the master cut (8-9 min). Empty = no embed yet; the page shows the local file or a note.
-  master_id: ""
+  master_id: "rOCMtvNaYhs"   # the v3 explainer (13:48), unlisted, uploaded 23 Nov 2026
   class_id: ""
   # temporary = placeholder narration; group = our own voices
   voice: "temporary"
