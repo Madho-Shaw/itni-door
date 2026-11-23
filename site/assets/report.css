@@ -3,7 +3,9 @@
    One reading column (var(--measure), about 70 characters a line) for text; figures and tables may use the margin
    column too. From 1110 px the right margin holds the footnotes as margin notes; below that they stay at the end. */
 
-.rpt { --note-w: 13rem; --note-gap: 1.5rem; padding-top: var(--sp-5); display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--sp-5); }
+/* 24 Nov: a wider text line (32.5em is about 73 characters of Hind; 30em was about 68) and, on a laptop, the contents
+   column and the notes column the same width so the text sits in the middle of the page (see the 1110 px block). */
+.rpt { --measure: 32.5em; --column: var(--measure); --toc-w: 13rem; --note-w: 13rem; --note-gap: 2.5rem; padding-top: var(--sp-5); display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--sp-5); }
 .rpt main { min-width: 0; overflow-wrap: break-word; }
 .rpt main :is(p, ul, ol, dl, blockquote, h2, h3, h4, .course-line) { max-width: var(--measure); }
 .rpt main :is(.takeaway, .method-box, .interview-slot, .abstract, .toc-m) { max-width: var(--column); }
@@ -42,12 +44,19 @@
 /* the margin column: wider main, footnotes beside their marker */
 .rpt .sidenote { display: none; }
 @media (min-width: 1110px) {
+  /* contents | text | notes, centred as one block: the two side columns match, so an empty notes column still
+     leaves the page balanced; tables and figures run across text + notes (the "page" width) */
+  .wrap.rpt { max-width: none; justify-content: center; grid-template-columns: minmax(0, calc(var(--measure) + var(--note-gap) + var(--note-w))); }
+  .wrap.rpt.has-toc { grid-template-columns: var(--toc-w) minmax(0, calc(var(--measure) + var(--note-gap) + var(--note-w))); column-gap: var(--note-gap); }
   .rpt main { max-width: calc(var(--measure) + var(--note-gap) + var(--note-w)); }
   .rpt .sidenote { display: block; float: right; clear: right; width: var(--note-w); margin: .25rem calc(-1 * (var(--note-gap) + var(--note-w))) var(--sp-3) 0;
     font-size: var(--fs-small); line-height: 1.45; color: var(--ink-soft); border-left: 2px solid var(--kraft-deep); padding-left: var(--sp-3); }
   .rpt .sidenote sup { color: var(--data); font-weight: 600; }
   .rpt main :is(.quarto-float, .fig-slot, .tbl, .cell, .footnotes) { clear: right; }
 }
+
+/* big screens: a touch larger type, so the line keeps its length in characters and fills more of the screen */
+@media (min-width: 1500px) { .wrap.rpt { font-size: 1.075rem; } }
 
 /* title block */
 .rpt #title-block-header { margin-bottom: var(--sp-5); }
