@@ -294,13 +294,14 @@ html.present .replay { display: none; }
 </details>
 <script>(function () { var d = document.getElementById("howto"); try { if (localStorage.getItem("itni-howto-seen")) d.removeAttribute("open"); localStorage.setItem("itni-howto-seen", "1"); } catch (e) {} })();</script>
 
-<nav aria-label="The five doors">
+<nav aria-label="The six doors">
 <ul class="doors-list">
   <li><a class="door" href="watch/"><b>Watch the video</b><span>14 min</span></a></li>
   <li><a class="door" href="one-pager/"><b>Read the model on one page</b><span>1 page</span></a></li>
   <li><a class="door" href="play/"><b>Play: you are the parents</b><span>about 4 min</span></a></li>
   <li><a class="door" href="report/"><b>Read the full report</b><span>{{report.minutes}}</span></a></li>
   <li><a class="door" href="evidence/"><b>Check our data and sources</b><span>browse</span></a></li>
+  <li><a class="door" href="how-we-built-it/"><b>Our research diary: how we built this</b><span>15 entries, 24 Sep to 23 Nov</span></a></li>
 </ul>
 <p class="replay" hidden><button type="button" data-intro>Play the intro again</button></p>
 </nav>

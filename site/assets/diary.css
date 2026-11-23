@@ -1,0 +1,103 @@
+/* Research diary page (how-we-built-it/). Paper desk: a dated margin on the left, each entry a slip pinned to it.
+   Red pen (sindoor) only for the strikes on ideas we dropped. Phone: one column, the date above each slip. */
+.diary .lead { max-width: 38rem; }
+.diary h2 { margin: 0 0 var(--sp-2); font-size: var(--fs-h3); line-height: 1.2; }
+.diary h3 { margin: var(--sp-4) 0 var(--sp-1); font-size: var(--fs-lead); }
+.diary .slip p, .diary .slip li { max-width: 40rem; }
+.diary .slip ul, .diary .slip ol { padding-left: 1.2rem; }
+
+/* contents strip */
+.dcontents { list-style: none; margin: var(--sp-4) 0 var(--sp-5); padding: 0; display: grid; gap: .3rem var(--sp-3);
+  grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr)); font-size: var(--fs-small); counter-reset: dc; }
+.dcontents li { counter-increment: dc; display: flex; gap: .45rem; }
+.dcontents li::before { content: counter(dc); font-family: var(--font-hand); color: var(--ink-soft); min-width: 1.3rem; text-align: right; }
+.dcontents a { color: var(--ink); }
+.dcontents .dd { color: var(--ink-soft); white-space: nowrap; }
+
+/* the timeline */
+.entries { list-style: none; margin: 0; padding: 0; }
+.entry { display: grid; grid-template-columns: 1fr; gap: var(--sp-1); padding-bottom: var(--sp-5); scroll-margin-top: 4.5rem; }
+.when { font-family: var(--font-hand); color: var(--ink-soft); font-size: var(--fs-body); line-height: 1.25; }
+.when .n { display: inline-block; font-family: var(--font-head); font-weight: 800; color: var(--ink); margin-right: .35rem; }
+.entry > .slip { padding: var(--sp-3) var(--sp-4) var(--sp-4); min-width: 0; }
+@media (min-width: 46rem) {
+  .entry { grid-template-columns: 8.5rem 1fr; gap: 0 var(--sp-4); padding-bottom: 0; }
+  .when { position: relative; text-align: right; padding: var(--sp-3) var(--sp-3) var(--sp-5) 0; border-right: 2px dashed var(--kraft-deep); padding-right: var(--sp-4); }
+  .when::after { content: ""; position: absolute; right: -.45rem; top: calc(var(--sp-3) + .35rem); width: .8rem; height: .8rem;
+    border-radius: 50%; background: var(--card); border: var(--outline) solid var(--ink); }
+  .when .n { display: block; font-size: var(--fs-h3); margin: 0 0 .15rem; }
+  .entry > .slip { margin-bottom: var(--sp-5); }
+  .entry:nth-child(odd) > .slip { transform: rotate(-.15deg); }
+  .entry:nth-child(even) > .slip { transform: rotate(.15deg); }
+}
+
+/* dropped ideas: struck with the red pen, the reason beside it */
+.dead { list-style: none; padding: 0 !important; margin: var(--sp-2) 0; display: grid; gap: .5rem; }
+.dead li { display: grid; gap: .1rem; }
+.dead .strike { font-weight: 600; justify-self: start; }
+.dead .why { font-size: var(--fs-small); color: var(--ink-soft); }
+.dead .why b { font-family: var(--font-hand); font-weight: 400; color: var(--ink); }
+
+/* what this changed */
+.changed { margin-top: var(--sp-3); padding-top: var(--sp-2); border-top: 2px dashed var(--line); }
+.changed > b:first-child { display: block; font-family: var(--font-hand); font-weight: 700; color: var(--data); }
+
+/* small sources line under an entry */
+.srcs { margin-top: var(--sp-2); font-size: var(--fs-small); color: var(--ink-soft); }
+.srcs code { font-size: 1em; word-break: break-word; }
+
+/* pinned RTI papers */
+.pinned { list-style: none; padding: 0 !important; margin: var(--sp-3) 0; display: grid; gap: var(--sp-4) var(--sp-3);
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); }
+.pinned li { position: relative; }
+.pinned a { display: block; color: var(--ink); text-decoration: none; }
+.pinned img { display: block; width: 100%; height: auto; aspect-ratio: 360 / 509; object-fit: cover; object-position: top;
+  background: #fff; border: 1px solid var(--hair-grey); box-shadow: var(--pin); }
+.pinned li:nth-child(odd) img { transform: rotate(-1deg); }
+.pinned li:nth-child(even) img { transform: rotate(.8deg); }
+.pinned li::before { content: ""; position: absolute; z-index: 1; top: -.35rem; left: 50%; width: .75rem; height: .75rem; margin-left: -.375rem;
+  border-radius: 50%; background: var(--data); box-shadow: 0 1px 2px var(--shade); }
+.pinned .cap { display: block; margin-top: var(--sp-2); font-size: var(--fs-small); line-height: 1.3; }
+.pinned .cap b { display: block; }
+.pinned .cap span { color: var(--ink-soft); }
+@media (hover: hover) { .pinned a:hover img { transform: rotate(0) translateY(-2px); } }
+.pinned a:focus-visible img { transform: rotate(0) translateY(-2px); }
+
+/* interview quotes: torn slips with their ID */
+.torn { margin: var(--sp-3) 0; padding: var(--sp-3) var(--sp-3) var(--sp-4); background: var(--paper); border-left: 3px solid var(--her);
+  clip-path: polygon(0 0, 100% 0, 100% 92%, 96% 100%, 91% 93%, 85% 100%, 78% 94%, 71% 100%, 64% 93%, 57% 100%, 50% 94%, 43% 100%, 36% 93%, 29% 100%, 22% 94%, 15% 100%, 8% 93%, 0 100%); }
+.torn p { margin: 0; font-size: var(--fs-lead); line-height: 1.35; }
+.torn cite { display: block; margin-top: var(--sp-1); font-style: normal; font-family: var(--font-hand); color: var(--ink-soft); font-size: var(--fs-small); }
+.quotes { display: grid; gap: 0 var(--sp-3); grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+
+/* a marked slot for later material */
+.slot { margin: var(--sp-3) 0; padding: var(--sp-3); border: 2px dashed var(--data); border-radius: var(--radius-m); background: var(--data-soft); }
+.slot > b:first-child { font-family: var(--font-hand); color: var(--data); }
+
+details.all { margin: var(--sp-3) 0; }
+details.all > summary { cursor: pointer; font-weight: 600; color: var(--data); padding: .3rem 0; }
+
+/* tables inside slips */
+.diary .scroll-x { margin: var(--sp-2) 0; }
+.diary table { width: 100%; font-size: var(--fs-small); }
+.diary table.wide { min-width: 44rem; }
+.diary td.r, .diary th.r { padding-right: .8rem; }
+
+@page { size: A4; margin: 14mm 14mm 16mm; }
+@media print {
+  .diary h1 { font-size: 20pt; }
+  .entry { display: block; break-inside: auto; }
+  .when { text-align: left; border: 0; padding: 0; margin-top: 10pt; }
+  .when::after { display: none; }
+  .when .n { display: inline; font-size: 1em; }
+  .entry > .slip { transform: none !important; margin: 2pt 0 8pt; }
+  .pinned img, .pinned li:nth-child(n) img { transform: none; box-shadow: none; }
+  .pinned { grid-template-columns: repeat(4, 1fr); }
+  .torn { clip-path: none; }
+  .diary table.wide { min-width: 0; }
+  .scroll-x { overflow: visible; }
+  .dcontents { display: none; }
+  details.all::details-content { content-visibility: visible; display: block; }
+  details.all:not([open]) > *:not(summary) { display: block; }
+  details.all > summary { list-style: none; font-weight: 600; }
+}

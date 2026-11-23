@@ -42,10 +42,10 @@ if (!POST) fs.writeFileSync(path.join(OUT, ".nojekyll"), "");
 
 /* ---------------------------------------------------------------- shared parts */
 const DOORS = [["watch", "Watch", "watch/"], ["one-pager", "One page", "one-pager/"], ["play", "Play", "play/"],
-  ["report", "Report", "report/"], ["evidence", "Evidence", "evidence/"]];
+  ["report", "Report", "report/"], ["evidence", "Evidence", "evidence/"], ["diary", "Diary", "how-we-built-it/"]];
 // the same doors with Home first, for the phone menu and the footer; "next" walks them in this order and back to Home
 const ALL = [["hub", "Home", ""]].concat(DOORS);
-const NEXT = { hub: "watch", watch: "one-pager", "one-pager": "play", play: "report", report: "evidence", evidence: "hub" };
+const NEXT = { hub: "watch", watch: "one-pager", "one-pager": "play", play: "report", report: "evidence", evidence: "diary", diary: "hub" };
 const doorLinks = (door, root, list) => list.map(([k, label, href]) =>
   `<li><a href="${root}${href || (root ? "" : "./")}"${k === door ? ' aria-current="page"' : ""}>${label}</a></li>`).join("\n");
 function bar(door, root) {
