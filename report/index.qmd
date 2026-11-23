@@ -213,7 +213,7 @@ We keep every family member rational and add two costs that only a daughter carr
 
 ## The model as a scale
 
-We find it easiest to see the model as a scale. On one pan is what the two colleges are worth, measured as the pay their graduates start on. On the other pan is what it costs to get there, in money and in worry about the daughter while she is away. Two of the weights on that second pan are hers only, the escort and the worry per hour it takes to reach her. A brother at the same college takes some weight off the worry pan, and an information card (a senior girl from home, a hostel guarantee) takes off more. One weight stays whatever we do, and that is "log kya kahenge" (what will people say). This is the move from L10-L11. Keep the rational agent, add one cost term, and see whether behaviour follows.
+We find it easiest to see the model as a scale. On one pan is what the two colleges are worth, measured as the pay their graduates start on, counted for the first {{< var param.h >}} years of work after the degree. On the other pan is what it costs to get there, in money and in worry about the daughter while she is away. Two of the weights on that second pan are hers only, the escort and the worry per hour it takes to reach her. A brother at the same college takes some weight off the worry pan, and an information card (a senior girl from home, a hostel guarantee) takes off more. One weight stays whatever we do, and that is "log kya kahenge" (what will people say). This is the move from L10-L11. Keep the rational agent, add one cost term, and see whether behaviour follows.
 
 ::: {.fig-slot data-fig="scale"}
 The scale. Left pan, the value of the two seats (pay of his college plus pay of hers). Right pan, money (fares, the escort's tickets and lost days), then the statistical worry, then "log kya kahenge". The brother card and the information cards lift weights off the right pan; nothing lifts "log kya kahenge".
@@ -232,6 +232,8 @@ The scale. Left pan, the value of the two seats (pay of his college plus pay of 
 Nobody in the model dislikes daughters. The gap comes from one constraint and one belief, and each of them differs by gender. The "out of 100" results in @sec-results are the parents' choice, with the daughter's say set to zero. @sec-say shows how her say moves it.
 
 ## Four ways to send two children
+
+The family decides at choice filling, after the results are out. From last year's closing ranks they know which seats each twin can reach, so the choice is what to put first on each child's list. That is the moment our model describes.
 
 | Option (name in our tables) | Son | Daughter | In words |
 |---|---|---|---|
@@ -256,7 +258,7 @@ We priced this with real fares and a sourced day wage for the village father (�
 
 Parents worry about "what if something happens there", and about what people will say. We price the worry per day it takes to reach her, door to door, because that is the surveillance point from L4 put into hours. The worry has two parts.
 
-The first part, $\sigma$, is statistical. It is a belief about a place the parents cannot see, in the L19-L20 sense. Each girl from home who already went there is more signal, so it falls with $n$. A brother at the same college counts as $b$ more people the family trusts. A hostel guarantee also lowers it.
+The first part, $\sigma$, is statistical. It is a belief about a place the parents cannot see, in the L19-L20 sense. Each girl from home who already went there is more signal, so it falls with $n$. A brother at the same college counts as $b$ more people the family trusts. A hostel guarantee also lowers it. In plain words, a senior girl from her district is someone the parents can call, so the place stops being unknown.
 
 The second part, $\tau$, is a norm cost. It covers honour and "log kya kahenge", which is the L4 point that the cap is about household honour as much as crime, and the stigma cost of L10-L11. It is what is left after every fact is in. No fact moves it, and a brother does not lower it, because the neighbours still talk.
 
@@ -280,7 +282,7 @@ The son has no escort and no worry term, and those two terms are the only place 
 
 | Symbol | Plain meaning | Value | Status |
 |---|---|---|---|
-| $H$ | Years of the pay gap the family counts | {{< var param.h >}} | [assumed]{.tag-assumed} |
+| $H$ | Years of pay after the degree that the family counts (the four years of study enter only through the fares) |{{< var param.h >}} | [assumed]{.tag-assumed} |
 | pay($c$) | Median starting pay of the college's graduates, ₹ lakh a year | @tbl-seats | [sourced]{.tag-sourced} |
 | $f_i(c)$ | One-way fare, door to door, per person; 16 one-way trips per child in four years | Appendix B | [sourced]{.tag-sourced} main legs, [assumed]{.tag-assumed} local legs |
 | $J_{ip}$ | Escorted trips by a parent | {{< var param.j_train >}} by train, {{< var param.j_air >}} by air, 0 if her brother is at her college | [assumed]{.tag-assumed} |
@@ -455,7 +457,7 @@ Each fix moves one term. The numbers are her Delhi chance out of 100 in our mode
 | Cheap credit ($\lambda$ = 1, as with PM-Vidyalaxmi) | $\lambda$ | {{< var village.fix_credit >}} | {{< var town.fix_credit >}} | {{< var city.fix_credit >}} | Banks, Ministry of Education | Debt for a cost that barely binds |
 | Campus pickup from the station or airport | $f$ and $R$ at the college end | {{< var village.fix_pickup >}} | {{< var town.fix_pickup >}} | {{< var city.fix_pickup >}} | Each NIT | Small effect, because the long leg is at the home end |
 | One senior girl from her district at the college, shown on the choice-filling page with a contact | $n$ | {{< var village.fix_senior >}} | {{< var town.fix_senior >}} | {{< var city.fix_senior >}} | JoSAA, NIT alumni cells | Slow to start where no girl has gone yet |
-| First-year hostel guarantee for every woman admitted, with published campus safety data | $\sigma$ × 0.5 | {{< var village.fix_hostel >}} | {{< var town.fix_hostel >}} | {{< var city.fix_hostel >}} | NITs, Ministry of Education | May just move the surveillance from home to campus |
+| A promised first-year hostel place for every woman admitted, told to families before choice filling, with published campus safety data |$\sigma$ × 0.5 | {{< var village.fix_hostel >}} | {{< var town.fix_hostel >}} | {{< var city.fix_hostel >}} | NITs, Ministry of Education | May just move the surveillance from home to campus |
 | Senior girl and hostel guarantee | both | {{< var village.fix_both >}} | {{< var town.fix_both >}} | {{< var city.fix_both >}} | | |
 
 : Her Delhi chance out of 100 under each fix (four options). The sizes rest on our assumed 80/20 worry split; the ranking follows from the sourced fares. {#tbl-fixes}
@@ -463,7 +465,7 @@ Each fix moves one term. The numbers are her Delhi chance out of 100 in our mode
 
 Paying the escort's fares or cheap credit moves Shalini's Delhi chance by 3 or 4 in 100. A senior girl from her district or a hostel guarantee moves it by 62. The ranking follows from the sourced fares, since a four-year travel bill of ₹{{< var village.bill_split >}} cannot be the binding cost next to a pay gap of lakhs a year. The size of the information effect is ours, because it rests on the assumed 80/20 split. Ira's family needs nothing. She is at {{< var city.fix_baseline >}} already, so help should go to families far from airports with no girl who went before. Some universities already lean this way. Our RTI to the University of Delhi shows its own hostels held 2,232 seats for women and 1,192 for men in 2025. That is one year and one university, with no waiting lists, so it cannot tell us whether the seats are enough for women who come from far.
 
-Every fix has a cost, which is the point of the Blau and Kahn slides in Week 4. A hostel guarantee lowers the parents' worry partly by swapping their watch for the college's, so it may move the surveillance to campus. The senior-girl fix does not have that cost, and in our model it moves her just as far. Before we push either, we should check what already exists. We have not yet checked whether NIT Delhi and NIT Durgapur already guarantee first-year hostel places to women, or whether the trains from Saharsa and Begusarai to Delhi have women's coaches. If they do, the binding cost is somewhere else.
+Every fix has a cost, which is the point of the Blau and Kahn slides in Week 4. A hostel guarantee lowers the parents' worry partly by swapping their watch for the college's, so it may move the surveillance to campus. The senior-girl fix does not have that cost, and in our model it moves her just as far. Before we push either, we should check what already exists. NIT Delhi already has a girls' hostel, Yamuna, with about 400 places against about 1,100 for boys (its hostels page, read on 23 November 2026). What we could not confirm is whether every first-year woman is promised a place, so the fix is the promise, told to families before choice filling, not a new building. We have not checked NIT Durgapur, or whether the trains from Saharsa and Begusarai to Delhi have women's coaches. If they do, the binding cost is somewhere else.
 
 Bihar has done something like this before. Prof Mitra mentioned the state's bicycle scheme for schoolgirls in L5. Muralidharan and Prakash (2017) found that it raised girls' age-appropriate secondary enrolment by 32% and cut the gender gap by 40%. A bicycle made the trip to school shorter. For college the trip is a day long, and in our model what shortens it is someone the family trusts already being there.
 
@@ -556,7 +558,7 @@ Sengupta, N. and S. Sharma (2025). "Girls in tech: Evaluating IIT's Supernumerar
 
 **News.** *The News Minute*, 17 April 2017, interview with Timothy Gonsalves on women in the IITs.
 
-**Data.** Census of India 2001 and 2011, Migration Tables D-03 (Office of the Registrar General and Census Commissioner, India). JoSAA opening and closing ranks 2016-2025 (josaa.nic.in archive). CSAB empty-seat lists and JoSAA seat matrices, 2025-2026. State CET Cell, Maharashtra, CAP allotment lists 2023-2025. NIRF 2024 and 2025 institute data, Ministry of Education. Labour Bureau rural wage rates, Bihar, general agricultural labour, men, February 2025, via CEIC (SNU licence; the number only, no export). Rail and air fares and timings from confirmtkt, goibibo, erail, ixigo, rome2rio, redbus and IndiGo, snapshots of 19 November 2026, each page listed in our fares file. Reddit posts and comments from r/JEENEETards, r/IndianTeenagers, r/JEE and r/Btechtards, 2024-2026.
+**Data.** Census of India 2001 and 2011, Migration Tables D-03 (Office of the Registrar General and Census Commissioner, India). JoSAA opening and closing ranks 2016-2025 (josaa.nic.in archive). CSAB empty-seat lists and JoSAA seat matrices, 2025-2026. State CET Cell, Maharashtra, CAP allotment lists 2023-2025. NIRF 2024 and 2025 institute data, Ministry of Education. Labour Bureau rural wage rates, Bihar, general agricultural labour, men, February 2025, via CEIC (SNU licence; the number only, no export). Rail and air fares and timings from confirmtkt, goibibo, erail, ixigo, rome2rio, redbus and IndiGo, snapshots of 19 November 2026, each page listed in our fares file. Reddit posts and comments from r/JEENEETards, r/IndianTeenagers, r/JEE and r/Btechtards, 2024-2026. NIT Delhi hostels page (nitdelhi.ac.in/campus/hostel), read on 23 November 2026.
 
 # Appendix A. Data, method and how to rerun {.unnumbered}
 
