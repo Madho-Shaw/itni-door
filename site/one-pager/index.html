@@ -42,10 +42,17 @@
 .op-actions a { display: inline-flex; align-items: center; min-height: 44px; padding: .4rem 1.1rem; border: var(--outline) solid var(--ink); border-radius: var(--radius-pill);
   background: var(--card); color: var(--ink); text-decoration: none; font-weight: 600; }
 .op-actions a.main { background: var(--ink); color: var(--on-dark); }
+/* on screen the corner holds the PDF stamp and the way to the full report; the QR code is for paper (print and the PDF) */
+@media screen { .op-qr, .on-paper { display: none; } }
+@media print { .on-screen { display: none; } }
+.op-go { display: flex; flex-direction: column; align-items: flex-end; gap: var(--sp-3); padding-top: var(--sp-1); }
+.op-report { display: inline-flex; align-items: center; min-height: 44px; padding: .3rem 1rem; border: var(--outline) solid var(--ink); border-radius: var(--radius-pill);
+  background: var(--card); color: var(--ink); text-decoration: none; font-weight: 600; box-shadow: var(--pin); white-space: nowrap; }
+.op-report:hover { background: var(--paper); }
 @media screen and (max-width: 859px) {
   .op-grid { grid-template-columns: 1fr; }
   .op-head { grid-template-columns: 1fr; }
-  .op-qr { display: none; }
+  .op-go { flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: flex-start; padding-top: 0; }
   .figrow { gap: var(--sp-2); }
 }
 /* A4, one page: white page, 9 mm margins, 8 pt floor */
@@ -84,9 +91,10 @@
   <div>
     <h1>The distance discount</h1>
     <p class="q">Why do Indian families send daughters to study less far than sons with the same rank?</p>
-    <p class="by">{{site.group}}: Mshaw, R K Arjun and Neil John Vivek. ECO463, Shiv Nadar University, {{site.month}}. The one-page note on our model; the full report, game and data are behind the code.</p>
+    <p class="by">{{site.group}}: Mshaw, R K Arjun and Neil John Vivek. ECO463, Shiv Nadar University, {{site.month}}. The one-page note on our model; the full report, game and data are <span class="on-paper">behind the code</span><span class="on-screen">a click away</span>.</p>
   </div>
   <div class="op-qr"><!--#qr:--></div>
+  <nav class="op-go no-print" aria-label="The longer versions"><a class="stamp" href="one-pager.pdf">A4 PDF</a><a class="op-report" href="../report/">Full report &rarr;</a></nav>
 </header>
 
 <div class="op-grid">

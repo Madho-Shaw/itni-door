@@ -118,8 +118,19 @@ function quartoLayout(html, rel) {
     notes[id].replace(/<a [^>]*class="footnote-back"[\s\S]*?<\/a>/, "").replace(/<\/?a\b[^>]*>/g, "").trim() + "</span>");
   // a table without a caption sits straight in the text: give it the same sideways-scroll box as Quarto's captioned ones
   body = body.replace(/(<div aria-describedby="[^"]*">\s*)?(<table\b[\s\S]*?<\/table>)/g, (m, pre, t) => pre ? m : '<div class="tbl">' + t + "</div>");
+  // Quarto gives every column of a pipe table the same width (<colgroup>, 33% / 33% / 33%); without it the browser sizes
+  // columns by their content, so a column of lecture codes or two-digit numbers stays narrow and the text gets the room
+  body = body.replace(/<colgroup>[\s\S]*?<\/colgroup>\s*/g, "");
   // authors and date read as one line ("A, B, C · November 2026"): drop the whitespace between their <p>s
   body = body.replace(/<\/p>\s*(<p class="(?:author|date)")/g, "</p>$1");
+  // the report's PDF (Quarto's Typst render, next to the page): a stamp under the byline and a line at the foot of the contents
+  const pdf = /^report[\\/]index\.html$/.test(rel) && path.join(OUT, "report", "index.pdf");
+  if (pdf && fs.existsSync(pdf)) {
+    const n = Math.max(0, ...(fs.readFileSync(pdf).toString("latin1").match(/\/Count \d+/g) || []).map(c => +c.slice(7)));
+    const pages = n ? ", " + n + " pages" : "";
+    body = body.replace(/(<p class="date">[\s\S]*?<\/p>)/, '$1\n<p class="pdf-line"><a class="stamp" href="index.pdf">Report PDF · A4' + pages.replace(", ", " · ") + "</a></p>");
+    if (toc) toc = toc.replace(/<\/ul>\s*<\/nav>\s*$/, '</ul>\n<p class="toc-pdf"><a href="index.pdf">The report as a PDF (A4' + pages + ")</a></p>\n</nav>\n");
+  }
   let phoneToc = "";
   if (toc) {
     const list = (toc.match(/<ul>[\s\S]*<\/ul>/) || [""])[0].replace(/\sid="toc-[^"]*"/g, "");

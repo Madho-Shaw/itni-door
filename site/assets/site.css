@@ -39,6 +39,14 @@ td.r, th.r { text-align: right; }
   radial-gradient(farthest-side at 100% 50%, var(--shade), transparent) right / .8rem 100% no-repeat scroll; }
 ::selection { background: var(--him-soft); color: var(--ink); }
 .crumb { margin-bottom: var(--sp-3); }
+/* a rubber stamp in the red pen's ink: the PDF copies (report byline, one-pager corner) */
+.stamp { display: inline-flex; align-items: center; min-height: 44px; padding: .2rem .8rem; border: 2px solid currentColor; border-radius: .3rem;
+  outline: 1px solid currentColor; outline-offset: 2px; color: var(--sindoor-ink); font: 700 var(--fs-small)/1.1 var(--font-head);
+  letter-spacing: .06em; text-transform: uppercase; text-decoration: none; transform: rotate(-2deg); background: transparent;
+  transition: background var(--t-fast) var(--ease-out), transform var(--t-fast) var(--ease-out); }
+.stamp:hover { background: var(--sindoor-soft); transform: rotate(0deg); }
+.stamp:focus-visible { outline: 3px solid var(--sindoor-ink); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { .stamp { transition: none; } }
 
 /* ---------------------------------------------------------------- top bar and doors */
 .bar { border-bottom: 1px solid var(--line); background: color-mix(in srgb, var(--paper) 94%, transparent); }

@@ -371,7 +371,8 @@
     var y11 = b.filter(function (r) { return r.year === 2011; }).map(function (r) { return r.female_pct; }), y01 = b.filter(function (r) { return r.year === 2001; }).map(function (r) { return r.female_pct; });
     var w = (o && o.w) || 640;
     var full = cats;
-    if (w < 480) cats = ["Same|district", "Other|district", "Other state|<500 km", "500-|1000", "1000-|1500", "1500+|km"];
+    // below 640 px the six labels get about 50-80 px each: short words on up to three lines, so neighbours never touch
+    if (w < 640) cats = ["Same|district", "Other|district", "Other|state|<500 km", "500-|1000|km", "1000-|1500|km", "1500+|km"];
     return lines([{ name: "2011", v: y11, col: "var(--opt-together)" }, { name: "2001", v: y01, col: "var(--chart-old)", dy: 4 }],
       { w: w, fs: fsz(o), cats: cats, y0: 15, y1: 50, ticks: [20, 30, 40, 50], unit: "%", pr: 46, pb: 58, label: "Women's share of people who moved to study, by distance band. 2011: " + y11.join(", ") + ". 2001: " + y01.join(", ") + "." }) +
       legend([{ cls: "line", style: "border-color:var(--opt-together)", label: "Census 2011" }, { cls: "line", style: "border-color:var(--chart-old)", label: "Census 2001" }]) +

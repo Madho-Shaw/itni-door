@@ -128,7 +128,16 @@
     mark();
   }
 
-  function start() { all(); watch(); spy(); }
+  /* ---- tables that scroll sideways: .more while there is more to the right (report.css draws a soft shade on that edge) */
+  function edges() {
+    var boxes = Array.prototype.slice.call(document.querySelectorAll(".rpt .tbl, .rpt .quarto-float > div"));
+    if (!boxes.length) return;
+    function mark(b) { b.classList.toggle("wide", b.scrollWidth > b.clientWidth + 2); b.classList.toggle("more", b.scrollWidth - b.scrollLeft - b.clientWidth > 2); }
+    boxes.forEach(function (b) { mark(b); b.addEventListener("scroll", function () { mark(b); }, { passive: true }); });
+    window.addEventListener("resize", function () { boxes.forEach(mark); });
+  }
+
+  function start() { all(); watch(); spy(); edges(); }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start); else start();
   window.addEventListener("beforeprint", all);
 })();
