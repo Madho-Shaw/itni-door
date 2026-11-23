@@ -49,6 +49,12 @@
 @media (hover: hover) { .door:hover { transform: rotate(0) translateY(-2px) !important; } }
 .door b { font-family: var(--font-head); font-size: var(--fs-lead); line-height: 1.15; }
 .door span { font-size: var(--fs-small); color: var(--ink-soft); white-space: nowrap; }
+.howto { margin: var(--sp-5) 0 0; padding: var(--sp-4) var(--sp-5); background: var(--card); border: var(--outline) solid var(--ink); border-radius: var(--radius-m); box-shadow: var(--pin); }
+.howto summary { cursor: pointer; font-family: var(--font-head); font-size: var(--fs-lead); }
+.howto summary span { font-family: var(--font-body, inherit); font-size: var(--fs-small); color: var(--ink-soft); margin-left: .4rem; }
+.howto ol { margin: var(--sp-3) 0 0; padding-left: 1.3rem; display: grid; gap: var(--sp-2); max-width: 46rem; }
+.howto li b { font-family: var(--font-head); }
+.howto .tip { margin: var(--sp-3) 0 0; font-size: var(--fs-small); color: var(--ink-soft); }
 .brief { margin: var(--sp-7) 0 0; }
 .brief table { width: 100%; font-size: var(--fs-small); }
 .brief td, .brief th { padding: .5rem .8rem .5rem 0; }
@@ -269,6 +275,18 @@ html.present .replay { display: none; }
     <svg class="arrow" viewBox="0 0 50 80" aria-hidden="true"><path d="M8 72 C 40 64, 46 40, 30 12 M30 12 L22 20 M30 12 L36 21"/></svg>
   </div>
 </section>
+
+<details class="howto" id="howto" open>
+  <summary>First time here? Start like this <span>about 20 minutes in all</span></summary>
+  <ol>
+    <li><b><a href="watch/">Watch the video</a></b> (14 min). Meet the three girls and see our model worked out step by step. Subtitles are on, and the chapters let you jump to any part.</li>
+    <li><b><a href="play/">Play the game</a></b> (about 4 min). You are the parents: choose a college for the twins, see what your choice costs, then see what 100 families like yours would do.</li>
+    <li><b><a href="one-pager/">Read the one page</a></b> when you want the whole model in one place: the four lines, the numbers and the fixes.</li>
+    <li><b>Check any number.</b> A small tag next to a number (like <span class="chip">model v2</span>) opens its source. The <a href="evidence/">evidence room</a> has the data, our RTI letters and the tests, and the <a href="report/">full report</a> has the whole argument.</li>
+  </ol>
+  <p class="tip">Works on a phone. The short animation at the top plays on your first visit; any key or tap skips it.</p>
+</details>
+<script>(function () { var d = document.getElementById("howto"); try { if (localStorage.getItem("itni-howto-seen")) d.removeAttribute("open"); localStorage.setItem("itni-howto-seen", "1"); } catch (e) {} })();</script>
 
 <nav aria-label="The five doors">
 <ul class="doors-list">
