@@ -16,7 +16,7 @@ Becker's household weighs college quality against fares and fees, so with the sa
 
 ## 3. Our model: four choices, two costs only she carries
 
-At choice filling, last year's closing ranks show which seats each twin can reach; parents pick a pair of colleges. Her say β enters by bargaining: the better her fallback, the more it counts.
+At choice filling, last year's closing ranks show which seats each twin can reach; parents pick a pair of colleges. Her say β is how much weight the family gives her view.
 
 | Both stay | Together | Best seats | Only he goes |
 |---|---|---|---|
@@ -59,7 +59,7 @@ Kajal is calibrated. The order follows mostly from reach time (26.5, 21 and 5.75
 
 ## 6. Predictions
 
-Supported, the gap closes at top ranks (-4.0 / -3.0 / -1.2 points by score band). Not supported, airport distance at the college end and empty women-only seats (p = 0.63). Untested, sisters end at a brother's college more than their rank needs.
+Supported, the gap closes at top ranks (-4.0 / -3.0 / -1.2 points by score band). Not supported, airport distance at the college end (p = 0.63). Untested, sisters end at a brother's college more than their rank needs.
 
 ## 7. Fixes (her Delhi chance, village)
 

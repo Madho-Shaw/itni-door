@@ -8,7 +8,7 @@ The model scores four options for the twins (both stay, together, best seats, on
 
 | Symbol | Plain meaning | Value | Status |
 |---|---|---|---|
-| $H$ | Years of the pay gap the family counts | {{< var param.h >}} | [assumed]{.tag-assumed} |
+| $H$ | Years of pay after the degree that the family counts | {{< var param.h >}} | [assumed]{.tag-assumed} |
 | $J_{ip}$ | Escorted trips by a parent | {{< var param.j_train >}} by train, {{< var param.j_air >}} by air, 0 if her brother is at her college | [assumed]{.tag-assumed} |
 | $\lambda_i$ | How much a rupee today hurts the family | {{< var village.lam >}} / {{< var town.lam >}} / {{< var city.lam >}} | [assumed]{.tag-assumed} |
 | $\sigma$ | Statistical worry, ₹ lakh per day of reach time | {{< var param.sigma >}} | [calibrated]{.tag-calibrated} |

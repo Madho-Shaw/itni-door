@@ -16,7 +16,7 @@ abstract: |
 <!-- Styling hooks for the site build are .course-line, .takeaway, .peg, .src, .tag-sourced, .tag-assumed, .tag-calibrated, .tag-ours, .method-box, .fig-slot (data-fig gives the figure id from the design review), .interview-slot (hide in the final build once filled), .quote-real. Model and gap numbers come from _variables.yml; numbers with no variable are typed from the project files named in Appendix A. -->
 
 ::: {.course-line}
-ECO463 Gender in Economics and Business, Shiv Nadar University, Monsoon 2026. Group 7. This is the full report behind our website. The [hub page](../) has the video, the one-page model note, the game and the evidence room.
+ECO463 Gender in Economics and Business, Shiv Nadar University, Monsoon 2026. Group 7. This is the full report behind our website. The [hub page](../) has the video, the one-page model note, the game, the evidence room and [our research diary](../how-we-built-it/), which tells how we built it.
 :::
 
 # Introduction {#sec-intro}
@@ -131,7 +131,7 @@ One check is still open. In these lists 68.7% of women hold a ladies seat. If la
 
 ## Empty women-only seats: a hint
 
-Across the 2025 and 2026 rounds, at the farthest third of NITs, {{< var gap.vac_far_F >}}% of women-only other-state seats were empty after the last JoSAA round, against {{< var gap.vac_far_GN >}}% of open seats (2026 alone: 31.3% against 20.1%, the figure in our video). At the nearest third it was {{< var gap.vac_near_F >}}% against {{< var gap.vac_near_GN >}}% [CSAB lists and JoSAA seat matrices]{.src}. Because these seats are added on top, an empty one does not mean a woman lost a seat. She may be at a better or nearer college. We read it only as a hint that fewer women list far colleges. Distance also explains less here than demand does. Once we control for how wanted a seat is, distance adds only 0.9 points per 100 km (p = 0.06). Our parse may also miss some seats, since we count 1,928 empty women-only seats in 2026 where a press report gives 2,267.
+Across the 2025 and 2026 rounds, at the farthest third of NITs, {{< var gap.vac_far_F >}}% of women-only other-state seats were empty after the last JoSAA round, against {{< var gap.vac_far_GN >}}% of open seats (2026 alone: 31.3% against 20.1%). At the nearest third it was {{< var gap.vac_near_F >}}% against {{< var gap.vac_near_GN >}}% [CSAB lists and JoSAA seat matrices]{.src}. Because these seats are added on top, an empty one does not mean a woman lost a seat. She may be at a better or nearer college. We read it only as a hint that fewer women list far colleges. Distance also explains less here than demand does. Once we control for how wanted a seat is, distance adds only 0.9 points per 100 km (p = 0.06). Our parse may also miss some seats, since we count 1,928 empty women-only seats in 2026 where a press report gives 2,267.
 
 ## The closest published study
 
@@ -141,7 +141,7 @@ Borker (2021) followed Delhi University students and their routes to college. Wo
 
 If families send daughters less far, one might expect far NITs to admit women at worse ranks. JoSAA closing ranks show no such slope. The gap between women-only and gender-neutral closing ranks does not grow with distance at the IITs (-0.005 per 100 km, p = 0.36) or at the NITs' other-state seats ({{< var gap.josaa_nit_slope >}}, p = {{< var gap.josaa_nit_p >}}). @sec-margin explains why we expected this.
 
-The direct test would use the choice lists, meaning which colleges each girl and boy put on the list before it locked. JoSAA holds them, but they are not public. On 21 October 2026 we filed an RTI request with IIT Kanpur, which ran JoSAA 2025, for totals only, by gender and by home or other state, and for a 2016 committee report on women in the IITs. IIT Kanpur replied on 5 November 2026. As we read the reply, the totals are not kept in a ready form, and the committee report was refused. So we could not test the gap directly. On 23 October we also asked the University of Delhi for undergraduate admissions by gender and home state, before and after CUET, and for its hostel seats for women and men. DU replied on 18 November 2026. Admissions by home state are "not maintained", the other admission counts are not held in the form we asked for, and compiling them was refused as too much work for the office. The one number we got is for DU's own University hostels in 2025: 2,232 seats for women and 1,192 for men, so women hold about 65% of them. College hostels are not counted centrally. So two public bodies, asked for the same kind of table, told us it is not kept by home state. That is a finding in itself: the system that would show the distance discount does not record it.
+The direct test would use the choice lists, meaning which colleges each girl and boy put on the list before it locked. JoSAA holds them, but they are not public. On 21 October 2026 we filed an RTI request with IIT Kanpur, which ran JoSAA 2025, for totals only, by gender and by home or other state, and for a 2016 committee report on women in the IITs. IIT Kanpur replied on 5 November 2026. As we read the reply, the totals are not kept in a ready form, and the committee report was refused. So we could not test the gap directly. On 23 October we also asked the University of Delhi for undergraduate admissions by gender and home state, before and after CUET, and for its hostel seats for women and men. DU replied on 18 November 2026. Admissions by home state are "not maintained", the other admission counts are not held in the form we asked for, and compiling them was refused as too much work for the office. The one number we got is for DU's own University hostels in 2025: 2,232 seats for women and 1,192 for men, so women hold about 65% of them. College hostels are not counted centrally. So two public bodies, asked for the same kind of table, told us it is not kept by home state. That is a finding in itself: the system that would show the distance discount does not record it. Both requests and replies are summed up on our [RTI page](../evidence/rti/), and the papers themselves, with personal details covered, are in [our research diary](../how-we-built-it/#e4).
 
 # Why the standard model falls short {#sec-standard}
 
@@ -387,7 +387,7 @@ Words tell us who decided and why, which no data set can. Two of our interviews 
 
 ## Two girls, one college taken off
 
-We have interviewed two women so far, G01 and G02, by phone (13 and 17 minutes), following the guide in Appendix F. Both are medical students from Chennai who came in through NEET, and both had the same far college, DY Patil in Pune, taken off their list by their parents. That makes them a matched pair. What differs is how much say each girl had.
+We have interviewed two women so far, G01 and G02, by phone (about 13 and 17.5 minutes), following the guide in Appendix F. Both are medical students from Chennai who came in through NEET, and both had the same far college, DY Patil in Pune, taken off their list by their parents. That makes them a matched pair. What differs is how much say each girl had.
 
 | | G01 | G02 |
 |---|---|---|
@@ -433,7 +433,7 @@ No stored post uses "log kya kahenge", a named escort or a neighbour's gossip wo
 
 ## How we ran the interviews
 
-The guide takes 25-30 minutes. Her story comes first, with no data (who typed the list, who had the final say, which colleges came off and why, whether a brother got the same rules). Then she guesses ("out of 100 people who moved to another state to study, how many are women?"), sees a neutral card with our findings, and reacts. We record her stand on a 1 to 5 scale before and after the card, because showing data nudges people to agree. Parents get the same structure. Consent is read out before recording. Interviews are anonymous, she can skip or stop at any time, and quotes need a separate yes (text only, re-recorded by one of us, or her own voice). No names, colleges or towns that identify anyone are kept. We aimed for 10-12 girls and 2-4 parents through our own networks, which Prof Mitra allowed. A dozen interviews are not a sample, so we report counts such as "x of 12" and never a percentage with a p-value.
+The guide is in Appendix F: her story first with no data, then her guesses, a neutral card with our findings, and her reaction. We record her stand on a 1 to 5 scale before and after the card, because showing data nudges people to agree. Consent is read out before recording. Interviews are anonymous, she can skip or stop at any time, and quotes need a separate yes (text only, re-recorded by one of us, or her own voice). No names, colleges or towns that identify anyone are kept. We plan to reach 10-12 girls and 2-4 parents through our own networks, which Prof Mitra allowed; so far we have two. Even a dozen interviews would not be a sample, so we report counts such as "x of 2 so far" and never a percentage with a p-value.
 
 Both interviews so far were phone calls, recorded and transcribed. Neither woman has yet chosen her quote level on tape, so we use their words as text only, lightly cleaned from the transcript. We do not claim three things. G02's same-district guess came after the interviewer had said the real number, so we drop it. G01's answer on the trend came after the interviewer explained the question, so we treat it as prompted. And G01 first said her brother had the same rules, then said her father was "more okay" with him going, so we make no claim about brothers from her interview.
 
@@ -486,7 +486,7 @@ The ranking of the families and of the fixes survives every check we ran. The le
 3. **$H$ moves the levels a lot.** Shalini's Delhi chance goes from {{< var sens.village_delhi_h1 >}} in 100 at $H$ = 1 to {{< var sens.village_delhi_h5 >}} at $H$ = 5.
 4. **The brother's effect $b$ is assumed.** With $b$ = 0 the pull towards Together roughly halves.
 5. **Pay is the NIRF institute median,** which mixes who gets in with what the college adds. Institutes report it themselves.
-6. **We have no choice-list data.** Closing ranks only see the families who already said yes, and our RTI was refused.
+6. **We have no choice-list data.** Closing ranks only see the families who already said yes, and neither RTI gave us the choice data.
 
 Three smaller points from @sec-gap also stand. The Maharashtra gap has not been split by seat type, the airport test used locations we did not look up, and the Reddit posts are self-selected. The full list is in Appendix E.
 
@@ -571,7 +571,7 @@ All paths are inside our project data folder. **Cleaning.** For JoSAA we kept th
 
 **Rerun.** From the project data folder, `py -P scripts/<name>.py .` runs any script; each folder's README lists inputs and outputs. The model is `py scripts/model_v2_bihar.py`, and the game check is `node tools/check_rl_model.js` in the game folder.
 
-**What we did, in order.** 30 Sep to 9 Oct, we scouted and ranked eight ideas. On 21 Oct we locked the topic with Prof Mitra and drafted the RTI requests the same day. From 21 to 23 Oct we ran the JoSAA, Census, Maharashtra, empty-seat and Reddit analysis and wrote a research file of papers and data sources. On 5 Nov the IIT Kanpur RTI was refused. On 18 Nov the University of Delhi replied with its 2025 hostel seats and nothing on admissions by home state. Through October and November we wrote the interview guide and our friends began interviews. From 12 to 17 Nov we built the game *Itni Door?* in four design rounds. On 19 Nov we drafted the model, moved to three Bihar families with the Together option, wrote the video script and built the class version of the game. On 20 Nov we reviewed the whole package against the brief and the lectures and wrote this version.
+**What we did, in order.** The dated story, with the ideas we dropped, the RTI papers and every source we read, is in [our research diary](../how-we-built-it/).
 
 # Appendix B. Parameters, fares and the "out of 100" step {.unnumbered}
 
@@ -648,7 +648,7 @@ The fixes with three options give the same ranking (village {{< var village.fix3
 
 # Appendix E. Further limits, and sources we did not use {.unnumbered}
 
-Fares are aggregator snapshots of 19 November 2026 and move with date and class. Local legs at both ends are assumed. The NIT tests rest on 32 NITs, so about 32 independent observations. The Census mixes study moves at any age, uses capital-to-capital distance and dates from 2011. Maharashtra is one state, "away" means another university region, and three years only. Safety statistics are not comparable across states (NCRB says so itself), so we used them for context only. Interviews come from our own networks and are not random. Many papers in our notes were seen only as summaries; only those we opened are in the references.
+Fares are aggregator snapshots of 19 November 2026 and move with date and class. Local legs at both ends are assumed. The NIT tests rest on 32 NITs, so about 32 independent observations. The Census mixes study moves at any age, uses capital-to-capital distance and dates from 2011. Maharashtra is one state, "away" means another university region, and three years only. Safety statistics are not comparable across states (NCRB says so itself), so we used them for context only. Interviews come from our own networks and are not random: most women of college age in Bihar live in villages, and our first two interviewees are from a big city (the numbers are in [our research diary](../how-we-built-it/#e6)). Many papers in our notes were seen only as summaries; only those we opened are in the references.
 
 | Source | Why we did not use it |
 |---|---|
@@ -658,10 +658,10 @@ Fares are aggregator snapshots of 19 November 2026 and move with date and class.
 | NSS 75th round and NFHS-5 microdata | Need registration, not done in time |
 | CMIE Consumer Pyramids | Paid; we did not confirm whether SNU's licence covers it |
 | Patna to Tatanagar fares | Only an all-class average, so Jamshedpur was not modelled |
-| IIT Kanpur RTI (filed 21 Oct 2026) | Refused, 5 Nov 2026 |
-| University of Delhi RTI (filed 23 Oct 2026) | Admissions by home state not kept; 2025 University hostel seats given (women 2,232, men 1,192); 18 Nov 2026 |
+| [IIT Kanpur RTI](../how-we-built-it/#e4) (filed 21 Oct 2026) | Questions 1-4 "not readily available"; the 2016 committee report exempt under sections 8(1)(e) and 8(1)(g); 5 Nov 2026 |
+| [University of Delhi RTI](../how-we-built-it/#e4) (filed 23 Oct 2026) | Admissions by home state not kept; 2025 University hostel seats given (women 2,232, men 1,192); 18 Nov 2026 |
 
-: Sources looked at but not used, and blocked requests {#tbl-notused}
+: Data we tried to get and could not use, and blocked requests. The full list of everything we read, with the reason each was used or not, is in [our research diary](../how-we-built-it/#e13). {#tbl-notused}
 
 # Appendix F. Interview guide (short form) {.unnumbered}
 

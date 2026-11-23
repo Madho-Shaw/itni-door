@@ -35,7 +35,7 @@ html = html.replace('<link rel="stylesheet" href="css/rl.css">',
                     '<meta name="description" content="Itni Door? Real Life: you are the parents of twins in Bihar with the same JEE rank. Four decisions, about four minutes.">')
 html = html.replace('<div id="app"></div>',
                     '<nav class="hub-bar" aria-label="Site"><a href="../">Itni Door?</a><span>ECO463, Group 7</span>'
-                    '<a href="../one-pager/">The model on one page</a></nav>\n<main id="app"></main>')
+                    '<a href="../report/">Next: the full report</a></nav>\n<main id="app"></main>')
 html = html.replace("<!-- Class mode (4 decisions, about 4 minutes). The full game is full.html. Fonts are in assets/fonts (offline). -->",
                     "<!-- Copied from itni-door-real-life by eco463-site/tools/sync_game.py. Edit the game repo, not this copy. -->")
 (OUT / "index.html").write_text(html, encoding="utf-8")

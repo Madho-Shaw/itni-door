@@ -14,17 +14,12 @@ url: "https://madho-shaw.github.io/itni-door/"
 url_confirmed: true
 
 video:
-  # YouTube id of the master cut (8-9 min). Empty = no embed yet; the page shows the local file or a note.
+  # YouTube id of the full explainer. Empty = no embed yet; the page shows the local file or a note.
   master_id: "rOCMtvNaYhs"   # the v3 explainer (13:48), unlisted, uploaded 23 Nov 2026
   class_id: ""
-  # temporary = placeholder narration; group = our own voices
-  voice: "temporary"
   # local files, first one found is used for the in-class and offline copy (never committed to the repo)
   local:
     - "media/itni_door_v3.mp4"   # the v3 explainer, web copy in the repo (1080p, CRF 27), used on GitHub
-    - "../eco463-media/video_v2/out/v2_class_5min.mp4"
-    - "../eco463-media/video_v2/out/v2_master.mp4"
-    - "../eco463-media/video/out/draft1_5min.mp4"
   poster: "assets/img/poster.jpg"
   # chapters: t in seconds, title. The v3 explainer (13:48), from video_v2/youtube/chapters_3.txt.
   chapters:
@@ -38,6 +33,5 @@ video:
     - { t: 747, title: "Where it breaks" }
     - { t: 796, title: "You decide" }
 
-# Interviews: "none" until the group adds them (content/quotes.yml); the pages say how many are in.
-interviews_in: 0
-interviews_planned: "4 to 6"
+# Interviews: G01 and G02 are in the report and the diary; more are added as G03 onward.
+interviews_in: 2

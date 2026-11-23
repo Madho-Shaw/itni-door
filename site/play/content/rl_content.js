@@ -126,7 +126,7 @@ ITNI.rl = {
   sources: {
     nirf:   { en: "NIRF 2025, 3-year mean of the median UG salary", file: "_project_data/06_analysis/nirf_median_salary.csv" },
     josaa:  { en: "JoSAA 2025, final round, OPEN, CSE (4-year B.Tech)", file: "_project_data/01_josaa/josaa_final_2016_2025.csv.gz" },
-    wage:   { en: "Bihar general farm labour, men, ₹378.93 a day, Feb 2025 (Labour Bureau, via CEIC)", file: "107 §3b, three-families parameter table" },
+    wage:   { en: "Bihar general farm labour, men, ₹378.93 a day, Feb 2025 (Labour Bureau, via CEIC)", file: "report, Appendix B (parameters and fares)" },
     model:  { en: "Model v2: three Bihar families, multinomial logit (H = 3, σ = 16, τ = 4, b = 1, μ = 3: all assumed; σ calibrated so the town family is on the fence)", file: "_project_data/06_analysis/model_v2_results.md; scripts/model_v2_bihar.py" },
     confirmtkt:      { en: "Saharsa to New Delhi, Vaishali Express 15565, 24 h, SL ₹605", url: "https://www.confirmtkt.com/hi/trains/saharsa-to-new-delhi-train-tickets" },
     goibibo_rr:      { en: "Rajya Rani 12567 Saharsa to Patna, 4 h 15, SL ₹180-220", url: "https://www.goibibo.com/trains/12567-detail/" },
@@ -259,7 +259,7 @@ ITNI.rl = {
     fix_fares: { en: "Pay the escort's fares", hn: "Saath jaane wale ka kiraya do" },
     fix_credit: { en: "Cheap education loan", hn: "Sasta education loan" },
     fix_senior: { en: "A senior girl from her district at NIT Delhi", hn: "Uske zile ki ek senior ladki NIT Delhi mein" },
-    fix_hostel: { en: "Guaranteed first-year hostel", hn: "Pehle saal hostel pakka" },
+    fix_hostel: { en: "Promised first-year hostel place", hn: "Pehle saal hostel ka vaada" },
     fix_result: { en: "{her} at NIT Delhi: {x} of 100 (was {y})", hn: "{her} NIT Delhi mein: 100 mein {x} (pehle {y})" },
     fix_moral: { en: "Money moves it a little. Information moves it a lot.", hn: "Paisa thoda hilata hai. Jaankari bahut." },
     fix_caveat: { en: "Illustrative model, calibrated; worry sizes assumed.", hn: "Illustrative model, calibrated; fikr ke size assumed." }

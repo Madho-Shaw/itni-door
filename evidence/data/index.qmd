@@ -25,6 +25,6 @@ The summary files are in the site's `data/` folder, one CSV each. The figures on
 # What we keep off the site
 
 - Admission lists, even with names dropped: raw files stay local.
-- The scanned RTI replies, which carry a personal address. The [RTI page](../rti/) summarises them in text.
+- The original RTI scans, which carry a personal address. The [RTI page](../rti/) summarises them, and copies with the address covered are in [our research diary](../../how-we-built-it/#e4).
 - Social media usernames.
 - Licensed databases: only our own summary tables are public.
