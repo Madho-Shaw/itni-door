@@ -6,7 +6,7 @@ Group 7, Mshaw, R K Arjun and Neil John Vivek. ECO463, Shiv Nadar University, No
 
 ## 1. The gap
 
-In class we studied how some families cap a daughter's study radius at about 100 km, to keep her within reach. We put numbers on it. Each doubling of the distance of a study move goes with 9.3% lower odds that the mover is a woman (Census 2011, 960 state pairs). In Maharashtra, a woman with the same MHT-CET score is 3.7 points (about 14%) less likely than a man to study outside her home region (CAP 2023-25). JoSAA's choice lists by gender would test it directly, but our RTI request for them was refused.
+In class we studied how some families cap a daughter's study radius at about 100 km, to keep her within reach. We put numbers on it. Each doubling of the distance of a study move goes with 9.3% lower odds that the mover is a woman (Census 2011, 960 state pairs). In Maharashtra, a woman with the same MHT-CET score is 3.7 points (about 14%) less likely than a man to study outside her home region (CAP 2023-25). JoSAA's choice lists by gender would test it directly, but they are not public and our RTI request did not get them.
 
 ## 2. The textbook model from class says the same choice
 

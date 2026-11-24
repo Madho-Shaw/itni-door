@@ -9,7 +9,7 @@ date: "November 2026"
 lang: en-IN
 number-sections: true
 abstract: |
-  Some Indian families will not let a daughter study beyond about 100 km from home, and the same rule is rarely set for a son (L4). We put numbers on that rule. In Census 2011 data, each doubling of the distance of a study move goes with 9.3% lower odds that the mover is a woman. In Maharashtra's engineering admissions, a woman with the same entrance score is 3.7 percentage points less likely than a man to study outside her home region. Becker's household model from L2 cannot produce this, because at the same rank both children face the same seats, fees and returns. We keep every family member rational and add two costs that only a daughter carries, an escort on long trips and a worry that grows with the hours it takes to reach her. For twins with the same JEE rank in three Bihar families, the daughter takes her best seat in 23, 44 and 98 of 100 families like each (village, town and Patna city). In our model, information about the college moves these numbers far more than money does. How big that effect is depends on an assumed split of the worry, but the ranking of the fixes does not.
+  Some Indian families will not let a daughter study beyond about 100 km from home, and the same rule is rarely set for a son (an example from class). We put numbers on that rule. In Census 2011 data, each doubling of the distance of a study move goes with 9.3% lower odds that the mover is a woman. In Maharashtra's engineering admissions, a woman with the same entrance score is 3.7 percentage points less likely than a man to study outside her home region. Becker's household model from class cannot produce this, because at the same rank both children face the same seats, fees and returns. We keep every family member rational and add two costs that only a daughter carries, an escort on long trips and a worry that grows with the hours it takes to reach her. For twins with the same JEE rank in three Bihar families, the daughter takes her best seat in 23, 44 and 98 of 100 families like each (village, town and Patna city). In our model, information about the college moves these numbers far more than money does. How big that effect is depends on an assumed split of the worry, but the ranking of the fixes does not.
 ---
 
 <!-- Styling hooks for the site build are .course-line, .takeaway, .peg, .src, .tag-sourced, .tag-assumed, .tag-calibrated, .tag-ours, .method-box, .fig-slot (data-fig gives the figure id from the design review), .interview-slot (hide in the final build once filled), .quote-real. Model and gap numbers come from _variables.yml; numbers with no variable are typed from the project files named in Appendix A. -->
@@ -23,10 +23,10 @@ ECO463 Gender in Economics and Business, Shiv Nadar University, Monsoon 2026. Gr
 ::: {.takeaway}
 Families cap how far a daughter may go to study. We ask why they do it even when her rank equals her brother's and her best seat is better than his.
 
-[L4, the 100 km radius]{.peg} [L1, a question from our own generation]{.peg}
+[Class, 28 Aug: the 100 km radius]{.peg} [Class, 19 Aug: a question from our own generation]{.peg}
 :::
 
-In L4 (28 August) Prof Mitra gave the class an example. Some families will not let a child study beyond about 100 km from home, and who gets that rule depends on gender. When she asked why, most of the class answered "safety". She pushed past that answer. A radius rule does not keep a girl away from crime, she said, since it can keep her inside the very region where crime is highest. It is about being close enough to keep watch, and about the household's honour. Our project tries to put numbers on that rule.
+On 28 August Prof Mitra gave the class an example. Some families will not let a child study beyond about 100 km from home, and who gets that rule depends on gender. When she asked why, most of the class answered "safety". She pushed past that answer. A radius rule does not keep a girl away from crime, she said, since it can keep her inside the very region where crime is highest. It is about being close enough to keep watch, and about the household's honour. Our project tries to put numbers on that rule.
 
 The question is about students like us. Every year lakhs of students sit JEE Main and fill a JoSAA choice list.[^josaa] A girl and a boy with the same rank face the same list of colleges, and the girl has some extra seats through the women-only pool.[^pool] Many families still send the boy far and keep the girl near. We ask two things.
 
@@ -37,7 +37,7 @@ We think the gap is worth studying for two reasons. The first is pay. NIT Delhi'
 
 The second reason is seats. The IITs and NITs now add seats that only women can take, on top of the regular ones. At the NITs farthest from most students, more of these women-only seats stay empty than open seats (@sec-gap). That does not prove any woman lost out, but it hints that fewer women put far colleges on their list. The extra seats opened the colleges to women. They did not change the cost of getting there.
 
-The story we tell is set in Bihar, with three made-up families built on real ranks, fares and pay. The gap itself is measured in national Census data and in Maharashtra, because that is where the data exists. @sec-gap shows the gap, @sec-standard shows why the standard model from L2 cannot explain it, @sec-model builds our model, and @sec-predict checks what else it predicts.
+The story we tell is set in Bihar, with three made-up families built on real ranks, fares and pay. The gap itself is measured in national Census data and in Maharashtra, because that is where the data exists. @sec-gap shows the gap, @sec-standard shows why the standard model from class cannot explain it, @sec-model builds our model, and @sec-predict checks what else it predicts.
 
 How we got here, week by week, with the ideas we dropped, the RTI papers and what each source changed, is in [our research diary](../how-we-built-it/).
 
@@ -50,20 +50,20 @@ How we got here, week by week, with the ideas we dropped, the RTI papers and wha
 ::: {.takeaway}
 We use the models from class first, in the order they were taught. Outside papers come in only where a class model needs support.
 
-[L2]{.peg} [L3-L4]{.peg} [L5]{.peg} [L10-L11]{.peg} [L12]{.peg} [L19-L20]{.peg}
+[21 Aug]{.peg} [26 and 28 Aug]{.peg} [2 Sep]{.peg} [18 and 23 Sep]{.peg} [25 Sep]{.peg} [11 and 12 Nov]{.peg}
 :::
 
-| Lecture | What was taught | How we use it |
+| Class | What was taught | How we use it |
 |---|---|---|
-| L2 (21 Aug) | Becker's human-capital model has one homogeneous agent and no gender term, so the only gap it can read is lower skill | Our standard model (@sec-standard) |
-| L3 (26 Aug), L4 (28 Aug) | A choice means something only against the set of options. Look for a gender-neutral base set before reading any outcome. Families cap a daughter's radius | The family's four options are its choice set. The null in closing ranks (@sec-margin) |
-| L3 | Girls' education rose partly as a marriage asset | The strongest standard rival, tested in @sec-horse |
-| L3 | "Until you can ensure that the outside is safe, more mobility cannot be better." | The daughter has a worry of her own. We do not claim far is always better |
-| L4, L5 (2 Sep) | Opportunity cost is not gender-neutral. A pink tax is the higher price charged to remove a social barrier, and paying it is rational | The escort cost (feature 1) |
-| L7 | When household income jumps, the lower-paid person is the one who gives way | The sister who takes her brother's college |
-| L10-L11 (18, 23 Sep) | Keep the rational agent and add one cost term (stigma). Discrete options with the home option at zero. Take the better option only if the gain covers the extra cost | The layout of our whole model |
-| L12 (25 Sep), L13-L14, Week 5 slides | Nash bargaining, the threat point or walk-out value, splitting the difference. Threat points have a peer tier and a society tier. Agarwal's legitimacy | The daughter's say, β |
-| L19-L20 (11-12 Nov) | Statistical discrimination acts on a group average when information on the person is partial. Signal = quality + noise. Taste is what is left after all information | The two parts of the worry |
+| 21 Aug | Becker's human-capital model has one homogeneous agent and no gender term, so the only gap it can read is lower skill | Our standard model (@sec-standard) |
+| 26 and 28 Aug | A choice means something only against the set of options. Look for a gender-neutral base set before reading any outcome. Families cap a daughter's radius | The family's four options are its choice set. The null in closing ranks (@sec-margin) |
+| 26 Aug | Girls' education rose partly as a marriage asset | The strongest standard rival, tested in @sec-horse |
+| 26 Aug | "Until you can ensure that the outside is safe, more mobility cannot be better." | The daughter has a worry of her own. We do not claim far is always better |
+| 28 Aug, 2 Sep | Opportunity cost is not gender-neutral. A pink tax is the higher price charged to remove a social barrier, and paying it is rational | The escort cost (feature 1) |
+| 9 Sep | When household income jumps, the lower-paid person is the one who gives way | The sister who takes her brother's college |
+| 18 and 23 Sep | Keep the rational agent and add one cost term (stigma). Discrete options with the home option at zero. Take the better option only if the gain covers the extra cost | The layout of our whole model |
+| 25 and 30 Sep, Week 5 slides | Nash bargaining, the threat point or walk-out value, splitting the difference. Threat points have a peer tier and a society tier. Agarwal's legitimacy | The daughter's say, β |
+| 11 and 12 Nov | Statistical discrimination acts on a group average when information on the person is partial. Signal = quality + noise. Taste is what is left after all information | The two parts of the worry |
 | Week 4 slides | Blau and Kahn. Policies that help women's access can cost them elsewhere | A trade-off line for every fix |
 
 : The class models we build on {#tbl-class}
@@ -79,7 +79,7 @@ Borker (2021) is the closest study to ours. Women at Delhi University traded col
 |---|---|---|
 | Census of India 2001 and 2011, migration table D-03 | Women's share of people who moved to study, for every pair of states, by distance | No score, no age. Distance is capital to capital |
 | Maharashtra CAP allotment lists, 2023-25 (names dropped) | At the same score, category and year, who studies outside her home university region | Short moves inside one state. "Away" is a region, not km |
-| JoSAA closing ranks 2016-25; CSAB empty-seat lists and seat matrices, 2025-26 | Who got in at the margin, which seats stayed empty, the twins' seats at rank {{< var crl >}} | The choice lists themselves (refused under RTI) |
+| JoSAA closing ranks 2016-25; CSAB empty-seat lists and seat matrices, 2025-26 | Who got in at the margin, which seats stayed empty, the twins' seats at rank {{< var crl >}} | The choice lists themselves (not public; our RTI request did not get them) |
 | NIRF 2024-25, median salary of UG graduates | The value of each college in the model | Partly who gets in, as well as what the college adds |
 | Rail and air fares and hours, snapshots of 19 Nov 2026 | Money and reach time of each trip | Local legs at both ends are assumed |
 | Reddit, 59 posts and comments tagged by hand | Who decides, in families' own words | Not a sample |
@@ -96,7 +96,7 @@ For the model we use a multinomial logit. We cannot see everything about a famil
 ::: {.takeaway}
 Two different data sets point the same way. At the same score women go less far to study, and the farther the move, the smaller the share of women.
 
-[L1, check the numbers before claiming a norm]{.peg}
+[Class, 19 Aug: check the numbers before claiming a norm]{.peg}
 :::
 
 ## Across India: the Census
@@ -147,12 +147,12 @@ The direct test would use the choice lists, meaning which colleges each girl and
 ::: {.takeaway}
 The textbook family sees two equal children. At the same rank, price and return it should choose the same college for both, and in our case the daughter even has the better seat.
 
-[L2, Becker]{.peg} [L3, choice set]{.peg} [L10-L11, the investment rule]{.peg}
+[Class, 21 Aug: Becker]{.peg} [26 Aug: choice set]{.peg} [18 and 23 Sep: the investment rule]{.peg}
 :::
 
 ## The standard model
 
-Our starting point is the model from L2, Becker's human-capital model. The household invests in a child's education like any other investment, and nothing in it depends on gender. Put in one line: if a son and a daughter have the same preferences, the same ability and face the same prices, the model predicts the same choice for both. Becker and Tomes (1986) add that parents invest in each child until the return on the last rupee equals what that rupee earns elsewhere, so the investment is efficient and does not depend on the child's sex. In L10-L11 the same idea came as an investment rule, where the family takes the better option only if the gain covers the extra cost. For a child with rank $r$, the household picks a near college $N$ (the home-state NIT) or a far one $F$ to maximise
+Our starting point is the first model we studied in class, Becker's human-capital model. The household invests in a child's education like any other investment, and nothing in it depends on gender. Put in one line: if a son and a daughter have the same preferences, the same ability and face the same prices, the model predicts the same choice for both. Becker and Tomes (1986) add that parents invest in each child until the return on the last rupee equals what that rupee earns elsewhere, so the investment is efficient and does not depend on the child's sex. Later in class (18 and 23 September) the same idea came as an investment rule, where the family takes the better option only if the gain covers the extra cost. For a child with rank $r$, the household picks a near college $N$ (the home-state NIT) or a far one $F$ to maximise
 
 $$V_c = R(q_c) - k\,d_c - p_c .$$
 
@@ -194,7 +194,7 @@ We do not use our Reddit posts to rule out "she prefers near". Those posts come 
 
 ## The strongest rival: "her degree is for the marriage" {#sec-horse}
 
-The strongest standard rival comes from class. In L3 we saw that girls' education in India rose partly as a marriage asset, so for some families a daughter's degree is for the match more than the job. In Becker's terms the family puts a lower weight on her returns, and that would also make it invest less in her. Son preference, dowry (where her education can raise what the family must pay) and old-age support from sons all work the same way. Each lowers the weight on her returns next to his. Three facts separate this story from ours.
+The strongest standard rival comes from class. On 26 August we saw that girls' education in India rose partly as a marriage asset, so for some families a daughter's degree is for the match more than the job. In Becker's terms the family puts a lower weight on her returns, and that would also make it invest less in her. Son preference, dowry (where her education can raise what the family must pay) and old-age support from sons all work the same way. Each lowers the weight on her returns next to his. Three facts separate this story from ours.
 
 1. **Quality.** If parents valued her returns less, they would cut college quality as well as distance. Within the same branch, Maharashtra women at the same score sit in slightly better colleges ({{< var gap.mh_quality_branch >}} percentile points on the college's median admit percentile, p = 0.006), while they move less. Without the branch control women are in slightly weaker colleges (-0.65 points), and that comes from which branch they take, a separate gendered question we leave aside. Fares are also small next to the pay gap. A lower weight on her pay could only produce the discount if the weight were close to zero, and then families would keep her in weaker colleges near home as well.
 2. **The brother.** A "she is worth less" story says nothing about where her brother studies. In our story the brother can be her escort and can lower the worry, so sisters should end up at a brother's college more often than their rank needs. That prediction separates the two stories. We could not test it without the choice lists (@sec-predict).
@@ -211,19 +211,19 @@ The strongest standard rival comes from class. In L3 we saw that girls' educatio
 
 ## Why closing ranks show nothing {#sec-margin}
 
-A closing rank is set by the last woman admitted to a far NIT, and her family already said yes. The families who said no never show up there, because the far college came off the list before it locked. This is the L3 point about choice and choice set. An outcome only shows choices made inside a set the family had already cut. So the discount works on the choice list, which is why we asked for it under RTI. One more fact fits this reading. In Maharashtra, women placed outside their home region do not leave the admission process more than men placed there (women times away +0.2 points, p = 0.64). A girl who is allotted a far seat is one whose family had already agreed to it.
+A closing rank is set by the last woman admitted to a far NIT, and her family already said yes. The families who said no never show up there, because the far college came off the list before it locked. This is the class point about choice and choice set. An outcome only shows choices made inside a set the family had already cut. So the discount works on the choice list, which is why we asked for it under RTI. One more fact fits this reading. In Maharashtra, women placed outside their home region do not leave the admission process more than men placed there (women times away +0.2 points, p = 0.64). A girl who is allotted a far seat is one whose family had already agreed to it.
 
 # Our model {#sec-model}
 
 ::: {.takeaway}
 We keep every family member rational and add two costs that only a daughter carries. When we priced them, fares and the escort turned out small, and the worry about how long it takes to reach her does the work.
 
-[L4, surveillance and honour]{.peg} [L5, pink tax]{.peg} [L10-L11, one added cost]{.peg} [L12, threat point]{.peg} [L13-L14, legitimacy]{.peg} [L19-L20, statistical and residual]{.peg}
+[Class, 28 Aug: surveillance and honour]{.peg} [2 Sep: pink tax]{.peg} [18 and 23 Sep: one added cost]{.peg} [25 Sep: threat point]{.peg} [30 Sep: legitimacy]{.peg} [11 and 12 Nov: statistical and residual]{.peg}
 :::
 
 ## The model as a scale
 
-We find it easiest to see the model as a scale. On one pan is what the two colleges are worth, measured as the pay their graduates start on, counted for the first {{< var param.h >}} years of work after the degree. On the other pan is what it costs to get there, in money and in worry about the daughter while she is away. Two of the weights on that second pan are hers only, the escort and the worry per hour it takes to reach her. A brother at the same college takes some weight off the worry pan, and an information card (a senior girl from home, a hostel guarantee) takes off more. One weight stays whatever we do, and that is "log kya kahenge" (what will people say). This is the move from L10-L11. Keep the rational agent, add one cost term, and see whether behaviour follows.
+We find it easiest to see the model as a scale. On one pan is what the two colleges are worth, measured as the pay their graduates start on, counted for the first {{< var param.h >}} years of work after the degree. On the other pan is what it costs to get there, in money and in worry about the daughter while she is away. Two of the weights on that second pan are hers only, the escort and the worry per hour it takes to reach her. A brother at the same college takes some weight off the worry pan, and an information card (a senior girl from home, a hostel guarantee) takes off more. One weight stays whatever we do, and that is "log kya kahenge" (what will people say). This is the move we learned in class in September. Keep the rational agent, add one cost term, and see whether behaviour follows.
 
 ::: {.fig-slot data-fig="scale"}
 The scale. Left pan, the value of the two seats (pay of his college plus pay of hers). Right pan, money (fares, the escort's tickets and lost days), then the statistical worry, then "log kya kahenge". The brother card and the information cards lift weights off the right pan; nothing lifts "log kya kahenge".
@@ -256,21 +256,21 @@ The family decides at choice filling, after the results are out. From last year'
 
 Durgapur stands for the son's best far college because our fares file prices the trip there, it is closer than Jamshedpur, and it pays a little more (₹{{< var pay1.durgapur >}} against ₹{{< var pay1.jamshedpur >}} lakh).
 
-While building the model we realised that a family with twins has a fourth option, to send them together. The brother then becomes the escort. This is Mincer's (1978) tied mover, from our outside reading. In Mincer a family moves if the joint gain is positive, so one spouse can take a worse job for the other's better one. Here the sister is the tied mover. She takes her brother's college because the pair together is cheaper to reach and feels safer. It also fits L7, where the lower-paid person was the one who gave way, and L12, where the family shares a joint surplus.
+While building the model we realised that a family with twins has a fourth option, to send them together. The brother then becomes the escort. This is Mincer's (1978) tied mover, from our outside reading. In Mincer a family moves if the joint gain is positive, so one spouse can take a worse job for the other's better one. Here the sister is the tied mover. She takes her brother's college because the pair together is cheaper to reach and feels safer. It also fits two class ideas: the lower-paid person is the one who gives way when household income jumps, and bargaining, where the family shares a joint surplus.
 
 ## Feature 1: the escort (priced, and small)
 
-A daughter's long trips are taken with an adult. Each escorted trip costs a second set of fares there and back, plus the escort's lost working days. A son travels alone. This is a pink tax on distance in the L5 sense, the same seat at a higher price to reach it. The lost days are the L4 point that opportunity cost is not gender-neutral. If her brother is at the same college, he is the escort and the cost falls to zero.
+A daughter's long trips are taken with an adult. Each escorted trip costs a second set of fares there and back, plus the escort's lost working days. A son travels alone. This is a pink tax on distance in the sense we used in class, the same seat at a higher price to reach it. The lost days are the class point that opportunity cost is not gender-neutral. If her brother is at the same college, he is the escort and the cost falls to zero.
 
 We priced this with real fares and a sourced day wage for the village father (₹{{< var village.w >}}, Bihar farm labour, Labour Bureau via CEIC), and it came out small. For the village family, the whole four-year travel bill of the Best-seats plan, both children and the escort included, is ₹{{< var village.bill_split >}}. That is less than one year's gap in starting pay between NIT Delhi and NIT Patna (₹{{< var anchor.stay_patna >}} lakh). We report this as a finding. The escort is a real cost, but it cannot carry the gap alone.
 
 ## Feature 2: worry, priced per hour of reach time
 
-Parents worry about "what if something happens there", and about what people will say. We price the worry per day it takes to reach her, door to door, because that is the surveillance point from L4 put into hours. The worry has two parts.
+Parents worry about "what if something happens there", and about what people will say. We price the worry per day it takes to reach her, door to door, because that is the surveillance point from class put into hours. The worry has two parts.
 
-The first part, $\sigma$, is statistical. It is a belief about a place the parents cannot see, in the L19-L20 sense. Each girl from home who already went there is more signal, so it falls with $n$. A brother at the same college counts as $b$ more people the family trusts. A hostel guarantee also lowers it. In plain words, a senior girl from her district is someone the parents can call, so the place stops being unknown.
+The first part, $\sigma$, is statistical. It is a belief about a place the parents cannot see, in the sense of statistical discrimination from class. Each girl from home who already went there is more signal, so it falls with $n$. A brother at the same college counts as $b$ more people the family trusts. A hostel guarantee also lowers it. In plain words, a senior girl from her district is someone the parents can call, so the place stops being unknown.
 
-The second part, $\tau$, is a norm cost. It covers honour and "log kya kahenge", which is the L4 point that the cap is about household honour as much as crime, and the stigma cost of L10-L11. It is what is left after every fact is in. No fact moves it, and a brother does not lower it, because the neighbours still talk.
+The second part, $\tau$, is a norm cost. It covers honour and "log kya kahenge", which is Prof Mitra's point that the cap is about household honour as much as crime, and the stigma cost from class. It is what is left after every fact is in. No fact moves it, and a brother does not lower it, because the neighbours still talk.
 
 We do not call the parents discriminating. They act on a group-level belief about a place they cannot see, and on a norm their neighbours enforce. Reach time counts more than kilometres. Delhi is {{< var village.hours_delhi >}} hours door to door from the village by train and {{< var city.hours_delhi >}} hours from Patna city by air. The mother's question in our video, "agar kuch hua to pahunchne mein kitna time lagega?" (if something happens, how long will it take to reach her?), is [our line]{.tag-ours}, not a quote.
 
@@ -360,7 +360,7 @@ We should be careful about what these numbers are. They are not forecasts. We se
 
 ## Her say, and Prof Mitra's question {#sec-say}
 
-To give the daughter a say we use the Nash bargain from L12. The family picks the pair of colleges $p$ that solves
+To give the daughter a say we use the Nash bargain from class. The family picks the pair of colleges $p$ that solves
 
 $$\max_{p}\; \big(U^P_p - T_P\big)^{1-\beta}\,\big(U^D_p - T_D\big)^{\beta}.$$
 
@@ -368,7 +368,7 @@ Her own payoff is $H$ times the pay of her college minus her own worry, which we
 
 In the village her parents prefer Together by about ₹2.8 lakh and she prefers Delhi by about ₹8.8 lakh, so **she gets Delhi once her say is {{< var village.beta_star >}} or more**. In Patna her parents already prefer Best seats, so there is nothing to bargain over. Kajal's parents are on the fence, so any say she has decides it. In our group we put it this way. The poor family pulls, and the rich family only suggests. The full table is in Appendix C.
 
-Prof Mitra asked us whether the limit comes from the parents or whether the girl also feels unsafe. The model separates the two cases. If her parents restrict her and she wants to go, both bargaining and information for the parents help. If she feels unsafe too, there is no conflict to bargain over. In L3 terms the unsafe trip shrinks her own choice set, and only real safety on the trip (group travel, women's coaches, a hostel) would help. Information for her parents would do nothing. Our setting gives her a third of her parents' worry, which assumes the first case.
+Prof Mitra asked us whether the limit comes from the parents or whether the girl also feels unsafe. The model separates the two cases. If her parents restrict her and she wants to go, both bargaining and information for the parents help. If she feels unsafe too, there is no conflict to bargain over. In class terms the unsafe trip shrinks her own choice set, and only real safety on the trip (group travel, women's coaches, a hostel) would help. Information for her parents would do nothing. Our setting gives her a third of her parents' worry, which assumes the first case.
 
 Our two interviews give one of each. We asked where the limit came from (parents, her own fear, money, other). G01 wanted to leave and says the limit was only her parents'. Asked whether it was her choice, she said "No, it wasn't." G02 shared part of the worry. She and her parents were both uneasy about Delhi and the northern states, but she fought the one college her parents took off that she did not see as unsafe. So in 1 of 2 the limit was only the parents', and in 1 of 2 she felt part of it herself, about some places and not about distance as such. Neither named money. Two girls cannot settle Prof Mitra's question, but they show that both cases exist, and the second case is narrower than our model assumes. Her own worry attaches to a place, not to every far seat.
 
@@ -393,7 +393,7 @@ The first prediction comes from the value term. A girl near the top gains a lot 
 
 The airport test needs care. Reach time is set at both ends of the trip, and we only have the college end. Her own airport needs her home district, which JoSAA did not give us. We also took the airport locations from memory and did not look each one up, and the farthest group has only three NITs, so we treat this test as rough. The null does fit the model in one way. A campus pickup at the college end moves Shalini's Delhi chance only from {{< var village.fix_baseline >}} to {{< var village.fix_pickup >}}.
 
-The last prediction is half tested. We know where staying home costs a girl the most pay, but whether girls in those states are discounted more needs the choice lists, which were refused.
+The last prediction is half tested. We know where staying home costs a girl the most pay, but whether girls in those states are discounted more needs the choice lists, which our RTI request did not get.
 
 # Voices: what girls and families say {#sec-voices}
 
@@ -464,7 +464,7 @@ The Census and JoSAA see where she ended up, never who typed the list, and the p
 ::: {.takeaway}
 Fixes that give families information move the daughter's chance far more than fixes that give money. No fix we tried touches "log kya kahenge".
 
-[L3, more mobility is not always better]{.peg} [L5, the Bihar cycle scheme]{.peg} [Week 4 slides, Blau and Kahn]{.peg}
+[Class, 26 Aug: more mobility is not always better]{.peg} [2 Sep: the Bihar cycle scheme]{.peg} [Week 4 slides, Blau and Kahn]{.peg}
 :::
 
 Each fix moves one term. The numbers are her Delhi chance out of 100 in our model.
@@ -487,9 +487,9 @@ Paying the escort's fares or cheap credit moves Shalini's Delhi chance by 3 or 4
 
 Every fix has a cost, which is the point of the Blau and Kahn slides in Week 4. A hostel guarantee lowers the parents' worry partly by swapping their watch for the college's, so it may move the surveillance to campus. The senior-girl fix does not have that cost, and in our model it moves her just as far. Before we push either, we should check what already exists. NIT Delhi already has a girls' hostel, Yamuna, with about 400 places against about 1,100 for boys (its hostels page, read on 23 November 2026). What we could not confirm is whether every first-year woman is promised a place, so the fix is the promise, told to families before choice filling, not a new building. We have not checked NIT Durgapur, or whether the trains from Saharsa and Begusarai to Delhi have women's coaches. If they do, the binding cost is somewhere else.
 
-Bihar has done something like this before. Prof Mitra mentioned the state's bicycle scheme for schoolgirls in L5. Muralidharan and Prakash (2017) found that it raised girls' age-appropriate secondary enrolment by 32% and cut the gender gap by 40%. A bicycle made the trip to school shorter. For college the trip is a day long, and in our model what shortens it is someone the family trusts already being there.
+Bihar has done something like this before. Prof Mitra mentioned the state's bicycle scheme for schoolgirls in class (2 September). Muralidharan and Prakash (2017) found that it raised girls' age-appropriate secondary enrolment by 32% and cut the gender gap by 40%. A bicycle made the trip to school shorter. For college the trip is a day long, and in our model what shortens it is someone the family trusts already being there.
 
-No fix touches $\tau$. "Log kya kahenge" moves only as norms move, and norms move slowly. Dhar, Jain and Jayachandran (2022) found that classroom discussions in Haryana schools moved adolescents' gender attitudes by 0.18 standard deviations. We are also not saying that far is always better (L3). A daughter's own worry about a trip of more than a day is reasonable, and our model keeps it.
+No fix touches $\tau$. "Log kya kahenge" moves only as norms move, and norms move slowly. Dhar, Jain and Jayachandran (2022) found that classroom discussions in Haryana schools moved adolescents' gender attitudes by 0.18 standard deviations. We are also not saying that far is always better, a point made in class. A daughter's own worry about a trip of more than a day is reasonable, and our model keeps it.
 
 For business, we expect a market here, though we did not measure one. A coaching institute or an ed-tech firm could sell families a page that shows the girls from their district at each NIT, which is the information our model says is missing. For a far NIT, hostel places and a network of senior girls are part of the price a daughter's family pays, so a college that lowers that price can draw from more of the women who qualify.
 
@@ -520,7 +520,7 @@ We expect a few questions, and here are our short answers.
 
 # Conclusion {#sec-conclusion}
 
-At the same rank, Indian families send daughters less far than sons. The standard household model from L2 cannot say why, because it sees two equal children, and in our Bihar case it even predicts that the daughter should go farther. Our answer keeps everyone rational. A daughter's far seat carries two costs her brother's does not, an escort for the trip and a worry that grows with the hours it takes to reach her. The escort adds little next to the pay gap. The worry is what keeps her near, and it falls when the family has someone it trusts at the college. That is why, in our model, the village girl most often ends up at her brother's college, while the girl near an airport takes Delhi. It is also why information helps her more than money. Our "out of 100" numbers illustrate this under one calibration. The claim is the order across the three families and the order of the fixes, which held in every run we tried.
+At the same rank, Indian families send daughters less far than sons. The standard household model from class cannot say why, because it sees two equal children, and in our Bihar case it even predicts that the daughter should go farther. Our answer keeps everyone rational. A daughter's far seat carries two costs her brother's does not, an escort for the trip and a worry that grows with the hours it takes to reach her. The escort adds little next to the pay gap. The worry is what keeps her near, and it falls when the family has someone it trusts at the college. That is why, in our model, the village girl most often ends up at her brother's college, while the girl near an airport takes Delhi. It is also why information helps her more than money. Our "out of 100" numbers illustrate this under one calibration. The claim is the order across the three families and the order of the fixes, which held in every run we tried.
 
 Two things stay open. Without the choice lists we could not test the gap at the moment of choice. And Prof Mitra's question, whether the limit is only her parents' or also her own fear, has both answers in our first two interviews. More interviews would tell us which is more common.
 
@@ -530,7 +530,7 @@ We are three students and we did this together. We chose the topic and took it t
 
 # References {.unnumbered}
 
-**Class sources.** ECO463 Gender in Economics and Business, Shiv Nadar University, Monsoon 2026. L1 (19 Aug, gender as an economic category; check the data before claiming a norm), L2 (21 Aug, Becker's gender-neutral human-capital model), L3 (26 Aug, choice and choice sets; education for marriage; mobility and safety), L4 (28 Aug, opportunity cost; the 100 km radius; surveillance and honour), L5 (2 Sep, the pink tax; Bihar's cycle scheme), L7 (household income and who gives way), L10 (18 Sep) and L11 (23 Sep, the U-shaped labour supply model; one added cost term), L12 (25 Sep, Nash bargaining and threat points), L13 (30 Sep) and L14 with the Week 5 slides (generalised Nash; Agarwal's legitimacy), the Week 4 slides (Blau and Kahn), L19 (11 Nov) and L20 (12 Nov, statistical and taste discrimination). Project meeting with Prof Mitra, 21 October 2026.
+**Class sources.** ECO463 Gender in Economics and Business, Shiv Nadar University, Monsoon 2026, classes by date: 19 Aug (gender as an economic category; check the data before claiming a norm); 21 Aug (Becker's gender-neutral human-capital model); 26 Aug (choice and choice sets; education for marriage; mobility and safety); 28 Aug (opportunity cost; the 100 km radius; surveillance and honour); 2 Sep (the pink tax; Bihar's cycle scheme); 9 Sep (household income and who gives way); 18 and 23 Sep (the U-shaped labour supply model; one added cost term); 25 Sep (Nash bargaining and threat points); 30 Sep and the next class, with the Week 5 slides (generalised Nash; Agarwal's legitimacy); the Week 4 slides (Blau and Kahn); 11 and 12 Nov (statistical and taste discrimination). Project meeting with Prof Mitra, 21 October 2026.
 
 **Literature.**
 
@@ -721,8 +721,8 @@ Both guessed too few women in the long moves, and G01 guessed too many in the sh
 **Home-state and other-state quota.** NIT seats for students from the NIT's own state, and for everyone else.
 **Women-only (supernumerary) pool.** Seats only women compete for, added on top of the gender-neutral seats.
 **CAP, HU, OHU.** Maharashtra's centralised admission process; a student from the college's home university region, or from another region.
-**Statistical and taste discrimination.** Acting on a belief about a group's average that new information can change, against acting on a dislike or norm that information does not change (L19-L20).
+**Statistical and taste discrimination.** Acting on a belief about a group's average that new information can change, against acting on a dislike or norm that information does not change (class, 11 and 12 Nov).
 **Tied mover.** A family member who moves to a worse option because the family's joint gain is positive (Mincer 1978).
 **Multinomial logit.** A way to turn each option's score into a share, allowing for things we cannot see; read as "out of 100 families like this".
-**Nash bargaining.** A split of a decision between two sides, weighted by each side's say and by what each gets if they fail to agree (L12).
+**Nash bargaining.** A split of a decision between two sides, weighted by each side's say and by what each gets if they fail to agree (class, 25 Sep).
 **Reach time.** Door-to-door hours to get to her, divided by 24.
