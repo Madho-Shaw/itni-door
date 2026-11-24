@@ -44,13 +44,14 @@
     set par(justify: false)
     body
   })
-#let methodbox(body) = block(width: 100%, above: 1.2em, below: 1.2em, fill: C.paper, radius: 2pt,
+#let methodbox(body, label: "HOW WE DID IT") = block(width: 100%, above: 1.2em, below: 1.2em, fill: C.paper, radius: 2pt,
   stroke: (paint: C.kraft-deep, thickness: 0.9pt, dash: "dashed"), inset: 10pt, {
-    text(font: F.head, weight: 700, size: 8pt, fill: C.data, tracking: 1.2pt, "HOW WE DID IT")
+    text(font: F.head, weight: 700, size: 8pt, fill: C.data, tracking: 1.2pt, label)
     v(-2pt)
     set text(size: 9pt)
     body
   })
+#let routebox(body) = methodbox(body, label: "A 10-MINUTE ROUTE")
 #let courseline(body) = block(width: 100%, inset: (y: 6pt), stroke: (y: 0.5pt + C.kraft-deep), {
   set text(size: 8.5pt, fill: C.ink-soft); set par(justify: false); body })
 #let quotereal(body) = block(width: 100%, inset: (left: 14pt, y: 4pt), stroke: (left: 1.5pt + C.her), {

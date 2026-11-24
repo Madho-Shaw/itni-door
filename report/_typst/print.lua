@@ -17,6 +17,12 @@ function Span(el)
 end
 
 function Div(el)
+  if el.classes:includes("route-box") then
+    local out = pandoc.List({ pandoc.RawBlock("typst", "#routebox[") })
+    out:extend(el.content)
+    out:insert(pandoc.RawBlock("typst", "]"))
+    return out
+  end
   for cls, fn in pairs(divs) do
     if el.classes:includes(cls) then
       local out = pandoc.List({ pandoc.RawBlock("typst", "#" .. fn .. "[") })

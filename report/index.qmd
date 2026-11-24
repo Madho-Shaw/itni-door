@@ -18,6 +18,18 @@ abstract: |
 ECO463 Gender in Economics and Business, Shiv Nadar University, Monsoon 2026. Group 7. This is the full report behind our website. The [hub page](../) has the video, the one-page model note, the game, the evidence room and [our research diary](../how-we-built-it/), which tells how we built it.
 :::
 
+::: {.method-box .route-box}
+**In a hurry?** Read the abstract, then the summary box at the top of each numbered section. Then read these in full:
+
+1. @sec-twist: why the textbook model sends the daughter farther, not nearer.
+2. @sec-scale: our model in one picture.
+3. @sec-results: what happens in three Bihar families.
+4. @sec-limits: what we cannot claim.
+5. The conclusion, @sec-conclusion.
+
+The equations, the tests and the appendices are there so you can check our work.
+:::
+
 # Introduction {#sec-intro}
 
 ::: {.takeaway}
@@ -221,7 +233,7 @@ We keep every family member rational and add two costs that only a daughter carr
 [Class, 28 Aug: surveillance and honour]{.peg} [2 Sep: pink tax]{.peg} [18 and 23 Sep: one added cost]{.peg} [25 Sep: threat point]{.peg} [30 Sep: legitimacy]{.peg} [11 and 12 Nov: statistical and residual]{.peg}
 :::
 
-## The model as a scale
+## The model as a scale {#sec-scale}
 
 We find it easiest to see the model as a scale. On one pan is what the two colleges are worth, measured as the pay their graduates start on, counted for the first {{< var param.h >}} years of work after the degree. On the other pan is what it costs to get there, in money and in worry about the daughter while she is away. Two of the weights on that second pan are hers only, the escort and the worry per hour it takes to reach her. A brother at the same college takes some weight off the worry pan, and an information card (a senior girl from home, a hostel guarantee) takes off more. One weight stays whatever we do, and that is "log kya kahenge" (what will people say). This is the move we learned in class in September. Keep the rational agent, add one cost term, and see whether behaviour follows.
 
@@ -505,7 +517,6 @@ The ranking of the families and of the fixes survives every check we ran. The le
 4. **The brother's effect $b$ is assumed.** With $b$ = 0 the pull towards Together roughly halves.
 5. **Pay is the NIRF institute median,** which mixes who gets in with what the college adds. Institutes report it themselves.
 6. **We have no choice-list data.** Closing ranks only see the families who already said yes, and neither RTI gave us the choice data.
-
 7. **Our interviews are a pilot.** We have two, both medical students in Chennai who came in through NEET, not engineering students from Bihar. They show the mechanism (a far college taken off the list by her parents), not how common it is.
 
 Two smaller points from @sec-gap also stand. The airport test used locations we did not look up, and the Reddit posts are self-selected. The full list is in Appendix E.
@@ -520,9 +531,9 @@ We expect a few questions, and here are our short answers.
 
 # Conclusion {#sec-conclusion}
 
-At the same rank, Indian families send daughters less far than sons. The standard household model from class cannot say why, because it sees two equal children, and in our Bihar case it even predicts that the daughter should go farther. Our answer keeps everyone rational. A daughter's far seat carries two costs her brother's does not, an escort for the trip and a worry that grows with the hours it takes to reach her. The escort adds little next to the pay gap. The worry is what keeps her near, and it falls when the family has someone it trusts at the college. That is why, in our model, the village girl most often ends up at her brother's college, while the girl near an airport takes Delhi. It is also why information helps her more than money. Our "out of 100" numbers illustrate this under one calibration. The claim is the order across the three families and the order of the fixes, which held in every run we tried.
+At the same rank, Indian families send daughters less far than sons, and the standard model from class cannot say why: it sees two equal children, and in our Bihar case it even sends the daughter farther. Our answer keeps everyone rational and adds two costs only she carries. The escort is small next to the pay gap. The worry, which grows with the hours it takes to reach her, is what keeps her near, and it falls when the family knows someone at the college. So the village girl most often ends up at her brother's college, the girl near an airport takes Delhi, and information helps her more than money. What we claim is the order, across the three families and across the fixes, not the exact numbers.
 
-Two things stay open. Without the choice lists we could not test the gap at the moment of choice. And Prof Mitra's question, whether the limit is only her parents' or also her own fear, has both answers in our first two interviews. More interviews would tell us which is more common.
+Two things stay open: the choice lists, which would test the gap at the moment of choice, and more interviews, to tell whether the limit is mostly her parents' or also her own fear.
 
 # Who did what {#sec-who}
 
