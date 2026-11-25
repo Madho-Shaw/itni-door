@@ -33,5 +33,5 @@ video:
     - { t: 747, title: "Where it breaks" }
     - { t: 796, title: "You decide" }
 
-# Interviews: G01 and G02 are in the report and the diary; more are added as G03 onward.
-interviews_in: 2
+# Interviews: G01, G02 and G03 are in the report and the diary (we stopped at three; see the diary).
+interviews_in: 3

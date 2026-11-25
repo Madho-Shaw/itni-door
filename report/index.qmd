@@ -286,7 +286,7 @@ The second part, $\tau$, is a norm cost. It covers honour and "log kya kahenge",
 
 We do not call the parents discriminating. They act on a group-level belief about a place they cannot see, and on a norm their neighbours enforce. Reach time counts more than kilometres. Delhi is {{< var village.hours_delhi >}} hours door to door from the village by train and {{< var city.hours_delhi >}} hours from Patna city by air. The mother's question in our video, "agar kuch hua to pahunchne mein kitna time lagega?" (if something happens, how long will it take to reach her?), is [our line]{.tag-ours}, not a quote.
 
-We asked each girl what would have made the far college acceptable. Both of our first two interviews (G01 and G02, both from Chennai) named the same fact, a relative living in that city. For G01, having "nobody that we know who is living there" was one of the biggest reasons Pune came off her list. G02 said it barely matters who the relative is. So in 2 of 2 the answer was a fact, which is the statistical part. G01 also shows the norm part. Her uncles feared she would "come back as a different person", which no relative in Pune fixes. Two interviews cannot size the split, so the assumption below stays.
+We asked each girl what would have made the far college acceptable. Both of our first two interviews (G01 and G02, both from Chennai) named the same fact, a relative living in that city. For G01, having "nobody that we know who is living there" was one of the biggest reasons Pune came off her list. G02 said it barely matters who the relative is. So in 2 of 2 the answer was a fact, which is the statistical part. G01 also shows the norm part. Her uncles feared she would "come back as a different person", which no relative in Pune fixes. Our third interview, G03, gave the other answer outright. Offered a hostel guarantee, a relative nearby or a friend going too, she said none of them would have changed it: it was "a general notion of safety, and the fact that they preferred me to stay at home for a bit longer." That is the norm part with nothing statistical left in it. So in 2 of 3 the answer was a fact and in 1 of 3 no fact would have helped. Three interviews cannot size the split, so the assumption below stays.
 
 We set the norm part at a quarter of the statistical part ($\tau = \sigma/4$), so before any information 80% of the worry is statistical and 20% is the norm. This split is [assumed]{.tag-assumed}. It sets how big the information fixes look in @sec-policy, so we treat it as our softest number.
 
@@ -382,7 +382,9 @@ In the village her parents prefer Together by about ₹2.8 lakh and she prefers 
 
 Prof Mitra asked us whether the limit comes from the parents or whether the girl also feels unsafe. The model separates the two cases. If her parents restrict her and she wants to go, both bargaining and information for the parents help. If she feels unsafe too, there is no conflict to bargain over. In class terms the unsafe trip shrinks her own choice set, and only real safety on the trip (group travel, women's coaches, a hostel) would help. Information for her parents would do nothing. Our setting gives her a third of her parents' worry, which assumes the first case.
 
-Our two interviews give one of each. We asked where the limit came from (parents, her own fear, money, other). G01 wanted to leave and says the limit was only her parents'. Asked whether it was her choice, she said "No, it wasn't." G02 shared part of the worry. She and her parents were both uneasy about Delhi and the northern states, but she fought the one college her parents took off that she did not see as unsafe. So in 1 of 2 the limit was only the parents', and in 1 of 2 she felt part of it herself, about some places and not about distance as such. Neither named money. Two girls cannot settle Prof Mitra's question, but they show that both cases exist, and the second case is narrower than our model assumes. Her own worry attaches to a place, not to every far seat.
+Our three interviews give both cases. We asked where the limit came from (parents, her own fear, money, other). G01 wanted to leave and says the limit was only her parents'. Asked whether it was her choice, she said "No, it wasn't." G03 said the same: "It's not about me feeling unsafe. Definitely my parents." G02 shared part of the worry. She and her parents were both uneasy about Delhi and the northern states, but she fought the one college her parents took off that she did not see as unsafe. So in 2 of 3 the limit was only the parents', and in 1 of 3 she felt part of it herself, about some places and not about distance as such. None of the three named money. Three girls cannot settle Prof Mitra's question, but they show that both cases exist, and the second case is narrower than our model assumes. Her own worry attaches to a place, not to every far seat.
+
+G03 also shows what her say looks like when it is low. Her parents first agreed she could apply to design schools across India, then changed their minds when applications opened. She answered with the only threat she had: she would apply to one course in her city and, if she did not get it, not go to college at all. In bargaining terms she made the walk-out (no college at all) costly for her parents as well as for herself, which won her the course but not the distance. She got her course and stayed about 10 km from home.
 
 # Predictions beyond the gap {#sec-predict}
 
@@ -410,14 +412,14 @@ The last prediction is half tested. We know where staying home costs a girl the 
 # Voices: what girls and families say {#sec-voices}
 
 ::: {.takeaway}
-Words tell us who decided and why, which no data set can. Our two interviews are a pilot: both are medical students in Chennai, so they test the mechanism, not the numbers. Public Reddit posts add colour. Neither is a sample.
+Words tell us who decided and why, which no data set can. Our three interviews are a pilot: two medical students in Chennai and a design student who studies 10 km from home, so they test the mechanism, not the numbers. Public Reddit posts add colour. Neither is a sample.
 
 [Project meeting, 21 Oct, "speak to girls"]{.peg}
 :::
 
 ## Two girls, one college taken off
 
-We have interviewed two women so far, G01 and G02, by phone (about 13 and 17.5 minutes), following the guide in Appendix F. Both are medical students from Chennai who came in through NEET, and both had the same far college, DY Patil in Pune, taken off their list by their parents. That makes them a matched pair. What differs is how much say each girl had.
+Our first two interviews, G01 and G02, were by phone (about 13 and 17.5 minutes), following the guide in Appendix F. Both are medical students from Chennai who came in through NEET, and both had the same far college, DY Patil in Pune, taken off their list by their parents. That makes them a matched pair. What differs is how much say each girl had.
 
 | | G01 | G02 |
 |---|---|---|
@@ -444,6 +446,26 @@ For G01 the whole out-of-state set went. Her rank could get her Bangalore, Manip
 
 Three things here are new to us. First, G02 rejects distance as the variable. Her parents ruled on the safety of a state and on whether she could fly home in a few hours, which is closer to our reach-time worry than to kilometres. Second, her cousin was promised she could study abroad "later", after her degree, and was then refused again. She lost two intakes. A deferral is a refusal that looks softer, and none of our data can see it. Third, G01's uncles were not afraid of the journey. They were afraid that she "would get a mind of my own" if she left, which is the norm cost $\tau$ in its plainest form.
 
+## A third girl: no counselling, no list, the same rule
+
+G03 (about 8.5 minutes, by phone) is a different case on purpose. She studies visual communication at a small college where the portfolio decides, so there was no counselling and no locked list for anyone to edit. The rule still reached her. Her first choices were design schools across India, and her parents said yes until applications opened, then "changed our mind". The final say was theirs. Asked what the degree was for in her family's eyes, she said "It's not because of the degree or anything. It's just because of the distance." She has no brother or male cousin, so she cannot tell us whether a son would have had the same rule.
+
+| What she said | G03 | Model term |
+|---|---|---|
+| What would make far OK | Nothing on our list; "a general notion of safety" | Norm $\tau$, which no fact moves |
+| Where the limit came from | Her parents, not her own fear | Her say $\beta$ low, her own worry nil |
+| Money | Never raised | Escort and fares small next to worry |
+| Why far NITs leave women's seats empty | "Not as populated", "not easily accessible", fewer amenities | Reach time $R$ |
+| Others she knows | "Most of my friends ... have had the same experiences" | $n$ near zero |
+
+: The third interview, mapped to the model {#tbl-g03}
+
+G03 matters for our policy claim. Our information fixes work by shrinking the statistical part of the worry. For a family like hers they would do nothing. In our model the norm is a fifth of the worry; for her family it was all of it. And because her course had no counselling list, she shows that the discount also acts outside JoSAA, before a girl ever sees a seat matrix.
+
+## Who we could reach
+
+All three women are already in higher education, two in medicine, and all three came through our own networks. None named money, and G02 could fly home in a few hours. That tells us about the families we can reach, not about India. A girl whose family could not pay for a far hostel, or who never enrolled at all, is missing from our pilot because of how we recruited, and seeing this is why we stopped at three (see "How we ran the interviews" below). One way to say it: her rank gives her a set of colleges, money cuts it to the ones the family can pay for, and permission cuts it again to the ones she may actually choose from. All three of our women lost options at the last step only. In poorer families the money step may bind first, which is why we keep the escort cost in the model even though it is small for our three families. This is Sen's (1999) point that resources are not the same as the freedom to use them. Our next interviews should come from outside our networks: first-generation students, girls on scholarships, and parents.
+
 ## What we have now: public posts
 
 We collected public Reddit posts and comments from r/JEENEETards, r/IndianTeenagers, r/JEE and r/Btechtards and tagged 59 items by hand. They are not our sample. They come mostly from urban, English-speaking girls who wanted to leave, so we give counts, never shares, and use them as colour, not proof. In {{< var gap.reddit_parents >}} of the {{< var gap.reddit_items >}} items the parents decided. The girl decided in 5, both together in 8, and 4 are unclear. Safety comes up in 15 items, cost in 14, a brother getting different rules in 11, and going far anyway in 10. We give the subreddit and year only. The item ids stay with our data so each quote can be checked, and we leave out anything that names a city or college.
@@ -463,9 +485,9 @@ No stored post uses "log kya kahenge", a named escort or a neighbour's gossip wo
 
 ## How we ran the interviews
 
-The guide is in Appendix F: her story first with no data, then her guesses, a neutral card with our findings, and her reaction. We record her stand on a 1 to 5 scale before and after the card, because showing data nudges people to agree. Consent is read out before recording. Interviews are anonymous, she can skip or stop at any time, and quotes need a separate yes (text only, re-recorded by one of us, or her own voice). No names, colleges or towns that identify anyone are kept. We plan to reach 10-12 girls and 2-4 parents through our own networks, which Prof Mitra allowed; so far we have two. Even a dozen interviews would not be a sample, so we report counts such as "x of 2 so far" and never a percentage with a p-value.
+The guide is in Appendix F: her story first with no data, then her guesses, a neutral card with our findings, and her reaction. We record her stand on a 1 to 5 scale before and after the card, because showing data nudges people to agree. Consent is read out before recording. Interviews are anonymous, she can skip or stop at any time, and quotes need a separate yes (text only, re-recorded by one of us, or her own voice). No names, colleges or towns that identify anyone are kept. We planned to reach 10-12 girls and 2-4 parents through our own networks, which Prof Mitra allowed. We stopped at three. As the interviews came in we saw that our own networks gave us one kind of girl: already in college, in professional courses, from families who could pay. More of the same would have repeated that bias, not fixed it. We then tried a short survey form posted on Reddit, to reach girls outside our circles. Too few people answered for it to be used. The JEE subreddits are full of students still preparing for the exam, not students at the choice-filling stage, and Reddit users are a self-selected group in their own way. So we dropped the survey as well, and kept the Reddit posts only as colour (above). Even a dozen interviews would not have been a sample, so we report counts such as "2 of 3" and never a percentage with a p-value.
 
-Both interviews so far were phone calls, recorded and transcribed. Neither woman has yet chosen her quote level on tape, so we use their words as text only, lightly cleaned from the transcript. We do not claim three things. G02's same-district guess came after the interviewer had said the real number, so we drop it. G01's answer on the trend came after the interviewer explained the question, so we treat it as prompted. And G01 first said her brother had the same rules, then said her father was "more okay" with him going, so we make no claim about brothers from her interview.
+All three interviews were phone calls, recorded and transcribed. None of the three women has yet chosen her quote level on tape, so we use their words as text only, lightly cleaned from the transcript. We do not claim four things. G02's same-district guess came after the interviewer had said the real number, so we drop it. G01's answer on the trend came after the interviewer explained the question, so we treat it as prompted. And G01 first said her brother had the same rules, then said her father was "more okay" with him going, so we make no claim about brothers from her interview. G03 was told 33 in 100 for the long moves, a slip on our side, since the Census number is 27-30; we compare her guess with the Census.
 
 ## What words add that numbers cannot
 
@@ -517,7 +539,7 @@ The ranking of the families and of the fixes survives every check we ran. The le
 4. **The brother's effect $b$ is assumed.** With $b$ = 0 the pull towards Together roughly halves.
 5. **Pay is the NIRF institute median,** which mixes who gets in with what the college adds. Institutes report it themselves.
 6. **We have no choice-list data.** Closing ranks only see the families who already said yes, and neither RTI gave us the choice data.
-7. **Our interviews are a pilot.** We have two, both medical students in Chennai who came in through NEET, not engineering students from Bihar. They show the mechanism (a far college taken off the list by her parents), not how common it is.
+7. **Our interviews are a pilot.** We have three, all women already in college and reached through our own networks: two medical students in Chennai who came in through NEET and a design student, none of them engineering students from Bihar. A survey on Reddit to reach beyond our networks got too few answers to use. The interviews show the mechanism (a far college taken off the list by her parents), not how common it is.
 
 Two smaller points from @sec-gap also stand. The airport test used locations we did not look up, and the Reddit posts are self-selected. The full list is in Appendix E.
 
@@ -565,6 +587,8 @@ Muralidharan, K. and N. Prakash (2017). "Cycling to School: Increasing Secondary
 
 Phelps, E. S. (1972). "The Statistical Theory of Racism and Sexism." *American Economic Review* 62(4): 659-661.
 
+Sen, A. (1999). *Development as Freedom*. Oxford: Oxford University Press.
+
 Sengupta, N. and S. Sharma (2025). "Girls in tech: Evaluating IIT's Supernumerary Seats Scheme." *Ideas for India*, 21 May 2025.
 
 **News.** *The News Minute*, 17 April 2017, interview with Timothy Gonsalves on women in the IITs.
@@ -610,7 +634,7 @@ $$P_{ip} = \frac{e^{U_{ip}/\mu}}{\sum_q e^{U_{iq}/\mu}} .$$
 
 Other assumed values are $H$ = {{< var param.h >}}, $\tau$ = {{< var param.tau >}}, $b$ = {{< var param.b >}}, $\mu$ = {{< var param.mu >}}, 16 one-way trips per child in four years, and the escort-days rule (there and back, plus a night if one way is over 8 hours, rounded up). Her own worry is a third of her parents' statistical worry. Both sides' walk-out value is -₹2 lakh. Fees and hostel follow one structure at every NIT, so they cancel across the options and are left out.
 
-**What the interviews say about these values.** Neither interview covered escort trips, so the escort rule stays assumed. Both girls knew a girl who faced the same limit. G01's best friend accepted early that she could not leave. G02's cousin went abroad only after two lost intakes. Neither knew a girl who went far easily, which fits $n$ near zero. On her own worry, G01 had none of her own. G02 shared her parents' unease about some states but not about Pune, and said that as a mother she would feel the same fear and still send her daughter. Her own worry is real but tied to places, so a flat third of her parents' worry is a simplification. We keep the assumed values in the model.
+**What the interviews say about these values.** No interview covered escort trips, so the escort rule stays assumed. All three knew a girl who faced the same limit; G03 said most of her friends did. G01's best friend accepted early that she could not leave. G02's cousin went abroad only after two lost intakes. Neither knew a girl who went far easily, which fits $n$ near zero. On her own worry, G01 had none of her own. G02 shared her parents' unease about some states but not about Pune, and said that as a mother she would feel the same fear and still send her daughter. Her own worry is real but tied to places, so a flat third of her parents' worry is a simplification. We keep the assumed values in the model.
 
 # Appendix C. Sensitivity and bargaining tables {.unnumbered}
 
@@ -681,7 +705,7 @@ The fixes with three options give the same ranking (village {{< var village.fix3
 | P8 | Sisters end at a brother's college more than their rank needs (Together) | | Model 59 / 42 / 2 | Untested |
 | P9 | In the same family, a son with an equal or worse rank goes farther | | Reddit "brother got different rules", 11 of 59 | Untested in data |
 | P10 | Money fixes barely move the far choice; information fixes do | Model | Escort fares 23 to 26; senior girl 23 to 85 | Model result; size assumed |
-| P11 | Information fixes work only where girls themselves feel safe | | | Untested; the interviews split it |
+| P11 | Information fixes work only where girls themselves feel safe | | | Untested; the interviews split it, and G03's family would not have moved for any information fix |
 
 : All predictions, with tests where we had data {#tbl-allpred}
 
@@ -714,16 +738,16 @@ Fares are aggregator snapshots of 19 November 2026 and move with date and class.
 
 **Guesses and stands so far.** The real numbers are the Census 2011 women's shares.
 
-| | G01 | G02 | Census |
-|---|---|---|---|
-| Women out of 100 who moved within their district | 60-70 | Not used (heard the answer first) | 43 |
-| Women out of 100 who moved 1,000 km or more | 20 (first said 30) | 18 | 27-30 |
-| Trend since then | Bigger gap | Smaller gap | Women's share rose at every distance; the drop with distance got steeper |
-| Stand before (1 = fair family decision, 5 = a loss for her) | 5 | 4.5 (after a mix-up over the scale) | |
+| | G01 | G02 | G03 | Census |
+|---|---|---|---|---|
+| Women out of 100 who moved within their district | 60-70 | Not used (heard the answer first) | 85 or more | 43 |
+| Women out of 100 who moved 1,000 km or more | 20 (first said 30) | 18 | 30-35 | 27-30 |
+| Trend since then | Bigger gap | Smaller gap | Not asked | Women's share rose at every distance; the drop with distance got steeper |
+| Stand before (1 = fair family decision, 5 = a loss for her) | 5 | 4.5 (after a mix-up over the scale) | 3.5-4 | |
 
 : Guesses before the findings card, and stands {#tbl-guess}
 
-Both guessed too few women in the long moves, and G01 guessed too many in the short ones. Both pictured a wider gap than the Census shows. Their own experience made the discount look bigger than it is across India. We did not record a stand after the card, so we cannot say whether the data moved them.
+G01 and G02 guessed too few women in the long moves, and G01 and G03 guessed far too many in the short ones (G03 said 85 or more against 43). All three pictured a wider gap than the Census shows. Their own experience made the discount look bigger than it is across India. We did not record a stand after the card, so we cannot say whether the data moved them.
 
 # Appendix G. Glossary {.unnumbered}
 
