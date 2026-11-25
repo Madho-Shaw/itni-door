@@ -16,6 +16,7 @@ a { color: var(--data); text-underline-offset: .15em; text-decoration-thickness:
 a:hover { text-decoration-thickness: 2px; }
 button { font: inherit; color: inherit; }
 :focus-visible { outline: var(--focus-ring); outline-offset: var(--focus-gap); }
+[tabindex="-1"]:focus { outline: none; }   /* headings that only take focus so a screen reader lands there (after the intro) get no box */
 img, svg { max-width: 100%; }
 small, .small { font-size: var(--fs-small); color: var(--ink-soft); }
 .tiny { font-size: var(--fs-tiny); color: var(--ink-soft); }

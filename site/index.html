@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Itni Door? The distance discount (ECO463, Group 7)</title>
-<meta name="description" content="Same JEE rank, same seats, same fares. Why do Indian families send daughters less far than sons? A model, a game, a video and the evidence, by ECO463 Group 7.">
+<meta name="description" content="Same JEE rank, and she has the better seat. Why do Indian families send daughters less far than sons? A model, a game, a video and the evidence, by ECO463 Group 7.">
 <meta property="og:title" content="Itni Door? The distance discount">
 <meta property="og:description" content="Same rank. She has the better seat. Who gets to go? A rational-choice model of the distance discount, with a game you can play.">
 <meta property="og:image" content="{{site.url}}assets/img/og.png">
@@ -86,6 +86,7 @@ html.present .hero { min-height: 100vh; }
 .intro { position: fixed; inset: 0; z-index: 2000; display: grid; place-items: center; overflow: hidden; color: var(--ink);
   background: var(--paper) url("assets/img/paper-grain.svg"); cursor: pointer; }
 .intro[hidden] { display: none; }
+.intro.wait .duo-title, .intro.wait .kid { visibility: visible; }   /* scripts still loading: the title and the two kids stand still, never a blank sheet */
 .intro-on body { overflow: hidden; }
 .intro-on main, .intro-on main * { animation-play-state: paused !important; }   /* the hub's own pen waits for the intro */
 .intro-skip { position: absolute; z-index: 3; top: max(12px, env(safe-area-inset-top, 0px)); right: var(--gutter); min-height: 44px; padding: 0 1.1rem;
@@ -249,16 +250,20 @@ html.present .replay { display: none; }
   ss("itni-intro", "1");
   var m = (q.match(/intro=(duo|slips)/) || [])[1]; if (m) el.setAttribute("data-mode", m);
   var auto = /[?&#]intro/.test(q) || (due && !calm && !d.classList.contains("present"));
-  function shut() { el.hidden = true; d.classList.remove("intro-on"); }
+  /* shut = give up before intro.js ran (slow network, blocked script, Skip pressed early). itniIntroOff tells a late
+     intro.js not to start, so it can never lock a page the visitor is already using. */
+  function shut() { window.itniIntroOff = true; el.hidden = true; el.classList.remove("wait"); d.classList.remove("intro-on"); }
   function add(src) { var s = document.createElement("script"); s.src = src; s.async = false; s.onerror = shut; document.head.appendChild(s); }
+  el.querySelector(".intro-skip").addEventListener("click", function () { if (!window.itniIntroPlay) shut(); });   /* Skip works before the scripts arrive */
   window.itniIntro = function (still) {
     if (!el || d.classList.contains("intro-on")) return;
-    window.itniIntroStill = !!(still || calm);
+    window.itniIntroStill = !!(still || calm); window.itniIntroOff = false;
     d.classList.add("intro-on"); el.hidden = false; el.classList.toggle("still", window.itniIntroStill);
     if (window.itniIntroPlay) return window.itniIntroPlay();
+    el.classList.add("wait");
     if (!window.itniIntroStill && !window.gsap) add("assets/vendor/gsap.min.js");   /* both fetched at once, run in order */
     add("assets/intro.js");
-    setTimeout(function () { if (!window.itniIntroPlay) shut(); }, 4000);   /* slow or blocked script: never strand the page */
+    setTimeout(function () { if (!window.itniIntroPlay) shut(); }, 6000);   /* slow or blocked script: never strand the page */
   };
   function go() { if (auto) window.itniIntro(false); }
   if (document.prerendering) document.addEventListener("prerenderingchange", go, { once: true }); else go();

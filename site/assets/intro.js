@@ -146,6 +146,8 @@
   }
 
   function play() {
+    el.classList.remove("wait");
+    if (window.itniIntroOff || el.hidden) return;   // the loader gave up (slow network or an early Skip): leave the page alone
     ending = false;
     lock();
     if (window.itniIntroStill || !window.gsap) { skip.textContent = "Close"; el.scrollTop = 0; return; }
