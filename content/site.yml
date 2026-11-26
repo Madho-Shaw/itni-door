@@ -15,9 +15,9 @@ url_confirmed: true
 
 video:
   # YouTube id of the full explainer. Empty = no embed yet; the page shows the local file or a note.
-  # 26 Nov: the explainer gained the interview scenes (14:44). The site plays its own copy until the new version is on YouTube;
-  # the old upload (13:48, without the interviews) was "rOCMtvNaYhs". Put the new id here to switch back to the YouTube player.
-  master_id: ""
+  # 26 Nov: new unlisted upload of the explainer with the interview scenes (14:44): "VdiYm7GuPAA".
+  # The old upload (23 Nov, 13:48, without the interviews) was "rOCMtvNaYhs"; it stays on YouTube, unchanged.
+  master_id: "VdiYm7GuPAA"
   class_id: ""
   # local files, first one found is used for the in-class and offline copy (never committed to the repo)
   local:
