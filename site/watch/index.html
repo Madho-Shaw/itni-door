@@ -59,6 +59,18 @@
 .speed button:hover { background: var(--kraft); }
 .speed button[aria-pressed="true"]:hover { background: var(--data); }
 
+/* version switch (full / short), above the player */
+.cutpick { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin: var(--sp-3) 0 0; }
+.cutpick .lbl { font-family: var(--font-head); font-weight: 700; margin-right: .3rem; }
+.cutpick button { min-height: 48px; padding: .35rem 1.1rem; border: 2px solid var(--ink); border-radius: var(--radius-pill); background: var(--card); color: var(--ink); font: 700 1.05rem/1.1 var(--font-head); cursor: pointer; display: inline-flex; flex-direction: column; align-items: center; justify-content: center; }
+.cutpick button small { font: 500 .72rem/1.2 var(--font-body); color: var(--ink-soft); }
+.cutpick button[aria-pressed="true"] { background: var(--sindoor, #C8372D); border-color: var(--sindoor, #C8372D); color: var(--on-dark, #FBF6EC); }
+.cutpick button[aria-pressed="true"] small { color: inherit; }
+.cutpick button:hover { background: var(--kraft); }
+.cutpick button[aria-pressed="true"]:hover { background: var(--sindoor, #C8372D); }
+.chapters[hidden] { display: none; }
+@media (max-width: 599px) { .cutpick .lbl { width: 100%; } .cutpick button { flex: 1 1 0; } }
+
 /* chapters */
 .cols { display: grid; gap: var(--sp-6); grid-template-columns: minmax(0, 1fr) minmax(0, 18rem); align-items: start; }
 .cols aside { position: sticky; top: var(--sp-5); }
@@ -111,13 +123,15 @@
 (function () {
   var box = document.querySelector("[data-yt]"), v = document.querySelector("video.player");
   var chapters = [].slice.call(document.querySelectorAll(".chapters button"));
+  var cuts = [].slice.call(document.querySelectorAll(".cutpick button"));
+  function activeChapters() { return chapters.filter(function (b) { return !b.closest("ol").hidden; }); }
   var speeds = [].slice.call(document.querySelectorAll(".speed button"));
   var player = null, ready = false, played = false;
 
   function bringIntoView() { var el = box || v; if (el && el.getBoundingClientRect().top < 0) el.scrollIntoView({ block: "start", behavior: "smooth" }); }
   function markRate(r) { speeds.forEach(function (b) { b.setAttribute("aria-pressed", String(Number(b.dataset.rate) === r)); }); }
   function markChapter(t) {
-    var cur = null; chapters.forEach(function (b) { if (Number(b.dataset.t) <= t + .5) cur = b; });
+    var cur = null; activeChapters().forEach(function (b) { if (Number(b.dataset.t) <= t + .5) cur = b; });
     chapters.forEach(function (b) { b.classList.toggle("now", b === cur); });
   }
 
@@ -145,6 +159,25 @@
   }
 
   cover.addEventListener("click", play);
+
+  /* Full / Short switch: same player, other video, cued (never autoplays); speed and the cover come back */
+  var startCut = /[?&#]v=short(&|$)/.test(location.search + location.hash) ? "short" : "full";
+  function showCut(cut, load) {
+    var b = cuts.filter(function (x) { return x.dataset.cut === cut; })[0]; if (!b) return;
+    cuts.forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+    [].slice.call(document.querySelectorAll(".chapters")).forEach(function (ol) { ol.hidden = ol.dataset.for !== cut; });
+    chapters.forEach(function (x) { x.classList.remove("now"); });
+    box.dataset.yt = b.dataset.id;
+    cover.querySelector(".len").textContent = b.dataset.len; cover.querySelector(".fast").textContent = b.dataset.fast;
+    if (load && ready) {
+      var r = player.getPlaybackRate();
+      player.cueVideoById(b.dataset.id);
+      setTimeout(function () { player.setPlaybackRate(r); markRate(r); }, 400);
+      played = false; cover.hidden = false; cover.classList.remove("gone");
+    }
+  }
+  cuts.forEach(function (b) { b.addEventListener("click", function () { if (b.getAttribute("aria-pressed") !== "true") showCut(b.dataset.cut, true); }); });
+  if (cuts.length) showCut(startCut, false);
   speeds.forEach(function (b) { b.addEventListener("click", function () { setRate(Number(b.dataset.rate)); }); });
   chapters.forEach(function (b) {
     b.addEventListener("click", function () {
@@ -175,7 +208,7 @@
 
   window.onYouTubeIframeAPIReady = function () {
     player = new YT.Player("yt-frame", {
-      host: "https://www.youtube-nocookie.com", videoId: box.dataset.yt,
+      host: "https://www.youtube-nocookie.com", videoId: box.dataset.yt,   // already the short one when the page opened with ?v=short
       playerVars: { autoplay: 0, rel: 0, playsinline: 1, hl: "en", origin: location.origin },
       events: {
         onReady: function () { ready = true; clearTimeout(failTimer); var f = box.querySelector("iframe"); if (f) f.title = "Itni Door? video"; markRate(player.getPlaybackRate()); },

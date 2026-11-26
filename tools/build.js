@@ -217,10 +217,16 @@ async function page(file, base) {
     let player;
     // YouTube player loads with the page but never autoplays; a cover says how to start it and hides once it plays.
     // What the cover says depends on the device: keys for a mouse and keyboard, "tap" for a touch screen (CSS: pointer).
-    if (V.master_id) player = '<div class="player yt" data-yt="' + esc(V.master_id) + '"><div id="yt-frame"></div>' +
+    // two versions on YouTube (class_id set): a Full / Short switch above the player; Full is the default (?v=short opens the short one)
+    const secs = s => s.split(":").reduce((a, x) => a * 60 + Number(x), 0);
+    const fast = s => Math.round(secs(s) / 1.5 / 60);
+    const pick = V.master_id && V.class_id ? '<div class="cutpick" role="group" aria-label="Which version"><span class="lbl">Version</span>' +
+      '<button type="button" data-cut="full" data-id="' + esc(V.master_id) + '" data-len="' + esc(V.master_len) + '" data-fast="' + fast(V.master_len) + '" aria-pressed="true">Full video<small>' + esc(V.master_len) + '</small></button>' +
+      '<button type="button" data-cut="short" data-id="' + esc(V.class_id) + '" data-len="' + esc(V.class_len) + '" data-fast="' + fast(V.class_len) + '" aria-pressed="false">Short video<small>' + esc(V.class_len) + '</small></button></div>' : "";
+    if (V.master_id) player = pick + '<div class="player yt" data-yt="' + esc(V.master_id) + '"><div id="yt-frame"></div>' +
       '<button type="button" class="yt-cover" aria-label="Play the video">' +
         '<span class="go"><span class="tri" aria-hidden="true"></span><span class="on-key">Press <kbd>Space</kbd> or click to play</span><span class="on-touch">Tap to play</span></span>' +
-        '<span class="tip">We suggest <b>1.5&times;</b>: still clear, and 14:44 becomes about 10 minutes.</span>' +
+        '<span class="tip">We suggest <b>1.5&times;</b>: still clear, and <span class="len">' + esc(V.master_len || "14:44") + '</span> becomes about <span class="fast">' + fast(V.master_len || "14:44") + '</span> minutes.</span>' +
         '<span class="keys on-key"><kbd>Space</kbd> play / pause &middot; <kbd>Shift</kbd>+<kbd>&gt;</kbd> faster &middot; <kbd>Shift</kbd>+<kbd>&lt;</kbd> slower &middot; <kbd>&larr;</kbd> <kbd>&rarr;</kbd> 5 seconds &middot; <kbd>F</kbd> full screen</span>' +
       '</button></div>' +
       '<div class="speed" role="group" aria-label="Playback speed"><span class="lbl">Speed</span>' +
@@ -233,8 +239,10 @@ async function page(file, base) {
     else player = '<div class="player none"><p><b>The video is not on this copy yet.</b> The full script is below and the game and report work without it.</p></div>';
     return label + player;
   });
-  html = html.replace(/<!--#chapters-->/g, () => '<ol class="chapters">' + (SITE.video.chapters || []).map(c =>
-    '<li><button type="button" data-t="' + c.t + '"><span class="t">' + mmss(c.t) + "</span> " + esc(c.title) + "</button></li>").join("") + "</ol>");
+  const chList = (list, cut, hide) => '<ol class="chapters" data-for="' + cut + '"' + (hide ? " hidden" : "") + '>' + (list || []).map(c =>
+    '<li><button type="button" data-t="' + c.t + '"><span class="t">' + mmss(c.t) + "</span> " + esc(c.title) + "</button></li>").join("") + "</ol>";
+  html = html.replace(/<!--#chapters-->/g, () => chList(SITE.video.chapters, "full", false) +
+    (SITE.video.master_id && SITE.video.class_id ? chList(SITE.video.class_chapters, "short", true) : ""));
   html = html.replace(/<!--#script-->/g, () => {
     const p = path.join(ROOT, "content/video_script.json");
     if (!fs.existsSync(p)) return "<p>The script file is missing.</p>";
