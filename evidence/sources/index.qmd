@@ -8,7 +8,7 @@ lang: en-IN
 |---|---|---|
 | Census of India 2001 and 2011, migration table D-03 | Women's share of people who moved to study, for every pair of states, by distance | No score, no age. Distance is capital to capital |
 | Maharashtra CAP allotment lists, 2023-25 (names dropped) | At the same score, category and year, who studies outside her home university region | Short moves inside one state. "Away" is a region, not km |
-| JoSAA closing ranks 2016-25; CSAB empty-seat lists and seat matrices, 2025-26 | Who got in at the margin, which seats stayed empty, the twins' seats at rank {{< var crl >}} | The choice lists themselves (refused under RTI) |
+| JoSAA closing ranks 2016-25; CSAB empty-seat lists and seat matrices, 2025-26 | Who got in at the margin, which seats stayed empty, the twins' seats at rank {{< var crl >}} | The choice lists themselves (not public; our RTI request did not get them) |
 | NIRF 2024-25, median salary of UG graduates | The value of each college in the model | Partly who gets in, as well as what the college adds |
 | Rail and air fares and hours, snapshots of 19 Nov 2026 | Money and reach time of each trip | Local legs at both ends are assumed |
 | Reddit, {{< var gap.reddit_items >}} posts and comments tagged by hand | Who decides, in families' own words | Not a sample |
