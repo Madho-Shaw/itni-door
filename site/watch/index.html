@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Watch: Itni Door? The distance discount (ECO463, Group 7)</title>
-<meta name="description" content="The video: three sisters with the same rank and a better seat than their brothers, and the model that explains who gets to go. 14 minutes, 9 chapters, subtitles.">
+<meta name="description" content="The video: three sisters with the same rank and a better seat than their brothers, and the model that explains who gets to go. 15 minutes, 9 chapters, subtitles.">
 <meta property="og:title" content="Watch: Itni Door? The distance discount">
 <meta property="og:image" content="{{site.url}}assets/img/og.png">
 <script>if (/present/.test(location.search + location.hash)) document.documentElement.classList.add("present");</script>
@@ -95,7 +95,7 @@
 <!--#bar:watch-->
 <main id="main" class="wrap watch">
 <h1>Watch the video</h1>
-<p class="lead">Three sisters, one rank, a better seat than their brothers. Who gets to go, and why? A 14-minute explainer of our model, step by step, with subtitles. In class we show a 7:24 cut; this is the full 13:48 version.</p>
+<p class="lead">Three sisters, one rank, a better seat than their brothers. Who gets to go, and why? A 15-minute explainer of our model, step by step, with subtitles. In class we show a shorter cut; this is the full version, with our interviews.</p>
 <div class="cols">
   <div>
 <!--#video-->
@@ -123,6 +123,8 @@
 
   /* local file (offline copy) */
   if (v) chapters.forEach(function (b) { b.addEventListener("click", function () { v.currentTime = Number(b.dataset.t); v.play(); bringIntoView(); }); });
+  if (v) { speeds.forEach(function (b) { b.addEventListener("click", function () { var r = Number(b.dataset.rate); v.playbackRate = r; markRate(r); }); });
+    v.addEventListener("timeupdate", function () { markChapter(v.currentTime); }); }
   if (!box) return;
 
   /* YouTube: load the player with the page, never autoplay */

@@ -15,23 +15,25 @@ url_confirmed: true
 
 video:
   # YouTube id of the full explainer. Empty = no embed yet; the page shows the local file or a note.
-  master_id: "rOCMtvNaYhs"   # the v3 explainer (13:48), unlisted, uploaded 23 Nov 2026
+  # 26 Nov: the explainer gained the interview scenes (14:44). The site plays its own copy until the new version is on YouTube;
+  # the old upload (13:48, without the interviews) was "rOCMtvNaYhs". Put the new id here to switch back to the YouTube player.
+  master_id: ""
   class_id: ""
   # local files, first one found is used for the in-class and offline copy (never committed to the repo)
   local:
     - "media/itni_door_v3.mp4"   # the v3 explainer, web copy in the repo (1080p, CRF 27), used on GitHub
   poster: "assets/img/poster.jpg"
-  # chapters: t in seconds, title. The v3 explainer (13:48), from video_v2/youtube/chapters_3.txt.
+  # chapters: t in seconds, title. The v3 explainer (14:44, 26 Nov), from video_v2/youtube/chapters_3.txt.
   chapters:
     - { t: 0,   title: "The three girls" }
     - { t: 48,  title: "The gap" }
     - { t: 121, title: "The textbook" }
     - { t: 178, title: "Our model" }
     - { t: 431, title: "Out of 100" }
-    - { t: 599, title: "How sure are we?" }
-    - { t: 675, title: "Fixes" }
-    - { t: 747, title: "Where it breaks" }
-    - { t: 796, title: "You decide" }
+    - { t: 630, title: "How sure are we?" }
+    - { t: 707, title: "Fixes" }
+    - { t: 803, title: "Where it breaks" }
+    - { t: 852, title: "You decide" }
 
-# Interviews: G01, G02 and G03 are in the report and the diary (we stopped at three; see the diary).
-interviews_in: 3
+# Interviews: G01 to G05 are in the report and the diary (we stopped at five; see the diary).
+interviews_in: 5

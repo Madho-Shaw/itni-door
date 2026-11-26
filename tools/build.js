@@ -220,13 +220,16 @@ async function page(file, base) {
     if (V.master_id) player = '<div class="player yt" data-yt="' + esc(V.master_id) + '"><div id="yt-frame"></div>' +
       '<button type="button" class="yt-cover" aria-label="Play the video">' +
         '<span class="go"><span class="tri" aria-hidden="true"></span><span class="on-key">Press <kbd>Space</kbd> or click to play</span><span class="on-touch">Tap to play</span></span>' +
-        '<span class="tip">We suggest <b>1.5&times;</b>: still clear, and 13:48 becomes about 9 minutes.</span>' +
+        '<span class="tip">We suggest <b>1.5&times;</b>: still clear, and 14:44 becomes about 10 minutes.</span>' +
         '<span class="keys on-key"><kbd>Space</kbd> play / pause &middot; <kbd>Shift</kbd>+<kbd>&gt;</kbd> faster &middot; <kbd>Shift</kbd>+<kbd>&lt;</kbd> slower &middot; <kbd>&larr;</kbd> <kbd>&rarr;</kbd> 5 seconds &middot; <kbd>F</kbd> full screen</span>' +
       '</button></div>' +
       '<div class="speed" role="group" aria-label="Playback speed"><span class="lbl">Speed</span>' +
       [1, 1.25, 1.5, 1.75, 2].map(r => '<button type="button" data-rate="' + r + '" aria-pressed="' + (r === 1) + '">' + r + '&times;' + (r === 1.5 ? '<small>suggested</small>' : '') + '</button>').join("") +
       '</div>';
-    else if (local) player = '<video class="player" controls preload="none" playsinline' + (fs.existsSync(path.join(SRC, V.poster || "x")) ? ' poster="' + root + V.poster + '"' : "") + '><source src="media/video.mp4" type="video/mp4">Your browser cannot play this file. The script is below.</video>';
+    else if (local) player = '<video class="player" controls preload="none" playsinline' + (fs.existsSync(path.join(SRC, V.poster || "x")) ? ' poster="' + root + V.poster + '"' : "") + '><source src="media/video.mp4" type="video/mp4">Your browser cannot play this file. The script is below.</video>' +
+      '<div class="speed" role="group" aria-label="Playback speed"><span class="lbl">Speed</span>' +
+      [1, 1.25, 1.5, 1.75, 2].map(r => '<button type="button" data-rate="' + r + '" aria-pressed="' + (r === 1) + '">' + r + '&times;' + (r === 1.5 ? '<small>suggested</small>' : '') + '</button>').join("") +
+      '</div>';
     else player = '<div class="player none"><p><b>The video is not on this copy yet.</b> The full script is below and the game and report work without it.</p></div>';
     return label + player;
   });
