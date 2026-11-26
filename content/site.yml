@@ -15,11 +15,13 @@ url_confirmed: true
 
 video:
   # YouTube id of the full explainer. Empty = no embed yet; the page shows the local file or a note.
-  # 26 Nov: new unlisted upload of the explainer with the interview scenes (14:44): "VdiYm7GuPAA".
-  # The old upload (23 Nov, 13:48, without the interviews) was "rOCMtvNaYhs"; it stays on YouTube, unchanged.
-  master_id: "VdiYm7GuPAA"
+  # 27 Nov: new unlisted upload with the 'minus money' line fixed (14:44): "iBEIymKNbAA".
+  # Older uploads, left on YouTube unchanged: 26 Nov (14:44, money word missing) "VdiYm7GuPAA";
+  # 23 Nov (13:48, without the interviews) "rOCMtvNaYhs".
+  master_id: "iBEIymKNbAA"
   # YouTube id of the class cut (7:49, cut 8): the watch page shows a Short / Full switch above the player when this is set.
-  class_id: ""
+  # 27 Nov: unlisted upload "q346ZmdiZOs".
+  class_id: "q346ZmdiZOs"
   master_len: "14:44"
   class_len: "7:49"
   # class cut chapters, from video_v2/youtube/chapters_8.txt (27 Nov)
