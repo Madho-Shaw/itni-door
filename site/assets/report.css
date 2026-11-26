@@ -7,8 +7,10 @@
    column and the notes column the same width so the text sits in the middle of the page (see the 1110 px block). */
 .rpt { --measure: 32.5em; --column: var(--measure); --toc-w: 13rem; --note-w: 13rem; --note-gap: 2.5rem; padding-top: var(--sp-5); display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--sp-5); }
 .rpt main { min-width: 0; overflow-wrap: break-word; }
-.rpt main :is(p, ul, ol, dl, blockquote, h2, h3, h4, .course-line) { max-width: var(--measure); }
-.rpt main :is(.takeaway, .method-box, .interview-slot, .abstract, .toc-m) { max-width: var(--column); }
+/* 26 Nov (Mshaw): the text takes the full width of the page, the same width as the tables and figures, all through
+   the report; so no narrower reading column and no margin-note column (the notes stay at the end). */
+.rpt main :is(p, ul, ol, dl, blockquote, h2, h3, h4, .course-line) { max-width: none; }
+.rpt main :is(.takeaway, .method-box, .interview-slot, .abstract, .toc-m) { max-width: none; }
 .rpt main :is(td, th, figcaption, .fig-slot, .quarto-float) :is(p, ul, ol) { max-width: none; }
 .rpt main > section, .rpt main section { max-width: none; }
 
@@ -49,10 +51,6 @@
   .wrap.rpt { max-width: none; justify-content: center; grid-template-columns: minmax(0, calc(var(--measure) + var(--note-gap) + var(--note-w))); }
   .wrap.rpt.has-toc { grid-template-columns: var(--toc-w) minmax(0, calc(var(--measure) + var(--note-gap) + var(--note-w))); column-gap: var(--note-gap); }
   .rpt main { max-width: calc(var(--measure) + var(--note-gap) + var(--note-w)); }
-  .rpt .sidenote { display: block; float: right; clear: right; width: var(--note-w); margin: .25rem calc(-1 * (var(--note-gap) + var(--note-w))) var(--sp-3) 0;
-    font-size: var(--fs-small); line-height: 1.45; color: var(--ink-soft); border-left: 2px solid var(--kraft-deep); padding-left: var(--sp-3); }
-  .rpt .sidenote sup { color: var(--data); font-weight: 600; }
-  .rpt main :is(.quarto-float, .fig-slot, .tbl, .cell, .footnotes) { clear: right; }
 }
 
 /* big screens: a touch larger type, so the line keeps its length in characters and fills more of the screen */
@@ -109,7 +107,9 @@
 .method-box { background: var(--card); border: var(--outline) solid var(--ink); border-radius: var(--radius-m); padding: var(--sp-3) var(--sp-4); box-shadow: var(--pin); margin: var(--sp-5) 0; }
 .method-box p:last-child { margin-bottom: 0; }
 .interview-slot { border: 2px dashed var(--hair-grey); border-radius: var(--radius-m); padding: var(--sp-3) var(--sp-4); color: var(--ink-soft); margin: var(--sp-5) 0; }
-.tag-sourced, .tag-assumed, .tag-calibrated, .tag-ours { font: 500 var(--fs-tiny)/1.2 var(--font-body); padding: .1rem .5rem; border-radius: var(--radius-pill); border: 1px solid; white-space: nowrap; }
+/* inline-block + a small vertical margin: two tags in one cell (e.g. "sourced main legs, assumed local legs") wrap
+   onto separate lines without their borders running into each other (26 Nov) */
+.tag-sourced, .tag-assumed, .tag-calibrated, .tag-ours { display: inline-block; font: 500 var(--fs-tiny)/1.2 var(--font-body); padding: .1rem .5rem; margin: .15rem 0; border-radius: var(--radius-pill); border: 1px solid; white-space: nowrap; vertical-align: baseline; }
 .tag-sourced { color: var(--yes-ink); border-color: var(--yes); background: var(--yes-soft); }
 .tag-assumed { color: var(--ink-soft); border-color: var(--hair-grey); border-style: dashed; }
 .tag-calibrated { color: var(--data); border-color: var(--data); border-style: dashed; }
