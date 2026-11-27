@@ -157,7 +157,7 @@
   function ladder(M, o) {
     o = o || {};
     var w = o.w || 640, fs = fsz(o), C = M.colleges, crl = M.crl;
-    var list = ["Patna", "Jamshedpur", "Durgapur", "Delhi"], h = 64 + list.length * 46, pl = Math.min(150, Math.max(132, w * 0.3)), pr = 24;
+    var list = ["Patna", "Jamshedpur", "Durgapur", "Delhi"], h = 84 + list.length * 46, pl = Math.min(150, Math.max(132, w * 0.3)), pr = w >= 560 ? 24 + fs * 6.8 : 24;   // wide: room after the top dot for its value and pill; narrow: they drop below the dot (never on the line)
     var x = lin(8, 16, pl, w - pr), g = "", y0 = 40;
     [8, 10, 12, 14, 16].forEach(function (t) { g += '<line x1="' + n1(x(t)) + '" x2="' + n1(x(t)) + '" y1="' + (y0 - 14) + '" y2="' + (h - 18) + '" stroke="var(--chart-grid)"/>' + txt(x(t), y0 - 20, "₹" + t + "L", { anchor: "middle", size: fs - 2, cls: "soft" }); });
     var hisBest = list.filter(function (c) { return C[c].son_can; }).sort(function (a, b) { return C[b].pay_lakh - C[a].pay_lakh; })[0];
@@ -169,12 +169,12 @@
       g += '<circle cx="' + n1(x(p)) + '" cy="' + y + '" r="6" fill="var(--ink)" stroke="var(--card)" stroke-width="2"><title>NIT ' + c + ": ₹" + p + " lakh median starting pay</title></circle>";
       var tag = c === herBest ? { t: "her best", col: "var(--chart-her)" } : c === hisBest ? { t: "his best", col: "var(--chart-him)" } : null;
       var tw = tag ? fs * 4.6 : 0, flip = x(p) + 14 + fs * 2.2 + tw + 8 > w;
-      var vx = flip ? x(p) - 14 : x(p) + 12;
-      g += txt(vx, y + 5, p.toFixed(1), { size: fs, weight: 600, anchor: flip ? "end" : "start" });
+      var vx = flip ? x(p) + 6 : x(p) + 12, ly = flip ? y + 26 : y;   // flipped (top dot near the edge, narrow chart): one line below the dot, off the line
+      g += txt(vx, ly + 5, p.toFixed(1), { size: fs, weight: 600, anchor: flip ? "end" : "start" });
       if (tag) {
         var rx0 = flip ? vx - fs * 2.2 - 8 - tw : vx + fs * 2.2 + 6;
-        g += '<rect x="' + n1(rx0) + '" y="' + (y - 12) + '" width="' + n1(tw) + '" height="24" rx="12" fill="var(--card)" stroke="' + tag.col + '" stroke-width="2.5"/>' +
-          txt(rx0 + tw / 2, y + 5, tag.t, { anchor: "middle", size: fs - 3, weight: 600 });
+        g += '<rect x="' + n1(rx0) + '" y="' + (ly - 12) + '" width="' + n1(tw) + '" height="24" rx="12" fill="var(--card)" stroke="' + tag.col + '" stroke-width="2.5"/>' +
+          txt(rx0 + tw / 2, ly + 5, tag.t, { anchor: "middle", size: fs - 3, weight: 600 });
       }
     });
     var label = "Median starting pay of graduates, lakh a year (NIRF 2025): " + list.map(function (c) { return "NIT " + c + " " + C[c].pay_lakh; }).join(", ") +
